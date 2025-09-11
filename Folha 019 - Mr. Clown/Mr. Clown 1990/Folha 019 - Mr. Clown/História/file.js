@@ -1,0 +1,1 @@
+document.querySelector("#page-content > div:nth-child(12) > div.collapsible-block-folded")
