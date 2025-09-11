@@ -1,0 +1,115 @@
+html, body {
+    cursor: url('img/cursordivino.cur'), default;
+    /* just change the cursor.ico path to your location */
+}
+
+
+body .ast-separate-container{
+background: rgb(2,0,36);
+background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(221,202,166,1) 0%, rgba(255,255,255,1) 100%);
+}
+
+.element.style {
+  text-align: left;
+  font-size: 150%;
+  margin-top: -1em;
+  }
+
+  .storybook {
+    background-image: url(img/paper-min[1].png);
+    padding: 1em 2em;
+    font-size: 105%;
+    border: 2px solid black;
+  }
+
+details {
+  user-select: none;
+}
+
+
+.cardo-regular {
+  font-family: "Cardo", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+
+details>summary span.icon {
+  width: 24px;
+  height: 24px;
+  transition: all 0.3s;
+  margin-left: auto;
+}
+
+details[open] summary span.icon {
+  transform: rotate(180deg);
+}
+
+summary {
+  display: flex;
+  cursor: pointer;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+img {
+  border: 5px solid #555;
+}
+
+/* Chat containers */
+
+.container {
+    border: 2px solid #1ca359;
+    background-color: hsl(0, 0%, 0%);
+    border-radius: 5px;
+    padding: 10px;
+    margin: 20px;
+    text-align:left
+  }
+  
+  /* Darker chat container */
+  .darker {
+    border-color: #1ca359;
+    background-color: hsl(0, 0%, 0%);
+    text-align:right
+  }
+  
+  /* Clear floats */
+  .container::after {
+    content: "";
+    clear: both;
+    display: table;
+    width: 0;
+  }
+  
+  /* Style images */
+  .container img {
+    float: left;
+    max-width: 60px;
+    width: 100%;
+    margin-right: 20px;
+    border-radius: 50%;
+    border-color: #1ca359;
+  }
+  
+  /* Style the right image */
+  .container img.right {
+    float: right;
+    margin-left: 20px;
+    margin-right:0;
+  }
+  
+  /* Style time text */
+  .time-right {
+    float: right;
+    color: #aaa;
+  }
+  
+  /* Style time text */
+  .time-left {
+    float: left;
+    color: #999;
+  }
