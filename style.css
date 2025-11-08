@@ -275,6 +275,7 @@
       margin: 0;
     }
 
+
     /* Ajuste para telas menores */
     @media (max-width: 1200px) {
       .grid {
