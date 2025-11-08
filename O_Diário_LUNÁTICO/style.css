@@ -18,6 +18,91 @@
         src: url(fonts/Go\ around\ the\ books\ 2022.ttf);
     }
 
+
+    body {
+      background-color: #020c06;
+      color: #00ff80;
+      font-family: 'Share Tech Mono', monospace;
+      margin: 0;
+      padding: 0;
+    }
+
+    .divider {
+      width: 85%;
+      margin: 0 auto 30px;
+      border-bottom: 1px solid #00ff80;
+      box-shadow: 0 0 5px #00ff80;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      width: 90%;
+      max-width: 1400px;
+      margin: 0 auto 50px;
+    }
+
+    .card {
+      background-color: rgb(168, 0, 160);
+      border: 1px solid rgb(206, 5, 196);
+      transition: transform 0.2s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: scale(1.03);
+      box-shadow: 0 0 15px rgb(248, 203, 0);
+    }
+
+    .card img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      display: block;
+      border-bottom: 1px solid rgb(206, 5, 196);
+    }
+
+    .card p {
+      text-align: center;
+      padding: 8px;
+      font-size: 0.85rem;
+      background-color: rgb(206, 5, 196);
+      margin: 0;
+    }
+
+    /* Ajuste para telas menores */
+    @media (max-width: 1200px) {
+      .grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    @media (max-width: 900px) {
+      .grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 400px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.8rem;
+      padding: 20px;
+      color: #00cc66;
+      border-top: 1px solid #003d1e;
+    }
+
 .row {
   width: 100%;
   height: 200px;
