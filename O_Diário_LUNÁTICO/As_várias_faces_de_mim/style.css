@@ -12,6 +12,42 @@
         cursor: url("cursor/"), default;
     }
 
+     .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      width: 90%;
+      max-width: 1400px;
+      margin: 0 auto 50px;
+    }
+
+    .card {
+      background-color: #523500;
+      border: 1px solid #9b6500;
+      transition: transform 0.2s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: scale(1.03);
+      box-shadow: 0 0 15px #9b6500;
+    }
+
+    .card img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      display: block;
+      border-bottom: 1px solid #9b6500;
+    }
+
+    .card p {
+      text-align: center;
+      padding: 8px;
+      font-size: 0.85rem;
+      background-color: #9b6500;
+      margin: 0;
+    }
+
     .row {
   width: 100%;
   height: 200px;
