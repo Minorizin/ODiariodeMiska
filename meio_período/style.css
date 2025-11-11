@@ -12,3 +12,233 @@
         cursor: url("cursor\ 1.png"), default;
         
     }
+
+    * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'VT323', monospace;
+            background: #000;
+            color: #fff;
+            overflow-x: hidden;
+            overflow-y: auto;
+            cursor: crosshair;
+            min-height: 100vh;
+        }
+        
+        .vhs-container {
+            position: relative;
+            width: 100%;
+            min-height: 100vh;
+            background: #0a0a0a;
+        }
+        
+        /* Efeito de scanlines */
+        .vhs-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                0deg,
+                rgba(0, 0, 0, 0.15),
+                rgba(0, 0, 0, 0.15) 1px,
+                transparent 1px,
+                transparent 2px
+            );
+            pointer-events: none;
+            z-index: 10;
+            animation: scanlines 0.1s linear infinite;
+        }
+        
+        /* Efeito de ruído VHS */
+        .vhs-container::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAUVBMVEWFhYWDg4N3d3dtbW17e3t1dXWBgYGHh4d5eXlzc3OLi4ubm5uVlZWPj4+NjY19fX2JiYl/f39ra2uRkZGZmZlpaWmXl5dvb29xcXGTk5NnZ2c8TV1mAAAAG3RSTlNAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEAvEOwtAAAFVklEQVR4XpWWB67c2BUFb3g557T/hRo9/WUMZHlgr4Bg8Z4qQgQJlHI4A8SzFVrapvmTF9O7dmYRFZ60YiBhJRCgh1FYhiLAmdvX0CzTOpNE77ME0Zty/nWWzchDtiqrmQDeuv3powQ5ta2eN0FY0InkqDD73lT9c9lEzwUNqgFHs9VQce3TVClFCQrSTfOiYkVJQBmpbq2L6iZavPnAPcoU0dSWqjflTRLOhDKCGdI9h0xQO+Zh2azdHTJZcw3gxpWCo+4EbmYPwItkHnJFi9GLlQAAAABJRU5ErkJggg==');
+            opacity: 0.02;
+            pointer-events: none;
+            z-index: 11;
+            animation: noise 0.2s steps(2) infinite;
+        }
+        
+        .content {
+            position: relative;
+            z-index: 5;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 60px 40px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            filter: contrast(1.2) saturate(1.3);
+        }
+        
+        /* Efeito de chromatic aberration */
+        .glitch-text {
+            text-shadow: 
+                2px 0 #ff0000,
+                -2px 0 #00ffff,
+                0 0 20px rgba(255, 0, 0, 0.3);
+            animation: glitch 3s infinite;
+        }
+        
+        h1 {
+            font-size: 64px;
+            color: #ff1744;
+            margin-bottom: 20px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+        }
+        
+        .subtitle {
+            font-size: 28px;
+            color: #ffa726;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+        
+        .story-text {
+            font-size: 22px;
+            line-height: 1.6;
+            color: #e0e0e0;
+            margin-bottom: 30px;
+            text-align: justify;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+        }
+        
+        .divider {
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #ff1744, transparent);
+            margin: 30px 0;
+            box-shadow: 0 0 10px #ff1744;
+        }
+        
+        .options {
+            margin-top: 20px;
+        }
+        
+        .option {
+            display: block;
+            font-size: 26px;
+            color: #ff1744;
+            margin: 15px 0;
+            padding: 12px 20px;
+            background: rgba(255, 23, 68, 0.1);
+            border: 2px solid #ff1744;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-decoration: none;
+            text-shadow: 0 0 10px #ff1744;
+        }
+        
+        .option:hover {
+            background: rgba(255, 23, 68, 0.3);
+            box-shadow: 0 0 20px #ff1744;
+            transform: translateX(10px);
+        }
+        
+        .footer {
+            margin-top: 40px;
+            font-size: 18px;
+            color: #888;
+            text-align: center;
+        }
+        
+        .footer a {
+            color: #ff1744;
+            text-decoration: none;
+        }
+        
+        /* Efeito de tracking VHS */
+        @keyframes tracking {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(2px); }
+        }
+        
+        @keyframes glitch {
+            0%, 90%, 100% {
+                text-shadow: 
+                    2px 0 #ff0000,
+                    -2px 0 #00ffff,
+                    0 0 20px rgba(255, 0, 0, 0.3);
+            }
+            92%, 98% {
+                text-shadow: 
+                    -2px 0 #ff0000,
+                    2px 0 #00ffff,
+                    0 0 20px rgba(0, 255, 255, 0.3);
+            }
+        }
+        
+        @keyframes scanlines {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(2px); }
+        }
+        
+        @keyframes noise {
+            0%, 100% { opacity: 0.02; }
+            50% { opacity: 0.04; }
+        }
+        
+        /* Efeito de vinheta */
+        .vignette {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            box-shadow: inset 0 0 200px rgba(0, 0, 0, 0.8);
+            pointer-events: none;
+            z-index: 9;
+        }
+        
+        /* Distorção de borda VHS */
+        .edge-distortion {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                linear-gradient(0deg, rgba(255, 23, 68, 0.1) 0%, transparent 5%, transparent 95%, rgba(255, 23, 68, 0.1) 100%),
+                linear-gradient(90deg, rgba(0, 0, 0, 0.3) 0%, transparent 2%, transparent 98%, rgba(0, 0, 0, 0.3) 100%);
+            pointer-events: none;
+            z-index: 8;
+        }
+        
+        .timestamp {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 32px;
+            color: #ff1744;
+            z-index: 12;
+            text-shadow: 0 0 10px #ff1744;
+        }
+        
+        .rec-indicator {
+            position: absolute;
+            top: 25px;
+            left: 30px;
+            font-size: 28px;
+            color: #ff1744;
+            z-index: 12;
+            animation: blink 1s infinite;
+        }
+        
+        @keyframes blink {
+            0%, 49% { opacity: 1; }
+            50%, 100% { opacity: 0; }
+        }
