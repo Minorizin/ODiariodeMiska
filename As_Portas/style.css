@@ -18,3 +18,239 @@
         src: url(fonts/Go\ around\ the\ books\ 2022.ttf);
     }
 
+    * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Courier Prime', monospace;
+            background: #d4d0c8;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        a {
+  text-decoration: none;
+}
+        
+        /* Efeito de scan lines */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                0deg,
+                rgba(0, 0, 0, 0.05) 0px,
+                rgba(0, 0, 0, 0.05) 1px,
+                transparent 1px,
+                transparent 2px
+            );
+            pointer-events: none;
+            z-index: 999;
+            animation: flicker 0.15s infinite;
+        }
+        
+        @keyframes flicker {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.95; }
+        }
+        
+        /* Backrooms pattern */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                repeating-linear-gradient(90deg, transparent, transparent 50px, rgba(0,0,0,0.02) 50px, rgba(0,0,0,0.02) 51px),
+                repeating-linear-gradient(0deg, transparent, transparent 50px, rgba(0,0,0,0.02) 50px, rgba(0,0,0,0.02) 51px);
+            pointer-events: none;
+            opacity: 0.5;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .window {
+            background: linear-gradient(135deg, #fffbf0 0%, #e8e4d8 100%);
+            border: 3px solid #000;
+            box-shadow: 
+                5px 5px 0px rgba(0,0,0,0.3),
+                10px 10px 20px rgba(0,0,0,0.2),
+                inset 2px 2px 4px rgba(255,255,255,0.5);
+            position: relative;
+            animation: windowGlitch 5s infinite;
+        }
+        
+        @keyframes windowGlitch {
+            0%, 98% { transform: translate(0, 0); }
+            98.5% { transform: translate(-2px, 2px); }
+            99% { transform: translate(2px, -2px); }
+            99.5% { transform: translate(-1px, 1px); }
+        }
+        
+        .title-bar {
+            background: linear-gradient(180deg, #0a0a7e 0%, #000084 100%);
+            padding: 3px 5px;
+            color: #fff;
+            font-family: 'VT323', monospace;
+            font-size: 20px;
+            letter-spacing: 1px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+        
+        .window-controls {
+            display: flex;
+            gap: 3px;
+        }
+        
+        .window-btn {
+            width: 16px;
+            height: 16px;
+            background: #c0c0c0;
+            border: 1px solid #000;
+            font-size: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+        
+        .content {
+            padding: 30px;
+            font-size: 14px;
+            line-height: 1.8;
+            color: #1a1a1a;
+            text-align: justify;
+            background: rgba(255, 251, 240, 0.9);
+            position: relative;
+        }
+        
+        .content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                0deg,
+                transparent,
+                transparent 2px,
+                rgba(255, 255, 0, 0.03) 2px,
+                rgba(255, 255, 0, 0.03) 4px
+            );
+            pointer-events: none;
+        }
+        
+        h1 {
+            font-family: 'VT323', monospace;
+            font-size: 32px;
+            margin-bottom: 10px;
+            text-align: center;
+            color: #000;
+            text-shadow: 2px 2px 0px rgba(255, 255, 0, 0.3);
+            letter-spacing: 2px;
+        }
+        
+        .subtitle {
+            text-align: center;
+            font-size: 12px;
+            margin-bottom: 30px;
+            color: #555;
+            font-style: italic;
+        }
+        
+        p {
+            margin-bottom: 20px;
+            text-indent: 30px;
+        }
+        
+        .doors-list {
+            margin-top: 30px;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.05);
+            border: 2px dashed #666;
+            font-size: 13px;
+        }
+        
+        .door-item {
+            margin: 8px 0;
+            padding: 5px;
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+        
+        .door-item:hover {
+            background: rgba(255, 255, 0, 0.2);
+            transform: translateX(5px);
+        }
+        
+        .door-number {
+            color: #8b0000;
+            font-weight: bold;
+        }
+        
+        .separator {
+            border: 0;
+            height: 2px;
+            background: repeating-linear-gradient(
+                90deg,
+                #000 0px,
+                #000 5px,
+                transparent 5px,
+                transparent 10px
+            );
+            margin: 20px 0;
+        }
+        
+        /* Floating text effect */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-3px); }
+        }
+        
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        /* Glitch effect on hover */
+        .content:hover {
+            animation: textGlitch 0.3s;
+        }
+        
+        @keyframes textGlitch {
+            0%, 100% { text-shadow: none; }
+            25% { text-shadow: -2px 0 red, 2px 0 blue; }
+            50% { text-shadow: 2px 0 red, -2px 0 blue; }
+            75% { text-shadow: -2px 0 blue, 2px 0 red; }
+        }
+        
+        /* Vignette effect */
+        .vignette {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            box-shadow: inset 0 0 200px rgba(0,0,0,0.3);
+            z-index: 998;
+        }
+
