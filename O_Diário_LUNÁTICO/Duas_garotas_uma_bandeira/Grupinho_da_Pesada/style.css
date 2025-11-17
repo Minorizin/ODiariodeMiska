@@ -5,453 +5,364 @@ html, body {
 
 
 
-/* ====================================================================
-====================DO NOT TOUCH ANYTHING PAST HERE====================
-===============UNLESS YOU WANT TO MAYBE BREAK SOMETHING================ 
-======================================================================*/
+/* Estilo Discord */
 
-/* Discord Container Styling */
+ * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-@import url("https://use.typekit.net/nbd7kzi.css");
-.discord {
-    background: #36393e;
-    width: 100%;
-    font-family: benton-sans, 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    text-rendering: optimizeLegibility;
-    -webkit-border-radius: 0.5rem;
-    border-radius: 0.5rem;
-}
+        body {
+            font-family: 'gg sans', 'Noto Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background-color: #313338;
+            color: #dbdee1;
+            overflow-x: hidden;
+        }
 
-.discord a,
-.discord a:visited {
-    color: #00b0f4;
-    word-break: break-word;
-    text-decoration: none;
-    cursor: pointer;
-}
+        .discord-container {
+            display: flex;
+            height: 100vh;
+        }
 
-.discord a:hover {
-    text-decoration: underline;
-}
+        /* Sidebar */
+        .sidebar {
+            width: 240px;
+            background-color: #2b2d31;
+            display: flex;
+            flex-direction: column;
+        }
 
-.discord .messages-panel {
-    width: 100%;
-    overflow-y: hidden;
-    -webkit-box-flex: 1;
-    -webkit-flex: 1;
-    flex: 1;
-    -ms-overflow-style: -ms-autohiding-scrollbar;
-}
+        .server-header {
+            padding: 12px 16px;
+            border-bottom: 1px solid #1e1f22;
+            font-weight: 600;
+            font-size: 16px;
+            color: #f2f3f5;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
 
-.discord .messages-panel::-webkit-scrollbar {
-    display: none
-}
+        .server-header:hover {
+            background-color: #35373c;
+        }
 
-.messages-group .messages {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -webkit-flex-direction: column;
-    flex-direction: column;
-    padding: 1.25rem
-}
+        .channels {
+            flex: 1;
+            overflow-y: auto;
+            padding: 8px;
+        }
 
-/* Attachment Styling */
+        .channel-category {
+            color: #949ba4;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            padding: 8px 8px 4px;
+            letter-spacing: 0.5px;
+        }
 
-.attachment {
-    width: 60vw;
-    max-width: 520px;
-    height: 3.875rem;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-    align-items: center;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    background-color: rgba(47, 49, 54, .3);
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-box-align: start;
-    -webkit-align-items: flex-start;
-    align-items: flex-start;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-    -webkit-flex-direction: row;
-    flex-direction: row;
-    grid-auto-flow: row;
-    vertical-align: baseline;
-    line-height: 1rem;
-    padding: 1rem;
-    margin-top: 0.5rem;
-    background-color: rgba(47, 49, 54, .3);
-    border: 0.063rem solid rgba(47, 49, 54, .6);
-    -webkit-border-radius: 0.188rem;
-    border-radius: 0.188rem;
-}
+        .channel {
+            display: flex;
+            align-items: center;
+            padding: 6px 8px;
+            margin: 1px 0;
+            border-radius: 4px;
+            color: #949ba4;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
 
-div.discord div.attachment>a {
-    width: 1.5rem;
-    height: 1.5rem;
-}
+        .channel:hover {
+            background-color: #35373c;
+            color: #dbdee1;
+        }
 
-.discord div.attachment>a:hover>img {
-    -webkit-filter: brightness(1.3);
-    filter: brightness(1.3);
-}
+        .channel.active {
+            background-color: #404249;
+            color: #f2f3f5;
+        }
 
-.attachment .icon-code {
-    -webkit-flex-shrink: 0;
-    flex-shrink: 0;
-    height: 2.5rem;
-    width: 1.875rem;
-    margin-right: 0.5rem;
-    padding: 0;
-    vertical-align: baseline;
-    background-size: contain;
-    background-repeat: no-repeat;
-}
+        .channel-icon {
+            margin-right: 8px;
+            font-size: 18px;
+        }
 
-.attachment .attachmentInner {
-    width: -webkit-calc(60vw - 1.75rem) !important;
-    width: calc(60vw - 1.75rem) !important;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-box-flex: 1;
-    -webkit-flex: 1;
-    flex: 1;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}
+        /* Chat Area */
+        .chat-area {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            background-color: #313338;
+        }
 
-.attachment .filenameLinkWrapper {
-    width: auto;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-flex-wrap: wrap;
-    flex-wrap: wrap;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-    -webkit-flex-direction: row;
-    flex-direction: row;
-    -webkit-box-flex: 1;
-    -webkit-flex-grow: 1;
-    flex-grow: 1;
-    color: rgba(0, 176, 244, .85);
-}
+        .chat-header {
+            height: 48px;
+            padding: 0 16px;
+            border-bottom: 1px solid #26272b;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-weight: 600;
+            color: #f2f3f5;
+        }
 
-.attachment .filenameLinkWrapper>* {
-    min-width: 100%;
-}
+        .chat-header-left {
+            display: flex;
+            align-items: center;
+        }
 
-.attachment .filenameLinkWrapper>.anchor {
-    position: relative;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: flex;
-    color: rgb(0, 176, 244);
-    text-decoration: none;
-    cursor: pointer;
-    -webkit-transition: opacity .5s, color .5s;
-    transition: opacity .5s, color .5s;
-    border: 0;
-    padding: 0;
-    margin: 0;
-    -webkit-flex-basis: 2.5rem;
-    flex-basis: 2.5rem;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-    -webkit-flex-flow: row;
-    flex-flow: row;
-}
+        .chat-header-left::before {
+            content: "#";
+            color: #80848e;
+            margin-right: 8px;
+            font-size: 20px;
+        }
 
-.attachment .filenameLinkWrapper>.anchor:hover {
-    text-decoration: underline
-}
+        .header-buttons {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+        }
 
-.attachment .filenameLinkWrapper>.metadata {
-    position: relative;
-    color: rgb(114, 118, 125);
-    margin-right: 0.5rem;
-    font-weight: 300;
-    line-height: 1rem;
-    font-size: 0.75rem
-}
+        .header-icon-button {
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #b5bac1;
+            cursor: pointer;
+            transition: color 0.2s;
+            text-decoration: none;
+        }
 
-.attachment .downloadButton {
-    color: rgb(79, 84, 92);
-    cursor: pointer;
-    margin-left: 0.25rem;
-    overflow: hidden
-}
+        .header-icon-button:hover {
+            color: #dbdee1;
+        }
 
-/* Messages Container Styling */
+        .header-icon-button svg {
+            width: 24px;
+            height: 24px;
+        }
 
-.messages .message {
-    width: 100%;
-    border-bottom: solid 0.063rem rgb(77, 82, 89);
-    position: relative;
-    padding: 0.938rem 0 0.938rem;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: flex;
-}
+        .exit-button {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 12px;
+            border-radius: 4px;
+            color: #dbdee1;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-decoration: none;
+            background-color: #4e5058;
+            border: none;
+        }
 
-.message .icon {
-    float: left;
-    height: 2.5rem;
-    width: 2.5rem;
-    min-height: 2.5rem;
-    min-width: 2.5rem;
-    margin-right: 1.25rem;
-    background-size: cover;
-    background-attachment: local;
-    background-clip: padding-box;
-    -webkit-border-radius: 50%;
-    border-radius: 50%;
-    cursor: pointer;
-}
+        .exit-button:hover {
+            background-color: #ed4245;
+            color: #ffffff;
+        }
 
-.message .icon:hover {
-    opacity: .8;
-}
+        .exit-button svg {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
+        }
 
-.discord .body {
-    width: -webkit-calc(100% - 3.5rem);
-    width: calc(100% - 3.5rem);
-}
+        .messages-container {
+            flex: 1;
+            overflow-y: auto;
+            padding: 16px;
+        }
 
-.message .list-pages-box {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: flex;
-}
+        .divider {
+            display: flex;
+            align-items: center;
+            margin: 16px 0;
+            color: #949ba4;
+            font-size: 12px;
+            font-weight: 600;
+        }
 
-.message>.body>.userblock {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-box-align: end;
-    -webkit-align-items: flex-end;
-    align-items: flex-end;
-}
+        .divider::before,
+        .divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background-color: #3f4147;
+        }
 
-.message>.body>.userblock>.user-name {
-    color: rgb(255, 255, 255);
-    font-size: 1rem;
-    letter-spacing: 0;
-    font-weight: 600;
-    height: 100%;
-    cursor: pointer;
-    white-space: nowrap;
-}
+        .divider-content {
+            padding: 0 16px;
+        }
 
-.message>.body>.userblock>.user-name:hover {
-    text-decoration: underline;
-}
+        .message-group {
+            margin-bottom: 16px;
+        }
 
-.message>.body>.userblock>.msg-time {
-    color: hsla(0, 0%, 100%, .2);
-    font-size: 0.75rem;
-    letter-spacing: 0;
-    font-weight: 3400;
-    margin-left: .3rem;
-    white-space: nowrap;
-}
+        .message {
+            display: flex;
+            padding: 2px 0;
+            position: relative;
+        }
 
-.message .body .content,
-.message .body p {
-    color: rgb(220, 221, 222);
-    line-height: 1.3;
-    font-size: 0.9375rem;
-    font-weight: 500;
-    line-height: 1.219rem;
-    white-space: pre-wrap;
-    word-wrap: break-word;
-    -webkit-user-select: text;
-    -moz-user-select: text;
-    user-select: text;
-    margin: 0
-}
+        .message:hover {
+            background-color: #2e3035;
+        }
 
-.message .body .content br {
-    display: none;
-}
+        .message-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 16px;
+            flex-shrink: 0;
+            margin-top: 2px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 16px;
+            color: white;
+            background-size: cover;
+            background-position: center;
+        }
 
-.message .body .content {
-    word-wrap: break-word;
-    -webkit-box-flex: 1;
-    -webkit-flex: 1;
-    flex: 1;
-    color: rgb(220, 221, 222);
-    font-size: 0.875rem
-}
+        .message.continuation .message-avatar {
+            visibility: hidden;
+        }
 
-.message .body .content .at_mention {
-    color: #7289da;
-    background-color: rgba(114, 137, 218, .1);
-    -webkit-transition: background-color 50ms ease-out, color 50ms ease-out;
-    transition: background-color 50ms ease-out, color 50ms ease-out;
-    cursor: pointer;
-    padding: 0 2px;
-    font-weight: 500;
-}
-
-.message .body .content .at_mention:hover {
-    color: #fff;
-    background-color: rgba(114, 137, 218, .7);
-}
-
-.discord .msgimage {
-    max-height: 300px;
-    -webkit-border-radius: 3px;
-    border-radius: 3px;
-    overflow: hidden;
-    margin: 8px 0;
-    object-fit: contain;
-    object-position: top;
-}
-
-.discord .emoji.alone {
-    width: 2rem;
-    height: 2rem;
-    margin-bottom: 0;
-    margin-top: .2em;
-    vertical-align: -.3em;
-}
-
-.discord .emoji.inline {
-    object-fit: contain;
-    width: 1.45em;
-    height: 1.45em;
-    margin-left: .05em;
-    margin-right: .1em;
-    vertical-align: -.4em;
-}
-
-.discord .divider {
-    text-transform: uppercase;
-    cursor: default;
-    padding-top: 5px;
-    margin-top: -5px;
-    z-index: 1;
-    width: 100%;
-    text-align: center;
-    background: #36393e;
-}
-
-.discord .divider>.dividerContent {
-    color: rgba(240, 71, 71, .8);
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-    align-items: center;
-    line-height: 19px;
-    font-weight: 500;
-    font-size: 14px;
-}
-
-.discord .divider>.dividerContent::before {
-    right: 100%;
-    margin-right: 8px;
-}
-
-.discord .divider>.dividerContent::after {
-    left: 100%;
-    margin-left: 8px;
-}
-
-.discord .divider>.dividerContent::before,
-.discord .divider>.dividerContent::after {
-    content: "";
-    border-color: rgba(240, 71, 71, .4);
-    border-bottom: 1px solid;
-    height: 1px;
-    -webkit-box-flex: 1;
-    -webkit-flex: 1 1 auto;
-    flex: 1 1 auto;
-}
-
-@media (max-width: 580px) and (min-width: 480px) {
-    #page-content div.messages-panel div {
-        clear: none !important;
-    }
-}
-
-@media only screen and (max-width:600px) {
-    .discord {
-        -webkit-box-orient: vertical;
-        -webkit-box-direction: normal;
-        -webkit-flex-direction: column;
-        flex-direction: column
-    }
-    .discord .msgimage {
-        width: 100%;
-        height: auto;
-    }
-}
-
-.discord .emoji.inline {
-  object-fit: contain;
-  width: 2.90em;
-  height: 1.90em;
-  margin-left: .05em;
-  margin-right: .1em;
-  vertical-align: -.4em;
-}
-
-.one > .icon {
-  background-image: url(img/vencível.jpg);
-}
-
-.two > .icon {
-  background-image: url(img/kenda.jpg);
-}
-
-.three > .icon {
-  background-image: url(img/jeffrey.jpg);
-}
-
-.four > .icon {
-  background-image: url(img/jellie.png);
-}
-
-.five > .icon {
-  background-image: url(img/miska\ icon.jpg);
-}
-
-.six > .icon {
-  background-image: url(img/ashley.jpg);
-}
+        /* Avatar images */
+        .user-ash .message-avatar {
+            background-image: url(img/vencível.jpg);
+        }
 
 
-.one > .body > .userblock > .user-name {
-  color: #2778e2 !important;
-}
+        .user-kenda .message-avatar {
+            background-image: url('img/kenda.jpg');
+        }
 
-.two > .body > .userblock > .user-name {
-  color: #16c710 !important;
-}
+        .user-jeffrey .message-avatar {
+            background-image: url('img/jeffrey.jpg');
+        }
+        
 
-.three > .body > .userblock > .user-name {
-  color: #62bece !important;
-}
+        .user-jellie .message-avatar {
+            background-image: url('img/jellie.png');
+        }
+        
+        .user-miska .message-avatar {
+            background-image: url('img/miska\ icon.jpg');
+        }
 
-.four > .body > .userblock > .user-name {
-  color: #bf6ae0 !important;
-}
+        .user-ashley .message-avatar {
+            background-image: url('img/ashley.jpg');
+        }
 
-.five > .body > .userblock > .user-name {
-  color: #000000 !important;
-}
+        .message-content {
+            flex: 1;
+            min-width: 0;
+        }
 
-.six > .body > .userblock > .user-name {
-  color: #13ccad !important;
-}
+        .message-header {
+            display: flex;
+            align-items: baseline;
+            margin-bottom: 2px;
+        }
 
+        .message.continuation .message-header {
+            display: none;
+        }
+
+        .username {
+            font-weight: 500;
+            color: #f2f3f5;
+            margin-right: 8px;
+            cursor: pointer;
+        }
+
+        .username:hover {
+            text-decoration: underline;
+        }
+
+        .timestamp {
+            font-size: 12px;
+            color: #949ba4;
+        }
+
+        .message-text {
+            color: #dbdee1;
+            word-wrap: break-word;
+            line-height: 1.375rem;
+        }
+
+        .message-image,
+        .message-video {
+            max-width: 400px;
+            max-height: 300px;
+            border-radius: 4px;
+            margin-top: 4px;
+            cursor: pointer;
+        }
+
+        .mention {
+            background-color: rgba(88, 101, 242, 0.3);
+            color: #c9cdfb;
+            padding: 0 2px;
+            border-radius: 3px;
+            font-weight: 500;
+            cursor: pointer;
+        }
+
+        .mention:hover {
+            background-color: rgba(88, 101, 242, 0.5);
+        }
+
+        /* User colors */
+        .user-ash .username { color: #2778e2; }
+        .user-kenda .username { color: #16c710; }
+        .user-jeffrey .username { color: #62bece; }
+        .user-jellie .username { color: #bf6ae0; }
+        .user-miska .username { color: #000000; }
+        .user-ashley .username { color: #13ccad; }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 16px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background-color: #2b2d31;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: #1a1b1e;
+            border: 4px solid #2b2d31;
+            border-radius: 8px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background-color: #141517;
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                position: fixed;
+                left: -240px;
+                transition: left 0.3s;
+                z-index: 100;
+                height: 100vh;
+            }
+
+            .sidebar.open {
+                left: 0;
+            }
+
+            .message-image,
+            .message-video {
+                max-width: 280px;
+            }
+        }
