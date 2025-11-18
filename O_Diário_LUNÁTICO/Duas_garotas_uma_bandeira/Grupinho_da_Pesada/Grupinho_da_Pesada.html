@@ -15,6 +15,103 @@
 
 
    <style>
+
+     .profile-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 10000;
+        }
+        
+        .profile-modal.active {
+            display: flex;
+        }
+        
+        .profile-card {
+            background: #18191c;
+            border-radius: 8px;
+            width: 340px;
+            overflow: hidden;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+        }
+        
+        .profile-banner {
+            height: 120px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            position: relative;
+        }
+        
+        .profile-avatar-large {
+            width: 92px;
+            height: 92px;
+            border-radius: 50%;
+            border: 6px solid #18191c;
+            position: absolute;
+            bottom: -46px;
+            left: 16px;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .profile-body {
+            padding: 64px 16px 16px;
+            color: #fff;
+        }
+        
+        .profile-username {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        
+        .profile-tag {
+            font-size: 14px;
+            color: #b9bbbe;
+            margin-bottom: 12px;
+        }
+        
+        .profile-divider {
+            height: 1px;
+            background: #4f545c;
+            margin: 12px 0;
+        }
+        
+        .profile-section {
+            margin-bottom: 12px;
+        }
+        
+        .profile-section-title {
+            font-size: 12px;
+            font-weight: 700;
+            color: #b9bbbe;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+        
+        .profile-section-content {
+            font-size: 14px;
+            color: #dcddde;
+        }
+        
+        .profile-badges {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        
+        .profile-badge {
+            background: #252525;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 500;
+        }
         
     </style>
 </head>
@@ -1865,9 +1962,130 @@
                     </div>
                 </div>
 
+                <script>
+        function showProfile(username) {
+            const profiles = {
+                'Ash': {
+                    banner: 'url(img/allen.png)',
+                    avatar: 'img/vencível.jpg',
+                    tag: '#5379',
+                    bio: 'flores pras fãs de invencível 🌹ㅤㅤㅤㅤㅤㅤpronomes: mark/grayson💙💛ㅤㅤㅤㅤㅤㅤㅤㅤIM ALLENING IT!',
+                    badges: ['🟢 Esquizofrênico Potencial', '🔵 Sapecadas',]
+                },
+                'Kenda': {
+                    banner: 'linear-gradient(180deg,rgba(0, 232, 131, 1) 0%, rgba(212, 195, 212, 1) 100%)',
+                    avatar: 'img/kenda.jpg',
+                    tag: '#6678',
+                    bio: 'pqp preço tá só subindo 💀💀💀',
+                    badges: ['🟣 Ousada', '🔴 Debochada', '🟤 Irritada']
+                },
+                'Jeffrey': {
+                    banner: 'linear-gradient(90deg,rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 35%, rgba(0, 212, 255, 1) 100%)',
+                    avatar: 'img/jeffrey.jpg',
+                    tag: '#9012',
+                    bio: 'Vou me matar ás 11 da noite',
+                    badges: ['⚫ Dexter Morgan']
+                },
+                'Jellie': {
+                    banner: 'linear-gradient(135deg, #30cfd0 0%, #330867 100%)',
+                    avatar: 'img/jellie.png',
+                    tag: '#3456',
+                    bio: 'O cara tá realmente lendo a bio de uma personagem que nem existe, vc é meio bizarroㅤmas já que cê já tá aqui..ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤadoro jogar e ficar na minha, tmj ✌️',
+                    badges: ['🎮 Gamer Master']
+                },
+                'Miska': {
+                    banner: 'url(img/miskabanner.gif)',
+                    avatar: 'img/miska icon.jpg',
+                    tag: '#7890',
+                    bio: 'Don❜t talk to me like I❜m a machine, I❜m not that.',
+                    badges: ['🇫🇷 Francófila', '💀 Emo']
+                },
+                'Ashley': {
+                    banner: 'url(img/ashleybanner.gif)',
+                    avatar: 'img/ashley.jpg',
+                    tag: '#8235',
+                    bio: 'VAMO BULLS!!! 🔥🔥🔥🔥🔥🔥🔥🔥🔥',
+                    badges: ['🐂 Toura']
+                }
+            };
+            
+            const profile = profiles[username];
+            if (!profile) return;
+            
+            const modal = document.getElementById('profileModal');
+            const card = document.querySelector('.profile-card');
+            
+            card.querySelector('.profile-banner').style.background = profile.banner;
+            card.querySelector('.profile-avatar-large').style.backgroundImage = `url("${profile.avatar}")`;
+            card.querySelector('.profile-username').textContent = username;
+            card.querySelector('.profile-tag').textContent = username + profile.tag;
+            card.querySelector('.profile-section-content').textContent = profile.bio;
+            
+            const badgesContainer = card.querySelector('.profile-badges');
+            badgesContainer.innerHTML = '';
+            profile.badges.forEach(badge => {
+                const badgeEl = document.createElement('div');
+                badgeEl.className = 'profile-badge';
+                badgeEl.textContent = badge;
+                badgesContainer.appendChild(badgeEl);
+            });
+            
+            modal.classList.add('active');
+        }
+        
+        function closeProfile() {
+            document.getElementById('profileModal').classList.remove('active');
+        }
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            // Adiciona event listeners para avatares e usernames
+            document.querySelectorAll('.message-avatar, .username').forEach(el => {
+                el.style.cursor = 'pointer';
+                el.addEventListener('click', function(e) {
+                    const messageGroup = e.target.closest('.message-group') || e.target.closest('.message');
+                    if (messageGroup) {
+                        const username = messageGroup.querySelector('.username')?.textContent;
+                        if (username) {
+                            showProfile(username);
+                        }
+                    }
+                });
+            });
+            
+            // Fecha modal ao clicar fora
+            document.getElementById('profileModal').addEventListener('click', function(e) {
+                if (e.target === this) {
+                    closeProfile();
+                }
+            });
+        });
+    </script>
 
             </div>
         </div>
     </div>
 </body>
 </html>
+
+ <!-- Profile Modal -->
+    <div id="profileModal" class="profile-modal">
+        <div class="profile-card">
+            <div class="profile-banner">
+                <div class="profile-avatar-large"></div>
+            </div>
+            <div class="profile-body">
+                <div class="profile-username"></div>
+                <div class="profile-tag"></div>
+                <div class="profile-divider"></div>
+                <div class="profile-section">
+                    <div class="profile-section-title">Sobre mim</div>
+                    <div class="profile-section-content"></div>
+                </div>
+                <div class="profile-divider"></div>
+                <div class="profile-section">
+                    <div class="profile-section-title">Badges</div>
+                    <div class="profile-badges"></div>
+                </div>
+            </div>
+        </div>
+    </div>
