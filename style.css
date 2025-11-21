@@ -565,6 +565,38 @@
   justify-content: center;
 }
 
+.rowalt3 {
+  width: 100%;
+  height: 200px;
+  aspect-ratio: 11 / 2;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.picalt3 {
+  height: 90%;
+  float: left;
+  margin: 0% 1% 0% 0%;
+  display: block;
+  border: solid rgb(5, 87, 5);
+}
+
+.captionalt3 {
+  display: block;
+  font-size: 10pt;
+  width: 99%;
+  border: solid rgb(5, 87, 5);
+  background-color: rgb(5, 87, 5);
+}
+
+.image-containeralt3 {
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 
     details {
         user-select: none;

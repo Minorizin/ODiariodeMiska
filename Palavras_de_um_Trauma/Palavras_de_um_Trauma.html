@@ -16,77 +16,360 @@
     html {
         cursor: url('cursor/cursorfolha025.png'), auto;
     }
-</style>
 
-<style>
-  a {
-    text-decoration: none;
-  }
-</style>
-    
-    <html><head><script type="text/javascript" src="https://web-static.archive.org/_static/js/bundle-playback.js?v=7YQSqjSh" charset="utf-8"></script>
-    
-        <!-- End Wayback Rewrite JS Include -->
-        
-        <meta http-equiv="Content-Type" content="text/html;charset=shift_JIS">
-        <meta http-equiv="Content-Language" content="ja">
-        <meta http-equiv="Content-Style-Type" content="text/css">
-        <meta http-equiv="Content-Script-Type" content="text/javascript">
-        <meta http-equiv="Page-Enter" content="revealTrans(duration=1,transition=12)">
-        </head>
-        <body bgcolor="#000000">
-        <table>
-        
-        <!--▼ヘッダー▼-->
-        <tbody><tr>
-        <td colspan="2" height="93" bgcolor="#000000">
-        <iframe src="" width="980" height="93" frameborder="0" scrolling="no" data-ruffle-polyfilled=""></iframe>
-        </td>
-        </tr>
-        
-        <!--●目次●-->
-        <tr>
-        
-        <td width="204" bgcolor="#000000" align="center">
-        <iframe src="" width="180" height="475" frameborder="0" data-ruffle-polyfilled=""></iframe>
-        </td>
-        
-        
-        <!--★内容の表示サイズ設定★-->
-        <td width="815" height="475" align="center" valign="top" bgcolor="#000000">
-        
-        <!--▼コンテンツスペース▼-->
-        <table border="0">
-        
-        <!--◆タイトル◆-->
-        <tbody><tr>
-        <td height="30" colspan="3" align="left" bgcolor="#000000">
-        <font color="#ffffff" size="4">
-        <b>
-        25.【Visita】Palavras de um Trauma
-        </b>
-        </font>
-        </td>
-        </tr>
-        
-        <!--◆内容◆-->
-        <td width="680" height="380" align="center">
-        <img src="img/foto1.jpg" width="557" height="350" border="0">
-        </td>
-        
-        <!--◆次ページへ◆-->
-        <td width="20" align="right" bgcolor="#000000">
-        <a href="/Palavras_de_um_Trauma/refúgio/refúgio.html" target="_top" style="color:#ffffff;text-decoration:none;font-size:30pt">》</a>
-        </td>
-        </tr>
-        
-        <!--◆備考欄◆-->
-        <tr>
-        <td height="30" colspan="3" align="left" bgcolor="#000000">
-        <font color="#ffffff" size="2">
-        <p>【トラウマ】</p>
-        
-        <p>Minha identidade nunca foi uma só — ela se desmembra em múltiplas camadas, em fragmentos que os outros insistem em nomear por mim. Nenhuma dessas designações, aliás, foi escolhida por mim. São projeções, rótulos lançados sem filtro, quase sempre guiados por medo, ignorância ou puro desconforto diante do que é estranho.</p>
+   * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-decoration: none;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: #000000;
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            overflow-x: hidden;
+            animation: vhsDistortion 8s ease-in-out infinite;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes flicker {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+
+        @keyframes breathe {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.6; }
+        }
+
+        @keyframes glitch {
+            0% { transform: translate(0); }
+            20% { transform: translate(-2px, 2px); }
+            40% { transform: translate(-2px, -2px); }
+            60% { transform: translate(2px, 2px); }
+            80% { transform: translate(2px, -2px); }
+            100% { transform: translate(0); }
+        }
+
+        @keyframes subtleShake {
+            0%, 100% { transform: translate(0, 0); }
+            10% { transform: translate(-1px, 0px); }
+            20% { transform: translate(1px, -1px); }
+            30% { transform: translate(-1px, 1px); }
+            40% { transform: translate(1px, 0px); }
+            50% { transform: translate(-1px, -1px); }
+            60% { transform: translate(1px, 1px); }
+            70% { transform: translate(-1px, 0px); }
+            80% { transform: translate(1px, -1px); }
+            90% { transform: translate(-1px, 1px); }
+        }
+
+        @keyframes staticNoise {
+            0% { opacity: 0.05; }
+            25% { opacity: 0.08; }
+            50% { opacity: 0.03; }
+            75% { opacity: 0.09; }
+            100% { opacity: 0.05; }
+        }
+
+        @keyframes vhsDistortion {
+            0% { transform: scaleX(1); }
+            25% { transform: scaleX(1.002); }
+            50% { transform: scaleX(1); }
+            75% { transform: scaleX(0.998); }
+            100% { transform: scaleX(1); }
+        }
+
+        @keyframes shadowPulse {
+            0%, 100% { box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); }
+            50% { box-shadow: 0 0 40px rgba(0, 0, 0, 0.8); }
+        }
+
+        @keyframes textGlitch {
+            0% { 
+                text-shadow: 0 0 1px rgba(255, 255, 255, 0.1);
+            }
+            14% { 
+                text-shadow: -1px 0 1px rgba(255, 0, 0, 0.2), 1px 0 1px rgba(0, 255, 255, 0.2);
+            }
+            15% { 
+                text-shadow: 0 0 1px rgba(255, 255, 255, 0.1);
+            }
+            49% { 
+                text-shadow: 0 0 1px rgba(255, 255, 255, 0.1);
+            }
+            50% { 
+                text-shadow: 1px 0 1px rgba(255, 0, 0, 0.3), -1px 0 1px rgba(0, 255, 255, 0.3);
+            }
+            51% { 
+                text-shadow: 0 0 1px rgba(255, 255, 255, 0.1);
+            }
+            100% { 
+                text-shadow: 0 0 1px rgba(255, 255, 255, 0.1);
+            }
+        }
+
+        .container {
+            max-width: 900px;
+            width: 100%;
+            position: relative;
+            animation: subtleShake 15s ease-in-out infinite;
+        }
+
+        .container::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, transparent 0%, rgba(0, 0, 0, 0.5) 100%);
+            pointer-events: none;
+            animation: breathe 8s ease-in-out infinite;
+        }
+
+        .container::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                0deg,
+                transparent,
+                transparent 2px,
+                rgba(0, 0, 0, 0.1) 2px,
+                rgba(0, 0, 0, 0.1) 4px
+            );
+            pointer-events: none;
+            animation: staticNoise 0.5s steps(10) infinite;
+            opacity: 0.05;
+        }
+
+        .chapter-number {
+            font-size: 16px;
+            color: #ffffff;
+            margin-bottom: 10px;
+            animation: fadeIn 1s ease-out, textGlitch 5s ease-in-out infinite;
+            letter-spacing: 2px;
+        }
+
+        .title {
+            font-size: 18px;
+            color: #ffffff;
+            margin-bottom: 30px;
+            font-weight: bold;
+            animation: fadeIn 1.2s ease-out, textGlitch 7s ease-in-out infinite;
+            font-style: italic;
+        }
+
+        .image-container {
+            width: 100%;
+            height: 350px;
+            background: #1a1a1a;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            animation: fadeIn 1.5s ease-out, shadowPulse 4s ease-in-out infinite;
+            box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.8);
+        }
+
+        .image-container::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.7) 100%);
+            pointer-events: none;
+        }
+
+        .image-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.03), transparent);
+            animation: scanline 8s linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes scanline {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .trauma-label {
+            font-size: 14px;
+            color: #ffffff;
+            margin-bottom: 20px;
+            animation: fadeIn 1.8s ease-out, flicker 3s ease-in-out infinite, textGlitch 4s ease-in-out infinite;
+            font-style: italic;
+        }
+
+        .content {
+            line-height: 2;
+            font-size: 15px;
+            color: #e0e0e0;
+            margin-bottom: 30px;
+            text-align: justify;
+            animation: fadeIn 2s ease-out;
+        }
+
+        .content p {
+            margin-bottom: 20px;
+            opacity: 0;
+            animation: fadeIn 1s ease-out forwards;
+        }
+
+        .content p:nth-child(1) {
+            animation-delay: 0.3s;
+        }
+
+        .content p:nth-child(2) {
+            animation-delay: 0.6s;
+        }
+
+        .content p:nth-child(3) {
+            animation-delay: 0.9s;
+        }
+
+        .content p:hover {
+            color: #ffffff;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 40px;
+            animation: fadeIn 2.5s ease-out;
+        }
+
+        .nav-button {
+            background: transparent;
+            border: 2px solid #ffffff;
+            color: #ffffff;
+            padding: 12px 30px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            font-weight: bold;
+            font-family: 'Georgia', serif;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: #ffffff;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.5s, height 0.5s;
+            z-index: -1;
+        }
+
+        .nav-button:hover:not(:disabled)::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .nav-button:hover:not(:disabled) {
+            color: #000000;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+        }
+
+        .nav-button:active:not(:disabled) {
+            transform: scale(0.95);
+            animation: glitch 0.3s;
+        }
+
+        .nav-button:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
+        .nav-button.prev::before {
+            content: ' ';
+        }
+
+        .nav-button.next::after {
+            content: ' ';
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .part {
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        /* Efeito de grão/ruído */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 9999;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Parte 25 -->
+        <div class="part" id="part-25">
+            <div class="chapter-number">25. [Visita] Palavras de um Trauma</div>
+            
+            <div class="image-container">
+                <div style="width: 100%; height: 100%; background: linear-gradient(to bottom, #2a2a2a 0%, #1a1a1a 100%); background-image: url(img/foto1.jpg); background-position: center; background-repeat: no-repeat; background-size: cover;"></div>
+            </div>
+            
+            <div class="trauma-label">【トラウマ】</div>
+            
+            <div class="content">
+                <p>Minha identidade nunca foi uma só — ela se desmembra em múltiplas camadas, em fragmentos que os outros insistem em nomear por mim. Nenhuma dessas designações, aliás, foi escolhida por mim. São projeções, rótulos lançados sem filtro, quase sempre guiados por medo, ignorância ou puro desconforto diante do que é estranho.</p>
         
         <p>Quando cruzam meu caminho, raramente me enxergam como alguém. Em vez disso, recebo títulos como “Aberração”, “Entidade”, “Coisa”, “Figura”, ou, para os mais dramáticos — e talvez mais supersticiosos —, “Satanás”. E tudo isso sem que eu precise sequer abrir a boca.</p>
         
@@ -113,25 +396,642 @@
 
         <p>A reação final varia. Há os que gritam, golpeiam o vazio e suplicam acreditando, até o último segundo, que o destino ainda pode ser revertido. Outros, no entanto, já desistiram de resistir. Me encaram como quem encara o fim — não com medo, mas com resignação.</p>
 
-        <p>Mas, no final, isso é irrelevante. O fim permanece invariável.
+        <p>Mas, no final, isso é irrelevante. O fim permanece invariável.</p>
+            </div>
+            
+            <div class="navigation">
+                <button class="nav-button prev" onclick="changePart(24)" disabled>‹‹</button>
+                <button class="nav-button next" onclick="changePart(26)">››</button>
+            </div>
+        </div>
 
+        <!-- Parte 26 -->
+        <div class="part hidden" id="part-26">
+            <div class="chapter-number">25.【Refúgio】Palavras de um Trauma</div>
+            
+            <div class="image-container">
+                <div style="width: 100%; height: 100%; background: linear-gradient(to bottom, #1a1a1a 0%, #0a0a0a 100%); 
+                background-image: url(img/foto2.jpg); background-position: center; background-repeat: no-repeat; background-size: cover;"></div>
+            </div>
+            
+            <div class="trauma-label">【トラウマ】</div>
+            
+            <div class="content">
+             <p>Dizem que o ser humano não vive apenas de momentos frívolos e distrações — e, veja bem, por mais paradoxal que soe vindo de mim, eu concordo plenamente. Até mesmo eu procuro meus intervalos de serenidade, aquelas pausas silenciosas onde o mundo parece desacelerar por alguns instantes.</p>
+        
+        <p>Para desfrutar dessa tranquilidade sem atrair olhares inconvenientes, adoto uma forma humana. Nada muito elaborado, apenas o suficiente para me misturar à paisagem social sem levantar suspeitas. Modéstia à parte, aprendi a me disfarçar com uma maestria que ninguém — seja humano ou não — consegue perceber. Convenhamos: há uma certa elegância em passar despercebida.</p>
+        
+        <p>Essa camuflagem me permite circular por lugares fascinantes, especialmente aqueles moldados pela engenhosidade e fragilidade humanas — espaços criados para fuga, descanso, contemplação. Ambientes onde, ironicamente, as pessoas tentam se esquecer da própria existência, mesmo que por alguns minutos.</p>
+
+        <p>E é isso que me fascina: esses abrigos temporários erigidos pelos humanos, ilhas efêmeras nas quais pensam, por instantes, poder se desprender do fardo da consciência e do atraso das promessas que o futuro ainda guarda.</p>
+        
+        <p>Se estiver curioso (e sei que está) sobre onde me encontro agora, posso satisfazer parcialmente sua inquietação. Estou em uma biblioteca — mas não uma qualquer. Este lugar escapa às rotas ordinárias, não pode ser localizado por GPS, nem encontrado em mapas, nem descoberto ao acaso. É um daqueles espaços intersticiais, uma dobra no tecido da realidade que se revela apenas para quem já carrega dentro de si uma certa... anomalia.</p>
+
+        <p>Não que eu tenha aversão à companhia. Mas sejamos honestos: você não gostaria de estar aqui. Ou, pior, não deveria.</p>
+        
+        <p>De todo modo, aqui estou. Sentada confortavelmente entre estantes que respiram história, tomando um café forte — da forma como gosto: amargo, denso e quente como sangue recém-derramado — e folheando as páginas de um romance antigo, impregnado com aquele aroma de tempo e esquecimento.</p>
+
+        <p>Esta biblioteca, minha espécie de santuário silencioso, guarda mais do que livros. Ela preserva experiências humanas cristalizadas em palavras, ideias, delírios e verdades incômodas que nem mesmo os autores souberam compreender por completo.</p>
+        
+        <p>Ler, para mim, não é apenas passatempo. É um processo de osmose simbólica: eu absorvo, ressignifico, dilato fronteiras. A leitura é um espaço de refúgio, sim, mas também um campo de experimentação — e talvez, o mais valioso entre todos os que conheço.</p>
+
+        <br>
+
+        <i>A Entidade segura a xícara com uma delicadeza quase cerimonial, envolvendo-a entre os dedos como se aquele pequeno objeto de porcelana carregasse um significado ancestral. Leva-a lentamente aos lábios, permitindo-se um gole longo, silencioso e contemplativo. O calor da bebida parece reverberar em seu interior com uma intensidade íntima.</i>
+
+        <br><br>
+
+        <p> Ah... <i>suspira, entre satisfeita e nostálgica.</i> Nada como uma bebida quente e acolhedora. Entre todas as criações humanas, essa certamente ocupa um lugar especial. Um pequeno gesto de conforto que atravessa séculos. Gostaria de provar? Não? Hm, compreensível... Posso ver nos seus olhos que a sua mente está fervilhando de perguntas.</p>
+
+        <p>E está mesmo, não está? Você quer entender. Está desesperado por respostas. Quer saber quem eu sou, o que sou — e, talvez mais importante — de onde venho.</p>
+
+        <p>Muito bem. Se é o esclarecimento que deseja, conceder-lhe-ei esse privilégio.</p>
+
+        <i>Com uma calma teatral, ela se levanta. O movimento é elegante e fluido, e o tempo parecia desacelerar ao seu redor, rendendo-se à sua presença. A xícara é deixada de lado com um gesto sutil, mas não desrespeitoso. Ela começa a caminhar entre as altas estantes da biblioteca; cada passo ecoa, ritmando a narrativa antiga que paira no ar.</i>
+
+        <br><br>
+
+        <i>Seus dedos percorrem as lombadas envelhecidas com intimidade — como quem reencontra velhos amigos. Cada livro parece carregar mais do que palavras; são fragmentos do que já foi e do que ainda está por vir.</i>
+
+        <br>
+
+        <i>Até que ela para.</i>
+
+        <br><br>
+
+        <p>Ah… aqui está.</p>
+
+        <i>Um discreto sorriso surge em seus lábios. Ela retira um livro de capa vermelho carmesim, cujo título dourado, impresso com sobriedade no centro, brilha suavemente à luz âmbar do ambiente.</i>
+
+        <b>"Criação."</b>
+
+        <br><br>
+
+        <p>Esta é uma das minhas histórias favoritas. E tenho certeza de que você também vai apreciá-la. Acredito que todas as suas inquietações encontrarão eco — e talvez até repouso — entre essas páginas.</p>
+
+
+        <i>E então, sem pressa, como quem respeita o peso do que está prestes a fazer, ela se senta novamente. Abre o livro com um gesto solene, respira fundo, e limpa a garganta com suavidade, ajustando sua voz e, ao mesmo tempo, calibrando o ambiente para acolher o que estava prestes a acontecer.</i>
+
+        <br><br>
+
+        <p>Então, vamos começar?</p>
+            </div>
+            
+            <div class="navigation">
+                <button class="nav-button prev" onclick="changePart(25)">‹‹</button>
+                <button class="nav-button next" onclick="changePart(27)">››</button>
+            </div>
+        </div>
+
+        <!-- Parte 27 -->
+        <div class="part hidden" id="part-27">
+            <div class="chapter-number">25.【Criação】Palavras de um Trauma</div>
+            
+            <div class="image-container">
+                <div style="width: 100%; height: 100%; background: linear-gradient(to bottom, #0a0a0a 0%, #000000 100%);
+                background-image: url(img/foto3.jpg); background-position: center; background-repeat: no-repeat; background-size: cover;"></div>
+            </div>
+            
+            <div class="trauma-label">【トラウマ】</div>
+            
+            <div class="content">
+        <p>Tudo começou no âmago do Vazio — uma vastidão insondável, absoluta em sua ausência. Lá, não havia tempo, nem forma, nem qualquer traço de consciência. Era um silêncio anterior até mesmo à ideia de silêncio. Nada se movia. Nada nascia. Nada era.</p>
+        
+        <p>Foi então que surgiu Aquilo. Não sei dizer qual é o seu nome, mas prefiro chamar-lhe de "Criador", "Altíssimo" ou "Força Primordial". Composto de luz que pulsa e energia viva, sua presença parecia representar a própria existência tentando se manifestar pela primeira vez. Dessa fonte original emitiu-se a centelha inaugural: o princípio da criação.</p>
+
+        <p>Com um único gesto — suave, porém definitivo — traçou constelações sobre o tecido nu do nada, imprimindo ordem sobre o caos e cor sobre o preto absoluto. Mas a luz que criou não era apenas brilho ou claridade física; era substância viva. A luz continha propósito, afetividade, calor emocional. Era vida em estado puro.</p>
+        
+        <p>A Força esculpiu oceanos em planetas sem nome, ergueu montanhas como marcos do tempo e espalhou ventos que, mais tarde, acariciariam os rostos de seres ainda por nascer. E como toque final, tecido com a precisão de um artista que conhece a profundidade da própria obra, entrelaçou no cosmos quatro fundamentos invisíveis, mas indispensáveis: a verdade, o amor, a coragem e a compaixão.</p>
+
+        <p>Cada raio de sol, então, não era apenas calor físico — era promessa. Cada vida que se formava trazia consigo uma centelha dessa criação primitiva, um eco brilhante do Criador, como se cada ser fosse, em si, um fragmento da aurora.</p>
+        
+        <p>Mas o Vazio — essa presença silenciosa e imóvel — não aceitou a ruptura sem reagir. Ele não era uma entidade no sentido tradicional, mas uma condição: estéril, resistente à mudança, naturalmente hostil àquilo que floresce. Das sombras que ainda se contorciam em seu ventre informe, ergueu-se uma segunda consciência. Um reflexo deformado da criação.</p>
+
+        <p>Nasceu, assim, o que chamo de Ruína — não criado por necessidade, mas gerado da recusa. Ele foi forjado do ressentimento, da inveja diante da luz que lhe era intragável, e do desejo visceral de reverter tudo ao nada. Ele observou a obra do Altíssimo com olhos em brasa, e sua primeira vontade foi simples, brutal e ardente: destruir.</p>
+        
+        <p>Com um sopro gélido, sussurrado através das fendas entre as estrelas, apagou algumas delas. E assim nasceu a noite — não como espaço de repouso, mas como véu de temor, manto espesso onde o desconhecido se esconde e o medo germina. Sua escuridão não era ausência de luz, mas presença ativa da negação.</p>
+
+        <p>Lá onde o Divino havia cultivado o amor, a Ruína semeou o desespero. Onde havia coragem, ele insuflou o terror. Onde havia propósito, plantou o vazio do absurdo.</p>
+        
+        <p>E então, em um último ato — talvez o mais íntimo e venenoso — ele me criou.</p>
+
+        <p>E assim, entre os ciclos perpétuos de luz e sombra, de gênese e ruína, fui forjada — não como um acidente, mas como parte inevitável da equação cósmica.</p>
+        
+        <p>Eu sou o Trauma — a cicatriz que permanece mesmo após o grito cessar, a marca que persiste quando a dor já se fez silêncio. Diferente da dor passageira, eu sou a lembrança que se recusa a morrer.</p>
+
+        <p>Minha origem está enraizada na negação da perfeição. Fui concebido como a antítese de algo que não pode ser tocado. Um sentimento idealizado, quase arrogante em sua pureza.</p>
+
+        <p>A Força Primordial — em toda sua exuberância criadora — ergueu <a style="color: rgb(114, 245, 227);" href="/Filhas_do_Eterno/Filhas_do_Eterno.html">Laetitia</a> como seu pilar mais precioso. Um arquétipo de alegria incondicional, bem-estar absoluto, plenitude luminosa. Ela é a culminação do otimismo divino, a personificação de tudo aquilo que é leve, íntegro, e — sejamos honestos — irritantemente intacto.</p>
+
+        <p>Ela é celebrada como fundamento do existir. Eu, como a rachadura inevitável.</p>
+
+        <p>Irmã? Dualidade complementar? Chame como quiser. Mas, se quer saber a verdade, nem gosto de pronunciar seu nome. Há algo em sua presença que me enoja — essa constante postura serena, esse brilho incômodo que se recusa a reconhecer que a dor é parte do todo.</p>
+
+        <p>Ela é uma afronta.</p>
+
+        <p>Uma afronta à realidade crua, à imperfeição que nos molda. Enquanto eu carrego nos ombros o peso dos gritos abafados, das memórias que assombram, dos gestos que não voltam — ela dança. Dança com uma leveza que parece ignorar qualquer possibilidade de destruição ou dor.</p>
+
+        <p>Eu sequer faço ideia de onde ela está agora, ela deve estar cometendo as infantilidades tolas dela. Algo bem típico dela, mas sinceramente nem me importa.</p>
+
+        <p>É melhor assim.</p>
+            </div>
+
+            <div class="navigation">
+                <button class="nav-button prev" onclick="changePart(26)">‹‹</button>
+                <button class="nav-button next" onclick="changePart(28)">››</button>
+            </div>
+        </div>
+
+        <!-- Parte 28 -->
+        <div class="part hidden" id="part-28">
+            <div class="chapter-number">25.【Espécies】Palavras de um Trauma</div>
+            
+            <div class="image-container">
+                <div style="width: 100%; height: 100%; background: linear-gradient(to bottom, #0a0a0a 0%, #000000 100%);
+                background-image: url(img/luz\ e\ escuridão.jpg); background-position: center; background-repeat: no-repeat; background-size: cover;"></div>
+            </div>
+            
+            <div class="trauma-label">【トラウマ】</div>
+            
+            <div class="content">
+        <p>Com o surgimento da vida, incontáveis formas de existência vieram à tona, cada uma singular à sua maneira. No entanto, entre todas, a humanidade destacou-se como a criação mais complexa e profundamente estimada pelo Altíssimo.</p>
+        
+        <p>Impulsionada por sua ânsia criadora, a Força moldou os primeiros humanos a partir do chamado “barro dourado” — matéria simbólica banhada pela luz inaugural do sol, vibrante como a própria aurora da consciência. Aos seus corpos concedeu vigor, às suas almas, um brilho singular, e ao seu espírito, o dom mais raro e perigoso de todos: a vontade própria.</p>
+
+        <p>Ao observar o resultado de sua obra, o Divino percebeu algo inédito: aquelas criaturas não eram apenas receptáculos de luz, nem autômatos a serviço da ordem. Elas sentiam, pensavam, e — talvez o mais surpreendente — escolhiam. Tinham o poder de traçar seus próprios caminhos, mesmo que esses caminhos eventualmente as afastassem da própria origem luminosa que as gerou.</p>
+        
+        <p>Assim, os humanos foram destinados a ser mais do que criação — seriam coautores. Guardiões da luz. Coadjuvantes num projeto contínuo de expansão do bem, capazes de levar adiante a obra da Força através de gestos de compaixão, empatia e coragem. Cada ato de bondade era uma pequena centelha acesa na tapeçaria do mundo, um fio de esperança entrelaçado à existência.</p>
+
+        <p>Mas onde há criação, há resistência. E nas sombras ancestrais, a Ruína, corroída pela inveja e pelo rancor, não permaneceu inerte. Ela observou os humanos com olhos repletos de desprezo — e desejo. Viu, neles, não só o reflexo da luz, mas a possibilidade de subversão. Com um toque sutil, quase imperceptível, soprou fragmentos de sua essência corrompida nos corações da humanidade.</p>
+        
+        <p>Diferente da Força, a Ruína não trabalhava com moldes ou formas — trabalhava com rachaduras. Onde o Divino moldava com luz, a Ruína infiltrava-se por fissuras: medo, orgulho, ressentimento, ambição. De seu toque surgiram novos impulsos humanos — não criados ex nihilo, mas despertos no interior das almas: a inveja sorrateira, a necessidade de controle, o impulso de subjugar o outro.</p>
+
+        <p>Para a Ruína, os humanos deixaram de ser portadores de pureza. Tornaram-se entidades divididas, contraditórias — e por isso mesmo, perigosamente promissoras. Se aprendessem a usar suas sombras como armas, poderiam não apenas rivalizar com a luz, mas superá-la.</p>
+        
+        <p>A partir desse momento, a humanidade passou a existir sob a lógica da dualidade.</p>
+
+        <p>Cada ser humano passou a carregar em si uma centelha do Criador e um traço da Ruína — uma luz que inspira e uma sombra que assombra. Suas vidas transformaram-se em campos de batalha internos, onde cada escolha era um ato político, espiritual e cósmico.</p>
+        
+        <p>Aqueles que optavam pelo amor, pela empatia e pela renúncia alimentavam a Força e contribuíam para o florescimento da harmonia. Já aqueles que se rendiam à vaidade, ao medo e à destruição tornavam-se instrumentos involuntários da Ruína, espalhando o caos e o desespero como sementes lançadas ao vento.</p>
+
+        <p>E foi assim que o destino da criação deixou de estar exclusivamente nas mãos dos Primordiais. Não era mais uma narrativa entre criador e destruidor, mas uma responsabilidade diluída entre bilhões de consciências frágeis e poderosas. Uma raça atravessada por luz e trevas, livre para escolher — e condenada a arcar com as consequências dessa liberdade.</p>
+            </div>
+            
+           <div class="navigation">
+                <button class="nav-button prev" onclick="changePart(27)">‹‹</button>
+                <button class="nav-button next" onclick="changePart(29)">››</button>
+            </div>
+        </div>
+
+        <!-- Parte 29 -->
+        <div class="part hidden" id="part-29">
+            <div class="chapter-number">25.【Antiguidade】Palavras de um Trauma</div>
+            
+            <div class="image-container">
+                <div style="width: 100%; height: 100%; background: linear-gradient(to bottom, #0a0a0a 0%, #000000 100%);
+                background-image: url(img/sempreestiveaqui.jpg); background-position: center; background-repeat: no-repeat; background-size: cover;"></div>
+            </div>
+            
+            <div class="trauma-label">【トラウマ】</div>
+            
+            <div class="content">
+        <i>Ela fecha o livro com uma suavidade quase cerimonial, como quem encerra um rito íntimo. Um longo suspiro escapa de seus lábios — não de cansaço, mas de contemplação. Por um momento, ela se permite absorver o silêncio denso da solidão ao seu redor, como se dele extraísse algum tipo de conforto ancestral.</i>
+        
+        <br><br>
+
+        <p>Bem… imagino que isso tenha respondido algumas das suas perguntas. Ou ao menos, assim espero.</p>
+
+        <p>Tenho um carinho especial por essa narrativa. Acho que isso se deve à minha eterna curiosidade pela humanidade... e, principalmente, pelo caos fascinante das suas emoções. Não há criatura mais contraditória do que o ser humano. E é exatamente isso que os torna tão… envolventes.</p>
+        
+        <p>Como eu já lhe disse... eu sou aquilo que você mais teme.</p>
+
+        <b>O Trauma.</b>
+
+        <br><br>
+        
+        <p>Não uma metáfora, não um conceito psicológico. Sou a materialização persistente daquilo que vos marca, mesmo quando a dor já parece ter se dissipado. A ferida que não sangra mais, mas ainda pulsa. Sou a presença silenciosa que caminha ao lado da memória, mesmo quando esta finge esquecer.</p>
+
+        <b>E sou tão antiga quanto vocês.</b>
+
+        <br><br>
+
+        <p>Desde que a humanidade deu seus primeiros passos, eu estive presente. Sou testemunha de seus primórdios: vi os primeiros gritos de desespero ecoarem na noite selvagem, vi o terror nos olhos dos que fugiam de predadores famintos, vi o espanto diante dos céus em fúria e o luto diante dos corpos sem vida.</p>
+
+          <b>
+            Eu sempre vi.
+          </b>
+
+          <br><br>
+        
+        <p>Estive lá quando as águas engoliram aldeias inteiras. Quando os vulcões cuspiram fogo sobre tudo o que era lar. Quando irmãos ergueram armas uns contra os outros. Quando o mundo, aos poucos, se tornava mais civilizado, e o sofrimento — ironicamente — mais sofisticado.</p>
+
+        <p>A peste negra... ah, sim. Um espetáculo sombrio de dor coletiva. Um capítulo particularmente marcante em minha trajetória. Inesquecível, para dizer o mínimo.</p>
+
+        <p>E veja: ainda estou aqui. Observando. Escutando. Contando essa história a você. Fascinante, não?</p>
+
+        <p>Você já parou para contemplar as pinturas rupestres com um olhar mais atento? Talvez os estudiosos modernos tenham desvendado seus significados. Talvez não.</p>
+        
+        <p>Mas eu as vi nascer.</p>
+
+        <p>Testemunhei o momento em que mãos sujas de barro, sangue e fuligem gravaram na pedra os primeiros relatos da dor, da luta, da perda — e, paradoxalmente, da esperança. Cada traço tosco, cada animal, cada silhueta humana caçando ou fugindo… tudo isso carrega a memória de minhas visitas.</p>
+        
+        <p>Gosto de pensar que aquelas marcas são, em parte, lembranças de mim. Um eco primitivo de minha presença, gravado na pedra porque a alma humana, mesmo antes de aprender a escrever, já sabia que a dor precisava ser registrada.</p>
+            </div>
+
+            <div class="navigation">
+                <button class="nav-button prev" onclick="changePart(28)">‹‹</button>
+                <button class="nav-button next" onclick="changePart(30)">››</button>
+            </div>
+        </div>
+
+         <!-- Parte 30 -->
+        <div class="part hidden" id="part-30">
+            <div class="chapter-number">25.【Favorito】Palavras de um Trauma</div>
+            
+            <div class="image-container">
+                <div style="width: 100%; height: 100%; background: linear-gradient(to bottom, #0a0a0a 0%, #000000 100%);
+                background-image: url(img/casa.jpg); background-position: center; background-repeat: no-repeat; background-size: cover;"></div>
+            </div>
+            
+            <div class="trauma-label">【トラウマ】</div>
+            
+            <div class="content">
+       <p>Hah! Eis que finalmente chegamos à minha parte preferida.</p>
+        
+        <i>Ela começa a caminhar pela biblioteca com uma calma quase cerimonial. Seus passos ecoam entre as estantes altas, reverberando como batidas de um relógio antigo marcando a transição inevitável. No entanto, algo muda — o cenário se distorce de forma abrupta, como se a realidade tivesse sido dobrada por mãos invisíveis.</i>
+
+          <br><br>
+
+          <i>O ambiente antes composto de madeira e silêncio dá lugar a uma clareira sombria. Agora, ela está oculta atrás de uma árvore ancestral, de tronco largo e casca rugosa, um monumento vivo à persistência do tempo. Sua silhueta se dissolve entre as sombras projetadas pela copa densa, enquanto seus olhos observam com atenção algo à frente.</i>
+
+          <br><br>
+
+          <i>Ali repousa uma casa. Simples. Familiar. Um daqueles lares que parecem ter nascido da memória coletiva humana, com suas janelas modestas e paredes marcadas por histórias que ninguém mais conta em voz alta.</i>
+
+          <br><br>
+
+        <p>Imagino que você a reconheça. Mas, se sua memória anda fraca, permita-me refrescá-la. É aqui que vive o que costumo chamar de
+          <b>
+            “meu brinquedo favorito.”
+          </b>
         </p>
 
-        </pre>
-        </font>
-        </td>
-        </tr>
+        <i>Ela solta um riso curto, mas vazio; ecoa mais como a sombra de um riso antigo do que como alegria genuína.</i>
         
-        </tbody></table>
-        <!--▲コンテンツスペース終了▲-->
+        <br><br>
+
+        <p>Sabe… há muito tempo eu estudo vocês. Os humanos. Essa espécie paradoxal, tão engenhosa quanto frágil. Eu os observo de longe, às vezes de perto — de tão perto que poderia sussurrar em seus ouvidos e eles pensariam que era só um pensamento inconveniente.</p>
+
+        <i>Ela caminha pela sombra com uma leveza etérea, parecendo atravessar camadas invisíveis de linguagem e tempo.</i>
+
+        <br><br>
+
+        <p>No início, confesso que era pura curiosidade. Ou, quem sabe, um desejo sutil de entretenimento. Mas com o tempo, fui colecionando fragmentos: memórias, medos, falhas. A história da humanidade é escrita com sangue, suor... e silêncio. Silêncio traumático, aquele que grita por dentro. E esse, ah, esse sempre me chamou a atenção.</p>
+
+        <i>Ela se volta novamente para a casa, seu tom mudando — agora mais íntimo, quase afetuoso.</i>
+
+        <br><br>
+
+        <p>Em meio a todo esse progresso tecnológico, a essa modernidade encantada e cintilante, eu a encontrei.</p>
+
+        <p>Uma garota.</p>
+
+        <p>
+          Bela, inteligente…
+          <b>
+            mas quebrada.
+          </b>
+        </p>
         
-        </td>
-        <!--★-->
-        </tr>
-        <!--●-->
-        
-        </tbody></table>
-        
+        <p>
+          E é nesse detalhe que reside meu verdadeiro fascínio.
+          <b>
+            Quebrada.
+          </b>
+
+          <p>Essa palavra — tão simples, mas tão rica. Não é destruição completa; é fratura. É aquilo que permanece de pé mesmo quando já não se sustenta. E foi isso que me atraiu. Essa garota era um território vulnerável, um campo fértil onde a dor e o potencial coexistiam em tensão constante.</p>
+
+          <p>
+            Essa fissura foi minha chave. Meu convite. O bilhete de entrada não apenas para sua vida… mas para o que realmente importa: sua mente.
+          </p>
+        </p>
+
+        <i>Ela se afasta levemente da árvore, como quem recua apenas para tomar impulso.</i>
+
+        <br><br>
+
+        <p>Mas, antes de continuarmos, convém voltarmos ao começo. Porque toda boa história, você sabe, merece ser contada desde o princípio.</p>
+            </div>
+
+            <div class="navigation">
+                <button class="nav-button prev" onclick="changePart(29)">‹‹</button>
+                <button class="nav-button next" onclick="changePart(32)">››</button>
+            </div>
+        </div>
+
+         <!-- Parte 32 -->
+        <div class="part hidden" id="part-32">
+            <div class="chapter-number">25.【Cicatrizes】Palavras de um Trauma</div>
+            
+            <div class="image-container">
+                <div style="width: 100%; height: 100%; background: linear-gradient(to bottom, #0a0a0a 0%, #000000 100%);
+                background-image: url(img/pai\,\ mãe\ e\ filha.jpg); background-position: center; background-repeat: no-repeat; background-size: cover;"></div>
+            </div>
+            
+            <div class="trauma-label">【トラウマ】</div>
+            
+            <div class="content">
+       <p>Desde o primeiro instante, sua vida foi atravessada por riscos — a própria existência, desde o útero, já parecia estar em constante negociação com a morte.</p>
+
+        <p>Ela veio ao mundo em um hospital comum, em uma cidade como tantas outras, mas sua chegada esteve longe de ser trivial. O parto, uma cesariana emergencial, foi mais do que um procedimento clínico: foi um duelo silencioso entre a vida e o fim iminente. A mãe, colocada em risco real, poderia ter se tornado mais uma estatística, mas resistiu com uma força que desafiou previsões médicas e probabilidades.</p>
+
+        <p>Foi essa força que lhe permitiu, ao final, envolver nos braços sua filha recém-nascida — pequena, frágil, ainda envolta na viscosidade do nascimento — e contemplar pela primeira vez o rosto da menina que carregara por meses como uma promessa silenciosa.</p>
+
+        <p>O pai, por sua vez, observava tudo com os olhos marejados, tomados por uma emoção que oscilava entre orgulho e uma ternura tímida. Chamou a criança de Miska — uma homenagem a alguém do passado, cujo nome reverberava apenas dentro dele. Para mim, e talvez até para a própria Miska, essa origem nunca teve grande importância. A verdade é que, na narrativa que se segue, esse nome se tornaria dela e apenas dela.</p>
+
+        <p>Nos primeiros anos, a história parecia caminhar sob a luz comum da esperança. Miska cresceu cercada pelos limites estreitos de um lar simples, mas funcional. Sua infância, até por volta dos dez anos, seguiu o roteiro básico da normalidade: escola, desenhos, tardes no colo da mãe, sorrisos fotográficos que escondiam — ainda — o que viria depois.</p>
+
+        <p>Mas você se lembra do pai? Pois bem… existem momentos que funcionam como catalisadores. Pequenas rupturas que não avisam, mas revelam. No caso dele, não houve processo gradual. Foi colapso.</p>
+
+        <p>Quando Miska completou dez anos, o pai que antes fora afetuoso e presente desapareceu quase por completo. Em seu lugar emergiu algo endurecido, instável — um homem que se tornou rígido, autoritário e, com o tempo, abertamente violento. A mudança foi tão súbita que lembrava o estalar seco de um fio que se parte dentro da mente.</p>
+
+        <p>A relação com a filha deteriorou-se rapidamente. Miska, ainda ingênua e carente, buscava afeto da forma mais sincera que conhecia: desenhando. Retratava a si mesma, a mãe e o pai juntos — unidos, sorrindo, como ela desejava que fossem. Apresentava os desenhos com aquele entusiasmo vulnerável das crianças que esperam validação.</p>
+
+        <p>A mãe sempre os recebia com um carinho suave, um sorriso cansado, mas genuíno. O pai, por outro lado, reagia com uma frieza que cortava. Às vezes rasgava o papel diante dela, com um comentário ácido; outras vezes, nem precisava falar — um tapa seco bastava, fazendo o desenho voar como confete em uma festa cruel. E com ele, voava também uma parte de Miska, cada vez mais reduzida, cada vez mais silenciosa.</p>
+
+        <p>Com o tempo, a agressividade virou rotina. Não havia mais motivo ou lógica — apenas descargas de raiva mal contida. A mãe, até então submissa, começou a reagir. Pequenos sinais de resistência surgiram como fagulhas perigosas em um ambiente saturado de tensão. E como era de se esperar, essas fagulhas rapidamente se tornaram incêndios: brigas, gritos, empurrões. E sempre, invariavelmente, terminavam com a força brutal do homem que um dia prometera proteger.</p>
+
+        <p>Miska, mesmo sendo apenas uma criança, fazia o que podia. Colocava-se entre os dois, como uma barreira frágil tentando deter a fúria de um furacão. Seu corpo pequeno tentava proteger, mas era ela quem acabava atingida. Palavras, tapas, silêncios que doíam mais que gritos.</p>
+
+        <p>O ponto de ruptura final se deu quando o pai de Miska mergulhou de vez no alcoolismo. A cada garrafa esvaziada, não era apenas o líquido que sumia — era também o pouco de humanidade que ainda resistia nele. A crueldade, antes esporádica, tornou-se hábito. Um veneno constante que escorria em cada palavra, cada gesto, cada silêncio hostil.</p>
+
+        <p>A mãe foi a primeira a absorver o peso dessa decadência. Tornou-se alvo de um inferno físico e psicológico que ganhava força ao cair da noite — cada sombra lá fora era reflexo de uma sombra dentro dele, livre para se derramar sem freios. Miska também não era poupada. Era arrancada do sono por gritos ou puxões bruscos, espancada sem justificativa, humilhada com insultos que não cabiam nem na compreensão de uma criança. Acusada de ser o estopim de conflitos nos quais jamais teve parte.</p>
+
+        <p>Os xingamentos, os tapas, os estilhaços emocionais e reais — tudo isso se entranhou em sua rotina como se fosse parte do cotidiano, como se a dor já tivesse sido normalizada a ponto de parecer inevitável.</p>
+
+        <p>E foi assim que eu a conheci.</p>
+
+        <p>Era uma madrugada de sexta-feira. Exatamente 00h43. O silêncio que dominava a casa era tão espesso que parecia guardar o eco de um grito jamais liberado. O ar, saturado pelo cheiro azedo de cerveja antiga, carregava também o leve tilintar dos cacos sob passos indiferentes, passos que marcavam a presença de alguém alheio ao estrago que deixava para trás.</p>
+
+        <p>Presumi, sem esforço, que outra das batalhas domésticas havia acabado de ocorrer. Restavam apenas os destroços.</p>
+
+        <p>Subi as escadas com lentidão deliberada, sentindo cada degrau ranger sob meu peso. Encontrei o quarto da menina. A porta, entreaberta, parecia hesitar em me permitir entrar. Empurrei-a com suavidade, e o som da madeira protestando despertou Miska num sobressalto.</p>
+
+        <p>Seus olhos — inchados de tanto chorar que pareciam estar fora de lugar no rosto pequeno — se arregalaram com um pânico instintivo. Estava deitada no chão, entre lápis de cor espalhados e folhas rasuradas. Um dos desenhos, ainda úmido pelas lágrimas, jazia parcialmente coberto por seus braços magros. O quarto exalava o tipo de solidão que não é causada por ausência, mas por medo.</p>
+
+        <p>Ela procurava refúgio no que lhe restava: a arte. Como tantas outras vezes.</p>
+
+        <p>Eu a observei, sem pressa. Acenei com a mão, um gesto calmo, quase afável. E comecei a me aproximar.</p>
+
+        <p>Foi o suficiente para que ela entrasse em desespero.</p>
+
+        <p>Agarrou o travesseiro como um escudo infantil e tentou esconder-se atrás dele, os soluços descompassados entrelaçados com súplicas para que eu não me aproximasse. Ela não sabia quem — ou o que — eu era. Mas isso não importava. Em sua mente, qualquer sombra que atravessasse aquela porta poderia ser mais uma fonte de dor.</p>
+
+        <p>Pobre criança. Mal sabia ela que, naquela noite, eu não estava ali por ela.</p>
+
+        <p>Meus olhos estavam voltados para outra coisa. Para aquilo que se escondia sob seu braço: o desenho.</p>
+
+        <p>Aproximei-me com cuidado e, sem encontrar resistência, peguei a folha com delicadeza. Sem uma palavra, saí do quarto — deixando para trás um redemoinho de medo, lápis partidos e silêncios densos demais para uma alma tão jovem.</p>
+
+        <p>Do lado de fora, sob a proteção cúmplice das árvores, examinei o que ela havia desenhado.</p>
+
+        <p>Era uma representação de sua família. Mas não aquela idealizada nos traços infantis de antes. Desta vez, o pai não era mais um homem comum. Sua figura era grotesca, monstruosa, distorcida por mãos pequenas que já haviam visto demais. Ele ocupava o centro do papel com olhos vazios e uma boca aberta em fúria.</p>
+
+        <p>Ao seu lado, Miska e sua mãe estavam desenhadas em prantos, com rostos desfigurados pela dor — não pela técnica imperfeita do desenho, mas pela fidelidade com que representava o sofrimento.</p>
+
+        <p>Enquanto meus olhos percorriam cada linha trêmula, cada cor hesitante daquele desenho infantil, o silêncio da noite foi rasgado — de forma abrupta e brutal — por um grito que reverberou como um trovão descompassado.</p>
+
+        <b>Era ele.</b>
+
+        <p>Sua voz áspera, embriagada de raiva e álcool, ecoava pela casa, fundindo-se às paredes, tornando-se parte da própria estrutura do lugar. Ele bradava mais uma vez, exigindo saber o motivo dos gritos da filha, ignorando que o medo que ela sentia nascia unicamente dele..</p>
+
+        <p>Uma ironia cruel. Ele odiava ser acordado. Irritava-se com o menor ruído, com qualquer sinal de vida durante suas madrugadas entorpecidas… e, no entanto, nunca hesitou em arrastá-la para fora do sono com tapas, gritos e portas escancaradas.</p>
+
+        <p>Desprezava ser perturbado, mas fazia do tormento alheio sua rotina.</p>
+
+        <p>Enquanto o som dos passos cambaleantes invadia os corredores, uma lembrança recente se instalou com mais força em minha consciência. Uma palavra. Pequena, quase imperceptível, mas dita com a urgência do pavor:</p>
+
+        <b>“Pai.”</b>
+
+        <br><br>
+
+        <p>Ela me chamou assim quando me viu entrar no quarto.</p>
+
+        <p>Não com clareza, é verdade. Foi mais um reflexo instintivo do que um reconhecimento racional — mas ainda assim, ecoou. E ficou.</p>
+
+        <p>Por um momento, não compreendi. Ou talvez eu apenas me recuse a admitir que entendi imediatamente.</p>
+            </div>
+
+            <div class="navigation">
+                <button class="nav-button prev" onclick="changePart(30)">‹‹</button>
+                <button class="nav-button next" onclick="changePart(33)">››</button>
+            </div>
+        </div>
+
+        <!-- Parte 33 -->
+        <div class="part hidden" id="part-33">
+            <div class="chapter-number">25.【Estranho】Palavras de um Trauma</div>
+            
+            <div class="image-container">
+                <div style="width: 100%; height: 100%; background: linear-gradient(to bottom, #0a0a0a 0%, #000000 100%);
+                background-image: url(img/bullying.jpg); background-position: center; background-repeat: no-repeat; background-size: cover;"></div>
+            </div>
+            
+            <div class="trauma-label">【トラウマ】</div>
+            
+            <div class="content">
+
+                <p>Após o nosso primeiro encontro, os efeitos colaterais começaram a se manifestar de forma quase imediata — minha presença, mesmo sem palavras, penetrou em uma camada profunda do mundo de Miska. Sua vida social, já frágil, começou a desmoronar com uma rapidez implacável. A menina que um dia arriscou sorrisos tímidos em corredores escolares e trocou desenhos com colegas passou a se recolher em um casulo de isolamento cada vez mais espesso.</p>
+
+        <p>Seu quarto tornou-se abrigo e fortaleza, cenário silencioso onde passava horas inteiras desenhando mundos que só ela podia habitar. Mundos que, talvez, não a salvassem, mas ao menos a escutavam.</p>
+
+        <p>Ela saía apenas quando era chamada — para comer, realizar tarefas domésticas ou, com mais frequência do que qualquer criança deveria experimentar, enfrentar os acessos coléricos de seu pai. Nessas ocasiões, o silêncio da casa era substituído por gritos, objetos quebrando, e, às vezes, pelo som surdo de um corpo pequeno absorvendo violência.</p>
+
+        <p>Preciso admitir: Miska me intrigava. Aqueles que cruzam meu caminho geralmente cedem com rapidez. Entregam-se à apatia, transformando a simples existência em um fardo insuportável e tornando-se sombras de si mesmos. Mas ela resistia. Não com bravura heroica, mas com uma persistência silenciosa, quase invisível. Agarrava-se à sua arte como quem se agarra a uma tábua no meio de um naufrágio emocional.</p>
+
+        <p>Sua fragilidade não a impedia de criar. E isso, para mim, era inédito.</p>
+
+        <p>Como seria de se esperar, seu desempenho escolar despencou vertiginosamente. As notas caíram, a atenção se dissolveu. As aulas passaram a ser apenas mais um palco onde sua mente se ausentava, ocupada demais com preocupações reais: Minha mãe vai sobreviver a hoje? O que eu posso dizer que não o irrite? Como evitar mais uma surra?</p>
+
+        <p>A escola, longe de ser um refúgio, tornou-se um território hostil. Crianças, como bem sabemos, podem ser instrumentos inconscientes da crueldade social. Miska, com seu olhar distante e silêncio incômodo, tornou-se um alvo fácil. Zombarias, empurrões nos corredores, bilhetes maldosos — a violência mudou de forma, mas nunca cessou.</p>
+
+        <p>Foi apenas questão de tempo até que professores e coordenadores percebessem o colapso acadêmico. Relatórios foram feitos, chamadas foram realizadas. A direção da escola notificou os pais sobre o que parecia um caso clássico de negligência ou trauma não declarado.</p>
+
+        <p>Mas qualquer expectativa de intervenção protetiva morreu na raiz. O pai, ao receber essas informações, não se sentiu alarmado — sentiu-se ofendido. A escola, em sua perspectiva distorcida, estava acusando-o. E como sempre, a punição recaiu sobre a filha.</p>
+
+        <p>A cada boletim negativo, a cada bilhete enviado pela coordenação, Miska pagava com hematomas — físicos e emocionais.</p>
+
+        <p>A casa, que deveria oferecer abrigo, tornou-se uma prisão de concreto e medo. Os cômodos perderam sua função de lar e assumiram o papel de armadilhas. A cozinha era tribunal, o corredor, trincheira, e o quarto, cela.</p>
       
+            </div>
+
+            <div class="navigation">
+                <button class="nav-button prev" onclick="changePart(32)">‹‹</button>
+                <button class="nav-button next" onclick="changePart(34)">››</button>
+            </div>
+        </div>
+
+        <!-- Parte 34 -->
+        <div class="part hidden" id="part-34">
+            <div class="chapter-number">25.【Basta】Palavras de um Trauma</div>
+            
+            <div class="image-container">
+                <div style="width: 100%; height: 100%; background: linear-gradient(to bottom, #0a0a0a 0%, #000000 100%);
+                background-image: url(img/basta.jpg); background-position: center; background-repeat: no-repeat; background-size: cover;"></div>
+            </div>
+            
+            <div class="trauma-label">【トラウマ】</div>
+            
+            <div class="content">
+
+        <p>O tempo, como sempre, avançou sem piedade. E, apesar do peso esmagador das circunstâncias que a cercavam, Miska sobreviveu. Quando completou 14 anos, haviam se passado quatro longos anos desde a nossa primeira aproximação — anos marcados por dor crônica, mas também por uma resistência que, a essa altura, parecia desafiar as próprias leis da ruína.</p>
+
+        <p>Contudo, foi justamente nesse ponto que a fragilidade de sua realidade, já pendendo sobre um abismo, cedeu de vez.</p>
+
+        <p>Sua mãe, esgotada até o âmago — emocional, física e espiritualmente — enfim tomou uma decisão definitiva. Durante a madrugada, enquanto o mundo repousava num silêncio enganador, ela reuniu os poucos pertences que conseguiu carregar e desapareceu.</p>
+
+        <p>Fugiu.</p>
+
+        <p>Partiu sem alarde, sem despedidas, e com isso selou o rompimento de uma existência construída sobre medo e arrependimento. Abandonou aquela casa onde a violência havia tomado o lugar do amor, onde o casamento se convertera numa prisão de tijolos e silêncio. Partiu não como quem trai, mas como quem sobrevive.</p>
+
+        <p>E nunca mais foi vista.</p>
+
+        <p>No início, Miska foi atravessada por uma dor aguda e silenciosa. O abandono materno a dilacerou de maneira diferente do que qualquer agressão física poderia fazer. Mas, com o tempo — e Miska sempre foi precoce no que diz respeito à dor —, ela compreendeu. Compreendeu que sua mãe não partira por egoísmo, mas por desespero. Compreendeu que, às vezes, a única forma de continuar viva é ir embora.</p>
+
+        <p>Mas essa compreensão não suavizou em nada a fúria do pai.</p>
+
+        <p>Para ele, a fuga da esposa foi mais uma ferida narcísica, mais um golpe contra seu orgulho ferido — e, como de costume, Miska se tornou o canal por onde ele despejava toda sua raiva fermentada.</p>
+
+        <p>Afundado em álcool, ressentimento e uma masculinidade deformada, ele se tornou ainda mais destrutivo. O que antes se manifestava em tapas e socos evoluiu para algo mais sistemático, mais sádico. Objetos começaram a substituir os punhos: cintos, cabos de vassoura, pedaços de ferro. Tudo o que estivesse ao alcance de sua mão se tornava instrumento de punição.</p>
+
+        <p>Mas Miska — aquela mesma menina silenciosa que desenhava mundos melhores — não quebrou.</p>
+
+        <p>Ela sangrou, sim. Chorou, certamente. Mas não se partiu.</p>
+
+        <p>Pelo contrário, canalizou a dor para um propósito. Enxergou nos estudos um mapa de fuga. A escola, que por anos fora um campo de humilhação, tornou-se sua trincheira intelectual. Ela mergulhou nos livros com uma disciplina quase obsessiva, como quem constrói, página por página, a ponte que a levaria para longe daquele inferno. Estudar tornou-se um ato de resistência. Um voto de fé silencioso de que, um dia, escaparia — e faria isso sozinha.</p>
+
+        <p>Mas a vida, como o pai, também sabia golpear.</p>
+
+        <p>Aos 15 anos, ele encontrou uma nova maneira de corroer seus esforços: obrigou-a a trabalhar.</p>
+
+        <p>Não houve conversa, tampouco alternativas. Era uma ordem. Trabalhar ou apanhar. Contribuir com a renda da casa ou ser acusada de "inútil", "parasita", "culpada pela miséria".</p>
+
+        <p>E Miska, como sempre, cedeu. Não por submissão, mas por estratégia.</p>
+
+        <p>Conseguiu um emprego. E, com isso, iniciou um ciclo exaustivo e cruel: estudar pela manhã, trabalhar à tarde, sobreviver à noite. Carregava a esperança como um fardo — um fardo pesado, mas seu.</p>
+
+        <p>Essa rotina torturante se estendeu por dois anos. Foram centenas de dias vividos à margem do colapso, tentando equilibrar o que restava de sua sanidade sobre a corda bamba do cansaço extremo.</p>
+
+        <p>A rotina insustentável, que mesclava trabalho, estudo e sobrevivência emocional, estendeu-se como um ciclo punitivo até que Miska completou 17 anos. Nesse ponto, o desgaste já não era apenas físico — era existencial. Sua alma carregava rachaduras invisíveis, abertas lentamente pela repetição diária do descaso, da violência e do cansaço extremo. E então, veio a noite que tudo selou.</p>
+
+        <p>Era uma quinta-feira qualquer. O relógio marcava 23h56 quando ela finalmente cruzou a soleira de seu quarto, os passos arrastados, o corpo encharcado de exaustão. A semana fora impiedosa: expediente dobrado no trabalho, provas acumuladas na escola, olhares hostis no ônibus, e, como sempre, o medo como companhia silenciosa.</p>
+
+        <p>Ela não buscava nada além de alguns minutos de descanso — uma trégua, mesmo que ilusória, do fardo que carregava.</p>
+
+        <p>Mas o descanso não veio.</p>
+
+        <p>A porta foi arrombada com violência repentina. O cheiro ácido de álcool tomou o quarto antes mesmo de qualquer palavra ser dita. Seu pai havia chegado. Mais uma vez embriagado. Mais uma vez com os olhos vidrados de rancor.</p>
+
+        <p>Sem que houvesse provocação ou motivo aparente — como se isso ainda importasse — ele avançou.</p>
+
+        <p>Invadiu o quarto como uma tempestade de carne e fúria e, num gesto automático, brutal e calculado, cravou as mãos no pescoço de Miska. Apertou com uma força desproporcional, tentando esmagar não apenas o ar de seus pulmões, mas também qualquer traço de resistência que ainda lhe restasse.</p>
+
+        <p>Ela se debatia, claro. Não por covardia, mas por instinto. Tentava arrancar ar, agarrar-se à vida, dizer algo — mas não havia espaço para palavras. Enquanto isso, ele despejava sobre ela uma torrente de insultos: frases cortantes, cheias de ódio, de culpa deslocada, de uma masculinidade falida e encharcada de ressentimento.</p>
+
+        <p>Foram dez minutos que pareceram dez eternidades. Uma eternidade para cada segundo em que ela acreditou que morreria ali, naquele quarto escuro, onde tantos outros gritos já haviam sido abafados pelas paredes.</p>
+
+        <p>Quando finalmente ele a soltou, não havia arrependimento.</p>
+
+        <p>Nenhum lampejo de culpa. Nenhum olhar de espanto. Apenas o silêncio insuportável da normalização do horror. Ele saiu do quarto com a mesma naturalidade com que se vai escovar os dentes. E foi dormir.</p>
+
+        <p>E foi ali que algo morreu.</p>
+
+        <p>Ou, talvez, nasceu.</p>
+
+        <p>Porque naquela noite, Miska não chorou. Não gritou. Não desenhou. Ela apenas permaneceu imóvel por alguns instantes, encarando o teto como quem contempla o fundo de um poço sem saber se está caindo ou flutuando.</p>
+
+        <p>O que quer que a mantivesse de pé até então — orgulho, medo, esperança — se dissolveu. Restou apenas uma decisão: ela não morreria ali.</p>
+
+        <p>No silêncio ainda úmido da madrugada, fez o que precisava fazer. Reuniu suas coisas: uma mochila surrada, documentos escondidos em cadernos, alguns trocados, e os poucos desenhos que conseguiu salvar ao longo dos anos. Não deixou bilhete, não olhou para trás, não hesitou.</p>
+
+        <p>Simplesmente partiu.</p>
+
+        <p>E, naquela fuga, pela primeira vez, Miska escolheu a si mesma.</p>
+      
+            </div>
+
+            <div class="navigation">
+                <button class="nav-button prev" onclick="changePart(33)">‹‹</button>
+                <button class="nav-button next" onclick="changePart(36)">››</button>
+            </div>
+        </div>
+
+        <!-- Parte 34 -->
+        <div class="part hidden" id="part-36">
+            <div class="chapter-number">25.【Dias Atuais】Palavras de um Trauma</div>
+            
+            <div class="image-container">
+                <div style="width: 100%; height: 100%; background: linear-gradient(to bottom, #0a0a0a 0%, #000000 100%);
+                background-image: url(img/IMG_2275.png); background-position: center; background-repeat: no-repeat; background-size: cover;"></div>
+            </div>
+            
+            <div class="trauma-label">【トラウマ】</div>
+            
+            <div class="content">
+
+       <p>Hoje, Miska desconhece completamente o paradeiro de seus pais. E, embora esses pensamentos insistam em rondá-la nos momentos mais silenciosos, ela se esforça para mantê-los à margem. Não por frieza, mas por pura sobrevivência. Há dores que, se cultivadas, tomam forma e se alimentam da alma — e Miska já aprendeu a não deixá-las criar raízes.</p>
+
+        <p>Apesar das marcas — ou talvez por causa delas — ela reconstruiu sua vida com uma obstinação admirável. Conseguiu um emprego mais digno, com horários que respeitam, ainda que minimamente, seus estudos e sua saúde. Ou melhor, empregos, no plural.</p>
+
+        <p>O mundo, é claro, nunca deixou de testar sua estabilidade. Vez ou outra, ela perde alguma dessas oportunidades — seja por imprevistos financeiros, doenças, ou a exaustão que, inevitavelmente, cobra seu preço. Mas Miska sempre retorna. Sempre se reinventa. Seu senso de adaptação é quase orgânico, como se a instabilidade fosse, paradoxalmente, seu habitat natural.</p>
+
+        <p>Mais que isso, ela conseguiu construir uma rede de apoio — pequena, mas sólida. Cinco pessoas. Apenas cinco. Mas o suficiente para sustentar a sanidade de alguém que já conheceu o fundo do poço mais de uma vez.</p>
+
+        <p>Ash, Ashley, Kenda, Jeffrey e Jellie.</p>
+
+        <p>Eles não são apenas amigos. São âncoras. Pontes para um mundo que ainda tem cores, mesmo quando tudo parece cinza. São o único espaço onde Miska abaixa a guarda, onde se permite sorrir com sinceridade e, às vezes, até chorar sem medo.</p>
+
+        <p>Agora, talvez você se pergunte: o que exatamente me mantém tão obcecada por ela? Por que, dentre tantas histórias que já percorri — tantas dores, tantas quedas — escolhi seguir esta em específico?</p>
+
+        <p>A resposta é quase irritantemente simples.</p>
+
+        <b>Resiliência.</b>
+
+        <p>O que me intriga, e confesso, me diverte de maneira mórbida, é o fato de que Miska não sucumbiu. Ela sobreviveu a mim. Ao trauma. Aos espasmos do medo noturno, às cicatrizes invisíveis da negligência, à violência sistemática de um lar que jamais mereceu esse nome.</p>
+
+        <p>Ela teve mil razões para desaparecer — em corpo, em mente, em vontade. Mas continuou. E continua.</p>
+
+        <p>Admito: não entendo completamente o que a sustenta. Que força é essa que a impede de quebrar? Talvez nem ela mesma saiba. Talvez seja instinto. Talvez seja arte. Talvez seja raiva.</p>
+
+        <p>E é exatamente por isso que ela se tornou um enigma para mim. Um enigma que eu ainda pretendo decifrar. Porque, veja bem, não é apenas sobre dor. É sobre o que vem depois. Sobre o que resiste ao fim. E isso… isso é ouro puro para quem, como eu, se alimenta da psique humana.</p>
+
+        <p>Até onde Miska aguenta?</p>
+
+        <p>Hah… Eu vou descobrir.</p>
+
+        <p>- <a><a style="color: rgb(2, 114, 7);" href="https://thisismydiary.netlify.app/">O Fim</a>, Palavras de um Trauma.</p>
+      
+            </div>
+
+            <div class="navigation">
+                <button class="nav-button prev" onclick="changePart(34)">‹‹</button>
+                <button class="nav-button next" onclick="changePart(36)" disabled>››</button>
+            </div>
+        </div>
+
+    <script>
+        function changePart(partNumber) {
+            // Esconde todas as partes
+            const allParts = document.querySelectorAll('.part');
+            allParts.forEach(part => part.classList.add('hidden'));
+            
+            // Mostra a parte selecionada
+            const selectedPart = document.getElementById(`part-${partNumber}`);
+            if (selectedPart) {
+                selectedPart.classList.remove('hidden');
+                window.scrollTo(0, 0);
+            }
+        }
+    </script>
 </body>
 </html>
