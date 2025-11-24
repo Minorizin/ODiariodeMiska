@@ -1,115 +1,306 @@
-html, body {
-    cursor: url('img/cursordivino.cur'), default;
-    /* just change the cursor.ico path to your location */
-}
+html {
+        cursor: url('img/cursordivino.cur'), default;
+      }
 
+   * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-body .ast-separate-container{
-background: rgb(2,0,36);
-background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(221,202,166,1) 0%, rgba(255,255,255,1) 100%);
-}
+        body {
+            font-family: 'Crimson Text', serif;
+            background: linear-gradient(135deg, #8b6f47 0%, #a0826d 50%, #b89b7f 100%);
+            color: #3d2817;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
 
-.element.style {
-  text-align: left;
-  font-size: 150%;
-  margin-top: -1em;
-  }
+        /* Textura de papel antigo */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,.03) 2px, rgba(0,0,0,.03) 4px),
+                repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(0,0,0,.03) 2px, rgba(0,0,0,.03) 4px);
+            opacity: 0.3;
+            pointer-events: none;
+            z-index: 1;
+        }
 
-  .storybook {
-    background-image: url(img/paper-min[1].png);
-    padding: 1em 2em;
-    font-size: 105%;
-    border: 2px solid black;
-  }
+        /* Efeito de raios divinos */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(ellipse at top, rgba(210, 180, 140, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(245, 222, 179, 0.15) 0%, transparent 30%),
+                radial-gradient(circle at 20% 80%, rgba(210, 180, 140, 0.12) 0%, transparent 30%);
+            pointer-events: none;
+            animation: divineGlow 8s ease-in-out infinite alternate;
+        }
 
-details {
-  user-select: none;
-}
+        @keyframes divineGlow {
+            0%, 100% { opacity: 0.6; }
+            50% { opacity: 1; }
+        }
 
+        /* Partículas celestiais */
+        .celestial-particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
 
-.cardo-regular {
-  font-family: "Cardo", serif;
-  font-weight: 400;
-  font-style: normal;
-}
+        .particle {
+            position: absolute;
+            background: radial-gradient(circle, rgba(210, 180, 140, 0.9) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 15s infinite ease-in-out;
+        }
 
+        @keyframes float {
+            0%, 100% { transform: translateY(0) translateX(0); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100vh) translateX(50px); opacity: 0; }
+        }
 
+        /* Container principal */
+        .divine-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px 40px;
+            position: relative;
+            z-index: 2;
+            filter: sepia(0.15) contrast(1.1);
+        }
 
-details>summary span.icon {
-  width: 24px;
-  height: 24px;
-  transition: all 0.3s;
-  margin-left: auto;
-}
+        /* Cabeçalho divino */
+        .divine-header {
+            text-align: center;
+            margin-bottom: 60px;
+            padding: 40px 20px;
+            background: 
+                linear-gradient(135deg, rgba(222, 184, 135, 0.35) 0%, rgba(245, 222, 179, 0.25) 100%),
+                repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(139, 111, 71, 0.03) 10px, rgba(139, 111, 71, 0.03) 20px);
+            border: 2px solid rgba(160, 120, 80, 0.5);
+            border-radius: 20px;
+            box-shadow: 
+                0 0 30px rgba(210, 180, 140, 0.4),
+                inset 0 0 30px rgba(245, 222, 179, 0.2),
+                inset 0 0 80px rgba(139, 111, 71, 0.1);
+            position: relative;
+        }
 
-details[open] summary span.icon {
-  transform: rotate(180deg);
-}
+        .divine-header::before,
+        .divine-header::after {
+            content: '✦';
+            position: absolute;
+            font-size: 24px;
+            color: #a0826d;
+            animation: pulse 2s ease-in-out infinite;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
 
-summary {
-  display: flex;
-  cursor: pointer;
-}
+        .divine-header::before { top: 20px; left: 20px; }
+        .divine-header::after { bottom: 20px; right: 20px; }
 
-summary::-webkit-details-marker {
-  display: none;
-}
+        @keyframes pulse {
+            0%, 100% { opacity: 0.5; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
 
-img {
-  border: 5px solid #555;
-}
+        .chapter-number {
+            font-family: 'Cinzel', serif;
+            font-size: 18px;
+            color: #8b6f47;
+            letter-spacing: 3px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
 
-/* Chat containers */
+        .story-title {
+            font-family: 'Cinzel', serif;
+            font-size: 56px;
+            font-weight: 700;
+            color: #6b5544;
+            text-shadow: 
+                0 0 20px rgba(210, 180, 140, 0.5),
+                0 0 40px rgba(210, 180, 140, 0.3),
+                2px 2px 4px rgba(0, 0, 0, 0.2);
+            letter-spacing: 4px;
+            margin-bottom: 20px;
+        }
 
-.container {
-    border: 2px solid #1ca359;
-    background-color: hsl(0, 0%, 0%);
-    border-radius: 5px;
-    padding: 10px;
-    margin: 20px;
-    text-align:left
-  }
-  
-  /* Darker chat container */
-  .darker {
-    border-color: #1ca359;
-    background-color: hsl(0, 0%, 0%);
-    text-align:right
-  }
-  
-  /* Clear floats */
-  .container::after {
-    content: "";
-    clear: both;
-    display: table;
-    width: 0;
-  }
-  
-  /* Style images */
-  .container img {
-    float: left;
-    max-width: 60px;
-    width: 100%;
-    margin-right: 20px;
-    border-radius: 50%;
-    border-color: #1ca359;
-  }
-  
-  /* Style the right image */
-  .container img.right {
-    float: right;
-    margin-left: 20px;
-    margin-right:0;
-  }
-  
-  /* Style time text */
-  .time-right {
-    float: right;
-    color: #aaa;
-  }
-  
-  /* Style time text */
-  .time-left {
-    float: left;
-    color: #999;
-  }
+        .divider {
+            width: 200px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #a0826d, transparent);
+            margin: 20px auto;
+        }
+
+        /* Imagem sagrada */
+        .sacred-image-container {
+            text-align: center;
+            margin: 60px 0;
+            position: relative;
+        }
+
+        .sacred-image {
+            max-width: 39%;
+            height: auto;
+            border: 4px solid #a0826d;
+            border-radius: 15px;
+            box-shadow: 
+                0 0 40px rgba(210, 180, 140, 0.5),
+                0 10px 50px rgba(0, 0, 0, 0.3),
+                inset 0 0 20px rgba(245, 222, 179, 0.15);
+            transition: transform 0.3s ease;
+            filter: sepia(0.25) brightness(0.95) contrast(1.05);
+        }
+
+        .sacred-image:hover {
+            transform: scale(1.02);
+            box-shadow: 
+                0 0 60px rgba(210, 180, 140, 0.7),
+                0 15px 60px rgba(0, 0, 0, 0.4);
+            filter: sepia(0.2) brightness(1) contrast(1.05);
+        }
+
+        /* Conteúdo da história */
+        .story-content {
+            background: 
+                linear-gradient(135deg, rgba(210, 180, 140, 0.35) 0%, rgba(222, 184, 135, 0.3) 100%),
+                repeating-linear-gradient(0deg, transparent, transparent 1px, rgba(139, 111, 71, 0.02) 1px, rgba(139, 111, 71, 0.02) 2px);
+            padding: 60px 50px;
+            border-radius: 20px;
+            border: 1px solid rgba(160, 120, 80, 0.4);
+            box-shadow: 
+                0 10px 50px rgba(0, 0, 0, 0.3),
+                inset 0 0 30px rgba(245, 222, 179, 0.2),
+                inset 0 0 100px rgba(139, 111, 71, 0.05);
+            line-height: 2;
+            font-size: 19px;
+            position: relative;
+        }
+
+        .story-content::before {
+            content: '"';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 100px;
+            font-family: 'Cinzel', serif;
+            color: rgba(160, 120, 80, 0.25);
+            line-height: 1;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .story-content p {
+            margin-bottom: 28px;
+            text-indent: 40px;
+            text-align: justify;
+            text-shadow: 1px 1px 2px rgba(245, 222, 179, 0.3);
+        }
+
+        .story-content p:first-child::first-letter {
+            font-family: 'Cinzel', serif;
+            font-size: 72px;
+            font-weight: 700;
+            float: left;
+            line-height: 0.8;
+            margin: 10px 15px 0 0;
+            color: #8b6f47;
+            text-shadow: 
+                0 0 20px rgba(210, 180, 140, 0.5),
+                2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Diálogos */
+        .story-content p:has(em), 
+        .story-content em {
+            color: #524134;
+            font-style: italic;
+        }
+
+        /* Navegação */
+        .divine-navigation {
+            text-align: center;
+            margin-top: 60px;
+            padding: 30px;
+        }
+
+        .nav-link {
+            display: inline-block;
+            font-family: 'Cinzel', serif;
+            font-size: 20px;
+            color: #8b6f47;
+            text-decoration: none;
+            padding: 15px 40px;
+            border: 2px solid #a0826d;
+            border-radius: 50px;
+            background: linear-gradient(135deg, rgba(210, 180, 140, 0.25) 0%, transparent 100%);
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 1px 1px 2px rgba(245, 222, 179, 0.3);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-link:hover {
+            background: rgba(210, 180, 140, 0.4);
+            box-shadow: 
+                0 0 30px rgba(210, 180, 140, 0.5),
+                0 6px 20px rgba(0, 0, 0, 0.3);
+            transform: translateY(-2px);
+        }
+
+        /* Ornamentos decorativos */
+        .ornament {
+            text-align: center;
+            color: #a0826d;
+            font-size: 24px;
+            margin: 40px 0;
+            letter-spacing: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            opacity: 0.8;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .divine-container {
+                padding: 30px 20px;
+            }
+
+            .story-title {
+                font-size: 36px;
+            }
+
+            .story-content {
+                padding: 40px 30px;
+                font-size: 17px;
+            }
+
+            .story-content p:first-child::first-letter {
+                font-size: 56px;
+            }
+        }
+
+        /* Scroll suave */
+        html {
+            scroll-behavior: smooth;
+        }
