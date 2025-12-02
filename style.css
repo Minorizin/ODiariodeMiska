@@ -447,6 +447,185 @@
             padding-bottom: 5px;
         }
 
+          /* Temas de cores para folhas especiais */
+
+          /* Tema cinza */
+        #preview-box.theme-gray {
+            background: rgb(133, 133, 133);
+            border-color: #2e2e2e;
+            box-shadow: 0 0 30px rgba(46, 46, 46, 0.5);
+        }
+
+        #preview-box.theme-gray h3 {
+            color: #2e2e2e;
+            border-bottom-color: #1a1a1a;
+        }
+
+        #preview-box.theme-gray .preview-text {
+            color: #2e2e2e;
+        }
+
+        #preview-box.theme-gray  .preview-image {
+            width: 100%;
+            max-height: 250px;
+            object-fit: cover;
+            border: 2px solid #2e2e2e;;
+            margin-bottom: 10px;
+        }
+
+        /* Tema preto */
+
+        #preview-box.theme-black {
+            background: rgba(0, 0, 0, 0.95);
+            border-color: #000000;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
+        }
+
+        #preview-box.theme-black h3 {
+            color: #ffffff;
+            border-bottom-color: #333333;
+        }
+
+        /* Tema azul */
+
+        #preview-box.theme-dark-purple {
+            background: #1a1a2e;
+            border-color: #47476e;
+            box-shadow: 0 0 30px #575785;
+        }
+
+        #preview-box.theme-dark-purple h3 {
+            color: #f3f3f3;
+            border-bottom-color: #041156;
+        }
+
+        #preview-box.theme-dark-purple .preview-text {
+            color: #f3f3f3;
+        }
+
+        #preview-box.theme-dark-purple .preview-image {
+            width: 100%;
+            max-height: 250px;
+            object-fit: cover;
+            border: 2px solid #47476e;
+            margin-bottom: 10px;
+        }
+
+        /* Tema marrom */
+
+        #preview-box.theme-brown {
+            background: rgba(41, 35, 16, 0.95);
+            border-color: #292310;
+            box-shadow: 0 0 30px rgba(41, 35, 16, 0.5);
+        }
+
+        #preview-box.theme-brown h3 {
+            color: #d4a574;
+            border-bottom-color: #1a1709;
+        }
+
+        /* Tema branco */
+
+        #preview-box.theme-white {
+            background: #c7c7c7;
+            border-color: rgb(107, 107, 107);
+            box-shadow: 0 0 30px #c7c7c7;
+        }
+
+        #preview-box.theme-white h3 {
+            color: #000000;
+            border-bottom-color: #cccccc;
+        }
+
+        #preview-box.theme-white .preview-text {
+            color: #333333;
+        }
+
+        #preview-box.theme-white .preview-image {
+            width: 100%;
+            max-height: 250px;
+            object-fit: cover;
+            border: 2px solid rgb(107, 107, 107);
+            margin-bottom: 10px;
+        }
+
+        /* Tema amarelo */
+
+        #preview-box.theme-yellow {
+            background: rgb(145, 125, 59);
+            border: 3px solid rgb(94, 81, 40);
+            box-shadow: 0 0 30px rgba(255, 196, 0, 0.5);
+        }
+
+        #preview-box.theme-yellow h3 {
+            color: #4a2f00;
+            border-bottom-color: #cc9d00;
+        }
+
+        #preview-box.theme-yellow .preview-text {
+            color: #4a2f00;
+        }
+
+        #preview-box.theme-yellow  .preview-image {
+            width: 100%;
+            max-height: 250px;
+            object-fit: cover;
+            border: 2px solid #4a2f00;
+            margin-bottom: 10px;
+        }
+
+        /* Tema rosa */
+
+        #preview-box.theme-pink {
+            background: rgb(156, 6, 131);
+            border: 3px solid rgb(92, 4, 77);
+            box-shadow: 0 0 30px rgb(206, 5, 196);
+        }
+
+        #preview-box.theme-pink h3 {
+            color: #081b86;
+            border-bottom-color: #cc9d00;
+        }
+
+        #preview-box.theme-pink .preview-text {
+            color: #f7f7f7;
+        }
+
+        #preview-box.theme-pink  .preview-image {
+            width: 100%;
+            max-height: 250px;
+            object-fit: cover;
+            border: 2px solid rgb(92, 4, 77);
+            margin-bottom: 10px;
+        }
+
+        /* Tema vermelho */
+
+        #preview-box.theme-red {
+            background: rgb(66, 0, 0);
+            border: 3px solid rgb(131, 2, 2);
+            box-shadow: 0 0 30px rgb(131, 2, 2);
+        }
+
+        #preview-box.theme-red h3 {
+            color: #f7f7f7;
+            border-bottom-color: rgb(131, 2, 2);
+        }
+
+        #preview-box.theme-red .preview-text {
+            color: #f7f7f7;
+        }
+
+        #preview-box.theme-red  .preview-image {
+            width: 100%;
+            max-height: 250px;
+            object-fit: cover;
+            border: 2px solid #f7f7f7;
+            margin-bottom: 10px;
+        }
+
+        /* Caixa de preview original */
+
         #preview-box .preview-image {
             width: 100%;
             max-height: 250px;
@@ -476,21 +655,6 @@
 
             #preview-box {
                 max-width: 90vw;
-            }
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .title {
-                font-size: 2em;
-            }
-
-            .content-box {
-                padding: 20px;
-            }
-
-            .grid {
-                grid-template-columns: 1fr;
             }
         }
     
