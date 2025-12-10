@@ -23,6 +23,55 @@
     </style>
 </head>
 <body>
+
+     <!-- Tela de Login -->
+   <div class="login-screen" id="loginScreen">
+        <div class="login-header"></div>
+        
+        <div class="user-profile">
+            <div class="user-avatar">
+
+                <img src="img/miskaperfil.png" alt="Avatar" style="width: 100%; height: 100%; object-fit: cover; border-radius: 4px;">
+
+            </div>
+            <div class="user-name" id="userName">Bem-vindo...</div>
+            <div class="login-form">
+                <input type="text" 
+                       class="username-input" 
+                       id="usernameInput" 
+                       placeholder="Usuário"
+                       autocomplete="off">
+                <div class="login-input-row">
+                    <input type="password" 
+                           class="password-input" 
+                           id="passwordInput" 
+                           placeholder="Senha"
+                           autocomplete="off">
+                    <button class="login-button" onclick="attemptLogin()">→</button>
+                </div>
+            </div>
+            <div class="login-message" id="loginMessage"></div>
+        </div>
+
+        <div class="login-footer">
+            <div class="windows-logo-login">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="white">
+                    <path d="M0,0 L10,0 L10,10 L0,10 Z M11,0 L24,0 L24,10 L11,10 Z M0,11 L10,11 L10,24 L0,24 Z M11,11 L24,11 L24,24 L11,24 Z"/>
+                </svg>
+                <span>Folha 017</span>
+            </div>
+            <div class="login-buttons">
+
+                <button class="login-footer-button" onclick="openLink('https://thisismydiary.netlify.app/')">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M13,3V9H21V3M13,21H21V11H13M3,21H11V15H3M3,13H11V3H3V13Z"/>
+                    </svg>
+                    Desligar
+                </button>
+            </div>
+        </div>
+    </div>
+
     <div class="background-slideshow">
         <img src="img/casademiska.png" class="active" alt="fundo1">
         <img src="img/fundo2.jpg" alt="fundo2">
@@ -52,7 +101,12 @@
         <img src="img/easteregg5.png" alt="easteregg5">
         <img src="img/easteregg6.jpg" alt="easteregg6">
         <img src="img/easteregg7.webp" alt="easteregg7">
-        <img src="img/easteregg8.jpg" alt="easteregg8">
+        <img src="img/easteregg8.png" alt="easteregg8">
+        <img src="img/easteregg9.jpg" alt="easteregg9">
+        <img src="img/easteregg10.jpg" alt="easteregg10">
+        <img src="img/easteregg11.jpg" alt="easteregg11">
+        <img src="img/easteregg12.jpg" alt="easteregg12">
+        <img src="img/easteregg13.jpg" alt="easteregg13">
         <img src="img/fundo22.jpg" alt="fundo22">
         <img src="img/fundo23.jpg" alt="fundo23">
         <img src="img/fundo24.jpg" alt="fundo24">
@@ -72,21 +126,49 @@
         <img src="img/fundo38.jpg" alt="fundo38">
         <img src="img/fundo39.jpg" alt="fundo39">
         <img src="img/fundo40.jpg" alt="fundo40">
+        <img src="img/fundo41.jpg" alt="fundo41">
+        <img src="img/fundo42.jpg" alt="fundo42">
+        <img src="img/fundo43.gif" alt="fundo43">
+        <img src="img/fundo44.png" alt="fundo44">
+        <img src="img/fundo45.jpg" alt="fundo45">
+        <img src="img/fundo46.jpg" alt="fundo46">
+        <img src="img/fundo47.jpg" alt="fundo47">
+        <img src="img/fundo48.jpg" alt="fundo48">
+        <img src="img/fundo49.jpg" alt="fundo49">
+        <img src="img/fundo50.jpg" alt="fundo50">
         
     </div>
-    <div class="desktop">
-        <div class="icon" id="documents" onclick="openLink('https://drive.google.com/file/d/1f0BACJPtZeG_9fkdVMkWmrxI1yODGqHL/view?usp=drive_link')">
+   <div class="desktop">
+        <div class="icon" id="documents" onclick="openProgramWindow('Admirador')">
             <div class="icon-image">
                 <img src="img/Admirador.ico" alt="Nome do programa" style="width: 100%; height: 100%;">
             </div>
             <div class="icon-label">Admirador</div>
         </div>
 
-        <div class="icon" id="browser" onclick="openLink('https://drive.google.com/file/d/1cyRsY7my57JrCbUDVxKFMrN4gGSSwtOu/view?usp=drive_link')">
+        <div class="icon" id="browser" onclick="openProgramWindow('Secreto')">
             <div class="icon-image">
                 <img src="img/Secreto.png" alt="Nome do programa" style="width: 100%; height: 100%;">
             </div>
             <div class="icon-label">Secreto</div>
+        </div>
+    </div>
+
+     <!-- Janelas dos programas -->
+    <div class="window-overlay" id="windowOverlay">
+        <div class="program-window" id="programWindow">
+            <div class="window-titlebar">
+                <div class="window-title" id="windowTitle">
+                    <img src="" alt="" id="windowIcon">
+                    <span id="windowTitleText">Programa</span>
+                </div>
+                <div class="window-buttons">
+                    <button class="window-button" onclick="closeWindow()">✕</button>
+                </div>
+            </div>
+            <div class="window-content" id="windowContent">
+                <!-- Conteúdo será inserido aqui -->
+            </div>
         </div>
     </div>
 
@@ -110,8 +192,237 @@
     </div>
 
     <script>
+
+        // Função de login
+        function attemptLogin() {
+            const username = document.getElementById('usernameInput').value;
+            const password = document.getElementById('passwordInput').value;
+            const loginMessage = document.getElementById('loginMessage');
+            const loginScreen = document.getElementById('loginScreen');
+            const userName = document.getElementById('userName');
+            
+            if (username.length > 0 && password.length > 0) {
+                userName.textContent = username;
+                loginMessage.textContent = 'Bem-vindo...';
+                loginMessage.style.color = '#90ee90';
+                
+                setTimeout(() => {
+                    loginScreen.classList.add('hidden');
+                    setTimeout(() => {
+                        loginScreen.style.display = 'none';
+                    }, 500);
+                }, 800);
+            } else if (username.length === 0) {
+                loginMessage.textContent = 'Por favor, insira um nome de usuário.';
+                loginMessage.style.color = '#ffcccc';
+                
+                const input = document.getElementById('usernameInput');
+                input.style.animation = 'none';
+                setTimeout(() => {
+                    input.style.animation = 'shake 0.5s';
+                }, 10);
+            } else if (password.length === 0) {
+                loginMessage.textContent = 'Por favor, insira uma senha.';
+                loginMessage.style.color = '#ffcccc';
+                
+                const input = document.getElementById('passwordInput');
+                input.style.animation = 'none';
+                setTimeout(() => {
+                    input.style.animation = 'shake 0.5s';
+                }, 10);
+            }
+        }
+
+        // Permitir login com Enter em ambos os campos
+        document.getElementById('usernameInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                document.getElementById('passwordInput').focus();
+            }
+        });
+
+        document.getElementById('passwordInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                attemptLogin();
+            }
+        });
+
+        // Adicionar animação de shake
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes shake {
+                0%, 100% { transform: translateX(0); }
+                25% { transform: translateX(-10px); }
+                75% { transform: translateX(10px); }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Som de click do mouse
+        function playClickSound() {
+    const audio = new Audio('áudio/mouse-click.mp3');
+    audio.volume = 0.6;
+    audio.play();
+}
+
+        // Adicionar som de click em todos os cliques
+        document.addEventListener('mousedown', function(e) {
+            playClickSound();
+        });
+
+        // Som de digitação
+        function playTypingSound() {
+            const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+            const oscillator = audioContext.createOscillator();
+            const gainNode = audioContext.createGain();
+            
+            oscillator.connect(gainNode);
+            gainNode.connect(audioContext.destination);
+            
+            // Configurar som de tecla
+            oscillator.type = 'square';
+            oscillator.frequency.setValueAtTime(200 + Math.random() * 100, audioContext.currentTime);
+            
+            gainNode.gain.setValueAtTime(0.1, audioContext.currentTime);
+            gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.03);
+            
+            oscillator.start(audioContext.currentTime);
+            oscillator.stop(audioContext.currentTime + 0.03);
+        }
+
+        // Adicionar som de digitação nos campos
+        document.getElementById('usernameInput').addEventListener('keydown', function(e) {
+            playTypingSound();
+        });
+
+        document.getElementById('passwordInput').addEventListener('keydown', function(e) {
+            playTypingSound();
+        });
+
+         // Dados dos programas
+        const programs = {
+            Admirador: {
+                title: 'Admirador',
+                icon: 'img/Admirador.ico',
+                description: '17-01',
+                warning: true,
+                warningText: 'O que você está prestes a acessar contém conteúdo que pode perturbá-lo. Até mesmo chocá-lo. Continue por sua conta e risco.',
+                info: 'Seria possível que alguém transgredisse todas as barreiras morais, que cometesse atos impensáveis apenas para conquistar sua aprovação?',
+                link: 'https://drive.google.com/file/d/1f0BACJPtZeG_9fkdVMkWmrxI1yODGqHL/view?usp=drive_link',
+                linkText: 'Baixar'
+            },
+            Secreto: {
+                title: 'Secreto',
+                icon: 'img/Secreto.png',
+                description: '17-02',
+                warning: true,
+                warningText: 'O que você está prestes a acessar contém conteúdo que pode perturbá-lo. Até mesmo chocá-lo. Continue por sua conta e risco.',
+                info: '... Mesmo nunca houvesse um rosto, uma voz, sequer um gesto concreto que denunciasse sua existência?',
+                link: 'https://drive.google.com/file/d/1cyRsY7my57JrCbUDVxKFMrN4gGSSwtOu/view?usp=drive_link',
+                linkText: 'Baixar'
+            }
+        };
+
+        function openProgramWindow(programId) {
+            const program = programs[programId];
+            const overlay = document.getElementById('windowOverlay');
+            const programWindow = document.getElementById('programWindow');
+            const windowIcon = document.getElementById('windowIcon');
+            const windowTitleText = document.getElementById('windowTitleText');
+            const windowContent = document.getElementById('windowContent');
+
+            // Reset position
+            xOffset = 0;
+            yOffset = 0;
+            programWindow.style.transform = 'translate(0px, 0px)';
+
+            windowIcon.src = program.icon;
+            windowTitleText.textContent = program.title;
+            
+            let warningSection = '';
+            if (program.warning) {
+                warningSection = `
+                    <div class="warning-box">
+                        <div class="warning-title">⚠ Aviso!!</div>
+                        <div class="warning-text">${program.warningText}</div>
+                    </div>
+                `;
+            }
+
+            windowContent.innerHTML = `
+                <img src="${program.icon}" class="program-icon-large" alt="${program.title}">
+                <p class="program-description">${program.description}</p>
+                ${warningSection}
+                <div class="program-info">
+                    <div class="program-info-title">Sobre este programa:</div>
+                    <p>${program.info}</p>
+                </div>
+                <div class="window-actions">
+                    <button class="action-button primary" onclick="openLink('${program.link}')">
+                        ${program.linkText}
+                    </button>
+                    <button class="action-button" onclick="closeWindow()">
+                        Cancelar
+                    </button>
+                </div>
+            `;
+
+            overlay.classList.add('active');
+        }
+
+        function closeWindow() {
+            document.getElementById('windowOverlay').classList.remove('active');
+        }
+
+        // Sistema para arrastar a janela
+        let isDragging = false;
+        let currentX;
+        let currentY;
+        let initialX;
+        let initialY;
+        let xOffset = 0;
+        let yOffset = 0;
+
+        function dragStart(e) {
+            const titlebar = e.target.closest('.window-titlebar');
+            if (titlebar && !e.target.closest('.window-button')) {
+                initialX = e.clientX - xOffset;
+                initialY = e.clientY - yOffset;
+                isDragging = true;
+            }
+        }
+
+        function drag(e) {
+            if (isDragging) {
+                e.preventDefault();
+                currentX = e.clientX - initialX;
+                currentY = e.clientY - initialY;
+                xOffset = currentX;
+                yOffset = currentY;
+                
+                const window = document.getElementById('programWindow');
+                window.style.transform = `translate(${currentX}px, ${currentY}px)`;
+            }
+        }
+
+        function dragEnd(e) {
+            isDragging = false;
+        }
+
+        // Adicionar eventos de arrastar
+        document.addEventListener('mousedown', dragStart);
+        document.addEventListener('mousemove', drag);
+        document.addEventListener('mouseup', dragEnd);
+
+        // Fechar ao clicar fora da janela (agora desabilitado já que não tem mais fundo escuro)
+        // document.getElementById('windowOverlay').addEventListener('click', function(e) {
+        //     if (e.target === this) {
+        //         closeWindow();
+        //     }
+        // });
+
         function openLink(url) {
             window.open(url, '_blank');
+            closeWindow();
         }
 
         // Sistema de apresentação de slides
