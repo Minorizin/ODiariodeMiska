@@ -1,105 +1,158 @@
-html, body {
-    cursor: url('cursor/cursor.cur'), default;
-    /* just change the cursor.ico path to your location */
-}
+html {
+        cursor: url('cursor/cursor.cur'), auto;
+    }
 
+  * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-details {
-  user-select: none;
-}
+        body {
+            font-family: "Segoe UI", Tahoma, sans-serif;
+            overflow: hidden;
+            position: relative;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-attachment: fixed;
+            background-size: cover;
+        }
 
+        .background-slideshow {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
 
-.delius-regular {
-  font-family: "Delius", serif;
-  font-weight: 400;
-  font-style: normal;
-}
+        .background-slideshow img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+        }
 
+        .background-slideshow img.active {
+            opacity: 1;
+        }
 
+        .desktop {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+            padding: 20px;
+        }
 
-details>summary span.icon {
-  width: 24px;
-  height: 24px;
-  transition: all 0.3s;
-  margin-left: auto;
-}
+        .icon {
+            width: 80px;
+            text-align: center;
+            cursor: pointer;
+            position: absolute;
+            user-select: none;
+        }
 
-details[open] summary span.icon {
-  transform: rotate(180deg);
-}
+        .icon:hover .icon-image {
+            filter: brightness(1.1);
+        }
 
-summary {
-  display: flex;
-  cursor: pointer;
-}
+        .icon:active .icon-image {
+            transform: scale(0.95);
+        }
 
-summary::-webkit-details-marker {
-  display: none;
-}
+        .icon-image {
+            width: 48px;
+            height: 48px;
+            margin: 0 auto 5px;
+            transition: all 0.1s;
+        }
 
-img {
-  border: 5px solid #555;
-}
+        .icon-label {
+            color: white;
+            font-size: 11px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+            word-wrap: break-word;
+            line-height: 1.2;
+        }
 
-/* Chat containers */
+        #documents {
+            top: 20px;
+            left: 20px;
+        }
 
-.container {
-    border: 2px solid #1ca359;
-    background-color: hsl(0, 0%, 0%);
-    border-radius: 5px;
-    padding: 10px;
-    margin: 20px;
-    text-align:left
-  }
-  
-  /* Darker chat container */
-  .darker {
-    border-color: #1ca359;
-    background-color: hsl(0, 0%, 0%);
-    text-align:right
-  }
-  
-  /* Clear floats */
-  .container::after {
-    content: "";
-    clear: both;
-    display: table;
-    width: 0;
-  }
-  
-  /* Style images */
-  .container img {
-    float: left;
-    max-width: 60px;
-    width: 100%;
-    margin-right: 20px;
-    border-radius: 50%;
-    border-color: #1ca359;
-  }
-  
-  /* Style the right image */
-  .container img.right {
-    float: right;
-    margin-left: 20px;
-    margin-right:0;
-  }
-  
-  /* Style time text */
-  .time-right {
-    float: right;
-    color: #aaa;
-  }
-  
-  /* Style time text */
-  .time-left {
-    float: left;
-    color: #999;
-  }
-  
-   #bullrunvideo {  
-    position: fixed;   
-    right: 0;   
-    bottom: 0;   
-    min-width: 100%;   
-    min-height: 100%; 
-  }
+        #browser {
+            top: 110px;
+            left: 20px;
+        }
+
+        .taskbar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 30px;
+            background: linear-gradient(to bottom, #3a6ea5 0%, #2e5c8a 50%, #1e4e7a 100%);
+            border-top: 1px solid #5c9cd8;
+            display: flex;
+            align-items: center;
+            padding: 0 5px;
+            box-shadow: 0 -2px 5px rgba(0,0,0,0.3);
+        }
+
+        .start-button {
+            height: 24px;
+            background: linear-gradient(to bottom, #5ebc6f 0%, #3d9e4f 50%, #2d8a3f 100%);
+            border: 1px solid #fff;
+            border-radius: 3px;
+            color: white;
+            font-weight: bold;
+            font-size: 11px;
+            padding: 0 15px 0 8px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            box-shadow: inset 0 1px 1px rgba(255,255,255,0.3), 0 1px 2px rgba(0,0,0,0.3);
+        }
+
+        .start-button:hover {
+            background: linear-gradient(to bottom, #6fcf7f 0%, #4db05f 50%, #3d9e4f 100%);
+        }
+
+        .start-button:active {
+            background: linear-gradient(to bottom, #3d9e4f 0%, #2d8a3f 100%);
+        }
+
+        .windows-logo {
+            width: 18px;
+            height: 18px;
+            display: inline-block;
+        }
+
+        .system-tray {
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 0 8px;
+            height: 100%;
+            color: white;
+            font-size: 11px;
+        }
+
+        .tray-icon {
+            width: 16px;
+            height: 16px;
+        }
+
+        .clock {
+            padding: 0 5px;
+            background: rgba(0,0,0,0.1);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 2px;
+        }
