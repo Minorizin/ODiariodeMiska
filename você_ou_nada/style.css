@@ -82,6 +82,16 @@
             left: 20px;
         }
 
+        #paint {
+            top: 200px;
+            left: 20px;
+        }
+
+        #minesweeper {
+            top: 290px;
+            left: 20px;
+        }
+
         .taskbar {
             position: fixed;
             bottom: 0;
@@ -487,6 +497,8 @@
             display: flex;
             align-items: center;
             gap: 10px;
+            width: 100%;
+            justify-content: center;
         }
 
         .username-input,
@@ -523,6 +535,7 @@
             font-weight: bold;
             box-shadow: 0 2px 4px rgba(0,0,0,0.3);
             transition: all 0.2s;
+            flex-shrink: 0;
         }
 
         .login-button:hover {

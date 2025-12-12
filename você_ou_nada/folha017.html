@@ -154,6 +154,22 @@
         </div>
     </div>
 
+    <div class="icon" id="paint" onclick="openPaint()">
+            <div class="icon-image">
+                <img src="img/Paint.ico" alt="Nome do programa" style="width: 100%; height: 100%;">
+            </div>
+            <div class="icon-label">Pintar</div>
+        </div>
+    </div>
+
+     <div class="icon" id="minesweeper" onclick="openMinesweeper()">
+            <div class="icon-image">
+                <img src="img/CampoMinado.webp" alt="Nome do programa" style="width: 100%; height: 100%;">
+            </div>
+            <div class="icon-label">Campo Minado</div>
+        </div>
+    </div>
+
      <!-- Janelas dos programas -->
     <div class="window-overlay" id="windowOverlay">
         <div class="program-window" id="programWindow">
@@ -423,6 +439,774 @@
         function openLink(url) {
             window.open(url, '_blank');
             closeWindow();
+        }
+
+        function openPaint() {
+            const paintWindow = document.createElement('div');
+            paintWindow.id = 'paintWindow';
+            paintWindow.style.cssText = `
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 750px;
+                height: 550px;
+                background: #ece9d8;
+                border: 3px solid;
+                border-color: #ffffff #0a246a #0a246a #ffffff;
+                box-shadow: 3px 3px 12px rgba(0,0,0,0.7);
+                z-index: 9999;
+                display: flex;
+                flex-direction: column;
+            `;
+
+            paintWindow.innerHTML = `
+                <div style="background: linear-gradient(to bottom, #245edb 0%, #1941a5 50%, #15317e 100%); padding: 3px 5px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #000; cursor: move;" id="paintTitleBar">
+                    <div style="color: white; font-size: 12px; font-weight: bold; display: flex; align-items: center; gap: 6px;">
+                        <img src="img/Paint.ico" alt="Nome do programa" style="width: 5%; height: 5%;">
+                        <span>untitled - Pintar</span>
+                    </div>
+                    <button onclick="document.getElementById('paintWindow').remove()" style="width: 21px; height: 20px; background: linear-gradient(to bottom, #f0f0f0 0%, #d8d8d8 100%); border: 1px solid; border-color: #ffffff #404040 #404040 #ffffff; cursor: pointer; display: flex; align-items: center; justify-content: center;">✕</button>
+                </div>
+                <div style="background: #f0f0f0; border-bottom: 1px solid #808080; padding: 2px 5px; font-size: 11px; display: flex; gap: 15px;">
+                    <div style="position: relative;" id="fileMenuContainer">
+                        <span style="cursor: pointer;" id="fileMenuTrigger">File</span>
+                        <div id="fileMenu" style="display: none; position: absolute; top: 20px; left: 0; background: #f0f0f0; border: 2px solid; border-color: #ffffff #808080 #808080 #ffffff; box-shadow: 2px 2px 4px rgba(0,0,0,0.3); min-width: 150px; z-index: 10001;">
+                            <div onclick="savePaintDrawing('png')" style="padding: 5px 10px; cursor: pointer; font-size: 11px;" onmouseover="this.style.background='#0054e3'; this.style.color='#fff'" onmouseout="this.style.background=''; this.style.color=''">Salvar como PNG</div>
+                            <div onclick="savePaintDrawing('jpeg')" style="padding: 5px 10px; cursor: pointer; font-size: 11px;" onmouseover="this.style.background='#0054e3'; this.style.color='#fff'" onmouseout="this.style.background=''; this.style.color=''">Salvar como JPEG</div>
+                        </div>
+                    </div>
+                    <span style="cursor: pointer;">Edit</span>
+                    <span style="cursor: pointer;">View</span>
+                    <span style="cursor: pointer;">Image</span>
+                    <span style="cursor: pointer;">Colors</span>
+                    <span style="cursor: pointer;">Help</span>
+                </div>
+                <div style="flex: 1; display: flex;">
+                    <div style="width: 70px; background: #ece9d8; border-right: 1px solid #808080; padding: 5px; display: flex; flex-direction: column; gap: 5px; align-items: center;">
+                        <button onclick="selectPaintTool('select')" id="tool-select" style="width: 35px; height: 35px; border: 2px solid #808080; background: #fff; cursor: pointer; font-size: 16px;">⬚</button>
+                        <button onclick="selectPaintTool('pencil')" id="tool-pencil" style="width: 35px; height: 35px; border: 2px solid #808080; background: #fff; cursor: pointer; font-size: 16px;">✏️</button>
+                        <button onclick="selectPaintTool('brush')" id="tool-brush" style="width: 35px; height: 35px; border: 2px solid #808080; background: #fff; cursor: pointer; font-size: 16px;">🖌️</button>
+                        <button onclick="selectPaintTool('eraser')" id="tool-eraser" style="width: 35px; height: 35px; border: 2px solid #808080; background: #fff; cursor: pointer; font-size: 16px;">🧹</button>
+                        <button onclick="selectPaintTool('text')" id="tool-text" style="width: 35px; height: 35px; border: 2px solid #808080; background: #fff; cursor: pointer; font-size: 16px;">A</button>
+                        <button onclick="selectPaintTool('rectangle')" id="tool-rectangle" style="width: 35px; height: 35px; border: 2px solid #808080; background: #fff; cursor: pointer; font-size: 16px;">▭</button>
+                        <button onclick="selectPaintTool('circle')" id="tool-circle" style="width: 35px; height: 35px; border: 2px solid #808080; background: #fff; cursor: pointer; font-size: 16px;">○</button>
+                        <button onclick="selectPaintTool('line')" id="tool-line" style="width: 35px; height: 35px; border: 2px solid #808080; background: #fff; cursor: pointer; font-size: 16px;">╱</button>
+                        <button onclick="clearPaintCanvas()" style="width: 35px; height: 35px; border: 2px solid #808080; background: #fff; cursor: pointer; font-size: 16px;">🗑️</button>
+                    </div>
+                    <div style="flex: 1; background: #fff; position: relative; overflow: hidden;">
+                        <canvas id="paintCanvas" width="670" height="460" style="cursor: crosshair;"></canvas>
+                        <canvas id="selectionCanvas" width="670" height="460" style="position: absolute; top: 0; left: 0; pointer-events: none;"></canvas>
+                    </div>
+                </div>
+                <div style="background: #ece9d8; border-top: 1px solid #808080; padding: 5px; display: flex; gap: 3px; flex-wrap: wrap;">
+                    <div onclick="selectPaintColor('#000000')" style="width: 22px; height: 22px; background: #000; border: 1px solid #808080; cursor: pointer;"></div>
+                    <div onclick="selectPaintColor('#808080')" style="width: 22px; height: 22px; background: #808080; border: 1px solid #808080; cursor: pointer;"></div>
+                    <div onclick="selectPaintColor('#800000')" style="width: 22px; height: 22px; background: #800000; border: 1px solid #808080; cursor: pointer;"></div>
+                    <div onclick="selectPaintColor('#ff0000')" style="width: 22px; height: 22px; background: #ff0000; border: 1px solid #808080; cursor: pointer;"></div>
+                    <div onclick="selectPaintColor('#ffa500')" style="width: 22px; height: 22px; background: #ffa500; border: 1px solid #808080; cursor: pointer;"></div>
+                    <div onclick="selectPaintColor('#ffff00')" style="width: 22px; height: 22px; background: #ffff00; border: 1px solid #808080; cursor: pointer;"></div>
+                    <div onclick="selectPaintColor('#00ff00')" style="width: 22px; height: 22px; background: #00ff00; border: 1px solid #808080; cursor: pointer;"></div>
+                    <div onclick="selectPaintColor('#00ffff')" style="width: 22px; height: 22px; background: #00ffff; border: 1px solid #808080; cursor: pointer;"></div>
+                    <div onclick="selectPaintColor('#0000ff')" style="width: 22px; height: 22px; background: #0000ff; border: 1px solid #808080; cursor: pointer;"></div>
+                    <div onclick="selectPaintColor('#ff00ff')" style="width: 22px; height: 22px; background: #ff00ff; border: 1px solid #808080; cursor: pointer;"></div>
+                    <div onclick="selectPaintColor('#ffffff')" style="width: 22px; height: 22px; background: #ffffff; border: 1px solid #808080; cursor: pointer;"></div>
+                    <div onclick="selectPaintColor('#a0522d')" style="width: 22px; height: 22px; background: #a0522d; border: 1px solid #808080; cursor: pointer;"></div>
+                </div>
+            `;
+
+            document.body.appendChild(paintWindow);
+
+            // Inicializar canvas
+            const canvas = document.getElementById('paintCanvas');
+            const ctx = canvas.getContext('2d');
+            const selectionCanvas = document.getElementById('selectionCanvas');
+            const selectionCtx = selectionCanvas.getContext('2d');
+            let isDrawing = false;
+            let currentColor = '#000000';
+            let currentTool = 'pencil';
+            let startX, startY;
+            
+            // Variáveis para seleção
+            let isSelecting = false;
+            let selectionBox = null;
+            let selectedImage = null;
+            let isDraggingSelection = false;
+            let dragOffsetX = 0;
+            let dragOffsetY = 0;
+            
+            // Variáveis para texto
+            let isTypingText = false;
+            let textX = 0;
+            let textY = 0;
+            let textInput = null;
+
+            window.selectPaintColor = function(color) {
+                currentColor = color;
+            };
+
+            window.selectPaintTool = function(tool) {
+                currentTool = tool;
+                
+                // Finalizar texto se estava digitando
+                if (isTypingText && textInput) {
+                    finalizeText();
+                }
+                
+                // Colar seleção anterior ao trocar de ferramenta
+                if (tool !== 'select' && selectedImage && selectionBox) {
+                    ctx.putImageData(selectedImage, selectionBox.x, selectionBox.y);
+                    clearSelection();
+                }
+                // Atualizar cursor
+                if (tool === 'select') {
+                    canvas.style.cursor = 'default';
+                } else if (tool === 'text') {
+                    canvas.style.cursor = 'text';
+                } else {
+                    canvas.style.cursor = 'crosshair';
+                }
+                // Destacar ferramenta selecionada
+                document.querySelectorAll('[id^="tool-"]').forEach(btn => {
+                    btn.style.background = '#fff';
+                });
+                const toolBtn = document.getElementById('tool-' + tool);
+                if (toolBtn) toolBtn.style.background = '#d0d0d0';
+            };
+
+            function finalizeText() {
+                if (textInput && textInput.value.trim()) {
+                    ctx.font = '16px Arial';
+                    ctx.fillStyle = currentColor;
+                    ctx.fillText(textInput.value, textX, textY);
+                }
+                if (textInput) {
+                    textInput.remove();
+                    textInput = null;
+                }
+                isTypingText = false;
+            }
+
+            function clearSelection() {
+                selectionCtx.clearRect(0, 0, selectionCanvas.width, selectionCanvas.height);
+                selectionBox = null;
+                selectedImage = null;
+                isDraggingSelection = false;
+            }
+
+            function drawSelectionBox(x, y, width, height) {
+                selectionCtx.clearRect(0, 0, selectionCanvas.width, selectionCanvas.height);
+                selectionCtx.setLineDash([5, 5]);
+                selectionCtx.strokeStyle = '#000';
+                selectionCtx.lineWidth = 1;
+                selectionCtx.strokeRect(x, y, width, height);
+                selectionCtx.setLineDash([]);
+            }
+
+            window.clearPaintCanvas = function() {
+                // Finalizar texto se estava digitando
+                if (isTypingText && textInput) {
+                    finalizeText();
+                }
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+            };
+
+            window.savePaintDrawing = function(format = 'png') {
+                // Finalizar texto se estava digitando
+                if (isTypingText && textInput) {
+                    finalizeText();
+                }
+                
+                // Colar seleção se existir
+                if (selectedImage && selectionBox) {
+                    ctx.putImageData(selectedImage, selectionBox.x, selectionBox.y);
+                    clearSelection();
+                }
+                
+                // Fechar menu
+                const menu = document.getElementById('fileMenu');
+                if (menu) menu.style.display = 'none';
+                
+                const link = document.createElement('a');
+                let mimeType = 'image/png';
+                let extension = 'png';
+                let dataUrl;
+                
+                if (format === 'jpeg') {
+                    // Para JPEG, criar um canvas temporário com fundo branco
+                    const tempCanvas = document.createElement('canvas');
+                    tempCanvas.width = canvas.width;
+                    tempCanvas.height = canvas.height;
+                    const tempCtx = tempCanvas.getContext('2d');
+                    
+                    // Preencher com branco
+                    tempCtx.fillStyle = '#ffffff';
+                    tempCtx.fillRect(0, 0, tempCanvas.width, tempCanvas.height);
+                    
+                    // Copiar o desenho por cima
+                    tempCtx.drawImage(canvas, 0, 0);
+                    
+                    mimeType = 'image/jpeg';
+                    extension = 'jpg';
+                    dataUrl = tempCanvas.toDataURL(mimeType, 0.95);
+                } else {
+                    dataUrl = canvas.toDataURL(mimeType);
+                }
+                
+                link.download = `desenho.${extension}`;
+                link.href = dataUrl;
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            };
+
+            // Sistema de menu melhorado
+            let menuTimeout;
+            
+            window.showFileMenu = function() {
+                clearTimeout(menuTimeout);
+                document.getElementById('fileMenu').style.display = 'block';
+            };
+
+            window.hideFileMenu = function() {
+                menuTimeout = setTimeout(() => {
+                    document.getElementById('fileMenu').style.display = 'none';
+                }, 300);
+            };
+            
+            // Configurar menu File após criar a janela
+            setTimeout(() => {
+                const menuContainer = document.getElementById('fileMenuContainer');
+                const menuTrigger = document.getElementById('fileMenuTrigger');
+                const fileMenu = document.getElementById('fileMenu');
+                
+                if (menuContainer && menuTrigger && fileMenu) {
+                    menuContainer.addEventListener('mouseenter', () => {
+                        clearTimeout(menuTimeout);
+                        fileMenu.style.display = 'block';
+                    });
+                    
+                    menuContainer.addEventListener('mouseleave', () => {
+                        menuTimeout = setTimeout(() => {
+                            fileMenu.style.display = 'none';
+                        }, 300);
+                    });
+                }
+            }, 100);
+
+            canvas.addEventListener('mousedown', (e) => {
+                const rect = canvas.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                if (currentTool === 'text') {
+                    // Finalizar texto anterior se existir
+                    if (isTypingText && textInput) {
+                        finalizeText();
+                    }
+                    
+                    // Criar campo de texto
+                    isTypingText = true;
+                    textX = x;
+                    textY = y;
+                    
+                    textInput = document.createElement('input');
+                    textInput.type = 'text';
+                    textInput.style.cssText = `
+                        position: absolute;
+                        left: ${rect.left + x}px;
+                        top: ${rect.top + y - 16}px;
+                        font: 16px Arial;
+                        color: ${currentColor};
+                        background: transparent;
+                        border: 1px dashed #000;
+                        outline: none;
+                        z-index: 10000;
+                    `;
+                    
+                    document.body.appendChild(textInput);
+                    textInput.focus();
+                    
+                    // Finalizar ao pressionar Enter
+                    textInput.addEventListener('keydown', (e) => {
+                        if (e.key === 'Enter') {
+                            finalizeText();
+                        }
+                    });
+                    
+                    return;
+                }
+                
+                if (currentTool === 'select') {
+                    // Verificar se clicou dentro da seleção existente
+                    if (selectionBox && selectedImage && 
+                        x >= selectionBox.x && x <= selectionBox.x + selectionBox.width &&
+                        y >= selectionBox.y && y <= selectionBox.y + selectionBox.height) {
+                        isDraggingSelection = true;
+                        dragOffsetX = x - selectionBox.x;
+                        dragOffsetY = y - selectionBox.y;
+                    } else {
+                        // Colar seleção anterior se existir antes de criar nova
+                        if (selectedImage && selectionBox) {
+                            ctx.putImageData(selectedImage, selectionBox.x, selectionBox.y);
+                        }
+                        // Iniciar nova seleção
+                        isSelecting = true;
+                        startX = x;
+                        startY = y;
+                        clearSelection();
+                    }
+                    return;
+                }
+                
+                isDrawing = true;
+                startX = x;
+                startY = y;
+
+                if (currentTool === 'pencil' || currentTool === 'brush' || currentTool === 'eraser') {
+                    ctx.beginPath();
+                    ctx.moveTo(startX, startY);
+                }
+            });
+
+            canvas.addEventListener('mousemove', (e) => {
+                const rect = canvas.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                if (currentTool === 'text') {
+                    return; // Não fazer nada no modo texto
+                }
+                
+                if (currentTool === 'select') {
+                    if (isSelecting) {
+                        // Desenhar caixa de seleção
+                        const width = x - startX;
+                        const height = y - startY;
+                        drawSelectionBox(startX, startY, width, height);
+                    } else if (isDraggingSelection && selectedImage && selectionBox) {
+                        // Mover seleção - redesenhar tudo
+                        const newX = x - dragOffsetX;
+                        const newY = y - dragOffsetY;
+                        
+                        // Limpar canvas de seleção
+                        selectionCtx.clearRect(0, 0, selectionCanvas.width, selectionCanvas.height);
+                        
+                        // Criar canvas temporário com a imagem selecionada
+                        const tempCanvas = document.createElement('canvas');
+                        tempCanvas.width = selectionBox.width;
+                        tempCanvas.height = selectionBox.height;
+                        const tempCtx = tempCanvas.getContext('2d');
+                        tempCtx.putImageData(selectedImage, 0, 0);
+                        
+                        // Desenhar na nova posição no canvas de seleção
+                        selectionCtx.drawImage(tempCanvas, newX, newY);
+                        drawSelectionBox(newX, newY, selectionBox.width, selectionBox.height);
+                        
+                        // Atualizar posição da seleção
+                        selectionBox.x = newX;
+                        selectionBox.y = newY;
+                    }
+                    return;
+                }
+                
+                if (isDrawing) {
+                    if (currentTool === 'pencil') {
+                        ctx.lineTo(x, y);
+                        ctx.strokeStyle = currentColor;
+                        ctx.lineWidth = 2;
+                        ctx.lineCap = 'round';
+                        ctx.stroke();
+                    } else if (currentTool === 'brush') {
+                        ctx.lineTo(x, y);
+                        ctx.strokeStyle = currentColor;
+                        ctx.lineWidth = 8;
+                        ctx.lineCap = 'round';
+                        ctx.stroke();
+                    } else if (currentTool === 'eraser') {
+                        ctx.lineTo(x, y);
+                        ctx.strokeStyle = '#ffffff';
+                        ctx.lineWidth = 15;
+                        ctx.lineCap = 'round';
+                        ctx.stroke();
+                    }
+                }
+            });
+
+            canvas.addEventListener('mouseup', (e) => {
+                const rect = canvas.getBoundingClientRect();
+                const endX = e.clientX - rect.left;
+                const endY = e.clientY - rect.top;
+                
+                if (currentTool === 'select') {
+                    if (isSelecting) {
+                        isSelecting = false;
+                        const width = endX - startX;
+                        const height = endY - startY;
+                        
+                        if (Math.abs(width) > 5 && Math.abs(height) > 5) {
+                            // Normalizar coordenadas (caso arraste para trás)
+                            const x = width < 0 ? endX : startX;
+                            const y = height < 0 ? endY : startY;
+                            const w = Math.abs(width);
+                            const h = Math.abs(height);
+                            
+                            // Capturar área selecionada
+                            selectedImage = ctx.getImageData(x, y, w, h);
+                            
+                            // IMPORTANTE: Preencher com branco no canvas principal
+                            ctx.fillStyle = '#ffffff';
+                            ctx.fillRect(x, y, w, h);
+                            
+                            // Salvar informações da seleção
+                            selectionBox = { x, y, width: w, height: h };
+                            
+                            // Desenhar no canvas de seleção
+                            const tempCanvas = document.createElement('canvas');
+                            tempCanvas.width = w;
+                            tempCanvas.height = h;
+                            const tempCtx = tempCanvas.getContext('2d');
+                            tempCtx.putImageData(selectedImage, 0, 0);
+                            selectionCtx.drawImage(tempCanvas, x, y);
+                            
+                            drawSelectionBox(x, y, w, h);
+                        }
+                    } else if (isDraggingSelection) {
+                        isDraggingSelection = false;
+                        // Colar imagem na nova posição no canvas principal
+                        if (selectedImage && selectionBox) {
+                            ctx.putImageData(selectedImage, selectionBox.x, selectionBox.y);
+                            clearSelection();
+                        }
+                    }
+                    return;
+                }
+
+                if (isDrawing) {
+                    if (currentTool === 'line') {
+                        ctx.beginPath();
+                        ctx.moveTo(startX, startY);
+                        ctx.lineTo(endX, endY);
+                        ctx.strokeStyle = currentColor;
+                        ctx.lineWidth = 2;
+                        ctx.stroke();
+                    } else if (currentTool === 'rectangle') {
+                        ctx.strokeStyle = currentColor;
+                        ctx.lineWidth = 2;
+                        ctx.strokeRect(startX, startY, endX - startX, endY - startY);
+                    } else if (currentTool === 'circle') {
+                        const radius = Math.sqrt(Math.pow(endX - startX, 2) + Math.pow(endY - startY, 2));
+                        ctx.beginPath();
+                        ctx.arc(startX, startY, radius, 0, 2 * Math.PI);
+                        ctx.strokeStyle = currentColor;
+                        ctx.lineWidth = 2;
+                        ctx.stroke();
+                    }
+                }
+                isDrawing = false;
+            });
+
+            canvas.addEventListener('mouseleave', () => {
+                isDrawing = false;
+                isSelecting = false;
+                isDraggingSelection = false;
+            });
+
+            // Tornar janela arrastável
+            let isDraggingPaint = false;
+            let paintOffsetX = 0;
+            let paintOffsetY = 0;
+
+            document.getElementById('paintTitleBar').addEventListener('mousedown', (e) => {
+                isDraggingPaint = true;
+                const rect = paintWindow.getBoundingClientRect();
+                paintOffsetX = e.clientX - rect.left;
+                paintOffsetY = e.clientY - rect.top;
+            });
+
+            document.addEventListener('mousemove', (e) => {
+                if (isDraggingPaint) {
+                    paintWindow.style.left = (e.clientX - paintOffsetX) + 'px';
+                    paintWindow.style.top = (e.clientY - paintOffsetY) + 'px';
+                    paintWindow.style.transform = 'none';
+                }
+            });
+
+            document.addEventListener('mouseup', () => {
+                isDraggingPaint = false;
+            });
+
+            // Destacar ferramenta inicial
+            selectPaintTool('select');
+        }
+
+         function openMinesweeper() {
+            const mineWindow = document.createElement('div');
+            mineWindow.id = 'minesweeperWindow';
+            mineWindow.style.cssText = `
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background: #c0c0c0;
+                border: 3px solid;
+                border-color: #ffffff #808080 #808080 #ffffff;
+                box-shadow: 3px 3px 12px rgba(0,0,0,0.7);
+                z-index: 9999;
+            `;
+
+            mineWindow.innerHTML = `
+                <div style="background: linear-gradient(to bottom, #245edb 0%, #1941a5 50%, #15317e 100%); padding: 3px 5px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #000; cursor: move;" id="mineTitleBar">
+                    <div style="color: white; font-size: 12px; font-weight: bold; display: flex; align-items: center; gap: 6px;">
+                        <img src="img/CampoMinado.webp" alt="Nome do programa" style="width: 5%; height: 5%;">
+                        <span>Campo Minado</span>
+                    </div>
+                    <button onclick="document.getElementById('minesweeperWindow').remove()" style="width: 21px; height: 20px; background: linear-gradient(to bottom, #f0f0f0 0%, #d8d8d8 100%); border: 1px solid; border-color: #ffffff #404040 #404040 #ffffff; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 11px;">✕</button>
+                </div>
+                <div style="background: #f0f0f0; border-bottom: 1px solid #808080; padding: 2px 5px; font-size: 11px;">
+                    <span style="cursor: pointer;">Jogo</span> &nbsp; 
+                    <span style="cursor: pointer;">Ajuda</span>
+                </div>
+                <div style="padding: 6px; background: #c0c0c0;">
+                    <div style="border: 3px solid; border-color: #808080 #ffffff #ffffff #808080; padding: 6px;">
+                        <div style="border: 2px solid; border-color: #808080 #ffffff #ffffff #808080; padding: 5px 8px; margin-bottom: 6px; display: flex; justify-content: space-between; align-items: center;">
+                            <div id="mineCounter" style="background: #000; color: #ff0000; font-family: 'Digital-7', 'Courier New', monospace; font-size: 32px; font-weight: bold; padding: 4px 8px; border: 1px inset #808080; letter-spacing: 2px;">010</div>
+                            <button id="mineResetBtn" style="width: 42px; height: 42px; border: 3px solid; border-color: #ffffff #808080 #808080 #ffffff; background: #c0c0c0; cursor: pointer; font-size: 24px; padding: 0; display: flex; align-items: center; justify-content: center;">🙂</button>
+                            <div id="timeCounter" style="background: #000; color: #ff0000; font-family: 'Digital-7', 'Courier New', monospace; font-size: 32px; font-weight: bold; padding: 4px 8px; border: 1px inset #808080; letter-spacing: 2px;">000</div>
+                        </div>
+                        <div id="mineGrid" style="border: 3px solid; border-color: #808080 #ffffff #ffffff #808080;"></div>
+                    </div>
+                </div>
+            `;
+
+            document.body.appendChild(mineWindow);
+
+            // Configurações do jogo
+            const ROWS = 16;
+            const COLS = 30;
+            const MINES = 99;
+            const CELL_SIZE = 16;
+            
+            let board = [];
+            let revealed = [];
+            let flagged = [];
+            let gameOver = false;
+            let gameWon = false;
+            let firstClick = true;
+            let timeInterval = null;
+            let time = 0;
+            
+            const grid = document.getElementById('mineGrid');
+            grid.style.cssText = `
+                display: grid;
+                grid-template-columns: repeat(${COLS}, ${CELL_SIZE}px);
+                grid-template-rows: repeat(${ROWS}, ${CELL_SIZE}px);
+                gap: 0;
+                background: #c0c0c0;
+            `;
+
+            function initGame() {
+                board = Array(ROWS).fill().map(() => Array(COLS).fill(0));
+                revealed = Array(ROWS).fill().map(() => Array(COLS).fill(false));
+                flagged = Array(ROWS).fill().map(() => Array(COLS).fill(false));
+                gameOver = false;
+                gameWon = false;
+                firstClick = true;
+                time = 0;
+                clearInterval(timeInterval);
+                updateCounters();
+                renderGrid();
+                document.getElementById('mineResetBtn').textContent = '🙂';
+            }
+
+            function placeMines(avoidRow, avoidCol) {
+                let placed = 0;
+                while (placed < MINES) {
+                    const r = Math.floor(Math.random() * ROWS);
+                    const c = Math.floor(Math.random() * COLS);
+                    if (board[r][c] !== -1 && !(r === avoidRow && c === avoidCol)) {
+                        board[r][c] = -1;
+                        placed++;
+                    }
+                }
+                calculateNumbers();
+            }
+
+            function calculateNumbers() {
+                for (let r = 0; r < ROWS; r++) {
+                    for (let c = 0; c < COLS; c++) {
+                        if (board[r][c] === -1) continue;
+                        let count = 0;
+                        for (let dr = -1; dr <= 1; dr++) {
+                            for (let dc = -1; dc <= 1; dc++) {
+                                const nr = r + dr;
+                                const nc = c + dc;
+                                if (nr >= 0 && nr < ROWS && nc >= 0 && nc < COLS && board[nr][nc] === -1) {
+                                    count++;
+                                }
+                            }
+                        }
+                        board[r][c] = count;
+                    }
+                }
+            }
+
+            function revealCell(r, c) {
+                if (r < 0 || r >= ROWS || c < 0 || c >= COLS || revealed[r][c] || flagged[r][c]) return;
+                
+                revealed[r][c] = true;
+                const cell = grid.children[r * COLS + c];
+                
+                if (board[r][c] === -1) {
+                    cell.style.background = '#ff0000';
+                    cell.textContent = '💣';
+                    gameOver = true;
+                    document.getElementById('mineResetBtn').textContent = '😵';
+                    revealAll();
+                    clearInterval(timeInterval);
+                    return;
+                }
+                
+                cell.style.borderStyle = 'solid';
+                cell.style.borderWidth = '1px';
+                cell.style.borderColor = '#808080';
+                cell.style.background = '#c0c0c0';
+                
+                if (board[r][c] > 0) {
+                    cell.textContent = board[r][c];
+                    const colors = ['', '#0000ff', '#008000', '#ff0000', '#000080', '#800000', '#008080', '#000000', '#808080'];
+                    cell.style.color = colors[board[r][c]];
+                    cell.style.fontWeight = 'bold';
+                } else {
+                    for (let dr = -1; dr <= 1; dr++) {
+                        for (let dc = -1; dc <= 1; dc++) {
+                            revealCell(r + dr, c + dc);
+                        }
+                    }
+                }
+                
+                checkWin();
+            }
+
+            function toggleFlag(r, c) {
+                if (revealed[r][c] || gameOver || gameWon) return;
+                flagged[r][c] = !flagged[r][c];
+                const cell = grid.children[r * COLS + c];
+                cell.textContent = flagged[r][c] ? '🚩' : '';
+                updateCounters();
+            }
+
+            function revealAll() {
+                for (let r = 0; r < ROWS; r++) {
+                    for (let c = 0; c < COLS; c++) {
+                        if (board[r][c] === -1 && !flagged[r][c]) {
+                            const cell = grid.children[r * COLS + c];
+                            cell.textContent = '💣';
+                            cell.style.borderStyle = 'solid';
+                            cell.style.borderWidth = '1px';
+                            cell.style.borderColor = '#808080';
+                        }
+                    }
+                }
+            }
+
+            function checkWin() {
+                let allRevealed = true;
+                for (let r = 0; r < ROWS; r++) {
+                    for (let c = 0; c < COLS; c++) {
+                        if (board[r][c] !== -1 && !revealed[r][c]) {
+                            allRevealed = false;
+                            break;
+                        }
+                    }
+                }
+                if (allRevealed) {
+                    gameWon = true;
+                    gameOver = true;
+                    document.getElementById('mineResetBtn').textContent = '😎';
+                    clearInterval(timeInterval);
+                }
+            }
+
+            function updateCounters() {
+                const flags = flagged.flat().filter(f => f).length;
+                document.getElementById('mineCounter').textContent = String(Math.max(0, MINES - flags)).padStart(3, '0');
+                document.getElementById('timeCounter').textContent = String(Math.min(999, time)).padStart(3, '0');
+            }
+
+            function renderGrid() {
+                grid.innerHTML = '';
+                for (let r = 0; r < ROWS; r++) {
+                    for (let c = 0; c < COLS; c++) {
+                        const cell = document.createElement('div');
+                        cell.style.cssText = `
+                            width: ${CELL_SIZE}px;
+                            height: ${CELL_SIZE}px;
+                            border: 2px solid;
+                            border-color: #ffffff #808080 #808080 #ffffff;
+                            background: #c0c0c0;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            font-size: 11px;
+                            font-weight: bold;
+                            cursor: pointer;
+                            user-select: none;
+                            box-sizing: border-box;
+                        `;
+                        
+                        cell.addEventListener('mousedown', (e) => {
+                            if (gameOver || gameWon) return;
+                            if (e.button === 0 && !flagged[r][c]) {
+                                if (firstClick) {
+                                    placeMines(r, c);
+                                    firstClick = false;
+                                    timeInterval = setInterval(() => {
+                                        time++;
+                                        updateCounters();
+                                    }, 1000);
+                                }
+                                revealCell(r, c);
+                            }
+                        });
+                        
+                        cell.addEventListener('contextmenu', (e) => {
+                            e.preventDefault();
+                            toggleFlag(r, c);
+                        });
+                        
+                        grid.appendChild(cell);
+                    }
+                }
+            }
+
+            document.getElementById('mineResetBtn').addEventListener('click', initGame);
+            
+            initGame();
+
+            // Tornar janela arrastável
+            let isDragging = false;
+            let offsetX = 0;
+            let offsetY = 0;
+
+            document.getElementById('mineTitleBar').addEventListener('mousedown', (e) => {
+                isDragging = true;
+                const rect = mineWindow.getBoundingClientRect();
+                offsetX = e.clientX - rect.left;
+                offsetY = e.clientY - rect.top;
+            });
+
+            document.addEventListener('mousemove', (e) => {
+                if (isDragging) {
+                    mineWindow.style.left = (e.clientX - offsetX) + 'px';
+                    mineWindow.style.top = (e.clientY - offsetY) + 'px';
+                    mineWindow.style.transform = 'none';
+                }
+            });
+
+            document.addEventListener('mouseup', () => {
+                isDragging = false;
+            });
         }
 
         // Sistema de apresentação de slides
