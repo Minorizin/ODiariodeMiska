@@ -1,166 +1,275 @@
-html, body {
-    cursor: url('cursor/cursor.cur'), default;
-    /* just change the cursor.ico path to your location */
-}
+* {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        body {
+            background: linear-gradient(180deg, #0a0a0f 0%, #1a1520 50%, #0f0a15 100%);
+            color: #d4c5b9;
+            font-family: 'Crimson Text', serif;
+            font-size: 18px;
+            line-height: 1.8;
+            overflow-x: hidden;
+            position: relative;
+            min-height: 100vh;
+        }
 
-details {
-  user-select: none;
-}
+        /* Efeito de névoa liminal */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(ellipse at 20% 30%, rgba(88, 66, 99, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 70%, rgba(66, 88, 99, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+            background-image: url(img/fundo1.png);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-attachment: fixed;
+            background-size: cover;
+            z-index: 1;
+            animation: fogDrift 30s ease-in-out infinite alternate;
+        }
 
+        @keyframes fogDrift {
+            0% { opacity: 0.3; }
+            50% { opacity: 0.5; }
+            100% { opacity: 0.3; }
+        }
 
-.delius-regular {
-  font-family: "Delius", serif;
-  font-weight: 400;
-  font-style: normal;
-}
+        /* Partículas flutuantes */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(2px 2px at 20% 30%, rgba(255, 255, 255, 0.1), transparent),
+                radial-gradient(2px 2px at 60% 70%, rgba(255, 255, 255, 0.05), transparent),
+                radial-gradient(1px 1px at 50% 50%, rgba(255, 255, 255, 0.08), transparent),
+                radial-gradient(1px 1px at 80% 10%, rgba(255, 255, 255, 0.06), transparent);
+            background-size: 200% 200%;
+            animation: particles 60s linear infinite;
+            pointer-events: none;
+            z-index: 2;
+            opacity: 0.4;
+        }
 
-.row {
-  width: 100%;
-  height: 200px;
-  aspect-ratio: 11 / 2;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-}
+        @keyframes particles {
+            0% { background-position: 0% 0%; }
+            100% { background-position: 100% 100%; }
+        }
 
-.pic {
-  height: 90%;
-  float: left;
-  margin: 0% 1% 0% 0%;
-  display: block;
-  border: solid #2b2015;
-}
+        .container {
+            position: relative;
+            z-index: 10;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px 40px;
+        }
 
-.caption {
-  display: block;
-  font-size: 10pt;
-  width: 99%;
-  border: solid #2b2015;
-  background-color: #2b2015;
-}
+        /* Link de retorno estilo VHS */
+        .return-link {
+            display: inline-block;
+            color: #fffb00;
+            text-decoration: none;
+            font-size: 16px;
+            margin-bottom: 50px;
+            padding: 8px 16px;
+            border: 1px solid rgba(241, 217, 0, 0.3);
+            background: rgba(80, 79, 28, 0.6);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            font-family: 'Courier New', monospace;
+            letter-spacing: 1px;
+            text-shadow: 0 0 10px rgba(155, 154, 110, 0.5);
+        }
 
-.image-container {
-  height: 90%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
+        .return-link:hover {
+            background: rgba(255, 223, 44, 0.2);
+            box-shadow: 0 0 20px rgba(255, 251, 0, 0.3);
+            transform: translateX(-5px);
+        }
 
-h1 {text-align: center;
-font-family: myFont;
-  text-shadow:
-  1px 1px 2px rgb(12, 12, 12),
-  0 0 1em rgb(12, 12, 12),
-  0 0 0.2em rgb(12, 12, 12);
-  text-wrap: balance;
-  margin: 40px;
-}
+        .prosseguir-link {
+            display: inline-block;
+            color: #5fad69;
+            text-decoration: none;
+            font-size: 16px;
+            margin-bottom: 50px;
+            padding: 8px 16px;
+            border: 1px solid rgba(1, 136, 53, 0.3);
+            background: #1c271e;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            font-family: 'Courier New', monospace;
+            letter-spacing: 1px;
+            text-shadow: 0 0 10px rgba(155, 126, 110, 0.5);
+        }
 
-i {text-align: center;
-  font-family: myFont;
-  text-shadow:
-  1px 1px 2px rgb(12, 12, 12),
-  0 0 1em rgb(12, 12, 12),
-  0 0 0.2em rgb(12, 12, 12);
-  text-wrap: balance;
-  margin: 40px;
-}
+        .prosseguir-link:hover {
+            background: rgba(14, 129, 4, 0.2);
+            box-shadow: 0 0 20px rgba(1, 219, 38, 0.3);
+            transform: translateX(5px);
+        }
 
-div {text-align: center;
-}
+        /* Título com efeito glitch sutil */
+        h1 {
+            font-family: 'Baskervville', serif;
+            font-size: 42px;
+            text-align: center;
+            color: #e8ddd1;
+            margin-bottom: 80px;
+            letter-spacing: 2px;
+            text-shadow: 
+                0 0 30px rgba(232, 221, 209, 0.4),
+                2px 2px 4px rgba(0, 0, 0, 0.8);
+            animation: titleFlicker 8s ease-in-out infinite;
+            position: relative;
+            padding: 20px;
+        }
 
-a{
-  font-family: "Nunito", sans-serif;
-  text-shadow:
-  1px 1px 2px rgb(12, 12, 12),
-  0 0 1em rgb(12, 12, 12),
-  0 0 0.2em rgb(12, 12, 12);
-}
+        h1::before {
+            content: 'Quando abri os olhos, houve luz.';
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 20px;
+            opacity: 0.1;
+            animation: glitchText 5s infinite;
+            color: #6b5b8e;
+        }
 
-summary{
-  font-family: "Nunito", sans-serif;
-  text-shadow:
-  1px 1px 2px rgb(12, 12, 12),
-  0 0 1em rgb(12, 12, 12),
-  0 0 0.2em rgb(12, 12, 12);
-}
+        @keyframes titleFlicker {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.95; }
+            51% { opacity: 1; }
+            60% { opacity: 0.98; }
+        }
 
-details>summary span.icon {
-  width: 24px;
-  height: 24px;
-  transition: all 0.3s;
-  margin-left: auto;
-}
+        @keyframes glitchText {
+            0%, 90%, 100% { transform: translate(0); }
+            92% { transform: translate(-2px, 1px); }
+            94% { transform: translate(2px, -1px); }
+            96% { transform: translate(-1px, 2px); }
+        }
 
-details[open] summary span.icon {
-  transform: rotate(180deg);
-}
+        /* Parágrafos com efeito vintage */
+        p {
+            text-align: justify;
+            margin-bottom: 45px;
+            text-indent: 2em;
+            color: #c4b5a9;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+            opacity: 0;
+            animation: fadeInText 1.5s ease-out forwards;
+            background: linear-gradient(to bottom, rgba(25, 20, 30, 0.4) 0%, transparent 100%);
+            padding: 15px 20px;
+            border-left: 1px solid rgba(155, 126, 110, 0.2);
+            backdrop-filter: blur(5px);
+        }
 
-summary {
-  display: flex;
-  cursor: pointer;
-}
+        p:nth-child(even) {
+            border-left: none;
+            border-right: 1px solid rgba(155, 126, 110, 0.2);
+        }
 
-summary::-webkit-details-marker {
-  display: none;
-}
+        p:nth-child(1) { animation-delay: 0.2s; }
+        p:nth-child(2) { animation-delay: 0.4s; }
+        p:nth-child(3) { animation-delay: 0.6s; }
+        p:nth-child(n+4) { animation-delay: 0.8s; }
 
-img {
-  border: 5px solid #555;
-}
+        @keyframes fadeInText {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+                filter: blur(3px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+                filter: blur(0);
+            }
+        }
 
-/* Chat containers */
+        /* Efeito de scanlines VHS */
+        .scanlines {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                0deg,
+                rgba(0, 0, 0, 0.15) 0px,
+                transparent 1px,
+                transparent 2px,
+                rgba(0, 0, 0, 0.15) 3px
+            );
+            pointer-events: none;
+            z-index: 100;
+            opacity: 0.3;
+            animation: scanlineMove 8s linear infinite;
+        }
 
-.container {
-    border: 2px solid #1ca359;
-    background-color: hsl(0, 0%, 0%);
-    border-radius: 5px;
-    padding: 10px;
-    margin: 20px;
-    text-align:left
-  }
-  
-  /* Darker chat container */
-  .darker {
-    border-color: #1ca359;
-    background-color: hsl(0, 0%, 0%);
-    text-align:right
-  }
-  
-  /* Clear floats */
-  .container::after {
-    content: "";
-    clear: both;
-    display: table;
-    width: 0;
-  }
-  
-  /* Style images */
-  .container img {
-    float: left;
-    max-width: 60px;
-    width: 100%;
-    margin-right: 20px;
-    border-radius: 50%;
-    border-color: #1ca359;
-  }
-  
-  /* Style the right image */
-  .container img.right {
-    float: right;
-    margin-left: 20px;
-    margin-right:0;
-  }
-  
-  /* Style time text */
-  .time-right {
-    float: right;
-    color: #aaa;
-  }
-  
-  /* Style time text */
-  .time-left {
-    float: left;
-    color: #999;
-  }
+        @keyframes scanlineMove {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(10px); }
+        }
+
+        /* Vinheta nostálgica */
+        .vignette {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            box-shadow: inset 0 0 200px rgba(0, 0, 0, 0.8);
+            pointer-events: none;
+            z-index: 99;
+        }
+
+        /* Espaçamento liminal */
+        .space {
+            height: 150px;
+            opacity: 0.05;
+            background: linear-gradient(to bottom, transparent, rgba(155, 126, 110, 0.1), transparent);
+            margin: 100px 0;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .container {
+                padding: 40px 25px;
+            }
+
+            h1 {
+                font-size: 32px;
+                margin-bottom: 50px;
+            }
+
+            p {
+                font-size: 16px;
+                padding: 12px 15px;
+            }
+
+            .return-link {
+                font-size: 14px;
+            }
+        }
+
+        /* Cursor customizado */
+        body {
+            cursor: url('cursor/cursor.cur') 10 10, auto;
+        }
+
+        a {
+            cursor: url('cursor/cursor.cur') 10 10, pointer;
+        }
