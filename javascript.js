@@ -8,8 +8,8 @@ const previewData = {
     },
     folha002: {
         title: "Folha 002 - familiar",
-        image: "img/folha002.png",
-        description: "Miska acorda em um lugar vazio, não existe mais ninguém além dela.. e aquela casa.",
+        image: "img/folha002.jpg",
+        description: "“Isso me lembra de quando eu era criança.”",
         status: "Disponível",
     },
     folha003: {
