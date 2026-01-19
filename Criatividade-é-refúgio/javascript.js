@@ -89,7 +89,7 @@
             { text: "Bom, acho que isso foi tudo.", character: "Jellie" },
             { text: "A gente se vê amanhã na escola. Bora dar uma saída quando as aulas terminarem porque amanhã vai ser um porre!", character: "Jellie" },
             { text: "Além de um monte de matéria chata, vai ter Educação Física!", character: "Jellie" },
-            { text: "Hoje você vai ter que me aguentar bêbada.", character: "Jellie" },
+            { text: "Amanhã você vai ter que me aguentar bêbada.", character: "Jellie" },
             { text: "Você diz isso como se não trucidasse todo mundo em todos os esportes.", character: "Miska" },
             { text: "Ahhhh, tem diferença entre não curtir uma coisa e fazer feio.", character: "Jellie" },
             { text: "Além do mais, eu não sou praticamente nada! Já viu a Ashley e a Kenda nas aulas? Faltam só matar todo mundo! Hahaha!", character: "Jellie" },
