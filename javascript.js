@@ -43,9 +43,9 @@ const previewData = {
         status: "Disponível",
     },
     folha008: {
-        title: "Folha 008 - alpha",
-        image: "img/folha008.gif",
-        description: "Jogar jogos é um escape.",
+        title: "Folha 008 - Criatividade é refúgio.",
+        image: "img/folha008.jpg",
+        description: "Você está no seu próprio mundo agora. Você pode fazer o que quiser, inclusive esquecer o que tem lá fora.",
         status: "Disponível",
     },
     folha009: {
