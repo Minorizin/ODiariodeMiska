@@ -86,9 +86,9 @@ const previewData = {
     },
     folha015: {
         title: "Folha 015 - Invasão??",
-        image: "img/folha015.jpg",
-        description: "Miska não se importaria com uma pequena olhadinha, não é?",
-        status: "Disponível",
+        image: "img/static.gif",
+        description: "Fechado por tempo indeterminado.",
+        status: "Indisponível",
     },
     folha016: {
         title: "Folha 016 - Doce como dor",
