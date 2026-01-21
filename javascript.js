@@ -31,9 +31,9 @@ const previewData = {
         status: "Disponível",
     },
     folha006: {
-        title: "Folha 006 - trem",
+        title: "Folha 006 - metrô",
         image: "img/folha006.jpg",
-        description: "Miska embarca em um trem.",
+        description: "Miska pega um metrô, ela precisa ir até a festa do pijama da sua amiga depois de um longo dia.",
         status: "Disponível",
     },
     folha007: {
