@@ -253,12 +253,12 @@ hr {
             color: #a8a8a8;
             cursor: pointer;
             padding: 10px;
-            background: #4e3f32;
+            background: #d89ace;
             border-radius: 5px;
         }
 
         summary:hover {
-            background: #31281f;
+            background: #b682ad;
         }
 
         audio {

@@ -193,6 +193,13 @@ const previewData = {
         status: "Disponível",
         theme: "dark-gray"
     },
+    folha032: {
+        title: "Um Sonho de Criança",
+        image: "img/folha032preview.jpg",
+        description: "“Eu prometo te levar até lá, um dia.”",
+        status: "Disponível",
+        theme: "marrom-acinzentado"
+    },
 };
 
 // Elementos DOM
