@@ -135,7 +135,7 @@ const previewData = {
     },
     folha023: {
         title: "Folha 023 - Gelo e Néon",
-        image: "img/folha023.gif",
+        image: "img/folha023.png",
         description: "Em uma tentativa de fazer Miska não se deteriorar em casa, Kenda a convida para uma balada.",
         status: "Disponível",
     },
