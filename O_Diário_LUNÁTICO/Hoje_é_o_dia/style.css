@@ -1,0 +1,850 @@
+/*                                                                                            
+                                                                                           
+█████▄  ██████ ▄█████ ██████ ███  ██ ██  ██ ▄████▄   ▄████▄ █████▄ ▄████▄ ██ ██  ██ ▄████▄ 
+██▄▄██▄ ██▄▄   ▀▀▀▄▄▄ ██▄▄   ██ ▀▄██ ██████ ██▄▄██   ██▄▄██ ██▄▄██ ██▄▄██ ██  ████  ██  ██ 
+██   ██ ██▄▄▄▄ █████▀ ██▄▄▄▄ ██   ██ ██  ██ ██  ██   ██  ██ ██▄▄█▀ ██  ██ ██ ██  ██ ▀████▀ 
+                                                                                            
+
+         ⣠⣤⣤⣤⡤⢤⣤⣤⣤⣤⣤⣄⣀⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⣠⣿⡿⣟⠯⡒⢯⣽⣓⣒⢾⣯⣭⣿⣿⠿⠭⠭⣯⣷⣦⡀⠀⠀⠀
+⠀⠀⠀⠀⣰⣿⣯⣞⣕⣽⠾⠿⠿⠿⢿⣏⣿⣿⣿⡗⣽⣿⣿⣷⡝⣿⣿⡆⠀⠀
+⠀⠀⠀⣀⣛⠛⢿⣛⢝⢁⣀⣀⣀⠓⠶⠈⣿⣿⡿⠗⠉⠁⢀⣀⣹⣛⣛⣳⢄⠀
+⠀⡔⡾⢁⣴⡆⢦⣬⣙⣛⣋⣤⣿⣿⣷⣾⣿⣿⣿⡆⢿⣿⡟⠻⠛⡉⣍⣲⢱⠁
+⠀⣇⣇⢸⣉⡀⢦⣌⡙⠻⠿⣯⣭⣥⠡⡤⠿⢿⣿⣿⡆⠉⡻⢿⣿⠇⢻⣟⠼⠀
+⠀⠈⠪⣴⣿⣧⡀⢉⠛⠘⢶⣦⣬⠉⣀⠓⠿⠿⠯⢉⣴⠿⠿⠓⡁⡄⠀⣿⠃⠀
+⠀⠀⠀⠙⣿⣿⣷⣌⠻⢠⣤⣀⠉⠐⠛⠿⠿⠰⠶⠦⠰⠶⠇⠘⠃⠁⠀⣿⠀⠀
+⠀⠀⠀⠀⠘⢿⣿⣿⣷⣌⠻⢿⠇⣼⣶⣦⡄⣄⣀⡀⢀⡀⢀⡀⡀⠀⢠⣿⠀⠀
+⠀⠀⠀⠀⠀⠀⠙⠯⣛⠭⣻⠶⣬⣉⣛⠛⠃⠿⠿⠃⠿⠃⠚⣀⣁⣤⣾⣿⡀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⠒⠯⣶⣋⡽⢛⣿⣯⣿⣭⣭⡿⢿⣿⣻⣾⢟⣿⡇⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠛⠿⠿⣶⣾⣿⣿⣿⣭⣭⣭⣶⣿⡿⠁⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠙⠛⠛⠛⠛⠋⠁⠀⠀⠀ */
+
+@font-face {
+            font-family: "Dexter";
+            src: url("/O_Diário_LUNÁTICO/Hoje_é_o_dia/fonts/SodaScriptBoldExtrasRegular.ttf");
+        }
+
+        @font-face {
+            font-family: "YOU";
+            src: url("/fonts/YOU.ttf");
+        }
+
+* {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --blood-red: #6B1010;
+            --dark-red: #4a0a0a;
+            --aged-cream: #d4c5a0;
+            --dirty-beige: #b8a67d;
+            --parchment: #e8dcc0;
+            --shadow-brown: #3d2e1f;
+            --stain-brown: #5a4a35;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "math";
+            background: linear-gradient(180deg, #e8dcc0 0%, #d4c5a0 30%, #b8a67d 70%, #9d8a5f 100%);
+            background-attachment: fixed;
+            color: #2a2520;
+            line-height: 1.7;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Bloquear scroll durante a introdução */
+        body.intro-active {
+            overflow: hidden;
+            height: 100vh;
+        }
+
+        /* Overlay preto que cobre tudo durante a introdução (Dor de cabeça do caralho) */
+        body.intro-active::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000000;
+            z-index: 8888;
+            pointer-events: none;
+        }
+        
+
+        /* Aqui é onde eu só mudo a imagem que tá atrás do container (Curtiu, man?) */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('img/FL-011-01.jpg'); /* Se quiser fazer graça, só substituir */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            opacity: 0.15;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Simplified background effect */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(ellipse at 20% 30%, rgba(107, 16, 16, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 70%, rgba(90, 74, 53, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Scrollbar styling */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--stain-brown);
+            border-left: 2px solid var(--blood-red);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--blood-red);
+            border-radius: 0;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #8B1515;
+        }
+
+        ::selection {
+            background-color: var(--blood-red);
+            color: white;
+        }
+
+        /* Main container */
+        .evidence-container {
+            max-width: 900px;
+            margin: 80px auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 1s ease-in, visibility 0s linear 1s;
+        }
+
+        .evidence-container.show {
+            opacity: 1;
+            visibility: visible;
+            transition: opacity 1s ease-in, visibility 0s linear 0s;
+        }
+
+        /* Evidence bag styling */
+        .evidence-bag {
+            background: linear-gradient(135deg, rgba(232, 220, 192, 0.95) 0%, rgba(212, 197, 160, 0.98) 100%);
+            border: 3px solid var(--blood-red);
+            box-shadow: 
+                0 0 30px rgba(107, 16, 16, 0.3),
+                0 10px 40px rgba(61, 46, 31, 0.4);
+            padding: 60px;
+            position: relative;
+            margin-bottom: 40px;
+        }
+
+        .evidence-bag::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-family: 'Inconsolata', monospace;
+            font-weight: 700;
+            font-size: 14px;
+            letter-spacing: 4px;
+            color: var(--blood-red);
+            opacity: 0.5;
+        }
+
+        .evidence-bag::after {
+            content: '';
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            width: 80px;
+            height: 80px;
+            border: 2px solid var(--blood-red);
+            border-radius: 50%;
+            opacity: 0.3;
+        }
+
+        /* Case file header */
+        .case-file {
+            text-align: center;
+            margin-bottom: 60px;
+            padding: 40px 0;
+            border-bottom: 2px solid var(--blood-red);
+            position: relative;
+        }
+
+        .case-file::before {
+            content: '⚠';
+            font-size: 60px;
+            color: var(--blood-red);
+            display: block;
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+
+        /* Música section */
+        .section-header {
+            background: var(--blood-red);
+            padding: 4px 40px;
+            margin: 40px -60px;
+            text-align: center;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .section-header:hover {
+            background: #7d1414;
+        }
+
+        .section-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 900;
+            font-size: 42px;
+            color: white;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .collapse-icon {
+            font-size: 32px;
+            transition: transform 0.3s ease;
+            display: inline-block;
+        }
+
+        .section-header.active .collapse-icon {
+            transform: rotate(180deg);
+        }
+
+        /* Music player container */
+        .music-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out, padding 0.4s ease-out;
+            padding: 0 0;
+        }
+
+        .music-content.active {
+            max-height: 300px;
+            padding: 30px 0;
+        }
+
+        .music-player {
+            background: rgba(107, 16, 16, 0.1);
+            border: 2px solid var(--blood-red);
+            border-radius: 8px;
+            padding: 25px;
+            text-align: center;
+        }
+
+        .music-player h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--blood-red);
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .music-player audio {
+            width: 100%;
+            max-width: 500px;
+            outline: none;
+        }
+
+        .music-player audio::-webkit-media-controls-panel {
+            background-color: #d4c5a0;
+        }
+
+        .music-player audio::-webkit-media-controls-play-button,
+        .music-player audio::-webkit-media-controls-pause-button {
+            background-color: var(--blood-red);
+            border-radius: 50%;
+        }
+
+        .upload-instruction {
+            margin-top: 15px;
+            font-size: 14px;
+            color: var(--shadow-brown);
+            font-style: italic;
+        }
+
+        /* Main title */
+        h1 {
+            font-family: "Dexter";
+            font-weight: 900;
+            font-size: 56px;
+            color: var(--blood-red);
+            text-align: center;
+            margin: 60px 0 40px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-shadow: 0 0 15px rgba(107, 16, 16, 0.4);
+            position: relative;
+        }
+
+        h1::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: var(--blood-red);
+        }
+
+        /* Paragraphs */
+        p {
+            font-size: 17px;
+            line-height: 1.9;
+            margin-bottom: 28px;
+            color: #3d2e1f;
+            text-align: justify;
+        }
+
+        p:first-of-type {
+            font-size: 19px;
+            font-weight: 700;
+            color: #2a2010;
+        }
+
+        /* Evidence divider */
+        hr {
+            border: none;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--blood-red), transparent);
+            margin: 50px 0;
+            position: relative;
+        }
+
+        hr::before {
+            content: '⚠ CRIME SCENE ⚠';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: var(--aged-cream);
+            padding: 5px 20px;
+            font-family: 'Inconsolata', monospace;
+            font-size: 11px;
+            letter-spacing: 2px;
+            color: var(--blood-red);
+            border: 1px solid var(--blood-red);
+        }
+
+        /* Crime scene tape effect */
+        .tape-line {
+            position: relative;
+            height: 40px;
+            margin: 60px -60px;
+            background: repeating-linear-gradient(
+                45deg,
+                #d4c5a0,
+                #d4c5a0 20px,
+                #3d2e1f 20px,
+                #3d2e1f 40px
+            );
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Inconsolata', monospace;
+            font-weight: 700;
+            font-size: 14px;
+            letter-spacing: 3px;
+            color: #3d2e1f;
+            box-shadow: 0 3px 15px rgba(61, 46, 31, 0.4);
+        }
+
+        /* Links */
+        a {
+            color: var(--blood-red);
+            text-decoration: none;
+            font-weight: 700;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s ease;
+            font-size: 18px;
+            letter-spacing: 1px;
+        }
+
+        a:hover {
+            color: #8B1515;
+            border-bottom-color: #8B1515;
+        }
+
+        /* Return link container */
+        .return-container {
+            text-align: center;
+            margin-top: 80px;
+            padding: 40px 0;
+            border-top: 2px solid var(--blood-red);
+        }
+
+        /* Subtitle text styling */
+        .subtitle {
+            font-style: italic;
+            font-size: 18px;
+            color: #6B1010;
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        /* Case number */
+        .case-number {
+            font-family: 'Inconsolata', monospace;
+            font-size: 14px;
+            letter-spacing: 2px;
+            color: var(--blood-red);
+            text-align: center;
+            margin-bottom: 10px;
+            opacity: 0.7;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .evidence-bag {
+                padding: 30px;
+                margin: 40px 10px;
+            }
+
+            .section-header {
+                margin: 40px -30px;
+                padding: 15px 20px;
+            }
+
+            .section-header h2 {
+                font-size: 28px;
+            }
+
+            h1 {
+                font-size: 36px;
+            }
+
+            .tape-line {
+                margin: 40px -30px;
+            }
+        }
+
+        /* ==========================================
+           ABERTURA DE TÍTULO (Estilo YOU)
+           ========================================== */
+        
+        .title-opening {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000000;
+            z-index: 10000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+        }
+
+        .title-opening.active {
+            display: flex;
+            animation: fadeInOpening 0.5s ease-in forwards;
+        }
+
+        @keyframes fadeInOpening {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .title-opening.fade-out {
+            animation: fadeOutOpening 1s ease-out forwards;
+        }
+
+        @keyframes fadeOutOpening {
+            from {
+                opacity: 1;
+            }
+            to {
+                opacity: 0;
+            }
+        }
+
+        .title-text {
+            font-family: "YOU";
+            font-weight: 400;
+            font-size: 180px;
+            color: #ffffff;
+            position: relative;
+            letter-spacing: 8px;
+            user-select: none;
+            transform: scale(0.3);
+            opacity: 0;
+        }
+
+        .title-text.animate {
+            animation: zoomInContinuous 9s ease-out forwards;
+        }
+
+        @keyframes zoomInContinuous {
+            0% {
+                transform: scale(0.3);
+                opacity: 0;
+            }
+            20% {
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1.05);
+                opacity: 1;
+            }
+        }
+
+        .title-text::before {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            color: #8B0000;
+            -webkit-text-stroke: 0;
+            text-stroke: 0;
+            overflow: hidden;
+            width: 0;
+            clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+        }
+
+        .title-text.animate::before {
+            animation: bloodSpread 3s ease-out forwards;
+            animation-delay: 2.5s;
+        }
+
+        @keyframes bloodSpread {
+            0% {
+                width: 0;
+                clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+            }
+            15% {
+                width: 20%;
+                clip-path: polygon(
+                    0 0, 
+                    20% 0, 
+                    18% 100%, 
+                    0 100%
+                );
+            }
+            30% {
+                width: 40%;
+                clip-path: polygon(
+                    0 0, 
+                    42% 0, 
+                    38% 100%, 
+                    0 100%
+                );
+            }
+            45% {
+                width: 60%;
+                clip-path: polygon(
+                    0 0, 
+                    62% 0, 
+                    58% 100%, 
+                    0 100%
+                );
+            }
+            60% {
+                width: 75%;
+                clip-path: polygon(
+                    0 0, 
+                    77% 0, 
+                    73% 100%, 
+                    0 100%
+                );
+            }
+            75% {
+                width: 88%;
+                clip-path: polygon(
+                    0 0, 
+                    90% 0, 
+                    86% 100%, 
+                    0 100%
+                );
+            }
+            90% {
+                width: 97%;
+                clip-path: polygon(
+                    0 0, 
+                    99% 0, 
+                    95% 100%, 
+                    0 100%
+                );
+            }
+            100% {
+                width: 100%;
+                clip-path: polygon(
+                    0 0, 
+                    100% 0, 
+                    100% 100%, 
+                    0 100%
+                );
+            }
+        }
+
+        /* Efeito de gotejamento */
+        .title-text::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            width: 4px;
+            height: 40px;
+            background: linear-gradient(to bottom, #8B0000, transparent);
+            opacity: 0;
+        }
+
+        .title-text.animate::after {
+            animation: bloodDrip 1.5s ease-out forwards;
+            animation-delay: 5s;
+        }
+
+        @keyframes bloodDrip {
+            0% {
+                opacity: 0;
+                height: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+                height: 60px;
+                transform: translateY(20px);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .title-text {
+                font-size: 100px;
+                -webkit-text-stroke: 2px #ffffff;
+                text-stroke: 2px #ffffff;
+                letter-spacing: 4px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .title-text {
+                font-size: 70px;
+                letter-spacing: 2px;
+            }
+        }
+
+        /* ==========================================
+           TELA DE INTRODUÇÃO
+           ========================================== */
+        
+        .intro-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000000;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: opacity 0.8s ease-out;
+        }
+
+        .intro-screen.fade-out {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .intro-text {
+            font-family: 'Courier Prime', monospace;
+            font-size: 24px;
+            color: #ffffff;
+            text-align: center;
+            max-width: 800px;
+            padding: 40px;
+            line-height: 1.8;
+            opacity: 0;
+            animation: fadeInText 1s ease-in forwards;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .intro-image {
+            max-width: 320px;
+            width: 100%;
+            height: auto;
+            border: 3px solid var(--blood-red);
+            box-shadow: 0 0 30px rgba(107, 16, 16, 0.6);
+            opacity: 0;
+            animation: fadeInText 1.2s ease-in 0.3s forwards;
+        }
+
+        .intro-text-content {
+            width: 100%;
+        }
+
+        @keyframes fadeInText {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .intro-text.fade-out-text {
+            animation: fadeOutText 0.5s ease-out forwards;
+        }
+
+        @keyframes fadeOutText {
+            from {
+                opacity: 1;
+            }
+            to {
+                opacity: 0;
+            }
+        }
+
+        .click-indicator {
+            position: absolute;
+            bottom: 40px;
+            font-family: 'Inconsolata', monospace;
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.5);
+            letter-spacing: 2px;
+            animation: blink 1.5s ease-in-out infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+
+        .intro-counter {
+            position: absolute;
+            top: 30px;
+            right: 40px;
+            font-family: 'Inconsolata', monospace;
+            font-size: 12px;
+            color: var(--blood-red);
+            letter-spacing: 2px;
+        }
+
+        /* Efeito de glitch sutil */
+        .intro-text-content::before {
+            content: attr(data-text);
+            position: absolute;
+            left: 2px;
+            text-shadow: -2px 0 #ff0000;
+            top: 0;
+            color: #ffffff;
+            overflow: hidden;
+            animation: glitch 3s infinite;
+            opacity: 0.1;
+        }
+
+        @keyframes glitch {
+            0%, 100% { clip-path: inset(0 0 0 0); }
+            20% { clip-path: inset(20% 0 60% 0); }
+            40% { clip-path: inset(60% 0 20% 0); }
+            60% { clip-path: inset(40% 0 40% 0); }
+            80% { clip-path: inset(80% 0 10% 0); }
+        }
+
+        @media (max-width: 768px) {
+            .intro-text {
+                font-size: 18px;
+                padding: 30px;
+            }
+
+            .intro-counter {
+                top: 20px;
+                right: 20px;
+            }
+
+            .intro-image {
+                max-width: 100%;
+                border-width: 2px;
+            }
+        }
+
+        /* 
+                                                                                                              
+  ▄▄▄▄▄     ▄▄▄▄▄     ▄▄▄▄▄     ▄▄▄▄▄   ▄▄▄   ▄▄▄   ▄▄▄      ▄▄▄   ▄▄▄▄   ▄▄▄   ▄▄▄    ▄▄▄▄▄▄▄    ▄▄▄▄   ▄▄▄   ▄▄▄ 
+▄███████▄ ▄███████▄ ▄███████▄ ▄███████▄ ███   ███   ████▄  ▄████ ▄██▀▀██▄ ███   ███   ███▀▀▀▀▀  ▄██▀▀██▄ ███   ███ 
+███   ███ ███   ███ ███   ███ ███   ███ █████████   ███▀████▀███ ███  ███ █████████   ███       ███  ███ █████████ 
+███▄▄▄███ ███▄▄▄███ ███▄▄▄███ ███▄▄▄███ ███▀▀▀███   ███  ▀▀  ███ ███▀▀███ ███▀▀▀███   ███  ███▀ ███▀▀███ ███▀▀▀███ 
+ ▀█████▀   ▀█████▀   ▀█████▀   ▀█████▀  ███   ███   ███      ███ ███  ███ ███   ███   ▀██████▀  ███  ███ ███   ███ 
+                                                                                                                   
+                                                                                                                   
+        ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣀⣀⣀⣤⣤⣤⣤⣤⣤⣤⣤⣤⣀⣀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⣤⣴⣶⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣶⣶⣤⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣠⣴⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣦⣄⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣶⣿⢿⡿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⢿⣿⢿⣿⢿⡿⣿⡿⣿⣿⣷⣄⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣾⣿⣯⣟⣯⣿⣿⣽⣾⣿⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⡟⣡⢺⡆⠙⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣿⣷⣻⣯⣿⣷⣆⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⢀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠟⢹⣿⣿⡿⢋⠞⠃⠀⣷⠀⠈⠻⣿⣿⣿⣿⠛⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣇⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣟⣡⣿⣿⡿⠧⠤⣾⡿⢋⠤⠊⠀⠀⠀⢸⡄⠀⠀⠈⠻⣿⣿⡦⠬⠽⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡆⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⣿⣿⣿⣿⣿⣿⠟⠁⠀⣸⣿⣯⣤⣤⣼⣏⡠⠎⠀⠀⠀⠀⠀⠈⢷⠀⠀⠀⠀⣈⣻⣷⣤⣤⣬⣻⣧⠙⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⣼⣿⣿⣿⣿⣿⣿⡿⠋⢀⣴⢾⢏⣿⣿⣿⣿⣿⣮⣅⠀⠀⠀⠀⠀⠀⠀⠘⠙⠀⠀⠀⣩⣵⣿⣿⣿⣷⣮⡙⢳⣦⠻⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿⣿⣿⣿⡿⠃⢠⣿⠁⢠⣿⣿⣿⣿⣿⣿⣿⣿⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢰⣿⣿⣿⣿⣿⣿⣿⣷⠀⢻⣧⠈⣿⣿⣿⣿⣿⣿⣿⡇⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿⣿⣿⣿⡇⠀⢹⣿⠀⢸⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⣿⣿⣿⣿⣿⣿⠀⢸⣿⠀⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⢀⣿⣿⣿⣿⣿⣿⣷⠀⠀⠁⠀⠈⢷⣤⣼⣿⣿⣿⠿⠗⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⠧⢤⣾⣿⣿⣿⣿⠟⠀⠘⠉⠀⣿⣿⣿⣿⣿⣿⣿⡟⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⢰⣿⣿⣿⣿⣿⣿⣿⠆⠀⠀⠀⠀⠀⠈⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⣶⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢹⣿⣿⣿⣿⣿⣿⣿⣿⣿⡆
+⠀⠀⠀⠀⠀⠀⢸⣿⣿⣿⣿⣿⣿⣿⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣄⣀⣀⠀⣁⢐⣀⣠⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣸⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⠀
+⠀⠀⠀⠀⠀⠀⢸⣿⣿⣿⣿⣿⣿⣿⣿⣦⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣾⠿⠟⠉⠋⠉⠋⠙⠛⢿⡇⠀⠀⠀⠀⠀⠀⠀⣀⢀⣠⣴⣿⣿⣿⣿⣿⣿⣿⣿⣿⠁⠀⠀
+⠀⠀⠀⠀⠀⠀⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣦⣤⣀⣀⠀⠀⠀⠀⠀⠀⠙⣦⣀⡆⠈⡄⠀⣘⣠⡞⠁⠀⠀⢀⡀⣄⣶⣶⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣶⣶⣀⣰⣀⢈⠙⠛⠛⠛⠛⠋⠉⣀⣶⣰⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⣸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠿⢛⣧⠉⠉⠙⠒⠛⠛⠛⠚⠛⠉⠉⢰⡿⠿⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⢿⣿⣿⡿⠟⠋⠁⠰⣯⠟⠀⠀⠀⠀⠄⠀⠀⠀⠀⠀⠄⢺⣡⡆⠀⠈⠻⢿⡛⢹⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠿⠟⠊⠉⠀⠀⠀⠀⠀⠀⢹⡀⠀⠈⠑⠲⢤⣄⣂⣈⣐⣀⣀⣠⣟⣀⠤⠔⠒⠀⠀⠉⠛⢿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠘⣿⣿⣿⣿⣿⣿⣿⣯⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⢷⡒⣒⠲⣒⢒⢲⣶⡒⠖⡲⢶⡞⠁⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⣿⣿⣿⣿⣿⡇⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠘⣿⣿⣿⣿⣿⣿⣿⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⣷⢠⣣⠔⡊⠖⢫⠘⡴⣱⠏⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣿⣿⣿⣿⣿⣿⣿⡟⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⣨⣿⣇⢻⣿⣿⣿⣿⡢⣀⠀⠀⠀⠀⠀⣀⣀⣠⡀⠀⠈⣧⠳⡘⠴⡉⢆⠽⣿⠋⠀⠀⠀⠀⣀⡀⠀⠀⠀⠀⣼⣿⣿⣿⣿⢛⣿⠿⡄⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⢄⡾⣣⢁⡛⢣⢉⡻⡿⢿⣷⢦⣉⠓⢒⣊⣭⡭⢀⡏⠀⠀⠀⠈⢳⣱⡢⠑⡌⡿⠁⠀⠀⠀⠀⢀⡇⠨⣭⣖⠢⣼⣿⣿⠿⠋⣄⣾⠏⡒⣽⣦⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⣠⡟⢚⢄⡒⢌⢂⠣⡑⠤⡃⢍⠣⡌⢍⣃⢲⣏⡀⠸⠤⣀⣀⠀⠀⠀⠹⣦⠣⣼⠃⠀⢀⣀⡤⠤⠚⢁⣀⣷⠄⢿⡟⢫⢁⠎⡱⢌⠡⢃⠜⣘⡹⣇⠀⠀⠀
+⠀⠀⠀⠀⣰⠏⣷⡃⢆⡘⠤⢃⣌⡇⠖⡩⢌⠢⣑⠊⡔⢢⢒⠩⣉⠓⡒⠦⠭⠭⢥⣒⣚⣻⣗⣈⠭⠥⢖⢒⡚⠩⡍⡒⢤⡉⠆⡍⢒⠌⡒⣡⢊⡴⢃⠜⣠⢑⡼⠀⠀⠀
+⠀⠀⠀⣰⢫⢰⣉⣿⡌⣴⣁⢣⣼⡏⡜⢰⣈⢱⢠⢩⣐⢡⢊⢱⢠⡍⣰⢉⡜⣤⢓⢸⣏⣀⣀⣿⡘⢢⢡⡒⣌⡑⣆⡑⢢⣌⢱⣈⣬⡘⣤⡁⣎⡟⡌⢢⢡⣾⢃⠀⠀⠀
+⠀⠀⢰⡟⡏⠷⡙⢎⣿⡶⡉⢇⣿⡷⢙⠳⡉⠇⡎⢳⠉⢇⢋⠞⢳⢁⠳⠞⡁⢇⠞⡸⢹⡟⣿⡏⢇⡎⠷⡙⢎⡹⢈⡹⢃⠞⡰⣉⠆⢳⠆⢳⡘⣿⡁⡏⣾⠇⢏⠀⠀⠀
+⠀⢀⡾⣥⢋⠴⡁⠆⣿⣷⣱⣿⣻⡇⢎⠰⡁⢎⠰⡁⢎⠢⢌⡘⠄⡎⠱⡨⢑⠌⡢⠅⣿⡇⣻⣏⠦⡘⠰⡉⠆⡔⢣⢐⡡⢊⠔⡰⢨⡁⢎⡡⢘⣿⣷⣼⡟⣌⠢⠀⠀⠀
+⠀⢸⢇⠹⢌⠢⢅⠓⢾⣟⡿⣷⣿⠇⡊⢔⠡⡊⢔⠡⡊⠔⢢⠘⡰⢈⡱⢐⡉⢆⠡⢍⣿⢦⢙⣿⢂⡍⠱⡘⠌⡔⢡⢂⠒⡡⢊⠔⡡⡘⢄⡒⡡⣿⣿⣿⠒⡄⢣⠀⠀⠀
+⠀⣿⢂⠣⢌⠣⡘⢌⠺⣿⣽⢻⣿⢀⠓⡌⢒⠡⢊⠒⡡⡉⢆⡑⢢⢁⠦⢡⠘⠤⣉⢺⣟⢸⡌⣿⡆⡌⢱⠈⡜⢠⠃⡌⢒⠡⢊⠔⡡⡘⢄⠆⡱⣿⢯⡽⢃⠜⡠⠀⠀⠀
+⢠⡇⢎⢂⠧⢌⠱⡈⠜⣿⣞⣯⡗⢨⡘⠤⢃⠥⢃⡱⠤⡑⢢⠘⡄⡊⠔⡡⢊⠔⡤⢻⡏⡤⡇⢿⡧⡘⢄⠣⡘⢄⠣⡘⠤⡉⢆⠚⠤⡑⢊⡔⢡⣿⣻⡏⠴⡘⠰⠀⠀⠀
+⣼⠓⡌⡒⢌⣂⠣⡉⢆⡹⢯⣷⡏⠔⡨⢒⡉⠆⠥⢂⡱⢈⠆⡱⠠⢅⠓⡄⢣⠘⠤⣿⡇⢇⡹⢸⣷⢁⠎⡰⢁⠎⡰⢁⡒⢡⠊⡜⢠⠃⡥⠘⠤⣿⣳⡟⠤⡑⢃⠀⠀⠀ */

@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" type="x icon" href="img/diario.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Folha LUNÁTICA 011 - Hoje é o dia."> 
+  <meta property="og:description" content="Folha 11 do Diário LUNÁTICO."/>
+  <meta property="og:image" content=""/>
+    <iframe src="" allow="autoplay" style="display:none" id="iframeAudio">
+    </iframe> 
+    
+    <title>Hoje é o dia.</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barrio&family=Bungee+Spice&family=Cabin+Sketch:wght@400;700&family=Cardo:ital,wght@0,400;0,700;1,400&family=Caveat&family=Cinzel+Decorative:wght@400;700;900&family=Cutive+Mono&family=Delius&family=Finger+Paint&family=Galindo&family=Gideon+Roman&family=Gloria+Hallelujah&family=Griffy&family=Just+Another+Hand&family=Linden+Hill:ital@0;1&family=Marcellus+SC&family=Nothing+You+Could+Do&family=Pangolin&family=Shadows+Into+Light&family=Snowburst+One&family=Syne+Mono&family=Turret+Road:wght@200;300;400;500;700;800&family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Unkempt:wght@400;700&family=VT323&display=swap" rel="stylesheet">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Playfair+Display:wght@700;900&family=Inconsolata:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+       
+    </style>
+</head>
+<body>
+
+    <!-- Abertura de Título (VOCÊ, VOCÊ, VOCÊ) -->
+    <div class="title-opening" id="titleOpening">
+        <div class="title-text" data-text="MISKA">MISKA</div>
+    </div>
+
+    <!-- Música de fundo da introdução (hahaha you) -->
+    <audio id="introBgMusic" loop></audio>
+
+    <!-- Música da abertura de título (nois tá chegano cusão) -->
+    <audio id="titleOpeningMusic"></audio>
+
+    <!-- Introdução da Miska Psicopata - que nome, hein? Puta que pariu -->
+    <div class="intro-screen" id="introScreen" onclick="nextIntroText()">
+        <div class="intro-counter" id="introCounter"></div>
+        <div class="intro-text" id="introText" data-text=""></div>
+        <div class="click-indicator"></div>
+    </div>
+
+    <div class="evidence-container">
+        <div class="evidence-bag">
+
+             <div class="section-header" onclick="toggleMusic()">
+                <h2><span class="collapse-icon">▼</span>Música</h2>
+            </div>
+
+            <div class="music-content" id="musicContent">
+                <div class="music-player">
+                    <h3>Aviso: Humor Ácido.</h3>
+                    <audio controls id="audioPlayer">
+                        <source src="audio/musica1.mp3" type="audio/mpeg" id="audioSource">
+                        Seu navegador não suporta o elemento de áudio.
+                    </audio>
+                </div>
+            </div>
+
+            <h1>ACORDAR CEDO</h1>
+
+            <p>Acordar cedo é, sem dúvida, um dos pilares de uma rotina minimamente saudável. Sempre acreditei nisso. Levantar antes do resto do mundo tem suas vantagens: mais produtividade, mais foco e menos caos. A mente acorda limpa, organizada, pronta para colocar o dia nos trilhos antes que ele tenha a chance de se destrambelhar. O estresse diminui, a ansiedade perde força e, dizem por aí, o risco de depressão até cai.</p>
+
+            <p class="subtitle">Milagroso, né?</p>
+
+            <p>Por isso, faço questão de garantir uma boa noite de sono, sempre. Normalmente acordo às quatro da manhã, horário ingrato para alguns, mas que é perfeito para mim. Meu despertador, aliás, é de altíssima qualidade. Também faço questão disso, não economizo quando o assunto é eficiência.</p>
+
+            <p>As janelas são totalmente à prova de som, então não há perigo de alguém além de mim ouvir ele gritando igual uma galinha com AVC. Ele fica sempre bem posicionado ao lado da minha cama, quaaaaaase colado ao meu ouvidinho. </p>
+
+            <p>Não gosto de deixar margem para erro. Às vezes, eu tenho um sono pesado que vou te contar, viu?</p>
+
+            <p>Quando acordo, desligo o despertador e me livro dele.</p>
+
+            <p>Mesmo os melhores aparelhos têm uma vida útil curta. Depois que cumprem sua função, tornam-se apenas um peso morto.</p>
+
+            <p>Cê sabe do que eu tô falando, né?</p>
+
+            <hr>
+
+            <h1>TOMAR CAFÉ DA MANHÃ</h1>
+
+            <p>O café da manhã é um rito fundamental pra começar o dia com ordem. É o primeiro compromisso que tenho comigo mesma. Meu café da manhã não chega a ser exatamente regrado, mas confesso que tenho uma preferência quase devota por um bom muffin de cevada acompanhado de café preto, forte e escaldante.</p>
+
+            <p>Bem do jeitinho que eu gosto.</p>
+
+            <p>Ainda assim, não sou completamente avessa a novidades. Quando algo desperta meu interesse, eu até me permito experimentar, embora não seja algo que aconteça com tanta frequência assim. Eu gosto de pensar que isso me torna flexível, de alguma forma. (̶N̶ã̶o̶ ̶t̶o̶r̶n̶a̶)̶</p>
+
+            <p>Hoje, por exemplo, resolvi variar e acabei comendo carne seca logo cedo. E, olha, não vou mentir: estava MUITO boa. Tão boa que me peguei questionando meus próprios métodos de preparo, algo que raramente acontece. Normalmente, não duvido de mim. Mas dessa vez? Fiquei genuinamente impressionada.</p>
+
+            <p>Sinceramente, acho que vou incorporar esse tipo de iguaria ao meu café da manhã com mais frequência.</p>
+
+            <p>Dá trabalho? Pra caralho.</p>
+
+            <p>Desmembrar um corpo não é exatamente a tarefa mais simples do mundo. Exige força, paciência e um certo estômago. Mas eu sempre assumo o risco. Alguns sacrifícios são necessários quando se busca excelência.</p>
+
+            <p>O único problema mesmo é o espaço.</p>
+
+            <p> O que sobra simplesmente não cabe na geladeira. Mas, felizmente, precaução nunca foi meu ponto fraco.</p>
+
+            <p>O resto dessa joça vai pro frigorífico.</p>
+
+            <hr>
+
+            <h1>FAZER EXERCÍCIOS</h1>
+
+            <p>Corri atrás de um cara e matei ele com uma pedrada forte na cabeça.</p>
+
+            <p>Ele não estava correndo de mim necessariamente, foi como uma caça silenciosa, embora eu admita que também não era parte dos meus planos pro dia. Ele estava correndo rápido demais, com um desespero que não combinava em nada com a ideia de uma atividade física recreativa. Não parecia um esforço saudável, parecia mais uma fuga disfarçada de treino. Eu o reconheci quase de imediato, já tinha visto o rosto dele nos jornais. O sujeito era tão perturbado quanto eu, com um histórico extenso de crimes e uma habilidade curiosa de sempre escapar da polícia.</p>
+
+            <p>Nunca conseguiram encontrá-lo, mas felizmente eu consegui, né? Uhuuu!</p>
+
+            <p>Fiz o serviço por eles, ainda que ninguém vá me entregar medalha alguma por isso, o que, honestamente, é uma baita de uma injustiça.</p>
+
+            <p>Brincadeiras á parte, correr realmente ajudou.</p>
+
+            <p>Queimei algumas calorias e aliviei uma tensão acumulada.</p>
+
+            <p>Eu tava me sentindo um pouco gordinha esses dias.</p>
+
+            <p>Eu tava REALMENTE precisando disso.</p>
+
+            <hr>
+
+            <h1>TREINAR</h1>
+
+            <p>Espanquei meu vizinho até ele desmaiar, mas ele acabou morrendo por conta da enorme quantidade de socos que eu fiquei dando no crânio dele. Eu consegui até mesmo ouvir o momento exato em que os ossos viraram pó. Pois é, o excesso de força cobra um preço irreversível, às vezes.</p>
+
+            <p>Ainda assim, vou registrar isso como um ponto positivo. Até porque ele tentou reagir, lutou de verdade. E preciso reconhecer: o cara era bom. Foram cerca de quinze minutos de confronto direto, tempo suficiente para eu sair com o rosto marcado e o peito reclamando de alguns pontapés bem dados.</p>
+
+            <p>Doeu? Sim. Mas a dor estava longe de ser um problema. Na verdade, foi até bom. Serviu até como um combustível pra mais.</p>
+
+            <p>O que realmente me distraía era o jeito de se mover que ele tinha. Antes de qualquer investida, ele fazia umas poses estranhas que eram sempre acompanhadas de sons que cheguei a me perguntar se ele estava de brincadeira com a minha cara ou se ele REALMENTE lutava daquela maneira.</p>
+
+            <p>Ele parecia um completo demente lutando, e olha que a maluca da história sou eu.</p>
+
+            <p>Porém, o que me distraía foi, ironicamente, o que também me deu vantagem.</p>
+
+            <p>Aqueles movimentos, por mais idiotas que fossem, pareciam funcionar como um gatilho. Se ele não os fazia, o ataque também não vinha. Era uma dependência clara, notei isso com o passar da luta. Quando descobri isso, eu resolvi não prolongar muito mais aquela palhaçada. Quebrei os dois braços dele na hora. Por fim, eu avancei na direção dele e espanquei ele até dar no que deu.</p>
+
+            <p>Alguns aprendem com avisos.</p>
+
+            <p>Outros, infelizmente, aprendem do jeito difícil.</p>
+
+            <p>Por quê?</p>
+
+            <p>Vai ouvir música alta assim no inferno.</p>
+
+            <hr>
+
+            <h1>SE HIDRATAR</h1>
+
+            <p>Ah, e eu bebi o sangue desse mesmo vizinho. Foi uma jarra inteira, diga-se passagem.</p>
+
+            <p>É só isso mesmo, pode ir para a próxima parte.</p>
+
+            <hr>
+
+            <h1>SER ECOLOGICAMENTE CONSCIENTE</h1>
+
+            <p>Separar lixo orgânico do inorgânico é um princípio básico para qualquer sistema minimamente funcional de reciclagem e compostagem. Aposto que você já sabe disso.</p>
+
+            <p>Eu sei que sabe. E eu também sei. Não somos idiotas, meu caro.</p>
+
+            <p>Plástico no lugar certo, vidro longe do resto, papelão empilhado com cuidado, papéis devidamente dobrados, foram todos pro lixo inorgânico. Uma pequena contribuição individual para um planeta que já passou do ponto de retorno, mas ainda assim, vale o esforço simbólico.</p>
+
+            <p>Já o meu colega de trabalho foi pro lixo orgânico. Biodegradável, inclusive. A natureza, com o tempo, saberá lidar melhor com ele do que o RH jamais conseguiu.</p>
+
+            <p>Agora é só esperar o lixeiro passar.</p>
+
+            <hr>
+
+            <h1>AJUDAR OS OUTROS</h1>
+
+            <p>Ajudei um cara no pico de sua depressão.</p>
+
+            <p>Enquanto caminhava pela madrugada, encontrei um homem parado na calçada, encarando o vazio da estrada como quem já desistiu de procurar respostas. O lugar estava quase deserto. É curioso como a noite consegue esvaziar tudo, ruas, sons, pessoas. Restávamos apenas nós dois, interrompidos ocasionalmente por carros apressados que cortavam a escuridão com seus faróis indiferentes.</p>
+
+            <p>Ele não me percebeu. Ou percebeu e decidiu que eu não valia a atenção. Bastou observá-lo por alguns segundos para entender o quadro geral: ele tava no limite. A expressão de quem teve o pior dia possível. De quem perdeu tudo o que dava para perder e estava seriamente considerando se matar.</p>
+
+            <p>Seria mentira eu dizer que senti alguma coisa. Nah, eu não senti nada, nenhuma identificação tardia. Ainda assim, isso não me impediu de pensar. E pensar, no meu caso, sempre foi mais importante do que sentir.</p>
+
+            <p>Deixá-lo ali, congelado naquela indecisão, parecia cruel.</p>
+
+            <p>Sofrimento prolongado não era uma opção aceitável, pelo menos não naquele instante.</p>
+
+            <p>Então, eu chutei ele na frente de um carro que percebi que vinha em uma velocidade incompatível com qualquer noção de prudência, provavelmente outro sujeito tendo um dia igualmente péssimo e que também não parecia ter medo do perigo.</p>
+
+            <p>Quando o carro o atingiu, não foi apenas a vida daquele homem que se perdeu no impacto. O motorista, tomado por um choque imediato, talvez o maior e último de toda a sua existência, entrou em completo descontrole. As mãos já não respondiam, a noção de direção se dissolveu em pânico, e o veículo saiu da trajetória até colidir violentamente contra algum obstáculo indistinto.</p>
+
+            <p>Minutos depois, a morte já não distinguia vítima e causador, encerrando ambas as histórias no mesmo instante trágico.</p>
+
+            <p>Olha, veja pelo lado bom, provavelmente ele não está tão garantido no inferno.</p>
+
+            <hr>
+
+            <h1>PRATICAR GRATIDÃO</h1>
+
+            <p>É como dizem por aí: tudo o que vai, volta.</p>
+
+            <p>Dessa vez, a conta veio direto pra mim: fui atropelada por um sujeito claramente fora de si, alguém que também parecia ter zerado igualmente qualquer noção básica de perigo. Fiquei estatelada no asfalto, meu corpo reclamando em todas as línguas possíveis, enquanto o motorista, longe de ser ingênuo, resolveu afundar o pé no acelerador e desaparecer. Medo, desespero, covardia, escolha o rótulo que preferir.</p>
+
+            <p>Mas ei, deu pra extrair algo bom disso tudo. Ele deu um jeito na minha coluna.</p>
+
+            <p>Sério, a situação aqui tava foda.</p>
+
+            <p>Não foi exatamente a forma mais elegante de ajuste, mas funcionou.</p>
+
+            <p>Isso é gratidão, eu acho.</p>
+
+            <br><br>
+            <br><br>
+            <br><br>
+            <br><br>
+            <br><br>
+            <br><br>
+            <br><br>
+            <br><br>
+            <br><br>
+            <br><br>
+            <br><br>
+            <br><br>
+            <br><br>
+            <br><br>
+
+            <p>Acho que vou pedir pra ele fazer de novo, hein?</p>
+
+            <hr>
+
+            <h1>TER AMOR PRÓPRIO</h1>
+
+            <p>Tentei sequestrar, ao todo, 3 variações de mim mesma, cada uma moldada por circunstâncias distintas.</p>
+
+            <p>A primeira era uma mulher plenamente adulta e, sendo honesta, imensa. Não apenas em estatura, mas em presença física e força bruta. Seu corpo musculoso denunciava alguém que cresceu enfrentando o pior que a vida tinha a oferecer, e que, em vez de quebrar, aprendeu a reagir. Do jeito dela. Violento e sem espaço para hesitação. Era o tipo de pessoa que resolve problemas antes mesmo de considerar pedir permissão.</p>
+
+            <p>A segunda face aparentava estar na meia-idade. Vestia-se de maneira estranhamente ultrapassada para os padrões atuais, como se tivesse parado no tempo ou simplesmente se recusado a acompanhá-lo. Empunhava um machado com firmeza, não como quem carrega uma arma, mas como quem segura uma extensão do próprio corpo. Havia nela uma vigilância constante, um estado permanente de alerta. Baixar a guarda definitivamente não era uma opção para ela.</p>
+
+            <p>A terceira.. era um homem. E é só isso, ele era um homem. Não havia nada de extraordinário ali além do seu comportamento retraído e de um gosto bem específico por basquete.</p>
+
+            <p>O que eu queria era ter essas três faces apenas para mim. Poder observá-las de perto, admirá-las como quem contempla um espelho fragmentado, mas honesto. Acordar todos os dias sabendo que, apesar das diferenças gritantes de aparência, temperamento e escolhas, cada uma delas carrega um reflexo inegável do que eu sou. Talvez seja isso, no fim das contas, o verdadeiro amor-próprio: reconhecer a própria complexidade e, ainda assim, se considerar inteira.</p>
+
+            <p>Mas.. meio que acabei aprendendo da pior maneira possível que a única forma de me admirar é o espelho da minha própria casa.</p>
+
+            <p>Por que, você me pergunta?</p>
+
+            <p>Eu tentei sequestrar a primeira, mas ela me encheu de porrada.</p>
+
+            <p>Não estou exagerando quando digo que nunca apanhei tanto em toda a minha vida, e essa é uma daquelas raras afirmações que faço genuinamente. Foram tantos golpes que, honestamente, me surpreende meu rosto ainda manter o mesmo formato de antes. No fim, recorri ao último recurso: fingi estar morta. Tive que interromper meus batimentos cardíacos por um tempo considerável. O problema é que ela era meticulosa, do tipo que confere duas vezes antes de ir embora. Ainda assim, agradeço ao bom Deus que ela tenha comprado a encenação e me deixado ali.</p>
+
+            <p>A segunda não foi mais misericordiosa. Apesar da idade avançada, possuía a força e o fôlego de um touro enfurecido. Acabou comigo de todas as maneiras possíveis, físicas e psicológicas. Não houve alternativa além de abortar a missão. Se eu tivesse insistido por mais alguns segundos, eu ia perder a porra da minha cabeça. Nah, definitivamente não.</p>
+
+            <p>E o terceiro?</p>
+
+            <p>Quando o vi pela primeira vez, eu estava escondida atrás de uma árvore, tentando observar sem ser notada. Ele apenas jogava basquete com alguns caras aleatórios. Duvido seriamente que fossem amigos, desista disso, é impossível. Até então, tudo parecia inofensivo.</p>
+
+            <p>Foi aí que aconteceu algo que, para alguns, poderia soar cômico, mas que para mim foi profundamente humilhante.</p>
+
+            <p>Ele executou o pior arremesso da história do basquete.</p>
+
+            <p>Tentou acertar o aro, mas a bola simplesmente escapou de suas mãos em uma velocidade absurda. E, claro, ela veio diretamente na minha direção. Acertou meu rosto em cheio, me fez perder o equilíbrio e cair sentada no meio de uma estrada.</p>
+
+            <p>E sim, eu fui atropelada mais uma vez.</p>
+
+            <p>Acho que com isso posso concluir que amor próprio tem limite. E o meu, definitivamente, não inclui me aproximar demais das minhas outras versões.</p>
+
+            <hr>
+
+            <h1>SER AUTOCONSCIENTE</h1>
+
+            <p>.. Bleh.</p>
+
+            <p>Ser autoconsciente é, em teoria, a capacidade de voltar o foco para o próprio “eu”, observar-se com algum grau de lucidez e tirar conclusões minimamente honestas. Se existe algo que sei fazer bem, é isso. Ainda assim, ao revisitar toda essa sequência de eventos, a constatação é meio frustrante: não mudei em absolutamente porra nenhuma, apesar de ter acreditado, em algum momento, que mudaria.</p>
+
+            <p>Eu não sei o que sentir exatamente em relação a isso.</p>
+
+            <p>Não tem revolta.</p>
+
+            <p>não tem tristeza.</p>
+
+            <p>Nah, não tem nada aqui dentro.</p>
+
+            <p>A minha mente, porém, não perde tempo com esse silêncio interno.</p>
+
+            <p>Ela insiste em repetir que não importa o esforço, a tentativa, ou a quantidade de boas intenções acumuladas pelo caminho. Essa vontade que mora em mim sempre vai pedir mais. E eu sei que vou ceder como sempre cedo.</p>
+
+            <p>Talvez seja isso que me define.</p>
+
+            <p>Talvez isso simplesmente permaneça imutável, mesmo com toda a autoconsciência do mundo.</p>
+
+            <p>No fim das contas, a gente é o que é.</p>
+
+            <p>Não é?</p>
+
+            <div class="return-container">
+                <a href="/O_Diário_LUNÁTICO/O_Diário_LUNÁTICO.html">← RETORNAR</a>
+            </div>
+        </div>
+    </div>
+
+ <script src="javascript.js"></script>
+
+</body>
+</html>
+
+<!-- ⠀
+                           
+                         
+██████ ██ ██▄  ▄██       
+██▄▄   ██ ██ ▀▀ ██       
+██     ██ ██    ██ ▄ ▄ ▄ 
+                         
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣏⠂⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠐⠀⠀⠀⢨⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠐⠀⠀⠀⠰⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⣴⣬⣶⢦⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⣟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡀⠄⠐⠀⠠⠀⠀⢀⠠⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⣿⣿⣿⣿⢦⣁⠈⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠄⠰⡿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠂⠀⠀⠀⠀⠄⠀⡀⠀⡀⠀⠠⠐⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣾⣿⣿⣿⣿⣧⡤⠀⢀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⡜⠀⠀⠀⢀⠀⢀⠠⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡀⠐⠀⠀⠈⢀⠀⠐⠀⡀⠀⠄⠀⡀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡾⠿⠿⣿⣿⡿⠍⡐⠈⢇⠀⠀⠀⠀⠀⠀⠠⣄⠀⠀⠀⠀⠀⠀⠉⠀⣤⠀⠀⡀⠀⠀⠀⠀⡀⠄⠀⠀⢀⠀⠀⠀⠀⠀⠀⠀⠀⢀⠈⠀⠀⠂⢀⠀⠄⠀⠂⠀⠄
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣾⣷⠆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣹⣿⣆⠀⠀⠀⠀⠀⡖⠋⠀⠀⠀⠀⠐⠀⠁⠀⢀⠠⠈⠀⠀⠀⠀⠀⠀⠀⠀⠈⠀⠀⠀⠁⡀⠀⢀⠀⠂⠀⠁⡀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠄⠐⣿⣿⣿⣿⡗⠀⠀⣰⣶⣷⠀⠀⠀⠀⠀⠀⢀⣄⠈⣿⣿⡃⠀⠀⠀⠠⠀⠀⠠⠐⠀⠐⠀⢀⠀⠀⡀⠀⢀⠠⠀⠀⠀⠀⠀⠀⠀⠀⠄⠐⠈⠀⠀⠠⠀⠀⡐⠈⠀⡀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢾⡔⣿⣿⣿⣿⣟⣷⣿⣿⣿⡗⠀⠀⠀⠀⠀⠀⠀⠀⣰⣿⣿⡽⠀⠀⠘⠁⠀⠁⠀⠀⠐⠀⢀⠀⠀⡀⠀⠄⠀⠀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠠⠀⠁⠀⡀⠁⠀⡀⠂⠄
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⢹⣿⣿⣿⣿⣿⣿⣿⣿⠇⠰⡄⠀⠀⠀⠀⠀⠀⣼⣿⣿⠃⠈⠁⠠⠀⠀⠀⠀⠀⠀⠠⠀⠀⠂⠀⠄⠀⢈⠀⠀⠄⠂⠀⠀⠀⠀⠀⠀⠐⠀⠀⠄⠁⠀⡀⠁⠠⠐⡀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢹⣿⣿⣿⣿⣿⣿⣉⣙⠀⠀⠛⠁⠀⠀⠀⣠⡞⠽⣿⣷⠀⠄⠂⡀⠄⠁⠠⠀⠂⠀⠄⠀⠂⠀⠄⠀⠌⠀⠀⠠⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠠⠀⠂⠁⠀⠐⡀⠂⡀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⣿⣿⣿⣿⣿⠇⠀⠀⠀⠀⠀⠀⠀⣿⠇⠘⣿⣿⠂⠌⡐⠠⠀⠌⡀⠄⠠⠁⢀⠠⠀⠈⠀⠄⢀⠐⠀⡁⢀⠐⠀⡐⠀⠀⠀⡀⠀⠀⠄⠀⠠⠐⠈⠀⢀⠐⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢿⣻⣿⡏⣛⡛⠉⠁⠀⠀⠀⠀⠀⠀⠃⣾⡃⣴⣿⣿⢂⡐⢀⠂⠌⣐⢤⡈⠄⠈⢀⠀⠄⠈⢀⠠⠀⠂⢁⠀⠄⠠⠀⠀⠠⠀⢁⠀⠀⠂⢀⠐⠀⠠⠀⢁⠀⡈⠐
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣫⣿⡜⣿⠿⠛⠋⠀⠀⠀⠀⠀⠀⢠⡿⣥⠿⣿⣿⠂⠈⠄⣈⠰⡁⠀⠉⢦⡁⠂⠄⢂⠈⢀⠀⢁⠂⠄⡈⢀⠂⢀⠁⠠⠐⠀⡀⠂⡈⢀⠀⠈⡀⠐⠀⠄⡐⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢳⣞⠻⣾⣷⣶⠤⠀⠀⠀⠀⠀⠀⠈⠁⠁⠀⢻⡟⠑⣢⠀⠈⠉⢻⡀⠀⠈⢷⡄⠂⠄⠂⠄⡈⠄⡐⠠⠐⠠⠐⠠⢈⠐⠠⢁⠠⠐⡀⠄⡀⠂⠠⠐⢈⠠⢀⠁
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠠⣿⣿⣷⣌⠛⠉⠀⠀⠀⠀⠀⠀⠄⠁⠀⠀⠀⣾⡇⠀⠀⠳⣄⠀⠈⠃⠀⠀⠈⢻⣆⠐⢈⠠⢀⠂⠄⠡⢈⠄⢃⢁⠢⢈⠂⠔⡀⠆⡐⠠⡀⠡⢀⠂⠄⡐⠠⢈
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡴⠀⠀⠀⣠⠄⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿⡻⠷⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠿⠁⠀⠀⠀⠙⣷⡀⠀⠀⠀⠀⠨⡇⠘⠀⠐⠦⠈⣔⡁⢂⠌⣀⠂⠔⢂⢉⡐⢀⠂⠤⠁⠤⢁⠂⠌⡐⠠⢁⠂
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⠀⠀⠰⣿⠌⠡⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢻⣿⣿⣿⢀⠘⢀⠀⠀⠀⠀⠀⠀⣶⣶⣶⣶⣦⣤⣀⠀⠀⠀⢨⣷⠀⠀⡄⠀⢠⡇⠀⠀⠀⠀⠀⠀⠈⠀⠑⢢⣌⠢⠌⣀⠢⠁⠎⢠⠁⠆⠂⠌⠒⠠⡁⠂⠌
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢿⡀⠀⢸⣟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠠⢠⠀⠀⠀⠀⠘⢿⣿⣿⣧⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⠛⠿⣿⣿⣠⠀⠀⠀⢨⣼⡆⠀⢳⠀⠘⡁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣷⡰⢀⠆⢩⠐⢂⡘⢈⠡⢊⠌⠡⢀⠃⠌
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢺⣇⠀⣸⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡰⠟⠁⠀⠀⠀⠀⠈⢿⣿⣿⡄⠀⠀⠀⢸⣗⣮⠀⠠⣶⣶⣤⣀⠙⠷⣇⡀⠀⠀⢻⣟⠀⠘⣧⣰⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢻⣿⡄⡘⠤⠘⣀⠒⡈⠔⡠⢊⠰⢁⡘⠄
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⠃⠀⢻⡟⠀⠀⠀⠀⠀⢀⡀⠀⢀⠔⠁⠀⠀⢀⡆⠀⠀⠀⠀⠙⢿⡿⢀⠀⠀⣼⣿⣿⣷⣄⠹⠻⣿⣿⣶⡄⠙⢷⣤⣀⠀⠈⠀⠀⣿⡿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⡿⣿⣷⢀⠣⠘⡀⠆⢡⢂⢁⠂⡌⢂⠔⡈
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⠘⠀⠀⢇⠀⠀⠀⠄⢰⣿⠁⠐⠁⠀⠀⠀⢀⡜⠀⠀⠀⠀⠀⠀⠀⠀⠑⢆⠀⠜⣿⣿⣯⡽⠁⠀⠈⠻⣿⣿⣧⢼⡛⠎⠅⠀⠖⣆⣿⡏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠃⠠⢿⣿⡆⠰⡁⠰⠈⠆⡄⢊⠐⢌⠰⡈⡐
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⠂⠐⠈⢃⢈⡀⠀⠀⠀⣿⠃⠀⠀⠀⠀⠀⠀⠏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠒⢯⣽⡞⠀⠀⠀⠀⠀⠈⣿⡻⠿⠁⠀⠀⠀⠀⣻⣿⣇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣸⣿⣇⠡⢂⠅⡃⢂⠌⢂⠩⡀⠆⢡⠂
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢻⣷⠂⠀⣴⡿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡿⠀⠀⠀⠀⠀⠀⠀⣇⠁⠀⠀⠀⠀⠀⣰⠁⢿⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠐⠻⣿⣿⠄⡃⢆⠱⡈⠒⡌⠰⢈⠌⡐⠌
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠁⠂⠀⠀⠀⠀⢿⡖⣼⡿⡗⠀⣀⣴⠏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⠁⠀⠀⠀⠀⠀⠀⠀⢹⠂⠀⠀⠀⠀⠀⠁⠀⠈⠃⠀⢠⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢴⣿⣿⡘⠰⡌⢂⠅⠣⠄⡃⢆⠘⠄⡃
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠁⠀⠀⠀⠀⠀⠀⠹⡞⠐⣠⢾⡿⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠾⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⣰⣦⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣿⣿⠔⢣⠘⢂⠌⠱⡈⠔⡨⠐⡌⡐
+⡀⠀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡀⠀⠀⠀⠀⠀⠀⠀⢸⣠⣝⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢘⡒⠀⠀⠀⠀⠀⠀⠀⠼⢛⡿⢀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣄⣿⣿⠌⣂⠱⠈⠌⡁⠆⠱⢀⠃⡐⠄
+⣴⣶⣾⣷⣾⣶⠧⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢰⡣⢄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠀⠀⣀⡀⠀⠀⠀⠀⠀⠀⠀⠈⣆⠀⠀⠀⠀⠀⠀⠀⡀⠹⣿⣿⡇⢀⠂⡉⠰⠀⠜⠠⢈⠐⣀⠊
+⠉⢛⣻⣏⣟⣯⣠⣄⠀⢀⠀⠀⠀⠰⠀⠀⠀⠀⠀⠀⠀⠀⠀⠻⠞⠴⣦⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠁⠀⠀⠀⠀⠀⠀⠈⠐⢉⣆⠀⠀⠀⠀⠀⠀⢸⣷⣽⣿⡇⢀⠂⠡⠈⠁⠌⠠⠁⠂⠀⠂
+⠀⠀⡈⠙⠛⠛⣿⣟⠀⠠⠀⡈⠄⠀⠌⠀⠀⠀⠀⠀⠀⠀⠀⠺⠄⠈⠄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠻⣆⠀⠀⠀⠀⠀⠀⠻⣿⣿⣇⠀⠠⠀⠐⠈⠀⠀⠀⠂⠁⠀
+⠀⠀⠐⠀⠀⠀⠈⠁⠀⠠⠐⠀⣠⣿⡄⠠⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⣦⠀⠀⠀⠀⠀⠒⢽⣿⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠐⠀⠀⠂⠀⢀⠀⠀⣤⣾⣿⣿⡗⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡄⠀⠀⠀⠀⠀⠛⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⣶⣤⣤⣤⣾⣾⣶⣶⣶⣬⣭⣙⠛⠿⡇⠀⠀⠀⠀⠀⢀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⠁⠰⠀⠀⠀⠀⠀⠘⣿⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣯⣥⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠎⠀⠆⠀⠀⠀⣀⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠀⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠁⠀⠀⠀⠀⠘⢿⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠛⠛⠛⠛⠛⠛⠟⠻⠿⠿⠿⠿⠿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⢰⣮⡄⠀⠀⠀⠀⠀⠀⠀⠀
+⣤⣤⣤⣤⣄⣠⣀⣀⣀⣀⣀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡟⠻⠀⠀⠀⠀⠀⠀⠀⠀
+⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠁⠘⠀⠀⠀⠀⠀⠀⠀⠀
+⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠀⠀⠀⠀⠀⠀⠀
+⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀ -->
