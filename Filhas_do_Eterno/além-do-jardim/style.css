@@ -1,0 +1,467 @@
+* {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+         body {
+            background: linear-gradient(180deg, #0a0a0f 0%, #1a1520 50%, #0f0a15 100%);
+            color: #d4c5b9;
+            font-family: 'Crimson Text', serif;
+            font-size: 18px;
+            line-height: 1.8;
+            overflow-x: hidden;
+            position: relative;
+            min-height: 100vh;
+            transition: background 1.5s ease;
+        }
+
+        /* Camada de imagem de fundo */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0.3;
+            transition: opacity 1.5s ease, background-image 1.5s ease;
+            z-index: 0;
+        }
+
+        /* Backgrounds diferentes para cada seção */
+        body.bg-casa::before {
+            background-image: url('img/FDE-02-1.jpg');
+            opacity: 0.25;
+        }
+
+        body.bg-espaço::before {
+            background-image: url('img/FDE-02-2.jpg');
+            opacity: 0.2;
+        }
+
+        body.bg-universodestruído::before {
+            background-image: url('img/FDE-02-3.jpg');
+            opacity: 0.22;
+        }
+
+        body.bg-fogo::before {
+            background-image: url('img/FDE-02-4.jpg');
+            opacity: 0.25;
+        }
+
+        body.bg-escuridão::before {
+            background-image: url('img/FDE-02-5.jpg');
+            opacity: 0.3;
+        }
+
+        body.bg-corrupção::before {
+            background-image: url('img/FDE-02-6.jpg');
+            opacity: 0.22;
+        }
+
+        body.bg-luz::before {
+            background-image: url('img/FDE-02-7.png');
+            opacity: 0.22;
+        }
+
+        body.bg-restauração::before {
+            background-image: url('img/FDE-02-8.jpg');
+            opacity: 0.22;
+        }
+
+        /* Overlay escuro para manter legibilidade */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, 
+                rgba(10, 10, 15, 0.85) 0%, 
+                rgba(26, 21, 32, 0.75) 50%, 
+                rgba(15, 10, 21, 0.85) 100%);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        @keyframes fogDrift {
+            0% { opacity: 0.3; }
+            50% { opacity: 0.5; }
+            100% { opacity: 0.3; }
+        }
+
+        /* Partículas flutuantes */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(2px 2px at 20% 30%, rgba(255, 255, 255, 0.1), transparent),
+                radial-gradient(2px 2px at 60% 70%, rgba(255, 255, 255, 0.05), transparent),
+                radial-gradient(1px 1px at 50% 50%, rgba(255, 255, 255, 0.08), transparent),
+                radial-gradient(1px 1px at 80% 10%, rgba(255, 255, 255, 0.06), transparent);
+            background-size: 200% 200%;
+            animation: particles 60s linear infinite;
+            pointer-events: none;
+            z-index: 2;
+            opacity: 0.4;
+        }
+
+        @keyframes particles {
+            0% { background-position: 0% 0%; }
+            100% { background-position: 100% 100%; }
+        }
+
+        .container {
+            position: relative;
+            z-index: 10;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px 40px;
+        }
+
+        /* Link de retorno estilo VHS */
+        .return-link {
+            display: inline-block;
+            color: #9b7e6e;
+            text-decoration: none;
+            font-size: 16px;
+            margin-bottom: 50px;
+            padding: 8px 16px;
+            border: 1px solid rgba(155, 126, 110, 0.3);
+            background: rgba(20, 15, 25, 0.6);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            font-family: 'Courier New', monospace;
+            letter-spacing: 1px;
+            text-shadow: 0 0 10px rgba(155, 126, 110, 0.5);
+        }
+
+        .return-link:hover {
+            background: rgba(155, 126, 110, 0.2);
+            box-shadow: 0 0 20px rgba(155, 126, 110, 0.3);
+            transform: translateX(-5px);
+        }
+
+        /* Título com efeito glitch sutil */
+        h1 {
+            font-family: 'Baskervville', serif;
+            font-size: 42px;
+            text-align: center;
+            color: #e8ddd1;
+            margin-bottom: 80px;
+            letter-spacing: 2px;
+            text-shadow: 
+                0 0 30px rgba(232, 221, 209, 0.4),
+                2px 2px 4px rgba(0, 0, 0, 0.8);
+            animation: titleFlicker 8s ease-in-out infinite;
+            position: relative;
+            padding: 20px;
+        }
+
+        h1::before {
+            content: 'Além do Jardim';
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 20px;
+            opacity: 0.1;
+            animation: glitchText 5s infinite;
+            color: #6b5b8e;
+        }
+
+        @keyframes titleFlicker {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.95; }
+            51% { opacity: 1; }
+            60% { opacity: 0.98; }
+        }
+
+        @keyframes glitchText {
+            0%, 90%, 100% { transform: translate(0); }
+            92% { transform: translate(-2px, 1px); }
+            94% { transform: translate(2px, -1px); }
+            96% { transform: translate(-1px, 2px); }
+        }
+
+        /* Parágrafos com efeito vintage */
+        p {
+            text-align: justify;
+            margin-bottom: 45px;
+            text-indent: 2em;
+            color: #c4b5a9;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+            opacity: 0;
+            animation: fadeInText 1.5s ease-out forwards;
+            background: linear-gradient(to bottom, rgba(25, 20, 30, 0.4) 0%, transparent 100%);
+            padding: 15px 20px;
+            border-left: 1px solid rgba(155, 126, 110, 0.2);
+            backdrop-filter: blur(5px);
+        }
+
+        p:nth-child(even) {
+            border-left: none;
+            border-right: 1px solid rgba(155, 126, 110, 0.2);
+        }
+
+        p:nth-child(1) { animation-delay: 0.2s; }
+        p:nth-child(2) { animation-delay: 0.4s; }
+        p:nth-child(3) { animation-delay: 0.6s; }
+        p:nth-child(n+4) { animation-delay: 0.8s; }
+
+        @keyframes fadeInText {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+                filter: blur(3px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+                filter: blur(0);
+            }
+        }
+
+        /* Efeito de scanlines VHS */
+        .scanlines {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                0deg,
+                rgba(0, 0, 0, 0.15) 0px,
+                transparent 1px,
+                transparent 2px,
+                rgba(0, 0, 0, 0.15) 3px
+            );
+            pointer-events: none;
+            z-index: 100;
+            opacity: 0.3;
+            animation: scanlineMove 8s linear infinite;
+        }
+
+        @keyframes scanlineMove {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(10px); }
+        }
+
+        /* Vinheta nostálgica */
+        .vignette {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            box-shadow: inset 0 0 200px rgba(0, 0, 0, 0.8);
+            pointer-events: none;
+            z-index: 99;
+        }
+
+        /* Espaçamento liminal */
+        .space {
+            height: 150px;
+            opacity: 0.05;
+            background: linear-gradient(to bottom, transparent, rgba(155, 126, 110, 0.1), transparent);
+            margin: 100px 0;
+        }
+
+        /* HR Personalizada */
+        hr {
+            border: none;
+            height: 2px;
+            position: relative;
+            margin: 80px auto;
+            overflow: visible;
+            background: transparent;
+        }
+
+        /* Estilo 1: Linha com brilho etéreo */
+        hr.ethereal {
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                rgba(212, 197, 185, 0.2) 20%, 
+                rgba(212, 197, 185, 0.6) 50%, 
+                rgba(212, 197, 185, 0.2) 80%, 
+                transparent 100%);
+            box-shadow: 
+                0 0 10px rgba(212, 197, 185, 0.4),
+                0 0 20px rgba(212, 197, 185, 0.2),
+                0 0 30px rgba(212, 197, 185, 0.1);
+            animation: hrPulse 4s ease-in-out infinite;
+        }
+
+        /* Estilo 2: Linha com pontos nostálgicos */
+        hr.dotted-nostalgic {
+            height: 1px;
+            background: transparent;
+        }
+
+        hr.dotted-nostalgic::before {
+            content: '◆  ·  ·  ·  ◆  ·  ·  ·  ◆  ·  ·  ·  ◆  ·  ·  ·  ◆';
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            color: rgba(212, 197, 185, 0.4);
+            font-size: 14px;
+            letter-spacing: 8px;
+            text-shadow: 0 0 10px rgba(212, 197, 185, 0.3);
+            white-space: nowrap;
+        }
+
+        /* Estilo 3: Linha com estrelas */
+        hr.starry {
+            height: 1px;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                rgba(212, 197, 185, 0.3) 50%, 
+                transparent 100%);
+        }
+
+        hr.starry::before,
+        hr.starry::after {
+            content: '✦';
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: rgba(212, 197, 185, 0.5);
+            font-size: 16px;
+            text-shadow: 
+                0 0 10px rgba(212, 197, 185, 0.6),
+                0 0 20px rgba(212, 197, 185, 0.3);
+            animation: starTwinkle 3s ease-in-out infinite;
+        }
+
+        hr.starry::before {
+            left: 0;
+        }
+
+        hr.starry::after {
+            right: 0;
+            animation-delay: 1.5s;
+        }
+
+        /* Estilo 4: Linha VHS glitch */
+        hr.vhs-glitch {
+            height: 3px;
+            background: linear-gradient(90deg,
+                transparent 0%,
+                rgba(155, 126, 110, 0.4) 25%,
+                rgba(212, 197, 185, 0.6) 50%,
+                rgba(155, 126, 110, 0.4) 75%,
+                transparent 100%);
+            animation: vhsDistortion 2s linear infinite;
+        }
+
+        hr.vhs-glitch::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: inherit;
+            opacity: 0.5;
+            animation: glitchShift 3s ease-in-out infinite;
+        }
+
+        /* Estilo 5: Linha ondulada liminal */
+        hr.wavy {
+            height: 20px;
+            background: transparent;
+            overflow: visible;
+        }
+
+        hr.wavy::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg,
+                transparent 0%,
+                rgba(212, 197, 185, 0.4) 50%,
+                transparent 100%);
+            top: 50%;
+            transform: translateY(-50%);
+            clip-path: polygon(
+                0% 50%, 5% 40%, 10% 50%, 15% 60%, 20% 50%, 
+                25% 40%, 30% 50%, 35% 60%, 40% 50%, 45% 40%, 
+                50% 50%, 55% 60%, 60% 50%, 65% 40%, 70% 50%, 
+                75% 60%, 80% 50%, 85% 40%, 90% 50%, 95% 60%, 100% 50%
+            );
+            animation: waveFlow 8s ease-in-out infinite;
+        }
+
+        /* Animações */
+        @keyframes hrPulse {
+            0%, 100% { opacity: 0.6; }
+            50% { opacity: 1; }
+        }
+
+        @keyframes starTwinkle {
+            0%, 100% { 
+                opacity: 0.5; 
+                transform: translateY(-50%) scale(1);
+            }
+            50% { 
+                opacity: 1; 
+                transform: translateY(-50%) scale(1.3);
+            }
+        }
+
+        @keyframes vhsDistortion {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-2px); }
+            50% { transform: translateX(2px); }
+            75% { transform: translateX(-1px); }
+        }
+
+        @keyframes glitchShift {
+            0%, 90%, 100% { transform: translate(0, 0); }
+            92% { transform: translate(-3px, 1px); opacity: 0.8; }
+            94% { transform: translate(3px, -1px); opacity: 0.6; }
+            96% { transform: translate(-2px, 2px); opacity: 0.7; }
+        }
+
+        @keyframes waveFlow {
+            0%, 100% { transform: translateY(-50%) scaleX(1); }
+            50% { transform: translateY(-50%) scaleX(1.02); }
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .container {
+                padding: 40px 25px;
+            }
+
+            h1 {
+                font-size: 32px;
+                margin-bottom: 50px;
+            }
+
+            p {
+                font-size: 16px;
+                padding: 12px 15px;
+            }
+
+            .return-link {
+                font-size: 14px;
+            }
+        }
+
+        /* Cursor customizado */
+        body {
+            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"><circle cx="10" cy="10" r="8" fill="rgba(212, 197, 185, 0.3)" stroke="rgba(212, 197, 185, 0.6)" stroke-width="1"/></svg>') 10 10, auto;
+        }
+
+        a {
+            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"><circle cx="10" cy="10" r="8" fill="rgba(155, 126, 110, 0.5)" stroke="rgba(155, 126, 110, 0.8)" stroke-width="1"/></svg>') 10 10, pointer;
+        }
