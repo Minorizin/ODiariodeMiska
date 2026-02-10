@@ -86,7 +86,7 @@ const previewData = {
     },
     folha015: {
         title: "Folha 015 - Invasão??",
-        image: "img/static.gif",
+        image: "img/REDIGIDO-PREVIEW.gif",
         description: "Fechado por tempo indeterminado.",
         status: "Indisponível",
     },
@@ -111,9 +111,9 @@ const previewData = {
     },
     folha019: {
         title: "Folha 019 - Mr. Clown",
-        image: "img/folha019.png",
-        description: "Tudo vai, tudo volta.",
-        status: "Disponível",
+        image: "img/REDIGIDO-PREVIEW.gif",
+        description: "Fechado por tempo indeterminado.",
+        status: "Indisponível",
     },
     folha020: {
         title: "Folha 020 - happyhappy",
