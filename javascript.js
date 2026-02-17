@@ -110,10 +110,11 @@ const previewData = {
         status: "Disponível",
     },
     folha019: {
-        title: "Folha 019 - Mr. Clown",
-        image: "img/REDIGIDO-PREVIEW.gif",
-        description: "Fechado por tempo indeterminado.",
+        title: "Mr. Clown",
+        image: "img/folha019preview.png",
+        description: "Ele está de volta.",
         status: "Indisponível",
+        theme: "mr-clown"
     },
     folha020: {
         title: "Folha 020 - happyhappy",

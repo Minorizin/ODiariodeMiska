@@ -26,7 +26,7 @@
 
         @font-face {
             font-family: "YOU";
-            src: url("/fonts/YOU.ttf");
+            src: url("/O_Diário_LUNÁTICO/Hoje_é_o_dia/YOU.woff") format('woff');
         }
 
 * {

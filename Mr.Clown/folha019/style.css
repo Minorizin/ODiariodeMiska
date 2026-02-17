@@ -1,9 +1,11 @@
 /* ===================================
-   FONTES CUSTOMIZADAS
+   FONTE CUSTOMIZADA
    =================================== */
 @font-face {
-  font-family: "MrClown";
-  src: url('/fonts/Midnight-Terror2.woff') format('woff');
+    font-family: 'Minecraft Regular';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Minecraft Regular'), url('1_MinecraftRegular1.woff') format('woff');
 }
 
 /* ===================================
@@ -27,17 +29,17 @@ html, body {
 }
 
 body {
-    font-family: monospace;
+    font-family: "Gideon Roman", serif;
     font-weight: 400;
     font-size: 18px;
     line-height: 1.65em;
     color: #0c9665;
-    background-image: url('img/fundo3.jpg');
+    background-image: url('img/019-02.jpg');
     background-repeat: no-repeat;
     background-position: center;
     background-attachment: fixed;
     background-size: cover;
-    background-color: #041811;
+    background-color: #373b3d;
 }
 
 /* ===================================
@@ -48,22 +50,22 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-    background: #085239;
+    background: #d2dde2;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #063a29;
+    background: #5a5f61;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #04271b;
+    background: #262829;
 }
 
 /* ===================================
    SELEÇÃO DE TEXTO
    =================================== */
 ::selection {
-    background-color: #0a5c40;
+    background-color: #212324;
     color: #FFFFFF;
 }
 
@@ -77,13 +79,15 @@ body {
    =================================== */
 h1, h2, h3, h4, h5, h6 {
     color: #dd3333;
-    font-family: monospace;
+    font-family: "Gideon Roman", monospace;
     line-height: 1.3em;
 }
 
 h1 {
-    font-size: 30px;
+    color: #d2dde2;
+    font-size: 38px;
     line-height: 1.4em;
+    font-family: "Gideon Roman", monospace;
 }
 
 h2 {
@@ -95,8 +99,8 @@ h3 {
 }
 
 p {
-    margin-bottom: 1em;
-    color: #0c9665;
+    margin-bottom: 1.6em;
+    color: #d2dde2;
 }
 
 a {
@@ -112,7 +116,7 @@ a:hover, a:focus {
 hr {
     border: none;
     height: 2px;
-    background-color: #00f821;
+    background-color: #d2dde2;
     margin: 20px 0;
 }
 
@@ -128,10 +132,10 @@ hr {
 .ast-container {
     max-width: 1070px;
     margin: 0 auto;
-    background: #041811;
-    border-style: double;
+    background: #373b3d;
+    border-style: outset;
     border-width: 5px;
-    border-color: #085239;
+    border-color: #969fa3;
     box-shadow: 0 3px 30px rgba(0, 0, 0, 0.685);
     padding: 40px;
 }
@@ -153,7 +157,7 @@ hr {
 
 .entry-content img.capadodiario:hover {
     transform: scale(1.02);
-    box-shadow: 0 0 20px rgba(0, 248, 33, 0.4);
+    box-shadow: 0 0 20px #969fa3;
     filter: brightness(1.1);
 }
 
@@ -189,41 +193,30 @@ hr {
 /* ===================================
    CONTROLE DE ÁUDIO
    =================================== */
-details {
-    user-select: none;
-    margin: 20px auto;
-    background: rgba(4, 24, 17, 0.8);
-    border: 2px solid #085239;
-    padding: 10px;
-}
+.audio-controls {
+            margin: 20px 0;
+        }
 
-details summary {
-    cursor: pointer;
-    list-style: none;
-    padding: 10px;
-    text-align: center;
-    font-weight: bold;
-    transition: color 0.3s ease;
-}
+        details {
+            margin: 20px 0;
+        }
 
-details summary:hover {
-    color: #ff0039;
-}
+        summary {
+            color: #a8a8a8;
+            cursor: pointer;
+            padding: 10px;
+            background: #045239;
+            border-radius: 5px;
+        }
 
-details > summary span.icon {
-    width: 24px;
-    height: 24px;
-    transition: all 0.3s;
-    margin-left: auto;
-}
+        summary:hover {
+            background: #18524d;
+        }
 
-details[open] summary span.icon {
-    transform: rotate(180deg);
-}
-
-summary::-webkit-details-marker {
-    display: none;
-}
+        audio {
+            width: 100%;
+            margin-top: 10px;
+        }
 
 audio {
     width: 100%;
@@ -572,66 +565,6 @@ audio {
     color: inherit;
 }
 
-/* Card 12 (Cinza Escuro) */
-.card12 {
-    background-color: #665f49;
-    border: 1px solid #9d9679;
-    transition: transform 0.2s ease, box-shadow 0.3s ease;
-    overflow: hidden;
-}
-
-.card12:hover {
-    transform: scale(1.03);
-    box-shadow: 0 0 15px #888a6e;
-}
-
-.card12 img {
-    width: 100%;
-    height: 150px;
-    object-fit: cover;
-    display: block;
-    border-bottom: 1px solid #9d9679;
-}
-
-.card12 p {
-    text-align: center;
-    padding: 8px;
-    font-size: 0.85rem;
-    background-color: #423e2f;
-    margin: 0;
-    color: inherit;
-}
-
-/* Card 13 - Mr Clown - (Cinza Escuro) */
-.card13 {
-    background-color: #19649e;
-    border: 1px solid #218ada;
-    transition: transform 0.2s ease, box-shadow 0.3s ease;
-    overflow: hidden;
-}
-
-.card13:hover {
-    transform: scale(1.03);
-    box-shadow: 0 0 15px #888a6e;
-}
-
-.card13 img {
-    width: 100%;
-    height: 150px;
-    object-fit: cover;
-    display: block;
-    border-bottom: 1px solid #ad1717;
-}
-
-.card13 p {
-    text-align: center;
-    padding: 8px;
-    font-size: 1.50rem;
-    background-color: #104166;
-    margin: 0;
-    color: inherit;
-}
-
 /* ===================================
    GRID SECUNDÁRIO (OUTRAS HISTÓRIAS)
    =================================== */
@@ -948,46 +881,6 @@ audio {
 
 #preview-box.theme-dark-gray .preview-image {
     border-color: #464646;
-}
-
-/* Tema Marrom Acinzentado */
-#preview-box.theme-marrom-acinzentado {
-    background: #423e2f;
-    border: 3px solid #9d9679;
-    box-shadow: 0 0 30px #888a6e;
-}
-
-#preview-box.theme-marrom-acinzentado h3 {
-    color: #9d9679;
-    border-bottom-color: #9d9679;
-}
-
-#preview-box.theme-marrom-acinzentado .preview-text {
-    color: #9d9679;
-}
-
-#preview-box.theme-marrom-acinzentado .preview-image {
-    border-color: #9d9679;
-}
-
-/* Tema Mr Clown */
-#preview-box.theme-mr-clown {
-    background: #104166;
-    border: 3px solid #218ada;
-    box-shadow: 0 0 30px #218ada;
-}
-
-#preview-box.theme-mr-clown h3 {
-    color: #ad1717;
-    border-bottom-color: #ad1717;
-}
-
-#preview-box.theme-mr-clown .preview-text {
-    color: #ee0d0d;
-}
-
-#preview-box.theme-mr-clown .preview-image {
-    border-color: #ad1717;
 }
 
 /* ===================================
