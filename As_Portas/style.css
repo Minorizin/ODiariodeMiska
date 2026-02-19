@@ -27,6 +27,11 @@
         body {
             font-family: 'Courier Prime', monospace;
             background: #d4d0c8;
+            background-image: url('img/Fundo.gif');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-attachment: fixed;
+            background-size: cover;
             min-height: 100vh;
             overflow-x: hidden;
             position: relative;
