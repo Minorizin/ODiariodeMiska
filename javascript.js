@@ -175,9 +175,9 @@ const previewData = {
     },
     folha029: {
         title: "Cartas Que Guardei em Silêncio",
-        image: "img/folha029.jpg",
-        description: "Dê-me sua mão, como você fazia quando era pequena.",
-        status: "Disponível",
+        image: "img/REDIGIDO-PREVIEW.gif",
+        description: "",
+        status: "Indisponível",
         theme: "red"
     },
     folha030: {
