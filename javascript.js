@@ -113,7 +113,7 @@ const previewData = {
         title: "Mr. Clown",
         image: "img/folha019preview.png",
         description: "Ele está de volta.",
-        status: "Indisponível",
+        status: "Disponível",
         theme: "mr-clown"
     },
     folha020: {
@@ -175,9 +175,9 @@ const previewData = {
     },
     folha029: {
         title: "Cartas Que Guardei em Silêncio",
-        image: "img/REDIGIDO-PREVIEW.gif",
-        description: "",
-        status: "Indisponível",
+        image: "img/folha029preview.jpg",
+        description: "Dê-me sua mão, como você fazia quando era pequena.",
+        status: "Disponível",
         theme: "red"
     },
     folha030: {
