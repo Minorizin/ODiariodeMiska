@@ -9,69 +9,346 @@
     
 
     html, body {
-        cursor: url("cursor/"), default;
+        cursor: url("cursor\ 1.png"), default;
+        
     }
 
-    .row {
-  width: 100%;
-  height: 200px;
-  aspect-ratio: 11 / 2;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
+ * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: cursive;
+            background: #2b1212;
+            background: linear-gradient(180deg, rgba(20,22,24,1) 80%, rgb(43, 42, 42) 100%);
+            background-image: url('img/versão006fundo.jpg');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-attachment: fixed;
+            background-size: cover;
+            color: #c4c4c4;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* ===================================
+   SCROLLBAR CUSTOMIZADA
+   =================================== */
+::-webkit-scrollbar {
+  width: 10px;
 }
 
-.pic {
-  height: 90%;
-  float: left;
-  margin: 0% 1% 0% 0%;
-  display: block;
-  border: solid #9b6500;
+/* Track */
+::-webkit-scrollbar-track {
+  background: #eb00cb; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #fcd600; 
 }
 
-.caption {
-  display: block;
-  font-size: 10pt;
-  width: 99%;
-  border: solid #9b6500;
-  background-color: #9b6500;
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #967f00; 
 }
+        
+        /* Ambient glow */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
+            height: 80%;
+            background: radial-gradient(ellipse at center, rgba(247, 247, 3, 0.05) 0%, transparent 70%);
+            pointer-events: none;
+            animation: breathe 8s ease-in-out infinite;
+        }
+        
+        @keyframes breathe {
+            0%, 100% { opacity: 0.3; transform: translate(-50%, -50%) scale(1); }
+            50% { opacity: 0.5; transform: translate(-50%, -50%) scale(1.1); }
+        }
 
-.image-container {
-  height: 90%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
+        .audio-controls {
+            border: 1px solid #333;
+            padding: 20px;
+            margin: 30px 0;
+            background: rgba(20, 20, 20, 0.6);
+            backdrop-filter: blur(10px);
+        }
 
-.row2 {
-  width: 41%;
-  height: 200px;
-  aspect-ratio: 11 / 2;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-}
+        .audio-controls summary {
+            color: #ffffff;
+            cursor: pointer;
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 10px;
+            user-select: none;
+        }
 
-.pic2 {
-  height: 90%;
-  float: left;
-  margin: 0% 1% 0% 0%;
-  display: block;
-  border: solid #9b6500;
-}
+        .audio-controls summary:hover {
+            color: #8d8d8d;
+        }
 
-.caption2 {
-  display: block;
-  font-size: 10pt;
-  width: 99%;
-  border: solid #9b6500;
-  background-color: #9b6500;
-}
-
-.image-container2 {
-  height: 90%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
+        audio {
+            width: 100%;
+            margin: 15px 0;
+            filter: grayscale(1) contrast(1.2);
+        }
+        
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 60px 40px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .content-box {
+            border: 1px solid #e44ab0;
+            padding: 50px;
+            background: #699dce;
+            box-shadow: 
+                0 0 60px rgba(0, 0, 0, 0.8),
+                inset 0 1px 0 rgba(255, 255, 255, 0.03);
+            position: relative;
+        }
+        
+        .header {
+            text-align: left;
+            margin-bottom: 50px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding-bottom: 20px;
+        }
+        
+        h1 {
+            font-family: cursive;
+            font-size: 42px;
+            color: #fcd600;
+            font-weight: 400;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+            text-shadow: 0 2px 20px rgba(255, 255, 255, 0.1);
+            animation: fadeIn 2s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .subtitle {
+            font-family: cursive;
+            font-size: 18px;
+            color: #cc0f0f;
+            font-style: italic;
+            letter-spacing: 1px;
+        }
+        
+        .image-container {
+            position: relative;
+            margin: 50px auto;
+            max-width: 600px;
+            animation: slowFloat 12s ease-in-out infinite;
+        }
+        
+        @keyframes slowFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+        
+        .image-wrapper {
+            position: relative;
+            border: 2px solid rgba(255, 255, 255, 0.12);
+            background: #000;
+            box-shadow: 
+                0 8px 40px rgba(0, 0, 0, 0.9),
+                0 0 0 1px rgba(255, 255, 255, 0.03);
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+        
+        .image-wrapper img {
+            width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            filter: 
+                contrast(1.05) 
+                brightness(0.85) 
+                saturate(0.7)
+                sepia(0.08);
+            transition: filter 0.6s ease;
+        }
+        
+        .caption {
+            text-align: center;
+            padding: 12px;
+            background: rgb(255, 208, 0);
+            border-top: 1px solid rgba(253, 0, 0, 0.932);
+            font-size: 13px;
+            color: #c40000;
+            font-family: 'Courier Prime', monospace;
+            letter-spacing: 1px;
+        }
+        
+        .text-content {
+            margin-top: 40px;
+            line-height: 1.9;
+            font-size: 17px;
+            color: #e4e4e4;
+            text-align: justify;
+        }
+        
+        .text-content p {
+            margin-bottom: 28px;
+            text-indent: 50px;
+        }
+        
+        .text-content i {
+            color: #999;
+            font-style: italic;
+        }
+        
+        hr {
+            border: none;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            margin: 60px 0;
+        }
+        
+        /* Red emergency section */
+        .red-section {
+            background: linear-gradient(180deg, rgba(80, 0, 0, 0.3) 0%, rgba(40, 0, 0, 0.5) 100%);
+            border: 2px solid rgba(200, 0, 0, 0.3);
+            padding: 40px;
+            margin: 60px 0;
+            position: relative;
+            animation: redPulse 3s ease-in-out infinite;
+        }
+        
+        @keyframes redPulse {
+            0%, 100% { 
+                box-shadow: 0 0 20px rgba(200, 0, 0, 0.2);
+            }
+            50% { 
+                box-shadow: 0 0 40px rgba(200, 0, 0, 0.4);
+            }
+        }
+        
+        .red-section p {
+            color: #ff5555;
+            text-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
+        }
+        
+        .red-section .image-wrapper {
+            border-color: rgba(200, 0, 0, 0.5);
+        }
+        
+        /* Back link */
+        .backlink-section {
+            margin-top: 80px;
+            padding: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+        }
+        
+        
+        .backlink-section p {
+            font-family: 'Courier Prime', monospace;
+            font-size: 14px;
+            color: #888;
+            margin: 8px 0;
+            text-indent: 0;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 25px;
+            background: rgba(255, 238, 0, 0.911);
+            border: 1px solid rgba(253, 0, 0, 0.616);
+            color: #f700eb;
+            text-decoration: none;
+            font-family: 'Courier Prime', monospace;
+            font-size: 13px;
+            transition: all 0.3s ease;
+        }
+        
+        .back-link:hover {
+            background: rgba(253, 0, 0, 0.616);
+            color: #07d8d8;
+            border-color: rgba(255, 238, 0, 0.911);
+        }
+        
+        /* Spacing sections */
+        .spacing {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0.1;
+        }
+        
+        /* Door number */
+        .door-number {
+            font-size: 48px;
+            font-weight: bold;
+            color: #ff5555;
+            text-align: center;
+            margin: 60px 0;
+            text-shadow: 0 0 20px rgba(255, 85, 85, 0.5);
+        }
+        
+        /* Vignette */
+        .vignette {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            box-shadow: inset 0 0 200px 100px rgba(0, 0, 0, 0.219);
+            z-index: 998;
+        }
+        
+        /* Timestamp */
+        .timestamp {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            font-family: 'Courier Prime', monospace;
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.15);
+            letter-spacing: 2px;
+            z-index: 1000;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 40px 20px;
+            }
+            
+            .content-box {
+                padding: 30px 25px;
+            }
+            
+            h1 {
+                font-size: 32px;
+            }
+            
+            .text-content {
+                font-size: 16px;
+            }
+            
+            .image-container {
+                max-width: 100%;
+            }
+        }
