@@ -56,9 +56,9 @@ const previewData = {
     },
     folha010: {
         title: "Folha 010 - culpa",
-        image: "img/fechado-preview.gif",
+        image: "img/folha010.jpg",
         description: "Existe algo que a razão não consegue abafar. (Continuação da Folha 009)",
-        status: "Indisponível",
+        status: "Disponível",
     },
     folha011: {
         title: "Folha 011 - Uma nova perturbação",
