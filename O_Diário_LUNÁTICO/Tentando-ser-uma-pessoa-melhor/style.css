@@ -51,7 +51,6 @@
 
         body {
             font-family: "math";
-            background: linear-gradient(180deg, #e8dcc0 0%, #d4c5a0 30%, #b8a67d 70%, #9d8a5f 100%);
             background-attachment: fixed;
             color: #2a2520;
             line-height: 1.7;
@@ -91,7 +90,7 @@
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
-            opacity: 0.15;
+            opacity: 1;
             pointer-events: none;
             z-index: 0;
         }
@@ -117,21 +116,21 @@
         }
 
         ::-webkit-scrollbar-track {
-            background: var(--stain-brown);
-            border-left: 2px solid var(--blood-red);
+            background: #a2bbad;
+            border-left: 2px solid #39463f;
         }
 
         ::-webkit-scrollbar-thumb {
-            background: var(--blood-red);
+            background: #1f442f;
             border-radius: 0;
         }
 
         ::-webkit-scrollbar-thumb:hover {
-            background: #8B1515;
+            background: #12271b;
         }
 
         ::selection {
-            background-color: var(--blood-red);
+            background-color: #3b4b42;
             color: white;
         }
 
@@ -155,11 +154,11 @@
 
         /* Evidence bag styling */
         .evidence-bag {
-            background: linear-gradient(135deg, rgba(232, 220, 192, 0.95) 0%, rgba(212, 197, 160, 0.98) 100%);
-            border: 3px solid var(--blood-red);
+            background: #3b3f37;
+            border: 3px solid #a2bbad;
             box-shadow: 
-                0 0 30px rgba(107, 16, 16, 0.3),
-                0 10px 40px rgba(61, 46, 31, 0.4);
+                0 0 30px #a2bbad,
+                0 10px 40px #48534d;
             padding: 60px;
             position: relative;
             margin-bottom: 40px;
@@ -210,7 +209,7 @@
 
         /* Música section */
         .section-header {
-            background: var(--blood-red);
+            background: #282b25;
             padding: 4px 40px;
             margin: 40px -60px;
             text-align: center;
@@ -220,7 +219,7 @@
         }
 
         .section-header:hover {
-            background: #7d1414;
+            background: #191b18;
         }
 
         .section-header h2 {
@@ -262,8 +261,8 @@
         }
 
         .music-player {
-            background: rgba(107, 16, 16, 0.1);
-            border: 2px solid var(--blood-red);
+            background: rgba(172, 172, 172, 0.1);
+            border: 2px solid #a2bbad;
             border-radius: 8px;
             padding: 25px;
             text-align: center;
@@ -271,7 +270,7 @@
 
         .music-player h3 {
             font-family: 'Playfair Display', serif;
-            color: var(--blood-red);
+            color: #a2bbad;
             margin-bottom: 20px;
             font-size: 24px;
         }
@@ -283,12 +282,12 @@
         }
 
         .music-player audio::-webkit-media-controls-panel {
-            background-color: #d4c5a0;
+            background-color: #a2bbad;
         }
 
         .music-player audio::-webkit-media-controls-play-button,
         .music-player audio::-webkit-media-controls-pause-button {
-            background-color: var(--blood-red);
+            background-color: #414d46;
             border-radius: 50%;
         }
 
@@ -304,12 +303,12 @@
             font-family: "Dexter";
             font-weight: 900;
             font-size: 56px;
-            color: var(--blood-red);
+            color: #ac0707;
             text-align: center;
             margin: 60px 0 40px;
             letter-spacing: 2px;
             text-transform: uppercase;
-            text-shadow: 0 0 15px rgba(107, 16, 16, 0.4);
+            text-shadow: 0 0 15px rgba(172, 7, 7, 0.4);
             position: relative;
         }
 
@@ -329,21 +328,15 @@
             font-size: 17px;
             line-height: 1.9;
             margin-bottom: 28px;
-            color: #3d2e1f;
+            color: #a2bbad;
             text-align: justify;
-        }
-
-        p:first-of-type {
-            font-size: 19px;
-            font-weight: 700;
-            color: #2a2010;
         }
 
         /* Evidence divider */
         hr {
             border: none;
             height: 2px;
-            background: linear-gradient(90deg, transparent, var(--blood-red), transparent);
+            background: linear-gradient(90deg, transparent, #e7e7e7 , transparent);
             margin: 50px 0;
             position: relative;
         }
@@ -354,7 +347,7 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            background: var(--aged-cream);
+            background: #cfcfcf;
             padding: 5px 20px;
             font-family: 'Inconsolata', monospace;
             font-size: 11px;
@@ -388,7 +381,7 @@
 
         /* Links */
         a {
-            color: var(--blood-red);
+            color: #df0202;
             text-decoration: none;
             font-weight: 700;
             border-bottom: 2px solid transparent;
@@ -407,14 +400,14 @@
             text-align: center;
             margin-top: 80px;
             padding: 40px 0;
-            border-top: 2px solid var(--blood-red);
+            border-top: 2px solid #a2bbad;
         }
 
         /* Subtitle text styling */
         .subtitle {
             font-style: italic;
             font-size: 18px;
-            color: #6B1010;
+            color: #b80d0d;
             text-align: center;
             margin: 30px 0;
         }
