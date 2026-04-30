@@ -958,6 +958,7 @@ const waInitialTracks = [
   { nome: "Bullet for My Valentine - Hand of Blood", url: "mp3/Bullet for My Valentine - Hand of Blood.mp3" },
   { nome: "Honest Eyes - Black Tide - Interscope", url: "mp3/Honest Eyes - Black Tide - Interscope.mp3" },
   { nome: "SpiderBait - Black Betty", url: "mp3/SpiderBait - Black Betty.mp3" },
+  { nome: "John's Desktop - No Players Online", url: "mp3/John's Desktop - No Players Online.mp3" },
   { nome: "Uma música de suspense que toca em algum momento de suspense", url: "mp3/Uma música de suspense que toca em algum momento de suspense.mp3" },
   { nome: "Isso é coisa do Ash", url: "mp3/♪Caguei nas Calças e Estou Borrado♪.mp3" },
   { nome: "Despertador da Thrauma", url: "mp3/despertador-da-thrauma.mp3" },
