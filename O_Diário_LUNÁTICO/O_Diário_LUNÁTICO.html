@@ -2,192 +2,310 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>O Diário LUNÁTICO</title>
-  
-  <!-- Meta Tags -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="style.css">
   <meta property="og:title" content="O Diário LUNÁTICO">
   <meta property="og:description" content="O mundo é doido, cara.">
   <meta property="og:image" content="https://i.imgur.com/gVxRRS9.png">
-  
-  <!-- Favicon -->
-  <link rel="shortcut icon" type="image/x-icon" href="img/Trollface.png">
-  
-  <!-- Fontes -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Gideon+Roman&family=Share+Tech+Mono&display=swap" rel="stylesheet">
-  
-  <!-- Styles -->
-  <link rel="stylesheet" type="text/css" href="style.css">
-  
+  <link rel="shortcut icon" type="image/x-icon" href="ícones/Trollface.png">
+  <title>O Diário LUNÁTICO</title>
   <style>
     
   </style>
 </head>
-
 <body>
-  <div id="content" class="site-content">
-    <div class="ast-container">
-      <div id="primary" class="content-area primary">
-        <main id="main" class="site-main">
-          
-          <!-- Header Section -->
-          <header class="entry-header">
-            <h1 class="entry-title">
-              O Diário 
-              <font color="#ff0000">L</font><font color="#ff6d00">U</font><font color="#fff000">N</font><font color="#04ff00">Á</font><font color="#0000ff">T</font><font color="#5f5fc3">I</font><font color="#7400ce">C</font><font color="#FF00BB">O</font>
-            </h1>
-            
-            <div class="entry-meta">
-              <span>O mundo é doido, cara.</span>
-            </div>
-
-            <!-- Player de Música -->
-            <details>
-              <summary style="color: #c70000;">
-                Música
-                <span class="icon">▼</span>
-              </summary>
-              <audio controls autoplay loop id="myaudio">
-                <source src="audio/música trololol.MP3" type="audio/mpeg">
-                Seu navegador não suporta o elemento de áudio.
-              </audio>
-            </details>
-
-            <!-- Aviso -->
-            <details>
-              <summary style="color: #c70000;">
-                Aviso
-                <span class="icon">▼</span>
-              </summary>
-              <br>
-              <b style="color: white;">
-                Para evitar transtornos, ative a opção "Modo Computador/Desktop", 
-                dependendo do seu dispositivo móvel.
-              </b>
-            </details>
-          </header>
-
-          <hr>
-
-          <!-- Conteúdo Principal -->
-          <div class="entry-content">
-            <p>Acordei, e é só isso mesmo.</p>
-
-            <p>Sem explosão, sem anjo tocando trombeta, sem alienígena me abduzindo. Só abri o olho e falei: "É... tamo vivo, fazer o quê".</p>
-
-            <p>Segui a vida. Fiz minha rotina de sempre: levantei com a cara amassada, tomei aquele café que mais parecia água suja, encarei o espelho e pensei "coragem, guerreira". Fui viver mais um capítulo dessa série chamada "Minha Vida: Temporada Infinita".</p>
-
-            <p>Mas vou te falar... tem dia que eu olho pra esse mundo e penso: que bagunça é essa, produção? Tem coisa que acontece comigo que parece que é pegadinha do universo só pra me zoar. Tipo, real, às vezes eu acho que tô numa simulação mal programada, com o estagiário no controle.</p>
-
-            <p>E o mais doido? Eu nem sei se rio ou se choro. Se isso tudo é uma bênção disfarçada ou só a vida tentando me zoar de novo. Só sei que tá esquisito, bicho.</p>
-
-            <p>Mas é isso aí. O mundo é doido, cara. E nós tamo aqui, firme, meio torta, mas seguindo o baile, que nem o Wi-Fi de praça pública: fraco, mas insistente.</p>
-
-            <hr>
-
-            <!-- Grid of Articles -->
-            <div class="grid">
-              <a href="/O_Diário_LUNÁTICO/Nunca_viu_um_desenho_burrão/Laetitia_trollagens.html">
-                <div class="card">
-                  <img src="img/folhalunatica001.png" alt="Folha Lunática 001">
-                  <p>Folha <span>LUNÁTICA</span> 001 - Nunca viu um desenho, burrão?</p>
-                </div>
-              </a>
-
-              <a href="">
-                <div class="card">
-                  <img src="img/folhalunatica002.jpg" alt="Folha Lunática 002">
-                  <p>Folha <span>LUNÁTICA</span> 002 - TROLLAMOS A MISKA E VEJA NO QUE DEU!!!</p>
-                </div>
-              </a>
-
-              <a href="/O_Diário_LUNÁTICO/Eu te amo_eu te odeio_(e_depois_te_explodo)/Eu te amo_eu te odeio_(e_depois_te_explodo).html">
-                <div class="card">
-                  <img src="img/folhalunatica003.jpg" alt="Folha Lunática 003">
-                  <p>Folha <span>LUNÁTICA</span> 003 - Eu te amo, eu te odeio (e depois te explodo)</p>
-                </div>
-              </a>
-
-              <a href="/O_Diário_LUNÁTICO/Duas-garotas-uma-bandeira/two-girls-one-flag.html">
-                <div class="card">
-                  <img src="img/folhalunatica004.jpg" alt="Folha Lunática 004">
-                  <p>Folha <span>LUNÁTICA</span> 004 - Duas garotas, uma bandeira</p>
-                </div>
-              </a>
-
-              <a href="/O_Diário_LUNÁTICO/O_Diário_de_Miska_mas_foi_escrito_pela_Vivziepop/O_FODENDO_DIÁRIO_DE_MISKA.html">
-                <div class="card">
-                  <img src="img/folhalunatica005.png" alt="Folha Lunática 005">
-                  <p>Folha <span>LUNÁTICA</span> 005 - O Diário de Miska mas é escrito pela Vivziepop</p>
-                </div>
-              </a>
-
-              <a href="/O_Diário_LUNÁTICO/Era_pra_desestressar/Era_pra_desestressar.html">
-                <div class="card">
-                  <img src="img/folhalunatica006.png" alt="Folha Lunática 006">
-                  <p>Folha <span>LUNÁTICA</span> 006 - Era pra desestressar</p>
-                </div>
-              </a>
-
-              <a href="/O_Diário_LUNÁTICO/o_mal_de_pano/o_mal_de_pano.html">
-                <div class="card">
-                  <img src="img/folhalunatica007.png" alt="Folha Lunática 007">
-                  <p>Folha <span>LUNÁTICA</span> 007 - O Demônio</p>
-                </div>
-              </a>
-
-              <a href="/O_Diário_LUNÁTICO/As_várias_faces_de_mim/folhalunática008.html">
-                <div class="card">
-                  <img src="img/folhalunatica008.jpg" alt="Folha Lunática 008">
-                  <p>Folha <span>LUNÁTICA</span> 008 - As várias faces de mim</p>
-                </div>
-              </a>
-
-              <a href="/O_Diário_LUNÁTICO/O_Rato_Terrível/folhalunatica009.html">
-                <div class="card">
-                  <img src="img/folhalunatica009.jpg" alt="Folha Lunática 009">
-                  <p>Folha <span>LUNÁTICA</span> 009 - O Rato Terrível</p>
-                </div>
-              </a>
-
-              <a href="/O_Diário_LUNÁTICO/é-tiro-porrada-e-doces/folhalunatica010.html">
-                <div class="card">
-                  <img src="img/folhalunatica010.png" alt="Folha Lunática 010">
-                  <p>Folha <span>LUNÁTICA</span> 010 - É tiro, porrada e doces!</p>
-                </div>
-              </a>
-
-              <a href="/O_Diário_LUNÁTICO/Tentando-ser-uma-pessoa-melhor/folhalunática011.html">
-                <div class="card">
-                  <img src="img/folhalunatica011.jpg" alt="Folha Lunática 011">
-                  <p>Folha <span>LUNÁTICA</span> 011 - Tentando ser uma pessoa melhor</p>
-                </div>
-              </a>
-
-              <a href="/O_Diário_LUNÁTICO/Infecção/folhalunática012.html">
-                <div class="card">
-                  <img src="img/folhalunatica012.png" alt="Folha Lunática 012">
-                  <p>Folha <span>LUNÁTICA</span> 012 - Infecção</p>
-                </div>
-              </a>
-
-            </div>
-
-            
-
-            <hr>
-
-            <!-- Link de Retorno -->
-            <a class="return-link" style="color: rgb(53, 204, 15);" href="https://thisismydiary.netlify.app/">
-              Retornar
-            </a>
-          </div>
-
-        </main>
+<div id="desktop">
+ 
+  <!-- Ícones renderizados via JS (ver appsConfig) -->
+ 
+  <!-- JANELA: Papel de Parede -->
+  <div class="win98" id="wp-win">
+    <div class="win-titlebar" id="wp-win-tb">
+      <span id="wp-win-tbicon" class="win-icon" style="display:inline-flex;align-items:center;flex-shrink:0"></span>
+      <span class="win-title" id="wp-win-tbtitle">Propriedades de Vídeo</span>
+      <div class="win-controls">
+        <div class="win-ctrl-btn" onclick="minimizeWin('wp-win')">_</div>
+        <div class="win-ctrl-btn" onclick="closeWin('wp-win')">✕</div>
       </div>
     </div>
+    <div class="tab-bar">
+      <div class="tab active" id="tab-bg" onclick="switchTab('bg')">Plano de Fundo</div>
+      <div class="tab" id="tab-cor" onclick="switchTab('cor')">Cor do Fundo</div>
+    </div>
+    <div class="tab-content active" id="tabcontent-bg">
+      <div class="wp-monitor">
+        <div class="wp-screen" id="wp-preview"><span id="wp-preview-text">Sem papel de parede</span></div>
+      </div>
+      <div class="drop-zone" id="drop-zone"
+           onclick="document.getElementById('file-input').click()"
+           ondragover="handleDragOver(event)" ondragleave="handleDragLeave(event)" ondrop="handleDrop(event)">
+        📁 Clique aqui ou arraste uma imagem<br><small style="color:#666">JPG, PNG, GIF, BMP, WebP</small>
+      </div>
+      <input type="file" id="file-input" accept="image/*" onchange="handleFileSelect(event)">
+      <div class="field-group">
+        <label class="field-label">Ou insira uma URL de imagem:</label>
+        <input class="win98-input" id="wp-url" type="text" placeholder="https://exemplo.com/imagem.jpg">
+        <div style="margin-top:6px"><button class="win98-btn" onclick="applyFromUrl()" style="width:100%">Carregar URL</button></div>
+      </div>
+      <div class="field-group">
+        <label class="field-label">Posição:</label>
+        <select class="win98-input" id="wp-position" onchange="updatePosition()">
+          <option value="cover">Preenchido</option>
+          <option value="auto-center">Centralizado</option>
+          <option value="contain">Ajustado</option>
+          <option value="tile">Lado a Lado</option>
+        </select>
+      </div>
+      <div style="display:flex;gap:6px;justify-content:flex-end;flex-wrap:wrap;">
+        <button class="win98-btn" onclick="removeWallpaper()">Remover</button>
+        <button class="win98-btn" onclick="closeWin('wp-win')">Fechar</button>
+      </div>
+    </div>
+    <div class="tab-content" id="tabcontent-cor">
+      <div style="margin-bottom:6px;font-size:12px">Cor atual:</div>
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+        <div id="current-color-box" style="width:44px;height:22px;background:#008080;border:2px solid;border-color:#808080 #fff #fff #808080;flex-shrink:0"></div>
+        <span id="current-color-label" style="font-size:11px;font-family:monospace;">#008080</span>
+      </div>
+      <div style="margin-bottom:4px;font-size:12px">Paleta:</div>
+      <div class="color-grid" id="color-grid"></div>
+      <div style="margin-bottom:4px;font-size:12px">Cor personalizada:</div>
+      <div class="custom-color-row">
+        <div class="color-preview-box" id="custom-preview" style="background:#008080;"></div>
+        <input type="color" id="custom-color-picker" value="#008080" style="width:44px;height:24px;padding:1px;cursor:pointer;border:2px solid;border-color:#808080 #fff #fff #808080;background:#c0c0c0;" oninput="previewCustomColor(this.value)">
+        <button class="win98-btn" onclick="applyCustomColor()" style="flex:1;min-width:80px">Aplicar</button>
+      </div>
+      <div style="display:flex;gap:6px;justify-content:flex-end;margin-top:4px;flex-wrap:wrap;">
+        <button class="win98-btn" onclick="resetBgColor()">Padrão</button>
+        <button class="win98-btn" onclick="closeWin('wp-win')">Fechar</button>
+      </div>
+    </div>
+    <div class="win-statusbar"><span class="statusbar-panel" id="wp-status">Pronto.</span></div>
   </div>
+ 
+  <!-- JANELA: O Diário Lunático -->
+  <div class="win98" id="dl-win">
+    <div class="win-titlebar" id="dl-win-tb">
+      <span id="dl-win-tbicon" class="win-icon" style="display:inline-flex;align-items:center;flex-shrink:0"></span>
+      <span class="win-title" id="dl-win-tbtitle">O Diário Lunático</span>
+      <div class="win-controls">
+        <div class="win-ctrl-btn" onclick="minimizeWin('dl-win')">_</div>
+        <div class="win-ctrl-btn" onclick="closeWin('dl-win')">✕</div>
+      </div>
+    </div>
+    <div id="dl-body">
+      <div id="dl-bg"></div>
+      <div id="dl-bg-img"></div>
+      <div id="dl-content">
+        <div class="dl-title"><span class="part1">O Diário </span><span class="part2">LUNÁTICO</span></div>
+        <div class="dl-subtitle">O mundo é doido, cara.</div>
+        <div class="dl-collapsible" id="dl-musica-panel">
+          <div class="dl-collapsible-header" onclick="toggleCollapsible('musica')">
+            <span>Música</span><span class="arrow">▼</span>
+          </div>
+          <div class="dl-collapsible-body" id="dl-musica-body">
+            <audio id="dl-audio-player" controls preload="metadata">Seu navegador não suporta áudio.</audio>
+          </div>
+        </div>
+        <div class="dl-collapsible" id="dl-aviso-panel">
+          <div class="dl-collapsible-header" onclick="toggleCollapsible('aviso')">
+            <span>Aviso</span><span class="arrow">▼</span>
+          </div>
+          <div class="dl-collapsible-body" id="dl-aviso-body">
+            <span class="dl-aviso-msg" id="dl-aviso-text"></span>
+          </div>
+        </div>
+        <div class="dl-separator"></div>
+        <div id="dl-topo-img-wrap" style="display:none">
+          <img id="dl-topo-img" src="" alt="Imagem de apresentação">
+        </div>
+        <div class="dl-diary-text" id="dl-diary-text-container"></div>
+        <div class="dl-separator"></div>
+ 
+        <!-- Botão "Folhas do Diário" -->
+        <div class="dl-folhas-title" id="dl-folhas-btn" onclick="dlOpenLevelSelect()">
+          
+          <span style="font-size:11px;margin-left:8px;opacity:0.7">▶ Folhas do Diário</span>
+        </div>
+ 
+      </div>
+    </div>
+    <div class="win-statusbar"><span class="statusbar-panel" id="dl-status">O mundo é doido, cara.</span></div>
+  </div>
+ 
+  <!-- JANELA: Winamp -->
+  <div class="win98" id="wa-win">
+    <div class="win-titlebar" id="wa-win-tb">
+      <span id="wa-win-tbicon" class="win-icon" style="display:inline-flex;align-items:center;flex-shrink:0"></span>
+      <span class="win-title" id="wa-win-tbtitle">MP3</span>
+      <div class="win-controls">
+        <div class="win-ctrl-btn" onclick="minimizeWin('wa-win')">_</div>
+        <div class="win-ctrl-btn" onclick="closeWin('wa-win')">✕</div>
+      </div>
+    </div>
+    <div id="wa-display">
+      <div id="wa-ticker-wrap"><span id="wa-ticker">♫ Winamp — It really whips the llama's ass ♫&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;♫ Winamp — It really whips the llama's ass ♫</span></div>
+      <div id="wa-time">0:00</div>
+      <div id="wa-bitrate">Selecione uma faixa para começar</div>
+      <div id="wa-vis">
+        <div class="wa-bar" style="height:4px"></div>
+        <div class="wa-bar" style="height:4px"></div>
+        <div class="wa-bar" style="height:4px"></div>
+        <div class="wa-bar" style="height:4px"></div>
+        <div class="wa-bar" style="height:4px"></div>
+        <div class="wa-bar" style="height:4px"></div>
+        <div class="wa-bar" style="height:4px"></div>
+        <div class="wa-bar" style="height:4px"></div>
+      </div>
+    </div>
+    <div id="wa-progress-wrap">
+      <input type="range" id="wa-progress" min="0" max="100" value="0" oninput="waSeek(this.value)" onclick="event.stopPropagation()">
+    </div>
+    <div id="wa-sliders">
+      <span class="wa-slider-label">VOL</span>
+      <input type="range" class="wa-slider" id="wa-vol" min="0" max="100" value="80" oninput="waSetVolume(this.value)" onclick="event.stopPropagation()">
+      <span class="wa-slider-label">PAN</span>
+      <input type="range" class="wa-slider" id="wa-pan" min="-1" max="1" step="0.01" value="0" oninput="waSetPan(this.value)" onclick="event.stopPropagation()">
+    </div>
+    <div id="wa-controls">
+      <button class="wa-btn" onclick="waPrev()" title="Anterior">⏮</button>
+      <button class="wa-btn" id="wa-play-btn" onclick="waPlay()" title="Play">▶</button>
+      <button class="wa-btn" onclick="waPause()" title="Pause">⏸</button>
+      <button class="wa-btn" onclick="waStop()" title="Stop">⏹</button>
+      <button class="wa-btn" onclick="waNext()" title="Próximo">⏭</button>
+      <button class="wa-btn" id="wa-shuf-btn" onclick="waToggleShuffle()" title="Aleatório">🔀</button>
+      <button class="wa-btn" id="wa-rep-btn"  onclick="waToggleRepeat()"  title="Repetir">🔁</button>
+    </div>
+    <div id="wa-playlist"></div>
+    <div id="wa-embed-wrap">
+      <div id="wa-embed-label">▶ PLAYER EXTERNO</div>
+      <iframe id="wa-embed-iframe" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+    <div id="wa-add-row">
+      <input type="text" id="wa-add-url"  placeholder="URL: MP3 / YouTube / Spotify / SoundCloud..." onclick="event.stopPropagation()">
+      <input type="text" id="wa-add-name" placeholder="Nome..." onclick="event.stopPropagation()">
+      <button class="wa-btn" onclick="waAddTrack()" style="padding:3px 6px;font-size:10px;min-width:40px">+URL</button>
+      <div class="wa-add-sep"></div>
+      <button id="wa-upload-btn" onclick="document.getElementById('wa-file-input').click()" style="flex:1">
+        Enviar arquivo MP3
+      </button>
+      <input type="file" id="wa-file-input" accept="audio/*" multiple onchange="waHandleUpload(event)">
+    </div>
+    <audio id="wa-audio"></audio>
+  </div>
+ 
+  <!-- JANELA: Paciência -->
+  <div class="win98" id="sol-win">
+    <div class="win-titlebar" id="sol-win-tb">
+      <span id="sol-win-tbicon" class="win-icon" style="display:inline-flex;align-items:center;flex-shrink:0"></span>
+      <span class="win-title">Paciência</span>
+      <div class="win-controls">
+        <div class="win-ctrl-btn" onclick="minimizeWin('sol-win')">_</div>
+        <div class="win-ctrl-btn" onclick="closeWin('sol-win')">✕</div>
+      </div>
+    </div>
+    <div id="sol-menubar">
+      <span onclick="solNewGame()">Novo jogo</span>
+      <span onclick="solUndo()">Desfazer</span>
+    </div>
+    <div id="sol-body">
+      <!-- Área superior -->
+      <div id="sol-top">
+        <div id="sol-stock" class="empty" onclick="solDraw()"></div>
+        <div id="sol-waste"></div>
+        <div id="sol-foundations">
+          <div class="sol-foundation" id="sol-f0" data-suit="♥">♥</div>
+          <div class="sol-foundation" id="sol-f1" data-suit="♦">♦</div>
+          <div class="sol-foundation" id="sol-f2" data-suit="♣">♣</div>
+          <div class="sol-foundation" id="sol-f3" data-suit="♠">♠</div>
+        </div>
+      </div>
+      <!-- Tableau -->
+      <div id="sol-tableau-area">
+        <div class="sol-col" id="sol-t0"></div>
+        <div class="sol-col" id="sol-t1"></div>
+        <div class="sol-col" id="sol-t2"></div>
+        <div class="sol-col" id="sol-t3"></div>
+        <div class="sol-col" id="sol-t4"></div>
+        <div class="sol-col" id="sol-t5"></div>
+        <div class="sol-col" id="sol-t6"></div>
+      </div>
+      <!-- Overlay de vitória -->
+      <div id="sol-win-overlay">
+        <h2>Você ganhou!</h2>
+        <p id="sol-win-score"></p>
+        <button class="win98-btn" onclick="solNewGame()">Novo jogo</button>
+      </div>
+    </div>
+    <div id="sol-statusbar">
+      <span>Pontos: <b id="sol-score-el">0</b></span>
+      <span>Tempo: <b id="sol-time-el">0:00</b></span>
+      <span>Movimentos: <b id="sol-moves-el">0</b></span>
+    </div>
+  </div>
+ 
+  <!-- ── LEVEL SELECT OVERLAY (filho do desktop, posicionado sobre dl-win via JS) ── -->
+  <div id="dl-ls-overlay">
+    <div id="dl-ls-header">
+      <button id="dl-ls-back" onclick="dlCloseLevelSelect()">← Voltar</button>
+      <div id="dl-ls-header-title">✦ Folhas do Diário ✦</div>
+      <div></div>
+    </div>
+    <div id="dl-ls-body">
+      <div id="dl-ls-left">
+        <div id="dl-ls-list"></div>
+      </div>
+      <div id="dl-ls-right">
+        <div id="dl-ls-preview-img">📓</div>
+        <div id="dl-ls-info">
+          <div id="dl-ls-numero">Selecione uma folha</div>
+          <div id="dl-ls-titulo"></div>
+          <div id="dl-ls-sinopse"></div>
+        </div>
+        <a id="dl-ls-btn" href="#" target="_blank" rel="noopener noreferrer" style="display:none">▶ ABRIR FOLHA</a>
+      </div>
+    </div>
+    <div id="dl-ls-footer">
+      <span>↑↓ navegar</span>
+      <span>ENTER / clique → abrir</span>
+      <span>ESC → voltar</span>
+    </div>
+  </div>
+ 
+  <!-- TASKBAR -->
+  <div id="taskbar">
+    <button id="start-btn" onclick="toggleStartMenu()">
+      <svg width="16" height="16" viewBox="0 0 16 16">
+        <rect x="1" y="1" width="6" height="6" fill="#ff3333"/>
+        <rect x="9" y="1" width="6" height="6" fill="#33cc33"/>
+        <rect x="1" y="9" width="6" height="6" fill="#3333ff"/>
+        <rect x="9" y="9" width="6" height="6" fill="#ffcc00"/>
+      </svg>
+      Iniciar
+    </button>
+    <div class="taskbar-divider"></div>
+    <div id="tb-items"></div>
+    <div id="system-tray">
+      <svg width="14" height="14" viewBox="0 0 14 14">
+        <rect x="1" y="4" width="8" height="6" fill="#c0c0c0" stroke="#808080" stroke-width="1"/>
+        <polygon points="9,4 13,2 13,12 9,10" fill="#c0c0c0" stroke="#808080" stroke-width="1"/>
+      </svg>
+      <div id="clock">--:--</div>
+    </div>
+  </div>
+ 
+  <!-- START MENU -->
+  <div id="start-menu">
+    <div class="sm-sidebar">Windows<span>98</span></div>
+    <ul id="sm-app-list">
+      <!-- itens renderizados via JS -->
+    </ul>
+  </div>
+ 
+</div><!-- /desktop -->
+
+<script src="javascript.js">
+
+</script>
 </body>
 </html>

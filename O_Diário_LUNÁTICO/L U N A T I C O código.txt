@@ -1,8 +1,0 @@
-<font color="#ff0000">L</font>
-    <font color="#ff6d00">U</font>
-    <font color="#fff000">N</font></span>
-    <font color="#04ff00">Á</font>
-    <font color="#0000ff">T</font></span>
-    <font color="#5f5fc3">I</font>
-    <font color="#7400ce">C</font></span>
-    <font color="#FF00BB">A</font></span>
