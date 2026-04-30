@@ -311,7 +311,7 @@ const dlConfig = {
     { numero:"011", 
     titulo:"Tentando ser uma pessoa melhor",                                
     link:"Tentando-ser-uma-pessoa-melhor/folhalunática011.html", 
-    thumb:"img/folhalunatica011.jpg", 
+    thumb:"img/folhalunatica011.png", 
     sinopse:"''Calma, caro amigo. Só porque eu esmaguei crânios com socos, parti corpos ao meio, esquartejei, comi a carne e bebi o sangue, não significa que eu não possa ser melhor que isso.''\n\nVocê poderia não me interromper? Eu ainda tenho que dar um resumo da sua história, beleza? Muito obrigada!\n\nAhem!\n\nApós ser enviada de volta ao seu universo por Laetitia e, consequentemente, ser presa por causa de inúmeros assassinos hediondos, essa Miska conseguiu escapar da prisão, de alguma forma. Ainda assim, ela não quer mais saber de matar. Tudo o que deseja agora é se tornar uma pessoa melhor. Pelo menos, é o que ela diz.\n\nVocê daria uma chance pra ela? Porque eu não.\n\n''Qual é? Foram só 356 pessoas durante anos, que diferença faz? Ainda temos 8 bilhões de pessoas.''\n\nPor favor, cale a boca." },
 
     { numero:"012", 
