@@ -312,13 +312,19 @@ const dlConfig = {
     titulo:"Tentando ser uma pessoa melhor",                                
     link:"Tentando-ser-uma-pessoa-melhor/folhalunática011.html", 
     thumb:"img/folhalunatica011.png", 
-    sinopse:"''Calma, caro amigo. Só porque eu esmaguei crânios com socos, parti corpos ao meio, esquartejei, comi a carne e bebi o sangue, não significa que eu não possa ser melhor que isso.''\n\nVocê poderia não me interromper? Eu ainda tenho que dar um resumo da sua história, beleza? Muito obrigada!\n\nAhem!\n\nApós ser enviada de volta ao seu universo por Laetitia e, consequentemente, ser presa por causa de inúmeros assassinos hediondos, essa Miska conseguiu escapar da prisão, de alguma forma. Ainda assim, ela não quer mais saber de matar. Tudo o que deseja agora é se tornar uma pessoa melhor. Pelo menos, é o que ela diz.\n\nVocê daria uma chance pra ela? Porque eu não.\n\n''Qual é? Foram só 356 pessoas durante anos, que diferença faz? Ainda temos 8 bilhões de pessoas.''\n\nPor favor, cale a boca." },
+    sinopse:"“Calma, caro amigo. Só porque eu esmaguei crânios com socos, parti corpos ao meio, esquartejei, comi a carne e bebi o sangue, não significa que eu não possa ser melhor que isso.”\n\nVocê poderia não me interromper? Eu ainda tenho que dar um resumo da sua história, beleza? Muito obrigada!\n\nAhem!\n\nApós ser enviada de volta ao seu universo por Laetitia e, consequentemente, ser presa por causa de inúmeros assassinos hediondos, essa Miska conseguiu escapar da prisão, de alguma forma. Ainda assim, ela não quer mais saber de matar. Tudo o que deseja agora é se tornar uma pessoa melhor. Pelo menos, é o que ela diz.\n\nVocê daria uma chance pra ela? Porque eu não.\n\n“Qual é? Foram só 356 pessoas durante anos, que diferença faz? Ainda temos 8 bilhões de pessoas.”\n\nPor favor, cale a boca." },
 
     { numero:"012", 
     titulo:"Infecção",                                
     link:"Infecção/folhalunática012.html", 
     thumb:"img/folhalunatica012.png", 
     sinopse:"Uma infecção horrível se espalha pela cidade, agora todos estão fodidos. Restou a Laetitia e Thrauma descobrirem o problema." },
+
+    { numero:"013", 
+    titulo:"A Mulher de Aço",                                
+    link:"a-mulher-de-aço/folhalunática013.html", 
+    thumb:"img/folhalunatica013.png", 
+    sinopse:"“É um pássaro? Um avião? Não, é a Mulher de Aço! Não importa o perigo, não importa a ameaça, ela não sangra perante nada!”\n\nDepois de ter sua novela interrompida por mais uma entre centenas de ameaças dispostas a espalhar o caos pela Terra, coube novamente à Inabalável resolver a situação e salvar a bunda do planeta Terra, como ela sempre faz.\n\nQuer saber como essa história se desenrola? Eu não. Mas, se você quiser descobrir, basta mergulhar de cabeça nesta aventura explosiva da mulher mais poderosa de todo o multiverso!\n\n" },
   ]
  
 };

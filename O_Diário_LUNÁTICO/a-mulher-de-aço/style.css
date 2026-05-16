@@ -1,0 +1,772 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+ 
+  :root {
+    --transition-speed: 1.2s;
+    --font-title: 'IM Fell English', serif;
+    --font-body: 'Crimson Pro', serif;
+  }
+ 
+  html { scroll-behavior: smooth; }
+ 
+  body {
+    font-family: var(--font-body);
+    font-size: 19px;
+    line-height: 1.85;
+    overflow-x: hidden;
+    background: #0a0a0a;
+    color: #e8e0d0;
+    transition: background 0.3s ease;
+  }
+ 
+  /* ── Camada de fundo fixa ── */
+  #bg-layer {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    transition: opacity var(--transition-speed) ease;
+  }
+ 
+  .bg-slide {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity var(--transition-speed) ease;
+  }
+ 
+  .bg-slide.active { opacity: 1; }
+ 
+  .bg-slide::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+  }
+ 
+  /* Fundo 1 — Profundezas */
+  #bg-1 {
+    background-image:
+      url('img/profundezas1.jpg');
+    background-position: center 30%;
+  }
+  #bg-1::after {
+    background: linear-gradient(
+      to bottom,
+      rgba(36, 36, 36, 0.72) 0%,
+      rgba(16, 17, 16, 0.6) 50%,
+      rgba(4, 5, 4, 0.82) 100%
+    );
+  }
+ 
+  /* Fundo 2 — Cidade Destruída */
+  #bg-2 {
+    background-image:
+      url('img/oceano.jpg');
+    background-position: center 60%;
+  }
+  #bg-2::after {
+    background: linear-gradient(
+      to bottom,
+      rgba(10, 10, 18, 0.70) 0%,
+      rgba(8, 8, 16, 0.58) 50%,
+      rgba(6, 6, 14, 0.80) 100%
+    );
+  }
+ 
+  /* Fundo 3 — San Antonio */
+  #bg-3 {
+    background-image:
+      url('img/SanAntonio.jpg');
+    background-position: center 40%;
+  }
+  #bg-3::after {
+    background: linear-gradient(
+      to bottom,
+      rgba(44, 44, 44, 0.68) 0%,
+      rgba(7, 7, 7, 0.55) 50%,
+      rgba(15, 7, 2, 0.80) 100%
+    );
+  }
+
+  /* Fundo 4 — Em Outro Lugar */
+  #bg-4 {
+  background-image: url('img/cidade-destruída.jpg');
+  background-position: center;
+}
+#bg-4::after {
+  background: linear-gradient(
+    to bottom,
+    rgba(22, 22, 22, 0.7) 0%,
+    rgba(17, 17, 17, 0.58) 50%,
+    rgba(8, 8, 8, 0.8) 100%
+  );
+}
+
+/* Fundo 5 — Espaço */
+  #bg-5 {
+  background-image: url('img/espaço.jpg');
+  background-position: center;
+}
+#bg-5::after {
+  background: linear-gradient(
+    to bottom,
+    rgba(22, 22, 22, 0.7) 0%,
+    rgba(17, 17, 17, 0.58) 50%,
+    rgba(8, 8, 8, 0.8) 100%
+  );
+}
+
+/* Fundo U13 — Universo-13 */
+  #bg-13u {
+  background-image: url('img/quadra-de-basquete.jpg');
+  background-position: center;
+}
+#bg-13u::after {
+  background: linear-gradient(
+    to bottom,
+    rgba(22, 22, 22, 0.7) 0%,
+    rgba(17, 17, 17, 0.58) 50%,
+    rgba(8, 8, 8, 0.8) 100%
+  );
+}
+
+/* Fundo 6 — Universo-77 */
+  #bg-6 {
+  background-image: url('img/prisão2.jpg');
+  background-position: center;
+}
+#bg-6::after {
+  background: linear-gradient(
+    to bottom,
+    rgba(22, 22, 22, 0.7) 0%,
+    rgba(17, 17, 17, 0.58) 50%,
+    rgba(8, 8, 8, 0.8) 100%
+  );
+}
+
+/* Fundo 7 — Universo-30 */
+  #bg-7 {
+  background-image: url('img/jaula-de-vidro2.jpg');
+  background-position: center;
+}
+#bg-7::after {
+  background: linear-gradient(
+    to bottom,
+    rgba(22, 22, 22, 0.7) 0%,
+    rgba(17, 17, 17, 0.58) 50%,
+    rgba(8, 8, 8, 0.8) 100%
+  );
+}
+
+/* Fundo 8 — Universo-3 */
+  #bg-8 {
+  background-image: url('img/universo-aurora1.jpg');
+  background-position: center;
+}
+#bg-8::after {
+  background: linear-gradient(
+    to bottom,
+    rgba(22, 22, 22, 0.7) 0%,
+    rgba(17, 17, 17, 0.58) 50%,
+    rgba(8, 8, 8, 0.8) 100%
+  );
+}
+
+/* Fundo 9 — Entre o Multiverso */
+  #bg-9 {
+  background-image: url('img/multiverso.jpg');
+  background-position: center;
+}
+#bg-9::after {
+  background: linear-gradient(
+    to bottom,
+    rgba(22, 22, 22, 0.7) 0%,
+    rgba(17, 17, 17, 0.58) 50%,
+    rgba(8, 8, 8, 0.8) 100%
+  );
+}
+
+/* Fundo 10 — Entre o Multiverso */
+  #bg-10 {
+  background-image: url('img/reino-das-sombras.jpg');
+  background-position: center;
+}
+#bg-10::after {
+  background: linear-gradient(
+    to bottom,
+    rgba(22, 22, 22, 0.7) 0%,
+    rgba(17, 17, 17, 0.58) 50%,
+    rgba(8, 8, 8, 0.8) 100%
+  );
+}
+
+/* Fundo 11 — De volta ao universo principal */
+  #bg-11 {
+  background-image: url('img/espaço3.gif');
+  background-position: center;
+}
+#bg-11::after {
+  background: linear-gradient(
+    to bottom,
+    rgba(22, 22, 22, 0.7) 0%,
+    rgba(17, 17, 17, 0.58) 50%,
+    rgba(8, 8, 8, 0.8) 100%
+  );
+}
+
+/* Fundo 12 — Dentro da base dos heróis */
+  #bg-12 {
+  background-image: url('img/base-dos-heróis.jpg');
+  background-position: center;
+}
+#bg-12::after {
+  background: linear-gradient(
+    to bottom,
+    rgba(22, 22, 22, 0.7) 0%,
+    rgba(17, 17, 17, 0.58) 50%,
+    rgba(8, 8, 8, 0.8) 100%
+  );
+}
+ 
+  /* ── FIXED HUD: chapter indicator ── */
+  #chapter-hud {
+    position: fixed;
+    top: 2rem;
+    right: 2.5rem;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+  }
+ 
+  .hud-dot {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    opacity: 0.35;
+    transition: opacity 0.4s ease;
+  }
+ 
+  .hud-dot.active { opacity: 1; }
+ 
+  .hud-dot:hover { opacity: 0.8; }
+ 
+  .hud-dot-label {
+    font-family: var(--font-body);
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #e8e0d0;
+    white-space: nowrap;
+    transition: color 0.6s ease;
+  }
+ 
+  .hud-dot-circle {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(232, 224, 208, 0.6);
+    background: transparent;
+    transition: background 0.4s ease, border-color 0.4s ease;
+  }
+ 
+  .hud-dot.active .hud-dot-circle {
+    background: rgba(232, 224, 208, 0.9);
+    border-color: rgba(232, 224, 208, 0.9);
+  }
+ 
+  /* ── FIXED PROGRESS BAR ── */
+  #progress-bar {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    width: 0%;
+    z-index: 100;
+    transition: width 0.1s linear, background 1.2s ease;
+  }
+ 
+  /* ── SCROLL CONTAINER ── */
+  #scroll-container {
+    position: relative;
+    z-index: 10;
+  }
+ 
+  /* ── Container ── */
+  .story-card {
+    margin: 0 auto;
+    width: 88%;
+    max-width: 860px;
+    background: rgba(8, 8, 8, 0.75);
+    border: 1px solid rgba(232, 224, 208, 0.10);
+    border-radius: 4px;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    overflow: hidden;
+  }
+ 
+  .story-card .chapter-header {
+    padding: 3.5rem 3rem 2rem;
+    border-bottom: 1px solid rgba(232, 224, 208, 0.08);
+  }
+ 
+  .story-card .story-body {
+    padding: 2.5rem 3rem 3rem;
+    max-width: 100%;
+  }
+ 
+  /* ── SEÇÕES ── */
+  .story-section {
+    min-height: 100vh;
+    padding: 5rem 0 5rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+ 
+  /* ── Títulos ── */
+  .chapter-header {
+    padding: 6rem 8vw 3rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+ 
+  .chapter-number {
+    font-family: var(--font-body);
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    opacity: 0.5;
+    margin-bottom: 1.2rem;
+    display: block;
+  }
+ 
+  .chapter-title {
+    font-family: var(--font-title);
+    font-weight: 400;
+    line-height: 1.1;
+    letter-spacing: 0.02em;
+    position: relative;
+    display: inline-block;
+  }
+ 
+  .chapter-title::after {
+    content: '';
+    display: block;
+    height: 1px;
+    width: 100%;
+    margin-top: 0.6rem;
+    opacity: 0.3;
+    margin-left: auto;
+    margin-right: auto;
+  }
+ 
+  /* Seção 1: Profundezas */
+  #section-1 .chapter-title {
+    font-size: clamp(3.5rem, 8vw, 7rem);
+    color: #740404;
+    text-shadow: 0 0 60px rgba(114, 30, 30, 0.25);
+  }
+  #section-1 .chapter-title::after { background: #eb6161; }
+ 
+  /* Seção 2: Fora do Oceano */
+  #section-2 .chapter-title {
+    font-size: clamp(2.8rem, 6.5vw, 6rem);
+    color: #b0b8d4;
+    text-shadow: 0 0 60px rgba(80, 100, 180, 0.2);
+  }
+  #section-2 .chapter-title::after { background: #b0b8d4; }
+ 
+  /* Seção 3: San Antonio */
+  #section-3 .chapter-title {
+    font-size: clamp(2.5rem, 5.8vw, 5.5rem);
+    color: #c0bebc;
+    text-shadow: 0 0 60px rgba(109, 109, 109, 0.25);
+  }
+  #section-3 .chapter-title::after { background: #53504d; }
+
+  /* Seção 4: Em Outro Lugar */
+  #section-4 .chapter-title {
+    font-size: clamp(2.5rem, 5.8vw, 5.5rem);
+    color: #c0bebc;
+    text-shadow: 0 0 60px rgba(109, 109, 109, 0.25);
+  }
+  #section-4 .chapter-title::after { background: #53504d; }
+
+  /* Seção 5: Espaço */
+  #section-5 .chapter-title {
+    font-size: clamp(2.5rem, 5.8vw, 5.5rem);
+    color: #c0c0c0;
+    text-shadow: 0 0 60px rgba(97, 97, 97, 0.25);
+  }
+  #section-5 .chapter-title::after { background: #adadad; }
+
+  /* Seção U13: Universo-13 */
+  #section-13u .chapter-title {
+    font-size: clamp(2.5rem, 5.8vw, 5.5rem);
+    color: #fdecb0;
+    text-shadow: 0 0 60px rgba(97, 97, 97, 0.25);
+  }
+  #section-13u .chapter-title::after { background: #adadad; }
+
+  /* Seção 6: Universo-77 */
+  #section-6 .chapter-title {
+    font-size: clamp(2.5rem, 5.8vw, 5.5rem);
+    color: rgb(130, 209, 136);
+    text-shadow: 0 0 60px rgba(97, 97, 97, 0.25);
+  }
+  #section-6 .chapter-title::after { background: #adadad; }
+
+  /* Seção 7: Universo-30 */
+  #section-7 .chapter-title {
+    font-size: clamp(2.5rem, 5.8vw, 5.5rem);
+    color: #2db49e;
+    text-shadow: 0 0 60px rgba(97, 97, 97, 0.25);
+  }
+  #section-7 .chapter-title::after { background: #adadad; }
+
+  /* Seção 8: Universo-3 */
+  #section-8 .chapter-title {
+    font-size: clamp(2.5rem, 5.8vw, 5.5rem);
+    color: #f17cc4;
+    text-shadow: 0 0 60px rgba(97, 97, 97, 0.25);
+  }
+  #section-8 .chapter-title::after { background: #adadad; }
+
+  /* Seção 9: Entre o Multiverso */
+  #section-9 .chapter-title {
+    font-size: clamp(2.5rem, 5.8vw, 5.5rem);
+    color: #f17cc4;
+    text-shadow: 0 0 60px rgba(97, 97, 97, 0.25);
+  }
+  #section-9 .chapter-title::after { background: #adadad; }
+
+  /* Seção 10: Reino das Sombras */
+  #section-10 .chapter-title {
+    font-size: clamp(2.5rem, 5.8vw, 5.5rem);
+    color: #424242;
+    text-shadow: 0 0 60px rgba(97, 97, 97, 0.25);
+  }
+  #section-10 .chapter-title::after { background: #adadad; }
+
+  /* Seção 11: De volta ao universo original */
+  #section-11 .chapter-title {
+    font-size: clamp(2.5rem, 5.8vw, 5.5rem);
+    color: #dbdbdb;
+    text-shadow: 0 0 60px rgba(97, 97, 97, 0.25);
+  }
+  #section-11 .chapter-title::after { background: #adadad; }
+
+  /* Seção 12: Dentro da Base de Heróis */
+  #section-12 .chapter-title {
+    font-size: clamp(2.5rem, 5.8vw, 5.5rem);
+    color: #dbdbdb;
+    text-shadow: 0 0 60px rgba(97, 97, 97, 0.25);
+  }
+  #section-12 .chapter-title::after { background: #adadad; }
+
+  /* Seções Personalizáveis */
+
+  /* Seção 1 - Profundezas*/
+
+#section-1 .story-card {
+  background: #101e2471;   /* cor de fundo */
+  border-color: #226886; /* cor da borda */
+}
+
+#section-1 .story-card .story-body p {
+  color: rgba(211, 243, 255, 0.9); /* cor do texto dos parágrafos */
+}
+
+/* Seção 2 - Fora do Oceano*/
+
+#section-2 .story-card {
+  background: #272d2e9f;   /* cor de fundo */
+  border-color: #e0dbd5; /* cor da borda */
+}
+
+#section-2 .story-card .story-body p {
+  color: #e0dbd5; /* cor do texto dos parágrafos */
+}
+
+/* Seção 3 - San Antonio*/
+
+#section-3 .story-card {
+  background: rgba(8, 8, 8, 0.75);;   /* cor de fundo */
+  border-color: 1px solid rgba(232, 224, 208, 0.1); /* cor da borda */
+}
+
+#section-3 .story-card .story-body p {
+  color: #a3917a; /* cor do texto dos parágrafos */
+}
+
+/* Seção 4 - Em Outro Lugar */
+
+#section-4 .story-card {
+  background: #2a31298f;   /* cor de fundo */
+  border-color: #c0d7c1; /* cor da borda */
+}
+
+#section-4 .story-card .story-body p {
+  color: rgba(230, 230, 230, 0.9); /* cor do texto dos parágrafos */
+}
+
+/* Seção 5 - No Espaço */
+
+#section-5 .story-card {
+  background: #050d1a98;   /* cor de fundo */
+  border-color: #657faa; /* cor da borda */
+}
+
+#section-5 .story-card .story-body p {
+  color: #a6c1ec; /* cor do texto dos parágrafos */
+}
+
+/* Seção u13 - Universo-13 */
+
+#section-13u .story-card {
+  background: #50352486;   /* cor de fundo */
+  border-color: #d0b078; /* cor da borda */
+}
+
+#section-13u .story-card .story-body p {
+  color: #fdecb0; /* cor do texto dos parágrafos */
+}
+
+/* Seção 6 - Universo-77 */
+
+#section-6 .story-card {
+  background: #021b068a;   /* cor de fundo */
+  border-color: #252c1c; /* cor da borda */
+}
+
+#section-6 .story-card .story-body p {
+  color: #c1e6cf; /* cor do texto dos parágrafos */
+}
+
+/* Seção 7 - Universo-30 */
+
+#section-7 .story-card {
+  background: #09151693;   /* cor de fundo */
+  border-color: #83bdc4; /* cor da borda */
+}
+
+#section-7 .story-card .story-body p {
+  color: #c1e0e6; /* cor do texto dos parágrafos */
+}
+
+/* Seção 8 - Universo-3 */
+
+#section-8 .story-card {
+  background: #c435598c;   /* cor de fundo */
+  border-color: #edc946; /* cor da borda */
+}
+
+#section-8 .story-card .story-body p {
+  color: #ffd651; /* cor do texto dos parágrafos */
+}
+ 
+/* Seção 9 - Entre o Multiverso */
+
+#section-9 .story-card {
+  background: #1f1c368c;   /* cor de fundo */
+  border-color: #705f82; /* cor da borda */
+}
+
+#section-9 .story-card .story-body p {
+  color: #bcb2e9; /* cor do texto dos parágrafos */
+}
+
+/* Seção 10 - Reino das Sombras */
+
+#section-10 .story-card {
+  background: #08080877;   /* cor de fundo */
+  border-color: #353535; /* cor da borda */
+}
+
+#section-10 .story-card .story-body p {
+  color: #f7f7f7; /* cor do texto dos parágrafos */
+}
+
+/* Seção 11 - De volta ao universo principal */
+
+#section-11 .story-card {
+  background: #08080877;   /* cor de fundo */
+  border-color: #353535; /* cor da borda */
+}
+
+#section-11 .story-card .story-body p {
+  color: #f7f7f7; /* cor do texto dos parágrafos */
+}
+
+/* Seção 12 - Dentro da Base dos Heróis */
+
+#section-12 .story-card {
+  background: #e7e7e731;   /* cor de fundo */
+  border-color: #6a9ba1; /* cor da borda */
+}
+
+#section-12 .story-card .story-body p {
+  color: #c8fcfc; /* cor do texto dos parágrafos */
+}
+ 
+  /* ── Corpo da interface ── */
+  .story-body {
+    padding: 0 8vw;
+    max-width: 780px;
+    margin: 0 auto;
+    width: 100%;
+  }
+ 
+  .story-body p {
+    margin-bottom: 1.6em;
+    font-weight: 300;
+    color: rgba(232, 224, 208, 0.88);
+  }
+ 
+  .story-body em {
+    font-style: italic;
+    opacity: 0.75;
+  }
+ 
+  .story-body strong {
+    font-weight: 600;
+  }
+ 
+  /* ── Divisor de cenas ── */
+  .scene-divider {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 2.5rem 0 2rem;
+    opacity: 0.3;
+  }
+  .scene-divider span { font-size: 1.1em; }
+  .scene-divider::before,
+  .scene-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: currentColor;
+  }
+ 
+  /* ── VINHETA DE TRANSIÇÃO entre seções ── */
+  .section-vignette { display: none; }
+ 
+  /* ── AMBIENT GLOW per section ── */
+  #section-1 .ambient { background: radial-gradient(ellipse 60% 40% at 20% 20%, rgba(60,160,80,0.08) 0%, transparent 70%); }
+  #section-2 .ambient { background: radial-gradient(ellipse 60% 40% at 80% 20%, rgba(60,80,160,0.08) 0%, transparent 70%); }
+  #section-3 .ambient { background: radial-gradient(ellipse 60% 40% at 40% 60%, rgba(160,100,30,0.09) 0%, transparent 70%); }
+  #section-4 .ambient { background: radial-gradient(ellipse 60% 40% at 40% 60%, rgba(61, 58, 54, 0.09) 0%, transparent 70%); }
+  #section-5 .ambient { background: radial-gradient(ellipse 60% 40% at 40% 60%, rgba(61, 58, 54, 0.09) 0%, transparent 70%); }
+ 
+  .ambient {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+  }
+ 
+  .chapter-header, .story-body { position: relative; z-index: 1; }
+ 
+  /* ── Dica de Rolagem ── */
+  #scroll-hint {
+    position: fixed;
+    bottom: 2.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+  }
+ 
+  #scroll-hint.visible { opacity: 0; }
+ 
+  #scroll-hint span {
+    font-family: var(--font-body);
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: #e8e0d0;
+  }
+ 
+  .scroll-arrow {
+    width: 1px;
+    height: 28px;
+    background: linear-gradient(to bottom, transparent, #e8e0d0);
+    animation: scrollPulse 1.8s ease-in-out infinite;
+  }
+ 
+  @keyframes scrollPulse {
+    0%, 100% { opacity: 0.3; transform: scaleY(0.6) translateY(-4px); }
+    50% { opacity: 1; transform: scaleY(1) translateY(0); }
+  }
+ 
+  /* ── Animação de entrada ── */
+  .fade-in-up {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.9s ease, transform 0.9s ease;
+  }
+  .fade-in-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── Botão de retorno ── */
+  .return-btn {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-size: 13px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: rgba(232, 224, 208, 0.75);
+    border: 1px solid rgba(232, 224, 208, 0.25);
+    padding: 10px 32px;
+    border-radius: 2px;
+    transition: color 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+  }
+ 
+  .return-btn:hover {
+    color: rgba(232, 224, 208, 1);
+    border-color: rgba(232, 224, 208, 0.6);
+    background: rgba(232, 224, 208, 0.07);
+  }
+
+  /* ── Imagens pra história ── */
+  .story-image-wrap {
+    margin-bottom: 2rem;
+    border-radius: 4px;
+    overflow: hidden;
+    border: 1px solid rgba(232, 224, 208, 0.08);
+  }
+ 
+  .story-image {
+    width: 100%;
+    display: block;
+    object-fit: cover;
+    max-height: 420px;
+  }
+ 
+  /* ── CHAPTER TRANSITION FLASH ── */
+  #chapter-flash {
+    position: fixed;
+    inset: 0;
+    z-index: 50;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.15s ease;
+  }
+  #chapter-flash.flash { opacity: 1; }
