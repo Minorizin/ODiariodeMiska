@@ -158,6 +158,20 @@
   );
 }
 
+/* Fundo U666 — Universo-666 */
+  #bg-666u {
+  background-image: url('img/universo-666.jpg');
+  background-position: center;
+}
+#bg-666u::after {
+  background: linear-gradient(
+    to bottom,
+    rgba(22, 22, 22, 0.7) 0%,
+    rgba(17, 17, 17, 0.58) 50%,
+    rgba(8, 8, 8, 0.8) 100%
+  );
+}
+
 /* Fundo 8 — Universo-3 */
   #bg-8 {
   background-image: url('img/universo-aurora1.jpg');
@@ -431,6 +445,14 @@
   }
   #section-7 .chapter-title::after { background: #adadad; }
 
+    /* Seção U666: Universo-666 */
+  #section-666u .chapter-title {
+    font-size: clamp(2.5rem, 5.8vw, 5.5rem);
+    color: #e6a7a7;
+    text-shadow: 0 0 60px rgba(97, 97, 97, 0.25);
+  }
+  #section-666u .chapter-title::after { background: #adadad; }
+
   /* Seção 8: Universo-3 */
   #section-8 .chapter-title {
     font-size: clamp(2.5rem, 5.8vw, 5.5rem);
@@ -559,6 +581,17 @@
 
 #section-7 .story-card .story-body p {
   color: #c1e0e6; /* cor do texto dos parágrafos */
+}
+
+/* Seção u666 - Universo-666 */
+
+#section-666u .story-card {
+  background: #800d0d86;   /* cor de fundo */
+  border-color: #d07878; /* cor da borda */
+}
+
+#section-666u .story-card .story-body p {
+  color: #facfcf; /* cor do texto dos parágrafos */
 }
 
 /* Seção 8 - Universo-3 */
