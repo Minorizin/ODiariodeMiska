@@ -130,6 +130,20 @@
   );
 }
 
+/* Fundo U55 — Universo-55 */
+  #bg-55u {
+  background-image: url('img/universo-55-2.jpg');
+  background-position: center;
+}
+#bg-55u::after {
+  background: linear-gradient(
+    to bottom,
+    rgba(22, 22, 22, 0.7) 0%,
+    rgba(17, 17, 17, 0.58) 50%,
+    rgba(8, 8, 8, 0.8) 100%
+  );
+}
+
 /* Fundo 6 — Universo-77 */
   #bg-6 {
   background-image: url('img/prisão2.jpg');
@@ -429,6 +443,14 @@
   }
   #section-13u .chapter-title::after { background: #adadad; }
 
+  /* Seção U55: Universo-55 */
+  #section-55u .chapter-title {
+    font-size: clamp(2.5rem, 5.8vw, 5.5rem);
+    color: #211496;
+    text-shadow: 0 0 60px rgba(97, 97, 97, 0.25);
+  }
+  #section-55u .chapter-title::after { background: #adadad; }
+
   /* Seção 6: Universo-77 */
   #section-6 .chapter-title {
     font-size: clamp(2.5rem, 5.8vw, 5.5rem);
@@ -559,6 +581,17 @@
 
 #section-13u .story-card .story-body p {
   color: #fdecb0; /* cor do texto dos parágrafos */
+}
+
+/* Seção u55 - Universo-55 */
+
+#section-55u .story-card {
+  background: #f5c73c88;   /* cor de fundo */
+  border-color: #83561c; /* cor da borda */
+}
+
+#section-55u .story-card .story-body p {
+  color: #33210a; /* cor do texto dos parágrafos */
 }
 
 /* Seção 6 - Universo-77 */
