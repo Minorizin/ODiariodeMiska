@@ -586,12 +586,12 @@
 /* Seção u55 - Universo-55 */
 
 #section-55u .story-card {
-  background: #f5c73c88;   /* cor de fundo */
+  background: #f5c73c65;   /* cor de fundo */
   border-color: #83561c; /* cor da borda */
 }
 
 #section-55u .story-card .story-body p {
-  color: #33210a; /* cor do texto dos parágrafos */
+  color: #201507; /* cor do texto dos parágrafos */
 }
 
 /* Seção 6 - Universo-77 */
