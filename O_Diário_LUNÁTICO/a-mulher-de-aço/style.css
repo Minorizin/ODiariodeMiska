@@ -186,6 +186,20 @@
   );
 }
 
+/* Fundo U1 — Universo-1 */
+  #bg-1u {
+  background-image: url('img/universo-1.jpg');
+  background-position: center;
+}
+#bg-1u::after {
+  background: linear-gradient(
+    to bottom,
+    rgba(22, 22, 22, 0.7) 0%,
+    rgba(17, 17, 17, 0.58) 50%,
+    rgba(8, 8, 8, 0.8) 100%
+  );
+}
+
 /* Fundo 8 — Universo-3 */
   #bg-8 {
   background-image: url('img/universo-aurora1.jpg');
@@ -475,6 +489,14 @@
   }
   #section-666u .chapter-title::after { background: #adadad; }
 
+      /* Seção U1: Universo-1 */
+  #section-1u .chapter-title {
+    font-size: clamp(2.5rem, 5.8vw, 5.5rem);
+    color: #32837c;
+    text-shadow: 0 0 60px rgba(97, 97, 97, 0.25);
+  }
+  #section-1u .chapter-title::after { background: #adadad; }
+
   /* Seção 8: Universo-3 */
   #section-8 .chapter-title {
     font-size: clamp(2.5rem, 5.8vw, 5.5rem);
@@ -625,6 +647,17 @@
 
 #section-666u .story-card .story-body p {
   color: #facfcf; /* cor do texto dos parágrafos */
+}
+
+/* Seção u1 - Universo-1 */
+
+#section-1u .story-card {
+  background: #084e3f52;   /* cor de fundo */
+  border-color: #106153; /* cor da borda */
+}
+
+#section-1u .story-card .story-body p {
+  color: #9bd7df; /* cor do texto dos parágrafos */
 }
 
 /* Seção 8 - Universo-3 */
