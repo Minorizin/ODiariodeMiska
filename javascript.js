@@ -1,9 +1,9 @@
 // Dados de preview das folhas
 const previewData = {
     folha001: {
-        title: "Folha 001 - besteira",
-        image: "img/folha001.gif",
-        description: "Miska quer lasanha.",
+        title: "Folha 001 - antes da lasanha esfriar",
+        image: "img/folha001preview.jpg",
+        description: "É uma boa forma de terminar um dia monótono.",
         status: "Disponível",
     },
     folha002: {
