@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="style.css" media="screen" />
+    <link rel="shortcut icon" type="x icon" href="img/diario.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Folha Rasgada 001 - パートタイム - Meio Período"> 
+  <meta property="og:description" content="1º Folha Rasgada do Diário de Miska."/>
+  <meta property="og:image" content="https://i.imgur.com/HjLrqup.png"/>
+    <iframe src="https://www.youtuberepeater.com/watch?v=ubFq-wV3Eic#gsc.tab=0" allow="autoplay" style="display:none" id="iframeAudio">
+    </iframe> 
+    
+    <title>meio período</title>
+
+</body>
+</html>
+
+<style>
+        @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+        
+    </style>
+</head>
+<body>
+    <div class="vhs-container">
+        <div class="vignette"></div>
+        <div class="edge-distortion"></div>
+        <div class="rec-indicator">● REC</div>
+        <div class="timestamp" id="timestamp"></div>
+        
+        <div class="content">
+            <h1 class="glitch-text">MEIO PERÍODO</h1>
+            <div class="subtitle">Seja bem vinda ao seu primeiro emprego...</div>
+            
+            <div class="story-text">
+                Miska sentia a necessidade de ocupar sua mente e de encontrar uma nova atividade que, além de diversificar sua rotina, proporcionasse uma fonte adicional de renda para cobrir suas despesas. Durante uma conversa com seu amigo Ash Johnson, ele sugeriu que ela buscasse um emprego de meio período, argumentando que isso não apenas agregaria uma quantia extra ao seu orçamento, mas também traria um novo desafio para seu dia a dia, que, de outra forma, se mostrava monótono e previsível.
+            </div>
+            
+            <div class="story-text">
+                Miska, por sua vez, desejava um trabalho que estivesse alinhado às suas habilidades — as quais eram diversas — mas que, ao mesmo tempo, não exigisse esforços excessivos dado o momento em que se encontrava.
+            </div>
+            
+            <div class="story-text">
+                A busca não foi difícil. Miska rapidamente conseguiu um emprego em uma loja de conveniência nas proximidades, optando pelo turno noturno, o qual lhe parecia mais conveniente.
+            </div>
+            
+            <div class="story-text">
+                Suas obrigações eram simples: Manter o ambiente limpo, substituir produtos vencidos por novos e garantir que não houvesse intrusos.
+            </div>
+            
+            <div class="story-text" style="text-align: center; font-size: 28px; color: #ffa726; margin-top: 30px;">
+                Negócio fácil, não acha?
+            </div>
+            
+            <div class="divider"></div>
+            
+            <div class="options">
+
+                <a href="/Folhas-Rasgadas/meio-período/Primeiro_Turno/Primeiro_Turno.html" style="text-decoration: none;">
+                <div class="option">► 最初のラウンド - Primeiro Turno</div>
+                </a>
+
+                <a href="/Folhas-Rasgadas/meio-período/Segundo_Turno/Segundo_Turno.html" style="text-decoration: none;">
+                <div class="option">► 2次代制 - Segundo Turno</div>
+                </a>
+                
+                <a href="https://thisismydiary.netlify.app/" style="text-decoration: none;">
+                <div class="option" style="color: #4caf50; border-color: #4caf50; text-shadow: 0 0 10px #4caf50;">Retornar</div>
+                </a>
+
+              </div>
+            
+            <div class="footer">
+                Diretamente inspirado por: <a href="https://store.steampowered.com/app/1228520/Chillas_Art_The_Convenience_Store/">[Chilla's Art] The Convenience Store | 夜勤事件</a>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Timestamp animado
+        function updateTimestamp() {
+            const now = new Date();
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            document.getElementById('timestamp').textContent = `${hours}:${minutes}:${seconds}`;
+        }
+        
+        setInterval(updateTimestamp, 1000);
+        updateTimestamp();
+        
+        // Efeito de glitch aleatório
+        setInterval(() => {
+            if (Math.random() > 0.95) {
+                document.querySelector('.content').style.transform = `translateX(${Math.random() * 10 - 5}px)`;
+                setTimeout(() => {
+                    document.querySelector('.content').style.transform = 'translateX(0)';
+                }, 50);
+            }
+        }, 100);
+        
+        // Sons de clique (simulado visualmente)
+        document.querySelectorAll('.option').forEach(option => {
+            option.addEventListener('click', function() {
+                this.style.background = 'rgba(255, 23, 68, 0.6)';
+                setTimeout(() => {
+                    this.style.background = 'rgba(255, 23, 68, 0.1)';
+                }, 100);
+            });
+        });
+    </script>
+</body>
+</html>

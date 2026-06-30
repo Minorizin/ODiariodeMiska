@@ -1,0 +1,661 @@
+/* ===================================
+   FONTE CUSTOMIZADA
+   =================================== */
+@font-face {
+    font-family: 'Minecraft Regular';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Minecraft Regular'), url('1_MinecraftRegular1.woff') format('woff');
+}
+
+/* ===================================
+   PALETA — RELÓGIO NA ESCURIDÃO
+
+   Inspirada na foto do relógio LED:
+   preto absoluto, luz branca-fria,
+   reflexo azulado mínimo no tampo.
+
+   --void:       #000000  (fundo — escuridão total)
+   --void-soft:  #080a0b  (container — quase preto)
+   --void-lift:  #0d0f10  (superfície elevada)
+   --led-white:  #e8eef0  (texto — luz LED branca-fria)
+   --led-dim:    #8fa8b0  (texto secundário — LED apagado)
+   --led-ghost:  #2e3e45  (texto mínimo / bordas)
+   --ice-glow:   #4a7a8a  (acento único — reflexo ciano no tampo)
+   --ice-dim:    #1e3540  (acento escuro — bordas enfatizadas)
+   --border:     #111618  (bordas sutis)
+   =================================== */
+
+/* ===================================
+   RESET E CONFIGURAÇÕES GLOBAIS
+   =================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.chat-box,
+.chat-box p,
+.message-content {
+    text-align: left;
+}
+
+html {
+    cursor: url(''), auto;
+    font-size: 112.5%;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    font-family: "Gideon Roman", serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.65em;
+    color: #e8eef0;
+    background-color: #000000;
+    background-image: url('img/quarto.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+/* ===================================
+   SCROLLBAR CUSTOMIZADA
+   =================================== */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: #000000;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #292b2c;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #1d2020;
+}
+
+/* ===================================
+   SELEÇÃO DE TEXTO
+   =================================== */
+::selection {
+    background-color: #252525;
+    color: #e8eef0;
+}
+
+::-moz-selection {
+    background-color: #252525;
+    color: #e8eef0;
+}
+
+/* ===================================
+   TIPOGRAFIA
+   =================================== */
+h1, h2, h3, h4, h5, h6 {
+    color: #e8eef0;
+    font-family: "Gideon Roman", serif;
+    line-height: 1.3em;
+    letter-spacing: 0.02em;
+}
+
+h1 {
+    font-size: 38px;
+    line-height: 1.4em;
+}
+
+h2 {
+    font-size: 25px;
+}
+
+/* Horários em fonte LED / mono */
+h2 i, h2 em, time, .hora {
+    font-family: "VT323", "Cutive Mono", "Ubuntu Mono", monospace;
+    font-style: normal;
+    letter-spacing: 0.08em;
+    color: #e8eef0;
+    text-shadow: 0 0 18px rgba(232, 238, 240, 0.25);
+}
+
+h3 {
+    font-size: 20px;
+}
+
+p {
+    margin-bottom: 1.6em;
+    color: #c8d4d8;
+}
+
+a {
+    color: #cccccc;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover, a:focus {
+    color: #747474;
+}
+
+hr {
+    border: none;
+    height: 1px;
+    background: linear-gradient(to right, transparent, #3d3d3d, #cfcfcf, #222222, transparent);
+    margin: 28px 0;
+    opacity: 0.5;
+}
+
+/* ===================================
+   LAYOUT PRINCIPAL
+   =================================== */
+
+#content {
+    margin-top: 32px;
+    padding: 20px;
+}
+
+.ast-container {
+    max-width: 1070px;
+    margin: 0 auto;
+    background: rgba(8, 10, 11, 0.96);
+    border: 1px solid #111618;
+    border-top: 1px solid #292929;
+    box-shadow:
+        0 0 80px rgba(0, 0, 0, 0.98),
+        0 1px 0 rgba(74, 122, 138, 0.08) inset;
+    padding: 40px;
+    position: relative;
+}
+
+/* Linha de luz tênue no topo — como o LED iluminando a borda da mesinha */
+.ast-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 10%;
+    right: 10%;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(74, 122, 138, 0.3), rgba(232, 238, 240, 0.15), rgba(74, 122, 138, 0.3), transparent);
+    pointer-events: none;
+}
+
+.content-area {
+    width: 100%;
+}
+
+.entry-content {
+    text-align: center;
+}
+
+.entry-content img.capadodiario {
+    max-width: 100%;
+    height: auto;
+    margin: 1px auto;
+    display: block;
+    border: 2px solid #111618 !important;
+    filter: brightness(0.85) saturate(0.6) contrast(1.1);
+    transition: filter 0.5s ease, border-color 0.5s ease;
+}
+
+.entry-content img.capadodiario:hover {
+    filter: brightness(1.0) saturate(0.75) contrast(1.05);
+    border-color: #333333 !important;
+}
+
+/* Legenda da imagem de capa */
+.entry-content p[style*="background-color: #000000"] {
+    max-width: 45% !important;
+    width: auto !important;
+    padding: 8px 20px;
+    margin: 0.2rem auto !important;
+    background-color: #080a0b !important;
+    color: #2e3e45 !important;
+    word-wrap: break-word;
+    text-align: center;
+    border: 1px solid #111618;
+    letter-spacing: 0.04em;
+    font-size: 0.9em;
+}
+
+@media (max-width: 768px) {
+    .entry-content p[style*="background-color: #000000"] {
+        max-width: 95% !important;
+        font-size: 0.85rem;
+        padding: 8px 15px;
+    }
+}
+
+/* ===================================
+   CONTROLE DE ÁUDIO
+   =================================== */
+details {
+    margin: 20px 0;
+}
+
+summary {
+    color: #bbbbbb;
+    cursor: pointer;
+    padding: 10px 16px;
+    background: #080a0b;
+    border: 1px solid #1a1a1a;
+    border-radius: 2px;
+    letter-spacing: 0.06em;
+    font-size: 0.88em;
+    font-family: "Cutive Mono", "Ubuntu Mono", monospace;
+    transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+}
+
+summary:hover {
+    background: #0d0f10;
+    color: #464646;
+    border-color: #3f3f3f;
+}
+
+audio {
+    width: 100%;
+    margin-top: 10px;
+    filter: invert(1) sepia(1) saturate(0.2) hue-rotate(165deg) brightness(0.7);
+}
+
+/* ===================================
+   CHAT
+   =================================== */
+.chat-box {
+    background: #080a0b;
+    padding: 20px;
+    margin: 30px 0;
+    border-radius: 0;
+    border: 1px solid #111618;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.chat-header {
+    background: #0d0f10;
+    color: #c8d4d8;
+    padding: 15px;
+    margin: -20px -20px 20px -20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-bottom: 1px solid #111618;
+}
+
+.chat-avatar {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+    border: 1px solid #1e3540;
+    filter: brightness(0.8) saturate(0.4);
+}
+
+.chat-header-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 0;
+}
+
+.chat-header-name {
+    font-weight: 600;
+    font-size: 1.05em;
+    line-height: 1.3;
+    margin: 0;
+    color: #e8eef0;
+}
+
+.chat-status {
+    color: #2e3e45;
+    font-size: 0.8em;
+    line-height: 1.2;
+    margin: 0;
+    margin-top: 1px;
+}
+
+.message {
+    margin: 8px 0;
+    padding: 8px 12px;
+    max-width: 70%;
+    position: relative;
+    clear: both;
+    word-wrap: break-word;
+}
+
+.message.received {
+    background: #0d0f10;
+    border: 1px solid #111618;
+    border-radius: 0 4px 4px 4px;
+    float: left;
+}
+
+.message.sent {
+    background: #080a0b;
+    border: 1px solid #0f1416;
+    border-radius: 4px 0 4px 4px;
+    float: right;
+    margin-left: auto;
+}
+
+.message-content {
+    color: #c8d4d8;
+    font-size: 0.95em;
+    line-height: 1.4;
+}
+
+.message-time {
+    color: #2e3e45;
+    font-size: 0.7em;
+    text-align: right;
+    margin-top: 4px;
+    display: block;
+    font-family: "Cutive Mono", monospace;
+}
+
+.offline-status {
+    color: #2e3e45;
+    font-style: italic;
+    text-align: center;
+    margin-top: 15px;
+    font-size: 0.85em;
+    clear: both;
+    padding-top: 10px;
+}
+
+.clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* ===================================
+   GRID DE FOLHAS PRINCIPAL
+   =================================== */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 14px;
+    width: 90%;
+    max-width: 1400px;
+    margin: 0 auto 50px;
+}
+
+.card {
+    background-color: #080a0b;
+    border: 1px solid #111618;
+    transition: transform 0.2s ease, border-color 0.3s ease;
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: scale(1.03);
+    border-color: #1e3540;
+}
+
+.card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    display: block;
+    border-bottom: 1px solid #111618;
+    filter: brightness(0.7) saturate(0.4) contrast(1.1);
+    transition: filter 0.3s ease;
+}
+
+.card:hover img {
+    filter: brightness(0.9) saturate(0.55) contrast(1.05);
+}
+
+.card p {
+    text-align: center;
+    padding: 8px;
+    font-size: 0.85rem;
+    background-color: transparent;
+    margin: 0;
+    color: #8fa8b0;
+    font-family: "Cutive Mono", monospace;
+    letter-spacing: 0.03em;
+}
+
+/* ===================================
+   PREVIEW BOX
+   =================================== */
+#preview-box {
+    position: fixed;
+    display: none;
+    background: rgba(4, 5, 6, 0.98);
+    border: 1px solid #1e3540;
+    padding: 15px;
+    max-width: 300px;
+    z-index: 9999;
+    pointer-events: none;
+    box-shadow: 0 0 60px rgba(0, 0, 0, 0.99), 0 0 20px rgba(74, 122, 138, 0.05);
+}
+
+#preview-box.active {
+    display: block;
+}
+
+#preview-box h3 {
+    color: #e8eef0;
+    font-size: 16px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #111618;
+    padding-bottom: 5px;
+    font-family: "Cutive Mono", monospace;
+    letter-spacing: 0.06em;
+    font-weight: normal;
+}
+
+#preview-box .preview-image {
+    width: 100%;
+    max-height: 250px;
+    object-fit: cover;
+    border: 1px solid #111618;
+    margin-bottom: 10px;
+    filter: brightness(0.75) saturate(0.4);
+}
+
+#preview-box .preview-text {
+    color: #8fa8b0;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+#preview-box .preview-status {
+    color: #2e3e45;
+    font-size: 11px;
+    margin-top: 8px;
+    font-style: italic;
+    font-family: "Cutive Mono", monospace;
+}
+
+/* ===================================
+   TEMAS DE PREVIEW — todos escuros
+   =================================== */
+#preview-box.theme-gray,
+#preview-box.theme-black,
+#preview-box.theme-dark-purple,
+#preview-box.theme-brown,
+#preview-box.theme-white,
+#preview-box.theme-yellow,
+#preview-box.theme-pink,
+#preview-box.theme-red,
+#preview-box.theme-dark-gray {
+    background: rgba(4, 5, 6, 0.98);
+    border-color: #1e3540;
+}
+
+#preview-box.theme-gray h3,
+#preview-box.theme-black h3,
+#preview-box.theme-dark-purple h3,
+#preview-box.theme-brown h3,
+#preview-box.theme-white h3,
+#preview-box.theme-yellow h3,
+#preview-box.theme-pink h3,
+#preview-box.theme-red h3,
+#preview-box.theme-dark-gray h3 {
+    color: #e8eef0;
+    border-bottom-color: #111618;
+}
+
+/* ===================================
+   ARTISTAS / SEÇÕES DROPDOWN
+   =================================== */
+.artists-section {
+    border: 1px solid #111618;
+    padding: 0px;
+    margin: 40px 19px;
+    overflow: hidden;
+}
+
+.artists-section summary {
+    cursor: pointer;
+    list-style: none;
+    padding: 20px;
+    text-align: center;
+    font-size: 1.4em;
+    color: #2e3e45;
+    user-select: none;
+    transition: all 0.3s ease;
+    position: relative;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    font-family: "Cutive Mono", monospace;
+    letter-spacing: 0.06em;
+}
+
+.artists-section summary:hover {
+    color: #e8eef0;
+    background: transparent;
+    border-color: transparent;
+}
+
+.artists-section summary::before {
+    content: '▶';
+    display: inline-block;
+    margin-right: 10px;
+    transition: transform 0.3s ease;
+}
+
+.artists-section[open] summary::before {
+    transform: rotate(90deg);
+}
+
+.artists-content {
+    animation: slideDown 0.5s ease-out;
+    padding: 20px;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.artist-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 34px;
+    margin-top: 30px;
+}
+
+.artist-card {
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.artist-card:hover {
+    transform: scale(1.05);
+}
+
+.artist-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border: 1px solid #111618;
+    filter: brightness(0.7) saturate(0.35) contrast(1.1);
+    transition: filter 0.3s ease, border-color 0.3s ease;
+}
+
+.artist-card:hover img {
+    filter: brightness(0.9) saturate(0.5);
+    border-color: #1e3540;
+}
+
+.artist-card .caption {
+    padding: 1px;
+    margin-top: 2px;
+    font-weight: normal;
+    font-size: 13px;
+    border: 1px solid #111618;
+    color: #8fa8b0;
+    font-family: "Cutive Mono", monospace;
+    letter-spacing: 0.04em;
+}
+
+/* ===================================
+   RESPONSIVIDADE
+   =================================== */
+@media (max-width: 1200px) {
+    .grid { grid-template-columns: repeat(4, 1fr); }
+    .ast-container { padding: 30px; }
+}
+
+@media (max-width: 900px) {
+    .grid { grid-template-columns: repeat(3, 1fr); }
+    .grid2 { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+    html { font-size: 102.6%; }
+    body { font-size: 17px; }
+    .ast-container { padding: 20px; border-width: 1px; }
+    #preview-box { max-width: 90vw; }
+    .artist-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 20px; }
+    h1 { font-size: 26px; }
+    h2 { font-size: 22px; }
+}
+
+@media (max-width: 600px) {
+    .grid { grid-template-columns: repeat(2, 1fr); }
+    .grid2 { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 544px) {
+    html { font-size: 112.5%; }
+}
+
+@media (max-width: 400px) {
+    .grid { grid-template-columns: 1fr; }
+    .ast-container { padding: 15px; }
+}
+
+/* ===================================
+   FOOTER
+   =================================== */
+footer {
+    text-align: center;
+    font-size: 0.8rem;
+    padding: 20px;
+    color: #2e3e45;
+    border-top: 1px solid #111618;
+    margin-top: 40px;
+    font-family: "Cutive Mono", monospace;
+    letter-spacing: 0.04em;
+}

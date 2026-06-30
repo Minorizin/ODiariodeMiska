@@ -645,93 +645,567 @@ audio {
 }
 
 /* ===================================
-   SEÇÃO DE ARTISTAS
+   SEÇÃO DE ARTISTAS — WINDOWS DARK
    =================================== */
+
+/* Taskbar decorativa */
+.artists-taskbar {
+    background: linear-gradient(to bottom, #0d0d1a 0%, #141428 50%, #0a0a14 100%);
+    padding: 3px 6px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin: 40px 19px 0;
+    border: 2px solid;
+    border-color: #2a2a4a #000008 #000008 #2a2a4a;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.05);
+}
+
+.artists-taskbar-start {
+    background: linear-gradient(to bottom, #1a4a10, #0d2d08);
+    color: #00f821;
+    border: 1px solid;
+    border-color: #2a6a18 #081808 #081808 #2a6a18;
+    padding: 2px 10px 2px 6px;
+    font-size: 11px;
+    font-weight: bold;
+    font-family: 'Tahoma', 'MS Sans Serif', Arial, sans-serif;
+    cursor: pointer;
+    border-radius: 0 8px 8px 0;
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    user-select: none;
+    text-shadow: 0 0 6px #00f821;
+    transition: background 0.1s;
+}
+
+.artists-taskbar-start:hover {
+    background: linear-gradient(to bottom, #236614, #114010);
+    color: #40ff50;
+}
+
+.artists-taskbar-start:active {
+    background: linear-gradient(to bottom, #0d2d08, #1a4a10);
+    border-color: #081808 #2a6a18 #2a6a18 #081808;
+}
+
+.artists-taskbar-item {
+    background: linear-gradient(to bottom, #1a1a3a, #101028);
+    color: #8888cc;
+    border: 1px solid;
+    border-color: #2a2a5a #080818 #080818 #2a2a5a;
+    padding: 1px 10px;
+    font-size: 11px;
+    font-family: 'Tahoma', 'MS Sans Serif', Arial, sans-serif;
+    cursor: default;
+    user-select: none;
+}
+
+/* ---- OVERLAY DE BOOT ---- */
+#artists-boot-overlay {
+    display: none;
+    background: #000000;
+    border: 2px solid #1a1a3a;
+    margin: 0 19px;
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+#artists-boot-overlay.active {
+    display: block;
+}
+
+#artists-boot-overlay.fading {
+    animation: boot-fadeout 0.6s ease forwards;
+}
+
+@keyframes boot-fadeout {
+    from { opacity: 1; }
+    to   { opacity: 0; }
+}
+
+#artists-boot-terminal {
+    padding: 18px 22px 18px;
+    min-height: 160px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 13px;
+    color: #00c818;
+    line-height: 1.8;
+    text-shadow: 0 0 4px #00801040;
+    display: flex;
+    flex-direction: column;
+}
+
+#artists-boot-lines {
+    flex: 1;
+    overflow: hidden;
+}
+
+.boot-line {
+    display: block;
+    white-space: pre;
+}
+
+#artists-boot-cursor {
+    display: inline-block;
+    color: #00f821;
+    animation: blink-cursor 0.7s step-end infinite;
+    margin-top: 2px;
+}
+
+@keyframes blink-cursor {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0; }
+}
+
+/* ---- DIÁLOGO DE CONFIRMAÇÃO DE DESLIGAMENTO ---- */
+#artists-shutdown-dialog {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    z-index: 500;
+    align-items: center;
+    justify-content: center;
+}
+
+#artists-shutdown-dialog.active {
+    display: flex;
+}
+
+#artists-shutdown-box {
+    width: 320px;
+    background: #1e1e1e;
+    border: 2px solid;
+    border-color: #4a4a4a #080808 #080808 #4a4a4a;
+    outline: 1px solid #000;
+    font-family: 'Tahoma', 'MS Sans Serif', Arial, sans-serif;
+    box-shadow: 4px 4px 18px rgba(0,0,0,0.6);
+}
+
+.shutdown-titlebar {
+    background: linear-gradient(to right, #0a0a2e 0%, #1a006e 40%, #0d0040 100%);
+    height: 22px;
+    padding: 0 6px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    border-bottom: 1px solid #000014;
+}
+
+.shutdown-title-icon {
+    font-size: 11px;
+    color: #ffd24a;
+}
+
+.shutdown-title-text {
+    color: #c8c4ff;
+    font-size: 11px;
+    font-weight: bold;
+    text-shadow: 0 1px 3px rgba(0,0,80,0.8);
+}
+
+.shutdown-body {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 18px 16px;
+}
+
+.shutdown-icon-area {
+    font-size: 30px;
+    line-height: 1;
+    flex-shrink: 0;
+}
+
+.shutdown-message p {
+    margin: 0;
+    font-size: 12px;
+    color: #d8d8d8;
+    line-height: 1.5;
+}
+
+.shutdown-message .shutdown-sub {
+    margin-top: 6px;
+    font-size: 11px;
+    color: #909090;
+}
+
+.shutdown-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    padding: 10px 14px 14px;
+    border-top: 1px solid #0a0a0a;
+}
+
+.shutdown-btn {
+    min-width: 72px;
+    padding: 4px 12px;
+    background: #2d2d2d;
+    color: #d8d8d8;
+    border: 2px solid;
+    border-color: #4a4a4a #0a0a0a #0a0a0a #4a4a4a;
+    font-size: 11px;
+    font-family: 'Tahoma', 'MS Sans Serif', Arial, sans-serif;
+    cursor: pointer;
+}
+
+.shutdown-btn:hover {
+    background: #3a3a3a;
+    color: #ffffff;
+}
+
+.shutdown-btn:active {
+    border-color: #0a0a0a #4a4a4a #4a4a4a #0a0a0a;
+}
+
+.shutdown-btn-ok:hover {
+    color: #00f821;
+}
+
+.shutdown-btn-cancel:hover {
+    color: #ff5050;
+}
+
+/* ---- JANELA PRINCIPAL ---- */
 .artists-section {
-            background: linear-gradient(135deg, #310000 0%, #1a0000 100%);
-            border: 3px groove #df0000;
-            padding: 0px;
-            margin: 40px 19px;
-            overflow: hidden;
-        }
+    display: none;
+    background: #1e1e1e;
+    border: 2px solid;
+    border-color: #4a4a4a #080808 #080808 #4a4a4a;
+    outline: 1px solid #000;
+    margin: 0 19px 40px;
+    overflow: hidden;
+    font-family: 'Tahoma', 'MS Sans Serif', Arial, sans-serif;
+    transform-origin: top left;
+}
 
-        .artists-section summary {
-            cursor: pointer;
-            list-style: none;
-            padding: 20px;
-            text-align: center;
-            font-size: 1.5em;
-            color: #6c00f8;
-            user-select: none;
-            transition: all 0.3s ease;
-            position: relative;
-        }
+.artists-section.artists-opening {
+    display: block;
+    animation: win-open 0.18s steps(3, end);
+}
 
-        .artists-section summary:hover {
-            color: #9d4dff;
-            text-shadow: 0 0 10px #6c00f8;
-        }
+@keyframes win-open {
+    0%   { transform: scale(0.05, 0.05); opacity: 0; }
+    33%  { transform: scale(0.6,  0.05); opacity: 0.6; }
+    66%  { transform: scale(0.6,  1);    opacity: 0.9; }
+    100% { transform: scale(1,    1);    opacity: 1; }
+}
 
-        .artists-section summary::before {
-            content: '▶';
-            display: inline-block;
-            margin-right: 10px;
-            transition: transform 0.3s ease;
-        }
+.artists-section.artists-closing {
+    display: block;
+    animation: win-close 0.25s steps(3, end) forwards;
+}
 
-        .artists-section[open] summary::before {
-            transform: rotate(90deg);
-        }
+@keyframes win-close {
+    0%   { transform: scale(1,    1);    opacity: 1; }
+    33%  { transform: scale(0.6,  1);    opacity: 0.9; }
+    66%  { transform: scale(0.6,  0.05); opacity: 0.6; }
+    100% { transform: scale(0.05, 0.05); opacity: 0; }
+}
 
-        .artists-content {
-            animation: slideDown 0.5s ease-out;
-            padding: 20px;
-        }
+/* Titlebar */
+.artists-titlebar {
+    background: linear-gradient(to right, #0a0a2e 0%, #1a006e 40%, #0d0040 100%);
+    height: 22px;
+    padding: 0 4px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #000014;
+    box-shadow: inset 0 1px 0 rgba(100,80,255,0.15);
+    user-select: none;
+}
 
-        @keyframes slideDown {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-                max-height: 0;
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-                max-height: 2000px;
-            }
-        }
+.artists-title-text {
+    color: #c8c4ff;
+    font-size: 11px;
+    font-weight: bold;
+    font-family: 'Tahoma', 'MS Sans Serif', Arial, sans-serif;
+    flex: 1;
+    text-shadow: 0 1px 3px rgba(0,0,80,0.8);
+}
 
-        .artist-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-             gap: 34px;
-            margin-top: 30px;
-        }
+.artists-win-btns-group {
+    display: flex;
+    gap: 2px;
+}
 
-        .artist-card {
-            text-align: center;
-            transition: transform 0.3s;
-        }
+.artists-win-btn {
+    background: #2d2d2d;
+    color: #c8c4ff;
+    border: 1px solid;
+    border-color: #4a4a4a #0a0a0a #0a0a0a #4a4a4a;
+    width: 16px;
+    height: 14px;
+    line-height: 12px;
+    font-size: 10px;
+    font-family: 'Tahoma', 'MS Sans Serif', Arial, sans-serif;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
-        .artist-card:hover {
-            transform: scale(1.05);
-        }
+.artists-win-btn:hover {
+    background: #3a3a3a;
+    color: #ffffff;
+}
 
-        .artist-card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border: 3px solid;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.7);
-        }
+.artists-win-btn:active {
+    border-color: #0a0a0a #4a4a4a #4a4a4a #0a0a0a;
+}
 
-        .artist-card .caption {
-            padding: 1px;
-            margin-top: 2px;
-            font-weight: bold;
-            font-size: 14px;
-            border: 3px solid;
-        }
+.artists-win-btn-close:hover {
+    background: #aa1818;
+    border-color: #d04040 #5a0a0a #5a0a0a #d04040;
+    color: #ffffff;
+}
+
+.artists-win-btn-close:active {
+    background: #6e1010;
+    border-color: #5a0a0a #d04040 #d04040 #5a0a0a;
+}
+
+/* Barra de menu */
+.artists-menubar {
+    background: #252525;
+    border-bottom: 1px solid #0a0a0a;
+    border-top: 1px solid #3a3a3a;
+    padding: 2px 6px;
+    display: flex;
+    gap: 0;
+}
+
+.artists-menubar span {
+    font-size: 11px;
+    color: #b0b0b0;
+    padding: 2px 8px;
+    cursor: default;
+    font-family: 'Tahoma', 'MS Sans Serif', Arial, sans-serif;
+    user-select: none;
+}
+
+.artists-menubar span:hover {
+    background: #1a006e;
+    color: #e0ddff;
+}
+
+/* Corpo da janela */
+.artists-body {
+    padding: 12px;
+    background: #1e1e1e;
+}
+
+/* Caixa de descrição */
+.artists-desc-box {
+    background: #141414;
+    border: 2px solid;
+    border-color: #0a0a0a #3a3a3a #3a3a3a #0a0a0a;
+    padding: 10px 14px;
+    margin-bottom: 12px;
+    font-size: 11px;
+    color: #00c818;
+    font-family: 'Tahoma', 'MS Sans Serif', Arial, sans-serif;
+    text-align: center;
+    line-height: 1.7;
+}
+
+/* Separador */
+.artists-win-separator {
+    height: 1px;
+    background: #0a0a0a;
+    border-bottom: 1px solid #3a3a3a;
+    margin: 8px 0 12px;
+}
+
+/* Grid de artistas */
+.artist-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 130px);
+    gap: 10px;
+    margin-top: 4px;
+    justify-content: center;
+}
+
+/* Card de artista */
+.artist-card {
+    background: #2d2d2d;
+    border: 2px solid;
+    border-color: #4a4a4a #0a0a0a #0a0a0a #4a4a4a;
+    padding: 4px;
+    text-align: center;
+    cursor: pointer;
+    opacity: 0;
+    transform: scale(0.85);
+    transition: none;
+}
+
+.artist-card.card-appear {
+    animation: card-pop 0.2s steps(2, end) forwards;
+}
+
+@keyframes card-pop {
+    0%   { opacity: 0; transform: scale(0.85); }
+    50%  { opacity: 0.7; transform: scale(1.03); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+.artist-card:hover {
+    background: #252535;
+    border-color: #3030aa #0a0a0a #0a0a0a #3030aa;
+}
+
+.artist-card:active {
+    border-color: #0a0a0a #4a4a4a #4a4a4a #0a0a0a;
+}
+
+.artist-card img {
+    width: 100%;
+    height: 110px;
+    object-fit: cover;
+    border: 2px solid;
+    border-color: #0a0a0a #3a3a3a #3a3a3a #0a0a0a;
+    display: block;
+    filter: brightness(0.9) contrast(1.05);
+}
+
+.artist-card:hover img {
+    filter: brightness(1) contrast(1.1);
+}
+
+/* Caption */
+.artist-card .caption {
+    padding: 3px 4px;
+    margin-top: 4px;
+    font-size: 11px;
+    font-family: 'Tahoma', 'MS Sans Serif', Arial, sans-serif;
+    font-weight: bold;
+    border: 1px solid transparent;
+    color: #b0b0b0;
+    background: transparent;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.artist-card:hover .caption {
+    background: #1a006e;
+    color: #e0ddff;
+    border-color: #2a00aa;
+}
+
+/* ---- Cores temáticas por artista ---- */
+/* ohyori — amarelo */
+.artist-card[data-artist-color="ohyori"]:hover {
+    border-color: #e7d000 #6b6300 #6b6300 #e7d000;
+    background: #2d2a10;
+}
+.artist-card[data-artist-color="ohyori"]:hover img {
+    border-color: #6b6300 #e7d000 #e7d000 #6b6300;
+}
+.artist-card[data-artist-color="ohyori"]:hover .caption {
+    background: #e7d000;
+    color: #3a3500;
+    border-color: #e7d000;
+}
+
+/* Pedrinyaya — roxo/violeta */
+.artist-card[data-artist-color="pedrinyaya"]:hover {
+    border-color: #5205ce #210041 #210041 #5205ce;
+    background: #20102d;
+}
+.artist-card[data-artist-color="pedrinyaya"]:hover img {
+    border-color: #210041 #5205ce #5205ce #210041;
+}
+.artist-card[data-artist-color="pedrinyaya"]:hover .caption {
+    background: #5205ce;
+    color: #e8d8ff;
+    border-color: #5205ce;
+}
+
+/* Pietroo — vermelho/rosa */
+.artist-card[data-artist-color="pietroo"]:hover {
+    border-color: #ce0541 #5c0220 #5c0220 #ce0541;
+    background: #2d1018;
+}
+.artist-card[data-artist-color="pietroo"]:hover img {
+    border-color: #5c0220 #ce0541 #ce0541 #5c0220;
+}
+.artist-card[data-artist-color="pietroo"]:hover .caption {
+    background: #ce0541;
+    color: #ffc400;
+    border-color: #ce0541;
+}
+
+/* Coquetel — lilás */
+.artist-card[data-artist-color="coquetel"]:hover {
+    border-color: #9064d8 #3a2868 #3a2868 #9064d8;
+    background: #221a30;
+}
+.artist-card[data-artist-color="coquetel"]:hover img {
+    border-color: #3a2868 #9064d8 #9064d8 #3a2868;
+}
+.artist-card[data-artist-color="coquetel"]:hover .caption {
+    background: #9064d8;
+    color: #210041;
+    border-color: #9064d8;
+}
+
+/* Refadsy — azul profundo */
+.artist-card[data-artist-color="refadsy"]:hover {
+    border-color: #00226b #000a28 #000a28 #00226b;
+    background: #0d1428;
+}
+.artist-card[data-artist-color="refadsy"]:hover img {
+    border-color: #000a28 #00226b #00226b #000a28;
+}
+.artist-card[data-artist-color="refadsy"]:hover .caption {
+    background: #00226b;
+    color: #f5f5f5;
+    border-color: #00226b;
+}
+
+/* Barra de status */
+.artists-statusbar {
+    background: #1e1e1e;
+    border-top: 1px solid #0a0a0a;
+    padding: 3px 6px;
+    display: flex;
+    gap: 4px;
+    font-size: 10px;
+    color: #707070;
+    font-family: 'Tahoma', 'MS Sans Serif', Arial, sans-serif;
+    margin-top: 10px;
+}
+
+.artists-status-panel {
+    border: 1px solid;
+    border-color: #0a0a0a #3a3a3a #3a3a3a #0a0a0a;
+    padding: 1px 8px;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .artist-grid {
+        grid-template-columns: repeat(auto-fit, 110px);
+    }
+    .artists-taskbar,
+    #artists-boot-overlay,
+    .artists-section {
+        margin-left: 0;
+        margin-right: 0;
+    }
+    #artists-shutdown-box {
+        width: 90vw;
+        max-width: 320px;
+    }
+}
 
 /* ===================================
    CAIXA DE PREVIEW
@@ -988,6 +1462,434 @@ audio {
 
 #preview-box.theme-mr-clown .preview-image {
     border-color: #ad1717;
+}
+
+/* Tema Rasgada */
+#preview-box.theme-rasgada {
+    background: #c4a87a;
+    background-image:
+        repeating-linear-gradient(
+            to bottom,
+            transparent,
+            transparent 28px,
+            rgba(100, 55, 10, 0.07) 28px,
+            rgba(100, 55, 10, 0.07) 29px
+        ),
+        radial-gradient(ellipse at 0% 0%,    rgba(80, 45, 10, 0.4) 0%, transparent 50%),
+        radial-gradient(ellipse at 100% 0%,  rgba(80, 45, 10, 0.4) 0%, transparent 50%),
+        radial-gradient(ellipse at 0% 100%,  rgba(80, 45, 10, 0.4) 0%, transparent 50%),
+        radial-gradient(ellipse at 100% 100%,rgba(80, 45, 10, 0.4) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 50%,  rgba(220, 195, 150, 0.5) 0%, transparent 65%);
+    border: 2px solid #8a6a3a;
+    box-shadow:
+        0 0 0 1px #6a4e28,
+        4px 4px 20px rgba(50, 28, 5, 0.6),
+        inset 0 0 30px rgba(80, 45, 5, 0.15);
+    position: relative;
+}
+
+#preview-box.theme-rasgada::before {
+    content: '✦  FOLHA RASGADA  ✦';
+    display: block;
+    font-family: monospace;
+    font-size: 9px;
+    letter-spacing: 3px;
+    color: #5a3a10;
+    text-align: center;
+    padding: 4px 0 6px;
+    border-bottom: 1px solid #8a6a3a;
+    margin-bottom: 8px;
+    opacity: 0.75;
+}
+
+#preview-box.theme-rasgada h3 {
+    color: #3a2008;
+    border-bottom: 1px solid #8a6a3a;
+    font-style: italic;
+    text-shadow: 0 1px 2px rgba(255,240,200,0.25);
+}
+
+#preview-box.theme-rasgada .preview-image {
+    border: 1px solid #8a6a3a;
+    filter: sepia(55%) brightness(0.78) contrast(0.88);
+}
+
+#preview-box.theme-rasgada .preview-text {
+    color: #4a2c0a;
+    font-style: italic;
+    line-height: 1.7;
+}
+
+#preview-box.theme-rasgada .preview-status {
+    color: #5a3a14;
+    border-top: 1px dashed #8a6a3a;
+    padding-top: 6px;
+    margin-top: 10px;
+    font-size: 10px;
+    letter-spacing: 1px;
+}
+
+/* ===================================
+   FOLHAS RASGADAS
+   =================================== */
+
+.folhas-rasgadas-wrapper {
+    margin: 40px 0;
+    position: relative;
+}
+
+/* ---- GATILHO (papel dobrado fechado) ---- */
+.fr-trigger {
+    display: block;
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    position: relative;
+    font-family: monospace;
+    filter: drop-shadow(0 8px 28px rgba(0,0,0,0.85));
+    transition: filter 0.3s ease;
+}
+
+.fr-trigger:hover {
+    filter: drop-shadow(0 10px 36px rgba(0,0,0,0.95));
+}
+
+/* Vinco/dobra superior do papel */
+.fr-trigger-crease {
+    width: 100%;
+    height: 36px;
+    background: #8a6a40;
+}
+
+.fr-crease-top {
+    clip-path: polygon(
+        0% 100%, 1% 52%, 2.5% 82%, 4% 38%, 5.5% 72%, 7% 22%,
+        8.5% 64%, 10% 14%, 11.5% 58%, 13% 6%, 14.5% 48%,
+        16% 78%, 17.5% 20%, 19% 68%, 20.5% 34%, 22% 84%,
+        23.5% 10%, 25% 54%, 26.5% 28%, 28% 74%, 29.5% 44%,
+        31% 0%,  32.5% 62%, 34% 26%, 35.5% 88%, 37% 40%,
+        38.5% 16%, 40% 68%, 41.5% 50%, 43% 8%,  44.5% 58%,
+        46% 78%, 47.5% 36%, 49% 0%,  50.5% 50%, 52% 26%,
+        53.5% 84%, 55% 12%, 56.5% 64%, 58% 42%, 59.5% 4%,
+        61% 72%, 62.5% 22%, 64% 56%, 65.5% 32%, 67% 88%,
+        68.5% 48%, 70% 18%, 71.5% 68%, 73% 38%, 74.5% 80%,
+        76% 8%,  77.5% 58%, 79% 28%, 80.5% 84%, 82% 52%,
+        83.5% 12%, 85% 64%, 86.5% 32%, 88% 76%, 89.5% 42%,
+        91% 0%,  92.5% 54%, 94% 22%, 95.5% 70%, 97% 38%,
+        98.5% 80%, 100% 100%
+    );
+    background: #8a6a40;
+}
+
+.fr-crease-bottom {
+    clip-path: polygon(
+        0% 0%, 1.5% 46%, 3% 8%,  4.5% 64%, 6% 18%, 7.5% 82%,
+        9% 32%, 10.5% 68%, 12% 4%,  13.5% 54%, 15% 28%,
+        16.5% 78%, 18% 44%, 19.5% 96%, 21% 50%, 22.5% 14%,
+        24% 72%, 25.5% 38%, 27% 0%,  28.5% 60%, 30% 22%,
+        31.5% 84%, 33% 48%, 34.5% 8%,  36% 68%, 37.5% 32%,
+        39% 90%, 40.5% 18%, 42% 64%, 43.5% 36%, 45% 80%,
+        46.5% 4%,  48% 52%, 49.5% 26%, 51% 96%, 52.5% 44%,
+        54% 12%, 55.5% 72%, 57% 48%, 58.5% 0%,  60% 64%,
+        61.5% 22%, 63% 84%, 64.5% 52%, 66% 18%, 67.5% 70%,
+        69% 32%, 70.5% 90%, 72% 8%,  73.5% 58%, 75% 36%,
+        76.5% 80%, 78% 0%,  79.5% 54%, 81% 26%, 82.5% 74%,
+        84% 42%, 85.5% 4%,  87% 66%, 88.5% 22%, 90% 84%,
+        91.5% 48%, 93% 12%, 94.5% 70%, 96% 36%, 97.5% 90%,
+        99% 18%, 100% 0%
+    );
+    background: #8a6a40;
+}
+
+/* Corpo do gatilho */
+.fr-trigger-body {
+    background: #c4a87a;
+    background-image:
+        repeating-linear-gradient(
+            to bottom,
+            transparent,
+            transparent 30px,
+            rgba(100, 60, 10, 0.07) 30px,
+            rgba(100, 60, 10, 0.07) 31px
+        ),
+        radial-gradient(ellipse at 0% 0%,   rgba(80, 45, 10, 0.35) 0%, transparent 45%),
+        radial-gradient(ellipse at 100% 0%,  rgba(80, 45, 10, 0.35) 0%, transparent 45%),
+        radial-gradient(ellipse at 0% 100%,  rgba(80, 45, 10, 0.35) 0%, transparent 45%),
+        radial-gradient(ellipse at 100% 100%,rgba(80, 45, 10, 0.35) 0%, transparent 45%),
+        radial-gradient(ellipse at 50% 50%,  rgba(210, 185, 140, 0.4) 0%, transparent 65%);
+    padding: 22px 40px 26px;
+    position: relative;
+    overflow: hidden;
+    border-left: 1px solid #9a7a4a;
+    border-right: 1px solid #9a7a4a;
+}
+
+/* Manchas de papel velho */
+.fr-trigger-stain {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    opacity: 0.22;
+}
+
+.fr-stain-1 {
+    width: 120px; height: 60px;
+    background: radial-gradient(ellipse, #7a4e18 0%, transparent 70%);
+    top: 10px; left: 8%;
+    transform: rotate(-12deg);
+}
+
+.fr-stain-2 {
+    width: 80px; height: 80px;
+    background: radial-gradient(ellipse, #5c3a10 0%, transparent 70%);
+    top: 5px; right: 15%;
+    transform: rotate(8deg);
+}
+
+.fr-stain-3 {
+    width: 50px; height: 30px;
+    background: radial-gradient(ellipse, #6e4414 0%, transparent 70%);
+    bottom: 8px; left: 40%;
+}
+
+/* Textos do gatilho */
+.fr-trigger-title {
+    display: block;
+    color: #3d2406;
+    font-family: monospace;
+    font-size: 1.1rem;
+    font-weight: bold;
+    letter-spacing: 4px;
+    text-align: center;
+    text-shadow: 0 1px 2px rgba(255,240,200,0.3);
+    position: relative;
+    z-index: 1;
+}
+
+.fr-trigger-sub {
+    display: block;
+    color: #5a3a14;
+    font-size: 0.72rem;
+    letter-spacing: 1px;
+    text-align: center;
+    font-style: italic;
+    margin-top: 5px;
+    position: relative;
+    z-index: 1;
+}
+
+.fr-trigger-hint {
+    display: block;
+    color: #6e4e22;
+    font-size: 0.65rem;
+    letter-spacing: 2px;
+    text-align: center;
+    margin-top: 10px;
+    opacity: 0.65;
+    position: relative;
+    z-index: 1;
+    transition: opacity 0.3s ease;
+}
+
+.fr-trigger:hover .fr-trigger-hint {
+    opacity: 1;
+    color: #4a2e08;
+}
+
+/* Estado aberto do gatilho */
+.fr-trigger.fr-open .fr-trigger-title {
+    color: #2a1604;
+}
+
+.fr-trigger.fr-open .fr-crease-bottom {
+    opacity: 0;
+}
+
+/* ---- PAINEL DE CONTEÚDO (papel desdobrando) ---- */
+.fr-content {
+    overflow: hidden;
+    max-height: 0;
+    transform-origin: top center;
+    transform: scaleY(0.1) translateY(-20px);
+    opacity: 0;
+    transition:
+        max-height 0.7s cubic-bezier(0.23, 1, 0.32, 1),
+        transform   0.65s cubic-bezier(0.23, 1, 0.32, 1),
+        opacity     0.45s ease 0.1s;
+    filter: drop-shadow(0 12px 32px rgba(0,0,0,0.9));
+}
+
+.fr-content.fr-unfolding {
+    max-height: 800px;
+    transform: scaleY(1) translateY(0);
+    opacity: 1;
+}
+
+/* Borda rasgada topo do painel */
+.fr-panel-top {
+    width: 100%;
+    height: 40px;
+    background: #8a6a40;
+    clip-path: polygon(
+        0% 100%, 0.8% 58%, 2% 88%, 3.5% 34%, 5% 76%, 6.5% 18%,
+        8% 62%, 9.5% 8%,  11% 54%, 12.5% 2%,  14% 46%,
+        15.5% 80%, 17% 16%, 18.5% 64%, 20% 30%, 21.5% 86%,
+        23% 8%,  24.5% 52%, 26% 26%, 27.5% 72%, 29% 42%,
+        30.5% 0%,  32% 60%, 33.5% 24%, 35% 90%, 36.5% 38%,
+        38% 14%, 39.5% 66%, 41% 48%, 42.5% 6%,  44% 62%,
+        45.5% 82%, 47% 34%, 48.5% 0%,  50% 52%, 51.5% 28%,
+        53% 86%, 54.5% 10%, 56% 62%, 57.5% 40%, 59% 2%,
+        60.5% 70%, 62% 20%, 63.5% 58%, 65% 30%, 66.5% 92%,
+        68% 46%, 69.5% 16%, 71% 72%, 72.5% 36%, 74% 82%,
+        75.5% 6%,  77% 56%, 78.5% 26%, 80% 88%, 81.5% 50%,
+        83% 10%, 84.5% 62%, 86% 30%, 87.5% 78%, 89% 40%,
+        90.5% 0%,  92% 58%, 93.5% 20%, 95% 72%, 96.5% 38%,
+        98% 82%, 100% 100%
+    );
+}
+
+/* Borda rasgada base do painel */
+.fr-panel-bottom {
+    width: 100%;
+    height: 40px;
+    background: #8a6a40;
+    clip-path: polygon(
+        0% 0%, 1.2% 44%, 2.5% 6%,  4% 60%, 5.5% 16%, 7% 80%,
+        8.5% 30%, 10% 66%, 11.5% 2%,  13% 50%, 14.5% 24%,
+        16% 74%, 17.5% 40%, 19% 92%, 20.5% 48%, 22% 10%,
+        23.5% 68%, 25% 34%, 26.5% 0%,  28% 56%, 29.5% 20%,
+        31% 80%, 32.5% 44%, 34% 4%,  35.5% 64%, 37% 28%,
+        38.5% 86%, 40% 14%, 41.5% 60%, 43% 32%, 44.5% 76%,
+        46% 0%,  47.5% 48%, 49% 22%, 50.5% 92%, 52% 40%,
+        53.5% 8%,  55% 68%, 56.5% 44%, 58% 0%,  59.5% 60%,
+        61% 18%, 62.5% 80%, 64% 48%, 65.5% 14%, 67% 66%,
+        68.5% 28%, 70% 86%, 71.5% 4%,  73% 54%, 74.5% 32%,
+        76% 76%, 77.5% 0%,  79% 50%, 80.5% 22%, 82% 70%,
+        83.5% 38%, 85% 0%,  86.5% 62%, 88% 18%, 89.5% 80%,
+        91% 44%, 92.5% 8%,  94% 66%, 95.5% 32%, 97% 86%,
+        98.5% 14%, 100% 0%
+    );
+}
+
+/* Corpo do painel */
+.fr-panel-body {
+    background: #c4a87a;
+    background-image:
+        repeating-linear-gradient(
+            to bottom,
+            transparent,
+            transparent 30px,
+            rgba(100, 55, 10, 0.07) 30px,
+            rgba(100, 55, 10, 0.07) 31px
+        ),
+        radial-gradient(ellipse at 0% 0%,    rgba(80, 45, 10, 0.35) 0%, transparent 40%),
+        radial-gradient(ellipse at 100% 0%,  rgba(80, 45, 10, 0.35) 0%, transparent 40%),
+        radial-gradient(ellipse at 0% 100%,  rgba(80, 45, 10, 0.35) 0%, transparent 40%),
+        radial-gradient(ellipse at 100% 100%,rgba(80, 45, 10, 0.35) 0%, transparent 40%),
+        radial-gradient(ellipse at 50% 50%,  rgba(215, 190, 145, 0.45) 0%, transparent 65%);
+    padding: 10px 40px 24px;
+    position: relative;
+    overflow: hidden;
+    border-left: 1px solid #9a7a4a;
+    border-right: 1px solid #9a7a4a;
+}
+
+.fr-panel-stain {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    opacity: 0.18;
+}
+
+.fr-ps-1 {
+    width: 200px; height: 100px;
+    background: radial-gradient(ellipse, #7a5018 0%, transparent 70%);
+    top: 20px; right: 5%;
+    transform: rotate(15deg);
+}
+
+.fr-ps-2 {
+    width: 140px; height: 70px;
+    background: radial-gradient(ellipse, #5c3a0e 0%, transparent 70%);
+    bottom: 30px; left: 8%;
+    transform: rotate(-8deg);
+}
+
+/* Cards dentro das folhas rasgadas */
+.card-rasgada {
+    background-color: #bfa07a;
+    border: 1px solid #8a6a3a;
+    transition: transform 0.2s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    overflow: hidden;
+    box-shadow: 2px 3px 10px rgba(60, 35, 5, 0.45), inset 0 0 20px rgba(80, 50, 10, 0.1);
+    position: relative;
+}
+
+.card-rasgada::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 0 16px 16px;
+    border-color: transparent transparent #8a6a40 transparent;
+}
+
+.card-rasgada:hover {
+    transform: scale(1.03) rotate(-0.4deg);
+    box-shadow: 4px 5px 16px rgba(60, 35, 5, 0.6);
+    border-color: #6a4a20;
+}
+
+.card-rasgada img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    display: block;
+    border-bottom: 1px solid #8a6a3a;
+    filter: sepia(55%) brightness(0.78) contrast(0.88);
+}
+
+.card-rasgada:hover img {
+    filter: sepia(35%) brightness(0.9) contrast(0.95);
+}
+
+.card-rasgada p {
+    text-align: center;
+    padding: 8px;
+    font-size: 0.85rem;
+    background-color: rgba(100, 65, 15, 0.18);
+    margin: 0;
+    color: inherit;
+}
+
+/* Separador interno */
+.folhas-rasgadas-hr {
+    border: none;
+    height: 1px;
+    background: linear-gradient(to right, transparent, #7a5a2a, transparent);
+    margin: 14px 0;
+}
+
+/* Grid */
+.grid-rasgadas {
+    margin: 0 auto 20px;
+}
+
+@media (max-width: 600px) {
+    .grid-rasgadas {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 400px) {
+    .grid-rasgadas {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* ===================================
