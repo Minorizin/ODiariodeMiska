@@ -214,7 +214,7 @@ const dlConfig = {
   // Imagem de fundo da interface (aparece entre a animação de cores)
   // Controle a opacidade com imagemFundoOpacidade (0.0 a 1.0)
   // Exemplo: "https://meusite.com/fundo.png"
-  imagemFundo: "img/sybaaaaumiska.jpg",
+  imagemFundo: "img/diário-lunático-fundo.png",
   imagemFundoOpacidade: 0.2,
 
   // Fonte dos textos do Diário Lunático
