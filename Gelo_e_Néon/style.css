@@ -1,4 +1,4 @@
-/* ===================================
+﻿/* ===================================
    FONTE CUSTOMIZADA
    =================================== */
 @font-face {
@@ -119,7 +119,7 @@ a:hover, a:focus {
 hr {
     border: none;
     height: 2px;
-    background-color: #00f821;
+    background-color: #660a7e;
     margin: 20px 0;
 }
 
