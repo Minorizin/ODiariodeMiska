@@ -1,68 +1,78 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" type="text/css" href="style.css">
-    <meta charset="UTF-8">
-    <link rel="shortcut icon" type="x icon" href="img/diario.png">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta property="og:title" content="Folha 015 - Gelo e Neon"> 
-  <meta property="og:description" content="Folha 15 do Diário de Miska."/>
-  <meta property="og:image" content="https://i.imgur.com/eB2mQue.gif"/>
-    <iframe src="" allow="autoplay" style="display:none" id="iframeAudio">
-    </iframe> 
-    
-    <title>Gelo e Neon</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barrio&family=Bungee+Spice&family=Cabin+Sketch:wght@400;700&family=Cardo:ital,wght@0,400;0,700;1,400&family=Caveat&family=Cinzel+Decorative:wght@400;700;900&family=Cutive+Mono&family=Delius&family=Finger+Paint&family=Galindo&family=Gideon+Roman&family=Gloria+Hallelujah&family=Griffy&family=Just+Another+Hand&family=Linden+Hill:ital@0;1&family=Marcellus+SC&family=Nothing+You+Could+Do&family=Pangolin&family=Shadows+Into+Light&family=Snowburst+One&family=Syne+Mono&family=Turret+Road:wght@200;300;400;500;700;800&family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Unkempt:wght@400;700&family=VT323&display=swap" rel="stylesheet">
+  <link rel="shortcut icon" type="x icon" href="img/diario.png">
+  <meta property="og:title" content="Folha 015 - Gelo e Neon">
+  <meta property="og:description" content="Folha 15 do Diário de Miska.">
+  <meta property="og:image" content="https://i.imgur.com/eB2mQue.gif">
+  <title>Gelo e Neon</title>
 
-<style>
-  html {
-    cursor: url("cursor/cursor\ 1.png"), default;
-  }
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&family=Cinzel+Decorative:wght@400;700;900&family=Gideon+Roman&display=swap" rel="stylesheet">
 
-</style>
+  <style>
 
-<head>
- <body>
-    <!-- Cabeçalho do Site -->
-    <header class="site-header" id="masthead">
-        <div class="main-header-bar-wrap"></div> 
-    </header>
+  </style>
+</head>
+<body>
 
-    <!-- Conteúdo Principal -->
-    <div id="content" class="site-content">
-        <div class="ast-container">
-            <div id="primary" class="content-area primary">
-                <main id="main" class="site-main">
-                    <div class="ast-post-format- single-layout-1">
-                        
-                        <!-- Entrada da Folha -->
-                        <header class="entry-header">
-                            <h1 class="entry-title" itemprop="headline">Em uma cafeteria próxima...</h1>
-                        </header>
+  <!-- Fundo dinâmico: uma camada por tema, alternada pelos botões de navegação -->
+  <div id="bg-layers">
+    <div class="bg-layer active" data-theme="cafeteria"><div class="bg-image bg-cafeteria"></div><div class="bg-overlay"></div></div>
+    <div class="bg-layer" data-theme="calcada"><div class="bg-image bg-calcada"></div><div class="bg-overlay"></div></div>
+    <div class="bg-layer" data-theme="boate"><div class="bg-image bg-boate"></div><div class="bg-overlay"></div></div>
+    <div class="bg-layer" data-theme="casa"><div class="bg-image bg-casa"></div><div class="bg-overlay"></div></div>
+    <div class="bg-layer" data-theme="horror"><div class="bg-image bg-horror"></div><div class="bg-overlay"></div></div>
+    <div class="bg-layer" data-theme="hospital"><div class="bg-image bg-hospital"></div><div class="bg-overlay"></div></div>
+  </div>
 
-                        <div class="entry-content clear" itemprop="text">
+  <header class="intro">
+    <!-- <h1 class="story-title">Gelo e Neon</h1> -->
+    <details>
+          <summary class="musica" style="color: #dd1669;">
+            Música
+            <span class="icon"></span>
+          </summary>
+          <audio controls autoplay loop id="myaudio">
+            <source src="audio/música023.MP3" type="audio/mpeg">
+          </audio>
+        </details>
+  </header>
 
-                          <!-- Controle de Música -->
-                            <details>
-                                <summary style="color: #9a61a5;">
-                                    Música
-                                    <span class="icon"></span>
-                                </summary>
-                                <audio controls autoplay loop id="myaudio">
-                                    <source src="audio/música023.MP3" type="audio/mpeg">
-                                </audio>
-                            </details>
+  <main>
+    <div id="story-shell" data-theme="cafeteria">
+      <div id="story-content"></div>
+ 
+      <div class="story-nav">
+        <button id="btn-back" class="nav-btn">◀ Voltar</button>
+        <button id="btn-next" class="nav-btn primary">Prosseguir ▶</button>
+      </div>
+      <p id="story-progress" class="story-progress"></p>
+    </div>
 
-                            <br>
+    <!-- Cada template abaixo guarda o conteúdo de um trecho da história.
+         Eles não aparecem na página: o script troca o conteúdo visível
+         de #story-content conforme o leitor navega. -->
+    <template class="story-page" data-theme="cafeteria">
+        <p class="scene-eyebrow">Folha 015 &middot; Gelo e Neon</p>
 
-                            <!-- Imagem de Capa -->
-                            <img class="capadodiario" style='border:4px solid #9b04b9' width="500" height="357" 
-                                 src="img/023-01.gif" alt="023-01" loading="lazy">
-                            <br>
+        <h1>
+        <p class="scene-eyebrow">Em uma cafeteria próxima...</p>
+        </h1>
 
- <!-- Cafeteria - Começo da História -->
+        <!-- Imagem - Cafeteria -->
+        <img style="display:block; 
+        margin:24px auto; 
+        max-width: 480px; 
+        max-width: 100%;
+        height: auto;
+        border:4px solid #88581a; 
+        border-radius:4px;"
+        src="img/cafeteria-2.png" alt="Cafeteria">
 
 <p>Ah, nada melhor do que uma cafeteria á tarde.</p>
 
@@ -202,8 +212,19 @@
     <p>— Nahhh, não dessa vez. Isso é coisa do Jeffrey. — Ela se levantou lentamente e se virou para o balcão. — Ô! Me vê um pra viagem, por favor?</p>
 
     <p>O atendente, já acostumado com certo nível de caos, apenas assentiu com um sorriso automático e registrou o pedido sem fazer qualquer pergunta. Considerando tudo o que tinha acabado de acontecer ali dentro, um café para viagem provavelmente era a parte mais normal do expediente.</p>
+    </template>
 
-    <!-- Calçada -->
+    <template class="story-page" data-theme="calcada">
+        <p class="scene-eyebrow"></p>
+
+    <!-- Imagem - Calçada -->
+        <img style="display:block; 
+        margin:24px auto; 
+        max-width: 100%;
+        height: auto;
+        border:4px solid #667677; 
+        border-radius:4px;"
+        src="img/calçada-2.png" alt="Calçada">
 
     <p>Poucos minutos depois, eu e Kenda já caminhávamos pela calçada, acompanhando a longa faixa de asfalto aquecida pelo sol persistente do fim da tarde. Pequenas rachaduras cortavam a pista aqui e ali, enquanto o calor acumulado durante o dia ainda subia do chão em ondas quase invisíveis. A cidade começava a desacelerar aos poucos, mas ainda havia carros passando, gente voltando do trabalho e aquele ruído urbano constante servindo de trilha sonora para nossa conversa.</p>
 
@@ -289,8 +310,11 @@
 
     <p>— Chegou, criatura.  — ela apontou discretamente com o queixo. — Tá literalmente na tua frente.</p>
 
-    <!-- Boate -->
+    <p>Levantei os olhos, e a cena diante de mim me acertou como uma marreta.</p>
+    </template>
 
+    <template class="story-page" data-theme="boate">
+        <p class="scene-eyebrow"></p>
     <!-- Anúncio -->
     <details>
     <summary style="color: #9a61a5;">
@@ -302,29 +326,87 @@
 
             <div class="parapost", style="box-shadow: 0 3px 30px rgba(62, 9, 94, 0.685) ; background-image: url(img/023-03.gif); border: 3px solid rgb(118, 55, 177) ; background-color: #e4e4e4; background-repeat: no-repeat; background-size: 100% 100%; text-shadow: 2px 0 #000000">
           <br><h1 style="color: rgb(17, 0, 255)" >Vibração Urbana</h1></span> <span style="color:rgb(51, 255, 0)"></span></p>
+
+          <!-- Imagem - Vibração Urbana -->
+        <img style="display:block; 
+        margin:24px auto; 
+        max-width: 87%;
+        height: auto;
+        border:4px solid #a005cf; 
+        border-radius:4px;"
+        src="img/vibração-urbana.gif" alt="Vibração Urbana">
+
+
+          <span style="color:rgb(255, 255, 255)">Se você veio pra esquecer dos problemas, perder a voz de tanto cantar, dançar até as pernas pedirem arrego ou só afundar num sofá depois de uma noite insana, então acabou de encontrar o seu lugar!</span></p>
+
+          <span style="color:rgb(255, 255, 255)">Não importa quem você é, de onde veio ou qual foi a desculpa que inventou pra sair de casa. O que importa é atravessar essa porta e aproveitar tudo o que a Vibração Urbana tem a oferecer!</span></p>
+          
           <hr>
+
+        <br><h1 style="color: rgb(17, 0, 255)">Pista de Dança FODÁSTICA</h1></span> 
         
-          <br><span style="color:rgb(255, 255, 255)">Aqui você encontra o melhor lugar pra encher a cara, dançar, descansar e tudo demais, sem groselha, chefe! Seja lá o que você for, o que importa é que venha aqui e curta essa caralhada de coisas maneiras que a gente pode te oferecer.</span></p>
+        <!-- Imagem - Pista de Dança -->
+        <img style="display:block; 
+        margin:24px auto;
+        max-width: 89%;
+        height: auto;
+        border:4px solid #a005cf; 
+        border-radius:4px;"
+        src="img/pista-de-dança.gif" alt="Pista de Dança">
 
-          <span style="color:rgb(255, 255, 255)">Como por exemplo:</span></p>
-          <hr>
-
-        <br><h1 style="color: rgb(17, 0, 255)">Pista de Dança FODÁSTICA</h1></span> <span style="color:rgb(255, 255, 255)">Requebra esse corpo sob um chão mais epilético do que um arco íris, acompanhando as batidas do melhor da música eletrônica da casa!</span></p>
-          <hr>
-
-        <br><h1 style="color: rgb(255, 60, 0)">OS DJ MAIS GENTE FINA DO MUNDO</h1></span> <span style="color:rgb(255, 255, 255)">Enlouqueça com as batidas mais foda e envolvente desse lugar!</span></p>
+        <span style="color:rgb(255, 255, 255)">Solta o corpo, aumenta o volume e deixa o grave assumir o controle! Nossa pista pulsa em sincronia com as luzes, lasers e efeitos visuais, criando um espetáculo que transforma qualquer noite em uma lembrança inesquecível!</span></p>
+          
         <hr>
 
-        <br><h1 style="color: rgb(6, 204, 138)">NOSSA CASA É SUA CASA</h1></span> <span style="color:rgb(255, 255, 255)">Alugue um quarto para passar o tempo fazendo o que quiser, não importa o que for! Disponibilizamos o melhor conforto pra você!</span></p>
+        <br><h1 style="color: rgb(255, 60, 0)">OS DJ MAIS GENTE FINA DO MUNDO</h1></span> 
+        
+        <!-- Imagem - DJ -->
+        <img style="display:block; 
+        margin:24px auto; 
+        max-width: 90%;
+        height: auto; 
+        border:4px solid #a005cf; 
+        border-radius:4px;"
+        src="img/DJ.gif" alt="DJ">
+
+        <span style="color:rgb(255, 255, 255)">Do eletrônico ao bass mais pesado, nossos DJs comandam a cabine com sets explosivos que não deixam ninguém parado. Cada batida foi feita pra fazer o chão tremer e manter a energia lá no alto até o amanhecer!</span></p>
+        
         <hr>
+
+        <br><h1 style="color: rgb(6, 204, 138)">NOSSA CASA É SUA CASA</h1></span> 
+        
+        <!-- Imagem - Quarto da Boate -->
+        <img style="display:block; 
+        margin:24px auto; 
+        max-width: 45%; 
+        height: auto;
+        border:4px solid #842dac; 
+        border-radius:4px;"
+        src="img/quarto.png" alt="Quarto da boate">
+
+        <span style="color:rgb(255, 255, 255)">Precisando dar uma pausa entre uma festa e outra? Alugue um dos nossos quartos e relaxe do jeito que preferir. Oferecemos conforto de primeira para você aproveitar a noite sem pressa.</span></p>
+        
+        <hr>
+
+          <b>
+        <span style="color:rgb(255, 255, 255)">Vibração Urbana.</span>
+          </b>
+
+          <br>
     
+          <b>
+        <span style="color:rgb(255, 255, 255)">Entre. Curta. Enlouqueça. Repita.</span>
+            </b>
+            
+            <br>
+
               </div>
      </details>
 
 
     <br>
 
-    <p>Levantei os olhos, e a cena diante de mim me acertou como uma marreta. Entre dois prédios, um corredor estreito conduzia até a entrada da boate. Faixas de luzes de néon banhavam o lugar em tons vibrantes de azul, rosa e roxo, pulsando em perfeita sintonia com os graves da música que escapavam do interior do estabelecimento. A batida era tão intensa que parecia atravessar o concreto, vibrando sob meus pés antes mesmo de eu cruzar a entrada.</p>
+    <p>Entre dois prédios, um corredor estreito conduzia até a entrada da boate. Faixas de luzes de néon banhavam o lugar em tons vibrantes de azul, rosa e roxo, pulsando em perfeita sintonia com os graves da música que escapavam do interior do estabelecimento. A batida era tão intensa que parecia atravessar o concreto, vibrando sob meus pés antes mesmo de eu cruzar a entrada.</p>
 
     <p>Ali, o ritmo cotidiano da cidade parecia ter sido substituído por uma realidade própria, onde tudo era mais barulhento, mais colorido e infinitamente mais caótico. Pessoas caminhavam de um lado para o outro tomadas por uma euforia quase contagiante. Algumas riam alto sem motivo aparente; outras conversavam aos berros para vencer o volume da música. O cheiro adocicado de perfumes caros se misturava ao álcool, ao cigarro e ao calor produzido pela multidão, formando uma combinação característica daquele tipo de ambiente.</p>
 
@@ -576,7 +658,7 @@
       
       <hr>
 
-      <p>Diante daquele espetáculo deprimente, concluí que precisava me afastar. Permanecer ali, considerando o meu humor, era o mesmo que correr um sério risco de perder a paciência outra vez e transformar o estado de Ash em algo muito mais grave do que um simples rosto desfigurado. Foi nisso que descobri que a boate oferecia uns quartos para aluguel pra quem precisasse descansar ou desaparecer do mundo por algumas horas.</p>
+      <p>Diante daquele espetáculo deprimente, concluí que precisava me afastar. Permanecer ali, considerando o meu humor, era o mesmo que correr um sério risco de perder a paciência outra vez e transformar o estado de Ash em algo muito mais grave do que um simples rosto desfigurado. Foi nisso que lembrei que a boate oferecia uns quartos para aluguel pra quem precisasse descansar ou desaparecer do mundo por algumas horas.</p>
 
       <p>Em outras palavras, perfeito.</p>
 
@@ -1100,43 +1182,51 @@
 
       <hr>
 
-      <p>Wally me conduziu até um canto quase escondido da balada, onde uma pequena e inusitada sorveteria funcionava como um oásis improvável em meio ao caos das luzes e batidas eletrônicas. Era um espaço apertado, mas aconchegante, com um balcão de madeira envernizada e um letreiro neon piscando suavemente acima dele, parecendo até pedir desculpas por competir com o restante da festa.</p>
+      <p>Wally me guiou até um canto quase escondido da balada, distante do centro da pista, onde uma pequena e inesperada sorveteria resistia em meio ao caos das luzes estroboscópicas e da música ensurdecedora. O espaço era compacto, mas era acolhedor. Um balcão de madeira escura, cuidadosamente envernizado, refletia os tons coloridos do ambiente, enquanto um discreto letreiro de neon cintilava acima dele em um ritmo preguiçoso, como se pedisse licença por ousar competir com toda a extravagância ao redor. O cheiro adocicado dos sorvetes se misturava ao perfume das pessoas e ao leve aroma de álcool que pairava no ar, criando uma combinação agradável.</p>
+
+      <p>Nos acomodamos em duas banquetas vazias atrás do balcão, afastados o suficiente para que a música se transformasse apenas em um ruído de fundo. Pela primeira vez desde que havíamos entrado naquele lugar, era possível conversar sem precisar disputar cada palavra com os alto-falantes.</p>
 
       <p>Nos acomodamos em duas cadeiras disponíveis atrás do balcão, afastados o bastante do tumulto pra conseguirmos ouvir um ao outro sem gritar.</p>
 
-      <p>— E então, qual vai ser, gata? — perguntou Wally com um sorriso que misturava doçura e aquela ironia sutil que ele parecia carregar por padrão.</p>
+      <p>— E então, qual vai ser, gata? — perguntou Wally, apoiando um dos cotovelos no balcão.</p>
 
-      <p>Eu varri o cardápio com os olhos, analisando a vitrine refrigerada à nossa frente. Os sabores estavam lá, todos gritando por atenção: chocolate, morango, chiclete, creme, menta com chocolate, napolitano... Todos clássicos, todos com aquela aura nostálgica de infância, e todos absolutamente tentadores.</p>
+      <p>Varri o cardápio com os olhos e, logo em seguida, pela vitrine refrigerada diante de nós. As opções pareciam desfilar diante dos meus olhos em uma competição silenciosa pela minha atenção: chocolate, morango, creme, chiclete, menta com chocolate, napolitano. Os sabores clássicos de sempre. Nada exótico, mas cada um carregava aquele tipo de nostalgia que fazia qualquer adulto voltar a se sentir uma criança por alguns instantes.</p>
 
-      <p>Minha boca encheu d’água antes mesmo de decidir. Me sentia escolhendo entre amigos muito próximos: impossível descartar qualquer um sem remorso.</p>
+      <p>Minha boca chegou a salivar antes mesmo de eu escolher. Cada sabor tinha um argumento convincente pra ser o escolhido, e eliminar qualquer um deles da disputa me fazia sentir uma culpa desproporcional. Eu me sentia escolhendo entre amigos muito próximos: impossível descartar qualquer um sem remorso.</p>
 
-      <p>Wally percebeu meu dilema e riu alto, daquela forma espontânea que só ele parecia conseguir fazer soar natural.</p>
+      <p>Wally percebeu minha pequena crise existencial, e uma risada espontânea escapou dos seus lábios.</p>
 
-      <p>— Tá perdida, né? Eu entendo. Sempre fico nessa sinuca também. Mas no fundo, acabo voltando pro meu queridinho: menta com chocolate. — disse ele tipo quem revela um segredo diplomático de Estado. — Mesmo assim, dá vontade de experimentar todos. Só de pensar, minha alma salta da garganta e bate palminha.</p>
+      <p>— Tá perdida, né? Eu entendo. Sempre fico nessa sinuca também. Mas no fundo, sempre acabo voltando pro meu queridinho: menta com chocolate. — Wally disse, fingindo refletir com a solenidade de um filósofo. —  Mesmo assim, dá vontade de experimentar todos. Só de pensar, minha alma salta da garganta e bate palminha.</p>
 
-      <p>— Nem me fala... — murmurei, ainda indecisa. — Eu amo napolitano, mas o de chiclete tá me seduzindo de um jeito muito errado agora. Olha aquela cor! Parece que vai me levar direto pra 2009.</p>
+      <p>— Nem me fala... — murmurei, ainda indecisa. — Eu amo napolitano, mas o de chiclete tá me seduzindo de um jeito muito errado agora. Olha aquela cor! Parece que vai me levar direto pra 2009!</p>
 
-      <p>— Hah, Miska… acho que a gente tá só passando vergonha mesmo! — disse ele, ainda rindo. — Vamos pedir logo o clássico, parar de drama. Você pega o napolitano, eu vou no chocolate. Democracia estabelecida.</p>
+      <p>— Hahah.. sabe, acho que a gente tá só passando vergonha mesmo! — disse ele, ainda rindo. — Só vamos pedir logo o clássico, vai. Você pega o napolitano e eu vou no chocolate. Pode ser?</p>
 
-      <p>Antes que eu pudesse opinar de verdade, ele já estava fazendo o pedido para um dos atendentes, que parecia absolutamente imune ao caos da festa ao redor. Wally pagou pelos dois sorvetes, pegou os copinhos, e me entregou o meu como quem oferece uma taça de vinho num jantar formal.</p>
+      <p>Antes que eu conseguisse formular qualquer objeção, Wally já chamava um dos atendentes. Em poucos instantes, ele fez o pedido, pagou pelos dois copinhos e retornou com um em cada mão. Ao me entregar o meu, inclinou levemente o corpo para a frente e estendeu o sorvete como se estivesse oferecendo uma taça do vinho mais raro do mundo durante um banquete da realeza.</p>
 
       <p>— Bon appétit, madame. — disse ele, fazendo uma pose afetada e lambendo o sorvete com toda a pompa de um crítico gastronômico num restaurante cinco estrelas.</p>
 
       <p>— Ehhm... obrigada, monsieur. — respondi com um riso tímido, observando o sorvete antes de finalmente provar.</p>
 
-      <p>Permanecemos em silêncio pelos minutos seguintes — um daqueles silêncios que não chega a ser desconfortável, mas também não parece ter sido convidado. O único som que preenchia o espaço entre nós vinha das colheres raspando suavemente os copinhos de plástico e do estalo ocasional de um pedaço de casquinha quebrando na boca. Era uma pausa tranquila, quase contemplativa, mas que Wally aparentemente já considerava longa demais.</p>
+      <p>Os minutos seguintes transcorreram em um silêncio confortável. As únicas interrupções vinham do suave raspar das colheres contra o plástico dos copinhos e do estalo discreto das casquinhas se partindo a cada mordida. Era uma pausa calma, mas que, para Wally, aparentemente já estava longa demais.</p>
 
       <p>— Ei... quantos anos você tem mesmo? E o que gosta de fazer, assim, quando não tá dando patada em gente simpática? — perguntou ele, com um sorriso travesso e um brilho curioso nos olhos.</p>
 
-      <p>— Ahhn? Ah, tenho 17. — respondi após uma leve pausa, tirando a colher da boca e soltando um suspiro calmo. — No geral, gosto de ouvir música, ler umas coisas... principalmente histórias de terror ou suspense. Sabe, aquelas narrativas densas, meio sombrias, que fazem você duvidar de tudo no final. Me prendem de um jeito meio viciante.</p>
+      <p>— Ah, eu tenho 17. — respondi após uma leve pausa, tirando a colher da boca. — Sobre meus gostos.. de vez em quando, eu curto ouvir umas músicas. Também passo um tempinho lendo umas histórias.</p>
 
-      <p>Wally arqueou as sobrancelhas, genuinamente intrigado.</p>
+      <p>— Hmmm, você curte histórias? Que interessante. — Wally arqueou as sobrancelhas, intrigado. — Você fica lendo o que?</p>
+
+      <p>Eu levei meus olhos pra um canto aleatório da sorveteria, agora um pouco pensativa.</p>
+
+      <p>— Olha.. eu fico lendo muitas coisas, até. Mas se fosse pra dizer o tipo que tenho mais afeição, diria que histórias mais densas me prendem bastante. — eu disse. — Sabe aquelas narrativas que plantam um monte de pistas que você nem percebe e, na hora que descobre, começa a questionar um monte de coisas? Quando é bem executado, eu esqueço até que tô na terra.</p>
 
       <p>— Hmm, então você é do tipo leitora, hein? Interessante. Sendo bem honesto, eu prefiro assistir. Filmes, séries... acho mais dinâmico, sabe? Livro me dá sono às vezes. — disse com uma sinceridade cômica. — Mas não me entenda mal, também curto uma boa leitura de vez em quando. Só... preciso estar no clima certo.</p>
 
-      <p>Enquanto falava, ele se levantou da cadeira com um movimento preguiçoso, como quem não estava com pressa, mas também não via motivo pra ficar parado. Eu acompanhei o ritmo e me levantei também.</p>
+      <p>Enquanto falava, ele se levantou da cadeira com um movimento preguiçoso. Eu acompanhei o ritmo e me levantei também.</p>
 
-      <p>— Relaxa, Wally. Cada um tem seu jeito de absorver o mundo. Gosto é gosto, e tá tudo certo. — respondi com um meio sorriso, despreocupada. Ele retribuiu com outro, igualmente leve, quase cúmplice.</p>
+      <p>— Relaxa, gosto é gosto e tá tudo certo. Cada um tem seu jeito de absorver o mundo, não é? — respondi com um meio sorriso.</p>
+
+      <p>Ele retribuiu com outro sorriso.</p>
 
       <p>— Haha, você tem razão, garota. — disse ele, ajeitando o capuz que escorregava de seus ombros. — Vambora? A gente continua essa prosa no caminho de volta pro quarto. A noite ainda tá jovem, e eu tô curioso pra saber mais dessa criatura misteriosa chamada Miska.</p>
 
@@ -1148,11 +1238,11 @@
 
       <p>A palavra saiu da boca dele carregada de entusiasmo, porém com um peso especial.</p>
 
-      <p>— Sério, eu acho fascinante quando alguém consegue condensar uma emoção inteira, uma história ou um pensamento complexo em uma simples folha de papel, uma tela, um traço. É mágico, você não acha?</p>
+      <p>— Eu acho muito fascinante quando alguém consegue condensar uma emoção inteira, uma história ou um pensamento complexo em uma simples folha de papel, uma tela, ou até em um traço. É mágico, você não acha?</p>
 
-      <p>Enquanto falava, Wally virou o rosto ligeiramente pra trás, me lançando aquele olhar curioso e esperançoso que a gente solta quando está vulnerável e torcendo pra ser compreendido. Continuávamos a caminhar pelo corredor do alojamento, em direção ao quarto.</p>
+      <p>Enquanto falava, Wally virou o rosto ligeiramente pra trás, me lançando aquele olhar curioso e esperançoso, torcendo pra ser compreendido. Continuávamos a caminhar pelo corredor do alojamento, em direção ao quarto.</p>
 
-      <p>— A-ah… sim, claro. Também acho interessante. — murmurei, tentando parecer mais firme do que realmente estava. — Eu costumava desenhar bastante quando era criança, na verdade. Era... terapêutico pra mim.</p>
+      <p>— A-ah… sim, claro. Também acho interessante. — murmurei, tentando parecer mais firme do que realmente estava. — Eu costumava desenhar bastante quando era criança, na verdade. Era terapêutico pra mim também.</p>
 
       <p>Minha voz vacilou levemente no final da frase, ainda que eu tenha tentado esconder. Mas eu sabia que ele percebeu.</p>
 
@@ -1244,13 +1334,13 @@
 
       <p>Fiquei em silêncio. Ouvir alguém reconhecer aquilo doía, mas de uma forma boa. Como limpar um corte com álcool: arde, mas cura.</p>
 
-      <p>— Mas sabe de uma coisa? — ele continuou, e os olhos dele agora carregavam algo diferente — era compaixão, sim, mas havia também admiração sincera. — Eu não sei onde sua mãe está agora, nem se ela consegue dormir à noite com o peso de tudo o que aconteceu. Mas posso apostar que, onde quer que ela esteja, ela pensa em você. Não tem como não pensar. Porque, Miska… nenhuma mãe foge de um monstro como aquele sem morrer um pouco por dentro ao deixar o filho pra trás.</p>
+      <p>— Mas sabe de uma coisa? — ele continuou, e os olhos dele agora carregavam algo diferente, era compaixão, sim, mas havia também admiração sincera. — Eu não sei onde sua mãe está agora, nem se ela consegue dormir à noite com o peso de tudo o que aconteceu. Mas posso apostar que, onde quer que ela esteja, ela pensa em você. Não tem como não pensar. Porque, Miska… nenhuma mãe foge de um monstro como aquele sem morrer um pouco por dentro ao deixar o filho pra trás.</p>
 
       <p>Respirei fundo. As palavras dele pareciam afrouxar um nó antigo na minha garganta.</p>
 
-      <p>— Talvez ela ache que você a odeia. Talvez ela ache que te falhou. Mas se ela pudesse te ver agora… te ver viva, firme, apesar de tudo — ela veria uma garota que virou a própria luz no fim do túnel. Que não esperou ser salva. Você persistiu. E isso… isso é força.</p>
+      <p>— Pode ser que ela ache que você a odeia, que te falhou. Mas se ela pudesse te ver agora, ela veria uma garota que virou a própria luz no fim do túnel que não esperou ser salva. Você persistiu por força própria.</p>
 
-      <p>Meu peito se aqueceu. Não era o calor sufocante da dor, mas algo mais gentil. Como o sol atravessando uma janela fechada há muito tempo, e isso era tão gostoso. </p>
+      <p>Meu peito se aqueceu. Não era o calor sufocante da dor, mas algo mais gentil. Como o sol atravessando uma janela fechada há muito tempo, e isso era tão gostoso.</p>
 
       <p>Eu sorri.</p>
 
@@ -1258,45 +1348,41 @@
 
       <p>Wally também sorriu, um pouco mais largo agora, orgulhoso.</p>
 
-      <p>— Hah, Miska.. você disse que ama histórias, né? — ele perguntou, com aquele brilho travesso nos olhos que contrastava com o tom sério de antes. — Bom… olha só que coincidência. Tem uma história incrível bem aqui na minha frente. Uma história sombria, cheia de cicatrizes e momentos pesados… mas também uma história de superação, de resistência. E isso, Miska… é arte.</p>
+      <p>— Hah, Miska.. você disse que ama histórias, né? — ele perguntou, com aquele brilho travesso nos olhos que contrastava com o tom sério de antes. — Bom… olha só que coincidência. Tem uma história incrível bem aqui na minha frente. Uma história sombria, cheia de cicatrizes e momentos pesados… mas também uma história de superação, de resistência. E isso, Miska, é arte.</p>
 
       <p>Ele se aproximou um pouco mais, seu corpo esquentando o ar ao nosso redor, criando uma bolha íntima onde o tempo parecia desacelerar. Algo no quarto mudou. O silêncio ficou mais denso. Meu coração acelerou — e eu não sabia se aquilo era medo, desejo ou só o corpo tentando entender o que estava acontecendo.</p>
 
       <p>— N-não… não chega tão perto assim. — murmurei, minha voz hesitante. — Eu já disse que não gosto de ser tocada… o que você tá fazendo…?</p>
 
-      <p>Mas antes mesmo de completar, senti sua mão tocar minha cintura — leve, cuidadosa, mas ainda assim um toque. Algo dentro de mim travou. Não era exatamente medo, mas uma quebra. Um lembrete involuntário de que meu corpo ainda carregava memórias demais.</p>
+      <p>Mas antes mesmo de completar, senti sua mão tocar minha cintura, leve, cuidadosa, mas ainda assim um toque. Algo dentro de mim travou. Não era exatamente medo, mas uma quebra. Um lembrete involuntário de que meu corpo ainda carregava memórias demais.</p>
 
-      <p>— Shhh… — Wally sussurrou, sua voz roçando suave no meu ouvido como tinta sendo espalhada lentamente sobre uma tela em branco. — Só estou pegando minha caneta e adicionando um tom mais quente à história viva que tenho diante de mim.</p>
+      <p>— Só estou pegando minha caneta e adicionando um tom mais quente à história viva que tenho diante de mim. — Wally sussurrou, sua voz roçando suave no meu ouvido como tinta sendo espalhada lentamente sobre uma tela em branco.</p>
 
       <p>Antes que eu pudesse processar aquelas palavras, senti seus lábios tocarem meu pescoço, primeiro com suavidade, depois com uma ousadia que me arrancou um som leve, entre o susto e o arrepio.</p>
 
-      <p>— W-Wally… p-para com is—</p>
+      <p>— W-Wally…</p>
 
-      <p>— Shhh… não resiste. Deixa fluir. — ele murmurou novamente, e logo seus dentes deslizaram, provocantes, sobre a pele do meu pescoço. Um arrepio me percorreu dos ombros até a espinha, e, mais uma vez, um som escapou de mim sem que eu permitisse.</p>
+      <p>— Shhh, só deixa fluir. — ele murmurou.</p>
 
-      <p>— P-para com esses teus joguinhos, seu m-miserável… — minha voz falhou no meio da frase, entrecortada pelo calor e o nervosismo. — E-E me b-beija logo…</p>
+      <p>Logo depois, senti seus dentes deslizarem de leve pela minha pele, num gesto provocador que fez um calafrio percorrer meu corpo inteiro, dos ombros até a base da minha coluna. Outro som escapou dos meus lábios antes que eu pudesse impedir.</p>
 
-      <p>Antes mesmo que ele pudesse responder, meu corpo agiu por impulso. Puxei-o pela gola da camisa, quase com raiva da hesitação que ainda pairava entre nós — e o beijei.</p>
+      <p>Meu coração parecia decidido a fugir do meu peito, e a cada segundo aquela tensão entre nós ficava mais insuportável. Então, sem nem pensar duas vezes, agarrei sua camisa pela gola e o puxei para perto, cansada daquela enrolação.</p>
 
-      <p>Mas não foi um beijo qualquer.</p>
+      <p>— P-para com esses teus joguinhos, seu m-miserável… — resmunguei, tentando parecer irritada, embora minha voz saísse trêmula. Respirei fundo e completei, num sussurro impaciente: — E m-me beija logo...</p>
 
-      <p>Não foi doce, nem puro, nem tranquilo.</p>
+      <p>Sem dar tempo para ele responder, eu o beijei.</p>
 
-      <p>Foi um beijo aceso, cheio de pressa, de choque, de todas as coisas que a gente não entendeu, mas que estavam ali o tempo todo, esperando para explodir. Nossos lábios se encontraram com intensidade crua, como dois mundos que colidem, não para se destruírem, mas para se reconhecerem em meio ao caos.</p>
+      <p>Um verdadeiro choque de sentimentos acumulados, de dúvidas, provocações e silêncios que nenhum dos dois tinha conseguido colocar em palavras que enfim se libertou. Nossos lábios se encontravam como dois mundos completamente diferentes que tinham decidido colidir. Não para se destruir, mas para descobrir que pertenciam um ao outro.</p>
 
       <p>E, naquele momento, tudo que eu achei que sabia sobre mim mesma pareceu sumir. As certezas que antes me protegiam foram arrastadas como folhas secas num vendaval.</p>
 
-      <p>Eu nunca tinha me imaginado ali. Nunca me vi beijando alguém, sentindo aquele calor elétrico, aquele querer desesperado. Mas ali estava eu, beijando aquele desgraçado que eu conheci em tão pouco tempo, mas que me fez tão bem.</p>
+      <p>Eu nunca tinha me imaginado ali. Nunca me passou pela cabeça beijar alguém daquele jeito, sentir o corpo inteiro esquentar só por causa de um toque que sempre evitei, desejar permanecer tão perto de outra pessoa ao ponto de deixar tudo ao meu redor pra trás.</p>
 
-      <p>E o mais maluco?</p>
+      <p>Mas, hah.. lá estava eu. Beijando aquele desgraçado que apareceu na minha vida fazia tão pouco tempo, e que, de algum jeito, conseguiu me fazer tão bem.</p>
 
-      <p>É que, mesmo sem entender direito o que aquilo significava, eu só sabia de uma coisa com clareza cortante:</p>
+      <p>Meu coração ainda batia descompassado. Minha respiração continuava falhando. Mas eu queria mais. Eu não queria que aquilo acabasse. Queria sentir de novo, só mais uma vez..</p>
 
-      <p>Eu não queria que ele parasse.</p>
-
-      <p>Talvez só por essa noite… eu quisesse sentir mais.</p>
-
-      <p>Só mais um pouco.</p>
+      <p>.. ou, quem sabe, centenas delas.</p>
 
       <br><br>
       <br><br>
@@ -1337,7 +1423,7 @@
             <br>
 
         <strong><font color="#ffe700">
-          "Hmmm.. Mas eu tô só começando.. Espera só pra ver o que vem depois..."
+          "Hmmm.. mas e-eu tô só começando! Espera só pra ver o que vem depois..."
           </font>
           </strong>
 
@@ -1369,23 +1455,23 @@
 
       <p>Eu não sabia bem. Tudo parecia um borrão quente e desajeitado, mas ao mesmo tempo... havia algo de humano demais ali.</p>
 
-      <p>— Heh… fica tranquila. — ele disse com aquele sorriso torto, entre o idiota e o encantador. — E então… o que achou, garotona?</p>
+      <p>— Tudo bem, fica tranquila. — ele disse com aquele sorriso torto, entre o idiota e o encantador. — E aí? O que achou?</p>
 
       <p>Os olhos dele estavam presos aos meus — olhos que, imagino, deviam estar opacos, cansados… talvez até mais verdadeiros do que o habitual. Tentei encontrar uma resposta, mas os sentimentos vinham em ondas, embaralhados demais pra se traduzirem em palavras.</p>
 
-      <p>— … Eu não sei. Foi… assustador no começo. Intenso no meio. E… bom, no fim. Acho. — falei quase num sussurro, numa admissão que mal ousava tomar forma.</p>
+      <p>— … Eu não sei. Foi.. assustador, intenso e… bom, muito bom. Eu acho. — falei quase num sussurro, numa admissão que mal ousava tomar forma.</p>
 
-      <p>Wally sorriu de canto, e então se inclinou devagar, depositando um beijo suave na minha testa. Seus dedos, agora surpreendentemente gentis, afastaram minha franja num gesto carregado de uma intenção doce e solene.</p>
+      <p>Wally sorriu de canto, e então se inclinou devagar, depositando um beijo suave na minha testa. Seus dedos, agora gentis, afastaram minha franja num gesto carregado de uma intenção doce e solene.</p>
 
-      <p>— Hah! Tá com um vocabulário refinado demais pra alguém que acabou de transar. Fala logo: “Uau, adorei! Foder é realmente subestimado!” — ele riu, jogando o maço de cigarros de volta no criado-mudo com o desprezo de quem só queria fazer graça. — Como dizem por aí: as quietinhas sempre surpreendem.</p>
+      <p>— Hah! Tá falando bonitinho demais pra alguém que acabou de transar. Fala logo: “Uau, adorei! Foder é subestimado!” — ele riu, jogando o maço de cigarros de volta no criado-mudo com o desprezo de quem só queria fazer graça.</p>
 
       <p>— Agh, cala essa boca, seu asqueroso! — murmurei, lançando um soco fraco no ombro dele. Foi mais um aviso do que uma ameaça, mas suficiente pra fazê-lo soltar uma gargalhada.</p>
 
-      <p>— Hahaha, tá bom, tá bom! Paz. — ele levantou as mãos num gesto teatral de rendição. — Mas, sério agora… tua raiva te deixa ainda mais linda.</p>
+      <p>— Hahaha, tá bom, tá bom! Paz. — ele levantou as mãos num gesto teatral de rendição. — Mas.. não vou mentir que tua raiva te deixa ainda mais linda.</p>
 
       <p>Ele se inclinou novamente, mordiscando de leve meu pescoço num gesto provocativo e cômico. Rolei os olhos e o empurrei de volta com um suspiro cansado, mas — e eu odiava admitir isso — com um certo gosto de riso preso no canto da boca.</p>
 
-      <p>— Tá passando demais do ponto.. se bem que…  eu acho que a gente já passou até demais, né? — murmurei, desviando o olhar pro canto do quarto, como quem procura uma desculpa entre as sombras da parede.</p>
+      <p>— Eu ia dizer que você tá passando demais do ponto.. mas eu acho que a gente já passou do ponto tem um bom tempo, né? — murmurei, desviando o olhar pro canto do quarto, como quem procura uma desculpa entre as sombras da parede.</p>
 
       <p>Wally soltou uma risada baixa, quase preguiçosa.</p>
 
@@ -1427,7 +1513,7 @@
 
       <p>E assim que recebeu a confirmação implícita, caiu na gargalhada. Riu alto, sem filtro, enquanto apontava pra Ash, que já estava visivelmente vermelho, de vergonha e de raiva em doses iguais.</p>
 
-      <p>— EIII! EI! PEGA LEVE! EU SÓ TAVA TENTANDO ME DIVERTIR, PÔ! — Ash gritou, claramente tentando salvar a própria imagem. — O que é beeem diferente de invadir o quarto de um estranho e tentar acender um monte de bombinha com a intenção de—</p>
+      <p>— EIII! EU JÁ FALEI QUE SÓ TAVA TENTANDO ME DIVERTIR! — Ash gritou, claramente tentando salvar a própria imagem. — O que é beeem diferente de invadir o quarto de um estranho e tentar acender um monte de bombinha com a intenção de—</p>
 
       <p>Foi quando um estrondo ecoou atrás de nós.</p>
 
@@ -1485,18 +1571,6 @@
 
       <hr>
 
-      <br><br>
-      <br><br>
-      <br><br>
-      <br><br>
-      <br><br>
-      <br><br>
-      <br><br>
-      <br><br>
-      <br><br>
-
-      <hr>
-
       <p>A noite já tinha se estabelecido por completo, e ele comentou, casualmente, que faltavam dez minutos para as onze. Achei curioso como aquele lugar parecia ignorar o tempo — lá dentro, as pessoas ainda pulsavam com a mesma energia vibrante do início da festa.</p>
 
       <p>Levantei os olhos para o céu: um manto escuro e espesso cobria tudo, salpicado aqui e ali por estrelas tímidas, enquanto as árvores ao nosso redor balançavam devagar com a brisa noturna. O ar parecia mais leve agora. Suspirei, e ao expirar, senti algo entre alívio e libertação.</p>
@@ -1522,6 +1596,10 @@
       <p>— Qual foi? O sono tava bom! — resmunguei, ainda com a voz arrastada.</p>
       
       <p>— Cê vai poder dormir o quanto quiser depois, princesa. — respondeu ele, já do lado de fora, com um estalo de porta se fechando logo em seguida.</p>
+    </template>
+
+    <template class="story-page" data-theme="casa">
+        <p class="scene-eyebrow"></p>
 
       <p>Desci do carro e, assim que meus pés tocaram o chão, fui recebida por um cenário quase onírico. Estávamos numa área claramente afastada do centro urbano, cercados por árvores altas que se moviam com lentidão hipnótica. Apesar do isolamento, havia outras casas ao redor, todas silenciosas, com a mesma arquitetura genérica, como se tivessem sido copiadas e coladas de um catálogo de condomínio fechado.</p>
 
@@ -1552,35 +1630,12 @@
       <p>— Bom… devo isso aos meus pais. Herança deles. — responde com simplicidade. — Mas fico feliz que gostou. Aqui, sinta-se em casa. O que é meu, é nosso.</p>
 
       <p>A resposta me pega um pouco de surpresa, mais pelo tom caloroso do que pelas palavras em si. Reajo com um sorriso, dessa vez mais suave, menos armado.</p>
-
-      <br><br>
-      <br><br>
-      <br><br>
-      <br><br>
-      <br><br>
-      <br><br>
-      <br><br>
-      <br><br>
-      <br><br>
-
+   
       <hr>
 
       <h1 style="color: #ff0000;">UMA BOA TOUR PELA CASA DEPOIS...</h1>
 
       <hr>
-
-      <br><br>
-      <br><br>
-      <br><br>
-      <br><br>
-      <br><br>
-      <br><br>
-      <br><br>
-      <br><br>
-      <br><br>
-      <br><br>
-      <br><br>
-      <br><br>
 
       <p>Ele me guiou por uma espécie de pequena exposição particular, cômodo após cômodo, cada espaço mais meticulosamente cuidado que o anterior. Banheiro, quartos, sala, cozinha… tudo exalava uma harmonia quase calculada. Obras de arte cuidadosamente dispostas nas paredes, mobília com design elegante e tons sóbrios, e uma organização tão impecável que dava até raiva. Era a precisão de um artista pintando a vida com régua e compasso. E, de alguma forma, aquilo não me parecia frio. Pelo contrário, era acolhedor, e, de certo modo, até humano. Tão humano que doía.</p>
 
@@ -1615,8 +1670,22 @@
       <p>— W-Wally... — murmurei, sentindo minha voz falhar, quase engasgar nas próprias sílabas. — O que... o que você colocou nesse refrigerante?</p>
 
       <p>Minhas pernas fraquejaram de repente, os músculos desistindo de obedecer. Meus joelhos dobraram e mal consegui manter o equilíbrio. Cada respiração vinha acompanhada de náusea, e uma pressão insuportável se instalava no centro da minha cabeça. Em um último esforço, tentei segurar o conteúdo do estômago, mas foi inútil. Vomitei ali mesmo, o líquido escuro e espesso misturado a vestígios de sangue.</p>
+    
+    </template>
 
-      <p>Foi nesse momento que percebi o ambiente ao meu redor. A porta estava aberta, revelando um cômodo envolto em penumbra, tingido por uma iluminação avermelhada e opressiva. As paredes estavam repletas de fotografias antigas, recortes de jornais amarelados pelo tempo e objetos pessoais cuidadosamente organizados formando o que parecia um altar macabro.</p>
+    <template class="story-page" data-theme="horror">
+        <p class="scene-eyebrow"></p>
+
+        <!-- Imagem - Fotos -->
+        <img style="display:block; 
+        margin:24px auto; 
+        max-width: 40%; 
+        height: auto;
+        border:4px solid #a31b1b; 
+        border-radius:4px;"
+        src="img/cômodo-vermelho-fotos.jpg" alt="Fotos">
+
+        <p>Foi nesse momento que percebi o ambiente ao meu redor. A porta estava aberta, revelando um cômodo envolto em penumbra, tingido por uma iluminação avermelhada e opressiva. As paredes estavam repletas de fotografias antigas, recortes de jornais amarelados pelo tempo e objetos pessoais cuidadosamente organizados formando o que parecia um altar macabro.</p>
 
       <p>No centro da sala, uma mesa de madeira carregava um arsenal de ferramentas: facas de diferentes tamanhos, martelos enferrujados, serras, alicates, objetos que não pertenciam a nenhum ambiente doméstico e muito menos a um lar saudável.</p>
 
@@ -1628,7 +1697,9 @@
         </i>
         <br><br>
 
-        <p>Foi a última coisa que ouvi antes de minha consciência se apagar por completo. Meu corpo cedeu de vez, tombando sobre o chão frio enquanto a escuridão me engolia sem aviso.</p>
+        <p>Foi a última coisa que ouvi antes de minha consciência se apagar por completo. Meu corpo cedeu de vez, tombando sobre o chão frio enquanto a escuridão me engolia.</p>
+
+        <hr>
 
       <br><br>
       <br><br>
@@ -1652,24 +1723,24 @@
         <br><br>
 
       <i><font color="#ffe700">
-      "Dura na queda. Tenho que admitir."
+      "Você é REALMENTE dura na queda."
       </font>
       </i>
       <br><br>
 
       <i><font color="#ffe700">
-        "Resiliente... tanto quanto encantadora."
+        "Resiliente tanto quanto é encantadora."
         </font>
         </i>
         <br><br>
 
         <i><font color="#ffe700">
-          "Mas me pergunto… até onde isso vai? Qual é o seu limite, Miska?"
+          "Eu me pergunto.. até onde isso vai? Qual é o seu limite, garota?"
           </font>
           </i>
           <br><br>
 
-           <br><br>
+      <br><br>
       <br><br>
       <br><br>
       <br><br>
@@ -1684,24 +1755,15 @@
       <br><br>
       <br><br>
 
-    <p>Wally se aproximou com uma serenidade quase ofensiva, o tipo de calma que só os verdadeiramente perturbados conseguem exibir em momentos de pura violência. Com precisão metódica, ele amarrou Miska a uma cadeira robusta no centro do cômodo. Os pulsos e tornozelos foram firmemente presos com cordas ásperas, feitas para machucar e conter. Ele sequer se preocupou com resistência, não por subestimá-la, mas porque sabia que, naquele estado, qualquer tentativa de fuga seria apenas uma piada triste.</p>
+    <p>Wally se aproximou com serenidade que somente um verdadeiro perturbado conseguiria exibir naquele instante. Depois, ele amarrou Miska a uma cadeira robusta no centro do cômodo. Os pulsos e tornozelos dela foram firmemente presos com cordas ásperas, feitas para machucar e conter. Ele sequer se preocupou com resistência, não por subestimá-la, mas porque sabia que, naquele estado, qualquer tentativa de fuga seria apenas uma piada triste.</p>
            
-            <i><font color="#ffe700">
-            — Tenho que admitir… — murmurou ele, ajeitando a manga da camisa manchada. — Você foi um sopro de ar fresco nesse meu mundo entediante. Conseguiu fazer eu sentir alguma coisa, e olha... isso não é pouca coisa. Parabéns, Miska.
-            </font>
-            </i>
-            <br><br>
-
-          <p>Deu três passos em sua direção, cada um ecoando como um aviso, antes de se inclinar ligeiramente. Observou o rosto dela, pálido e ainda desacordado, como quem contempla uma obra de arte. Um retrato trágico de beleza e vulnerabilidade.</p>
-    
-            <i><font color="#ffe700">
-              — Parece tão serena assim... dormindo. Quase me faz esquecer o que vem depois.
-              </font>
-              </i>
+    <p>— Sabe.. — murmurou ele, ajeitando a manga da camisa manchada. — Você foi um sopro de ar fresco nesse meu mundo entediante. Pelo menos conseguiu me fazer quase sentir alguma coisa, isso não é pouca coisa. Parabéns, Miska, mais uma vez.</p>
           
-              <br><br>
+    <p>Deu três passos em sua direção, cada um ecoando como um aviso, antes de se inclinar ligeiramente. Observou o rosto dela, pálido e ainda desacordado, como quem contempla uma obra de arte. Um retrato trágico de beleza e vulnerabilidade.</p>
+    
+    <p>— Você é tão serena dormindo. É realmente uma pena saber o que vai vir depois.</p>
 
-            <p>Ele ergueu suavemente o queixo de Miska, os dedos frios contrastando com a pele quente dela. O toque foi carinhoso, mas completamente desprovido de empatia. E então, com teatralidade sinistra, depositou um beijo em sua testa.</p>
+    <p>Ele ergueu suavemente o queixo de Miska, os dedos frios contrastando com a pele quente dela. O toque foi carinhoso, mas desprovido de qualquer empatia. E então, depositou um beijo em sua testa.</p>
 
             <i><font color="#ffe700">
             "Bons Sonhos."
@@ -1709,63 +1771,29 @@
             </i>
             <br><br>
 
-          <p>Ele não tremia. Não hesitava. Para Wally, aquilo não era um erro, era uma celebração. E na mente dele, não havia espaço para arrependimentos.</p>
+    <p>Ele não tremia, nem hesitava. Para Wally, aquilo não era um erro, era uma celebração. E na mente dele, não havia espaço para arrependimentos.</p>
 
-          <br><br>
-          <br><br>
-          <br><br>
-          <br><br>
-          <br><br>
-          <br><br>
-          <br><br>
-          <br><br>
-          <br><br>
-          <br><br>
-          <br><br>
-          <br><br>
-          <br><br>
+    <hr>
 
-          <p>...</p>
-          <p>...?</p>
-          <p>...!!!!!!????</p>
+    <p>Uma dor latejante explodiu dentro da minha cabeça, tão forte que parecia alguém martelando meu crânio de dentro pra fora. Cada piscada arde, cada pensamento é engolido por um zumbido que parece vibrar no fundo dos meus ossos.</p>
 
-          <p>Onde… onde é que eu tô?</p>
+    <p>Wally?</p>
 
-           <br><br>
-          <br><br>
-          <br><br>
-          <br><br>
-          <br><br>
-          <br><br>
-          <br><br>
-          <br><br>
-          <br><br>
-          <br><br>
-          <br><br>
-          <br><br>
-          <br><br>
+    <p>Seu nome surgiu como um estilhaço na mente, cortando tudo. Num impulso desesperado, meus olhos vasculham o ambiente, e o que vejo não me traz alívio algum. Ao contrário: tudo é um pesadelo que me abraça com braços frios e sufocantes. As paredes estão cobertas de jornais envelhecidos, fotos desbotadas, recortes marcados por sangue seco. O cheiro era um misto de ferrugem, vômito e algo mais agridoce que só pode ser... carne. Carne velha. Carne morta.</p>
 
-          <p>Uma dor latejante explode dentro da minha cabeça, tão forte que parecia alguém martelando meu crânio de dentro pra fora. Cada piscada arde, cada pensamento é engolido por um zumbido que parece vibrar no fundo dos meus ossos.</p>
+    <p>Eu me lembro. Eu caí. Eu apaguei. E agora acordei no meio disso tudo.</p>
 
-          <p>Wally?</p>
+    <p>Por quê?</p>
 
-          <p>O nome surge como um estilhaço na mente, cortando tudo. Num impulso desesperado, meus olhos vasculham o ambiente, e o que vejo não me traz alívio algum. Ao contrário: tudo é um pesadelo que me abraça com braços frios e sufocantes. As paredes estão cobertas de jornais envelhecidos, fotos desbotadas, recortes marcados por sangue seco. O cheiro era um misto de ferrugem, vômito e algo mais agridoce que só pode ser... carne. Carne velha. Carne morta.
-          </p>
+    <p>O pânico bate no peito como um soco. Por que eu tô aqui? O que esse desgraçado quer de mim?</p>
 
-          <p>Eu me lembro. Eu caí. Eu apaguei. E agora acordei no meio disso tudo.</p>
+    <p>Foi então que ouvi.</p>
 
-          <p>Por quê?</p>
+    <p>Passos lentos e deliberados.</p>
 
-          <p>O pânico bate no peito como um soco. Por que eu tô aqui? O que esse desgraçado quer de mim?</p>
+    <p>A sombra se forma primeiro, recortada pela fresta da porta. Depois, a figura completa: ele entra. Na mão, uma faca. Não uma faca qualquer, dessas de cozinha, essa parecia ter sido afiada com obsessão, com desejo.</p>
 
-          <p>Foi então que ouvi.</p>
-
-          <p>Passos lentos e deliberados.</p>
-
-          <p>A sombra se forma primeiro, recortada pela fresta da porta. Depois, a figura completa: ele entra. Na mão, uma faca. Não uma faca qualquer, dessas de cozinha, essa parecia ter sido afiada com obsessão, com desejo.
-          </p>
-
-          <p>E então... ele sorri.</p>
+    <p>E então... ele sorri.</p>
 
     <p>— Olha só quem resolveu despertar. — A voz de Wally é suave, quase musical. Simulando a compostura de anfitrião recebendo uma visita num jantar formal. — Dormiu bem, princesa?</p>
 
@@ -1895,22 +1923,13 @@
 
       <p>Quem quer que estivesse do outro lado daquela porta… por favor, que não seja outro maníaco.</p>
 
-      <br><br>
-    <br><br>
-    <br><br>
-    <br><br>
-    <br><br>
-    <br><br>
-    <br><br>
-    <br><br>
-
     <hr>
 
     <h1 style="color: #ff0000;">NO LADO DE FORA...</h1>
 
     <hr>
 
-    <p>Ash arremessava o corpo contra a porta com uma força exagerada, parecendo mais uma paródia de resgate do que um resgate de verdade. A cada nova investida, a estrutura rangia, mas resistia. Atrás dele, Ashley, Kenda e Jeffrey apenas se entreolhavam, o tédio estampado nos rostos típico de quem já viu esse espetáculo pela décima vez.
+    <p>Ash arremessava o corpo contra a porta com uma força, parecendo mais uma paródia de resgate do que um resgate de verdade. A cada nova investida, a estrutura rangia, mas resistia. Atrás dele, Ashley, Kenda e Jeffrey apenas se entreolhavam, o tédio estampado nos rostos típico de quem já viu esse espetáculo pela décima vez.
     </p>
 
     <p>— Ai, Ash, para de ser um otário! — Kenda atira. — reclamou Kenda, cruzando os braços com impaciência. — Não tem serial killer nenhum nessa ca-</p>
@@ -2163,41 +2182,21 @@
     <p>Ela assoprou a fumaça, como num clichê proposital, e disse em um tom seco, quase debochado:</p>
 
     <p>— Como em um jogo.</p>
+    </template>
 
-    <hr>
+    <template class="story-page" data-theme="hospital">
+      <h1 style="color: #ff0000;">
+        <p class="scene-eyebrow">HORAS DEPOIS...</p>
+      </h1>
 
-    <br><br>
-    <br><br>
-    <br><br>
-    <br><br>
-    <br><br>
-    <br><br>
-    <br><br>
-    <br><br>
-    <br><br>
-    <br><br>
-    <br><br>
-    <br><br>
-    <br><br>
-    <br><br>
-    <br><br>
-    <br><br>
-    <br><br>
-    <br><br>
-    <br><br>
-    <br><br>
-    <br><br>
-    <br><br>
-    <br><br>
-    <br><br>
-    <br><br>
-    <br><br>
-
-    <hr>
-
-    <h1 style="color: #ff0000;">HORAS DEPOIS...</h1>
-
-    <hr>
+    <!-- Imagem - Hospital -->
+        <img style="display:block; 
+        margin:24px auto; 
+        max-width: 80%; 
+        height: auto;
+        border:4px solid #2d9dac; 
+        border-radius:4px;"
+        src="img/hospital-2.jpg" alt="Hospital">
 
     <p>O caos havia finalmente cessado.</p>
 
@@ -2277,33 +2276,11 @@ não muda o essencial.</p>
         </font>
         </i>
       balada.</p>
+    </template>
 
-  <hr style="background-color: #440258;">
+  </main>
 
-<a style="color: rgb(53, 204, 15);" href="https://thisismydiary.netlify.app/">Retornar</a></br>
+  <script src="javascript.js"></script>
 
 </body>
 </html>
-
-
-
-      
-
-
-
-  
-
-    
-
-
-  
-
-
-
-  
-
-
-
-
-  
-    
