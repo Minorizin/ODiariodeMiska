@@ -172,6 +172,20 @@
   );
 }
 
+/* Fundo U-XIX — Universo-XIX */
+  #bg-xixu {
+  background-image: url('img/Revelstoke.png');
+  background-position: center;
+}
+#bg-xixu::after {
+  background: linear-gradient(
+    to bottom,
+    rgba(22, 22, 22, 0.7) 0%,
+    rgba(17, 17, 17, 0.58) 50%,
+    rgba(8, 8, 8, 0.8) 100%
+  );
+}
+
 /* Fundo U666 — Universo-666 */
   #bg-666u {
   background-image: url('img/universo-666.jpg');
@@ -192,20 +206,6 @@
   background-position: center;
 }
 #bg-1u::after {
-  background: linear-gradient(
-    to bottom,
-    rgba(22, 22, 22, 0.7) 0%,
-    rgba(17, 17, 17, 0.58) 50%,
-    rgba(8, 8, 8, 0.8) 100%
-  );
-}
-
-/* Fundo 8 — Universo-3 */
-  #bg-8 {
-  background-image: url('img/universo-aurora1.jpg');
-  background-position: center;
-}
-#bg-8::after {
   background: linear-gradient(
     to bottom,
     rgba(22, 22, 22, 0.7) 0%,
@@ -481,6 +481,38 @@
   }
   #section-7 .chapter-title::after { background: #adadad; }
 
+  /* Seção U-XIX: Universo-XIX — identidade vitoriana */
+  #section-xixu {
+    --xix-paper-1: #ded0ab;
+    --xix-paper-2: #c2ac7c;
+    --xix-ink: #2c1e12;
+    --xix-ink-soft: #4a3520;
+    --xix-brass: #8a6a2f;
+    --xix-seal: #7a1010;
+    --xix-seal-dark: #430909;
+  }
+
+  #section-xixu .chapter-number {
+    font-family: var(--font-body);
+    font-size: 11px;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--xix-brass);
+    opacity: 0.9;
+  }
+
+  #section-xixu .chapter-title {
+    font-size: clamp(2.6rem, 6vw, 5.4rem);
+    color: var(--xix-ink);
+    text-shadow: 0 1px 0 rgba(255, 244, 214, 0.35);
+    margin-top: 0.5rem;
+  }
+  #section-xixu .chapter-title::after {
+    height: 2px;
+    opacity: 0.65;
+    background: linear-gradient(to right, transparent, var(--xix-brass) 15%, var(--xix-brass) 85%, transparent);
+  }
+
     /* Seção U666: Universo-666 */
   #section-666u .chapter-title {
     font-size: clamp(2.5rem, 5.8vw, 5.5rem);
@@ -496,14 +528,6 @@
     text-shadow: 0 0 60px rgba(97, 97, 97, 0.25);
   }
   #section-1u .chapter-title::after { background: #adadad; }
-
-  /* Seção 8: Universo-3 */
-  #section-8 .chapter-title {
-    font-size: clamp(2.5rem, 5.8vw, 5.5rem);
-    color: #f17cc4;
-    text-shadow: 0 0 60px rgba(97, 97, 97, 0.25);
-  }
-  #section-8 .chapter-title::after { background: #adadad; }
 
   /* Seção 9: Entre o Multiverso */
   #section-9 .chapter-title {
@@ -638,6 +662,115 @@
   color: #c1e0e6; /* cor do texto dos parágrafos */
 }
 
+/* Seção U-XIX - Universo-XIX — carta/prancha vitoriana */
+
+#section-xixu .story-card {
+  background:
+    radial-gradient(ellipse at 15% 20%, rgba(120, 95, 50, 0.14), transparent 45%),
+    radial-gradient(ellipse at 85% 78%, rgba(90, 60, 30, 0.16), transparent 50%),
+    radial-gradient(circle at 60% 40%, rgba(70, 50, 25, 0.10), transparent 35%),
+    repeating-linear-gradient(0deg, rgba(80, 60, 30, 0.035) 0px, rgba(80, 60, 30, 0.035) 1px, transparent 1px, transparent 3px),
+    linear-gradient(160deg, var(--xix-paper-1), var(--xix-paper-2));
+  border: 1px solid var(--xix-brass);
+  box-shadow:
+    inset 0 0 0 4px rgba(20, 12, 4, 0.06),
+    inset 0 0 0 6px var(--xix-brass),
+    inset 0 0 46px rgba(60, 40, 15, 0.28);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  position: relative;
+}
+
+/* fleurons nos cantos, como uma prancha encadernada */
+#section-xixu .story-card::before,
+#section-xixu .story-card::after {
+  content: '❧';
+  position: absolute;
+  font-family: var(--font-title);
+  font-size: 22px;
+  color: var(--xix-brass);
+  opacity: 0.8;
+  z-index: 2;
+  pointer-events: none;
+}
+#section-xixu .story-card::before { top: 11px; left: 15px; }
+#section-xixu .story-card::after  { bottom: 11px; right: 15px; transform: rotate(180deg); }
+
+#section-xixu .story-card .chapter-header {
+  border-bottom: 1px solid rgba(60, 40, 15, 0.28);
+}
+
+#section-xixu .story-card .story-body p {
+  color: var(--xix-ink); /* tinta sépia sobre papel envelhecido */
+  font-size: 1.02rem;
+}
+
+/* capitular na primeira letra do primeiro parágrafo com texto */
+#section-xixu .story-body p.fade-in-up:first-of-type::first-letter {
+  font-family: var(--font-title);
+  font-size: 3.3em;
+  line-height: 0.75;
+  float: left;
+  padding: 0.06em 0.09em 0 0;
+  color: var(--xix-seal);
+}
+
+/* prancha da imagem — moldura de latão + tom de gravura */
+#section-xixu .story-image-wrap {
+  border: 1px solid var(--xix-brass);
+  border-radius: 1px;
+  box-shadow:
+    inset 0 0 0 3px rgba(230, 220, 190, 0.55),
+    0 2px 12px rgba(20, 12, 4, 0.35);
+}
+#section-xixu .story-image {
+  filter: sepia(0.55) contrast(1.06) brightness(0.94) saturate(1.15);
+}
+#section-xixu .xix-caption {
+  display: block;
+  text-align: center;
+  font-family: var(--font-body);
+  font-variant: small-caps;
+  letter-spacing: 0.1em;
+  font-size: 13px;
+  color: var(--xix-ink-soft);
+  margin: 0.75rem 0 1.6rem;
+}
+
+/* selo de cera — divisor de cena, o elemento-assinatura da seção */
+#section-xixu .scene-divider.xix-seal {
+  justify-content: center;
+  opacity: 1;
+  gap: 0;
+}
+#section-xixu .scene-divider.xix-seal::before,
+#section-xixu .scene-divider.xix-seal::after {
+  background: var(--xix-brass);
+  opacity: 0.4;
+  max-width: 130px;
+}
+#section-xixu .scene-divider.xix-seal span {
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  margin: 0 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-family: var(--font-title);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  color: rgba(255, 235, 220, 0.92);
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+  background: radial-gradient(circle at 35% 30%, #9c2323, var(--xix-seal) 55%, var(--xix-seal-dark) 100%);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5), inset 0 0 0 2px rgba(0, 0, 0, 0.25);
+}
+
+#section-xixu .ambient {
+  background: radial-gradient(ellipse 70% 45% at 50% 12%, rgba(138, 106, 47, 0.12) 0%, transparent 70%);
+}
+
 /* Seção u666 - Universo-666 */
 
 #section-666u .story-card {
@@ -658,17 +791,6 @@
 
 #section-1u .story-card .story-body p {
   color: #9bd7df; /* cor do texto dos parágrafos */
-}
-
-/* Seção 8 - Universo-3 */
-
-#section-8 .story-card {
-  background: #c435598c;   /* cor de fundo */
-  border-color: #edc946; /* cor da borda */
-}
-
-#section-8 .story-card .story-body p {
-  color: #ffd651; /* cor do texto dos parágrafos */
 }
  
 /* Seção 9 - Entre o Multiverso */

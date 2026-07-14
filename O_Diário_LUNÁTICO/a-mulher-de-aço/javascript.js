@@ -9,25 +9,28 @@ const sections = document.querySelectorAll('.story-section');
   let currentChapter = 1;
  
   function getActiveChapter() {
-    const mid = window.innerHeight * 0.45;
-    let active = 1;
-    sections.forEach(sec => {
-      const rect = sec.getBoundingClientRect();
-      if (rect.top <= mid) active = parseInt(sec.dataset.chapter);
-    });
-    return active;
-  }
- 
-  function switchChapter(n) {
+  const mid = window.innerHeight * 0.45;
+  let active = sections[0].dataset.chapter; // string, não number
+  sections.forEach(sec => {
+    const rect = sec.getBoundingClientRect();
+    if (rect.top <= mid) active = sec.dataset.chapter;
+  });
+  return active;
+}
+
+function switchChapter(n) {
   if (n === currentChapter) return;
   currentChapter = n;
 
-  // Encontra a seção ativa e lê o data-bg dela
-  const activeSection = [...sections].find(s => parseInt(s.dataset.chapter) === n);
+  const activeSection = [...sections].find(s => s.dataset.chapter === n);
   const targetBgId = activeSection?.dataset.bg;
 
   bgSlides.forEach(s => s.classList.toggle('active', s.id === targetBgId));
-  hudDots.forEach((d, i) => d.classList.toggle('active', i + 1 === n));
+  hudDots.forEach((d, i) => d.classList.toggle('active', d.dataset.chapter === n)); 
+  // ↑ ajuste também os hudDots: hoje eles comparam `i + 1 === n`, o que só faz
+  //   sentido se os capítulos forem sempre números sequenciais. Com "1u"/"xixu"
+  //   isso quebra do mesmo jeito. É melhor dar um data-chapter="1u" etc. em cada
+  //   hud-dot no HTML e comparar por string, como acima.
 
   progressBar.style.background = themeColors[n].bar;
   flash.style.background = themeColors[n].flash;
@@ -63,6 +66,6 @@ const sections = document.querySelectorAll('.story-section');
     });
   });
  
-  progressBar.style.background = themeColors[1].bar;
+  progressBar.style.background = themeColors[sections[0].dataset.chapter].bar;
   updateProgress();
   revealFadeEls();
