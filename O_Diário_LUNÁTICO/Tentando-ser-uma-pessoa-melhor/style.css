@@ -19,14 +19,20 @@
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠛⠿⠿⣶⣾⣿⣿⣿⣭⣭⣭⣶⣿⡿⠁⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠙⠛⠛⠛⠛⠋⠁⠀⠀⠀ */
 
-@font-face {
-            font-family: "Dexter";
-            src: url("/O_Diário_LUNÁTICO/Hoje_é_o_dia/fonts/SodaScriptBoldExtrasRegular.ttf");
+        @font-face {
+        font-family: 'Dexter';
+        src: url('fonts/Dexter.woff2') format('woff2'),
+        url('fonts/Dexter.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
         }
 
-        @font-face {
-            font-family: "YOU";
-            src: url("/O_Diário_LUNÁTICO/Hoje_é_o_dia/YOU.woff") format('woff');
+                @font-face {
+        font-family: 'YOU';
+        src: url('fonts/YOU.woff2') format('woff2'),
+        url('fonts/YOU.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
         }
 
 * {
@@ -449,7 +455,7 @@
         }
 
         /* ==========================================
-           ABERTURA DE TÍTULO (Estilo YOU)
+           ABERTURA DE TÍTULO
            ========================================== */
         
         .title-opening {
