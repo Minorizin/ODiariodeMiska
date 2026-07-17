@@ -21,6 +21,14 @@
   /* ── Font-Faces ── */
 
   @font-face {
+  font-family: 'Grafitti';
+  src: url('fonts/Sister\ Spray.woff2') format('woff2'),
+  url('fonts/Sister\ Spray.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+  @font-face {
   font-family: 'YOU';
   src: url('fonts/YOU.woff2') format('woff2'),
   url('fonts/YOU.woff') format('woff');
@@ -152,14 +160,17 @@
   #bg-55u {
   background-image: url('img/universo-55-2.jpg');
   background-position: center;
+  filter: saturate(1.08) contrast(1.05);
 }
 #bg-55u::after {
-  background: linear-gradient(
-    to bottom,
-    rgba(22, 22, 22, 0.7) 0%,
-    rgba(17, 17, 17, 0.58) 50%,
-    rgba(8, 8, 8, 0.8) 100%
-  );
+  background:
+    radial-gradient(ellipse 65% 40% at 50% 15%, rgba(255, 175, 60, 0.10) 0%, transparent 65%),
+    linear-gradient(
+      to bottom,
+      rgba(28, 20, 8, 0.68) 0%,
+      rgba(20, 15, 8, 0.55) 50%,
+      rgba(10, 7, 4, 0.85) 100%
+    );
 }
 
 /* Fundo 6 — Universo-77 */
@@ -479,12 +490,44 @@
   #section-13u .chapter-title::after { background: #adadad; }
 
   /* Seção U55: Universo-55 */
-  #section-55u .chapter-title {
-    font-size: clamp(2.5rem, 5.8vw, 5.5rem);
-    color: #211496;
-    text-shadow: 0 0 60px rgba(97, 97, 97, 0.25);
+  #section-55u .chapter-header::before {
+    content: 'YOU❜RE GOING TO...';
+    display: block;
+    font-family: 'Grafitti';
+    font-size: 17px;
+    letter-spacing: 0.06em;
+    text-transform: none;
+    color: #ffb703;
+    opacity: 0.85;
+    transform: rotate(-3deg);
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5), 0 0 18px rgba(255, 183, 3, 0.25);
+    margin-bottom: 1.1rem;
+    text-align: center;
   }
-  #section-55u .chapter-title::after { background: #adadad; }
+
+  #section-55u .chapter-title {
+    font-family: 'Bungee', var(--font-title);
+    font-size: clamp(2.1rem, 5.2vw, 4.6rem);
+    letter-spacing: 0.01em;
+    color: #f7ede0;
+    -webkit-text-stroke: 1.5px #1a1a1a;
+    text-shadow:
+      3px 3px 0 #ff5f1f,
+      6px 6px 0 #12b3a8,
+      0 0 40px rgba(0, 0, 0, 0.5);
+  }
+  #section-55u .chapter-title::after {
+    height: 6px;
+    width: 60%;
+    opacity: 0.85;
+    background: repeating-linear-gradient(
+      100deg,
+      #ffb703 0px, #ffb703 10px,
+      #12b3a8 10px, #12b3a8 20px,
+      #ff5f1f 20px, #ff5f1f 30px
+    );
+    border-radius: 2px;
+  }
 
   /* Seção 6: Universo-77 */
   #section-6 .chapter-title {
@@ -679,13 +722,139 @@
 
 /* Seção u55 - Universo-55 */
 
+#section-55u {
+  --sp-concrete-1: #3a352e;
+  --sp-concrete-2: #211d18;
+  --sp-spray-orange: #ff5f1f;
+  --sp-spray-teal: #12b3a8;
+  --sp-spray-yellow: #ffb703;
+  --sp-rust: #8a5a2b;
+  --sp-chalk: #ece4d6;
+}
+
 #section-55u .story-card {
-  background: #f5c73c65;   /* cor de fundo */
-  border-color: #83561c; /* cor da borda */
+  background:
+    radial-gradient(ellipse at 12% 15%, rgba(18, 179, 168, 0.10), transparent 45%),
+    radial-gradient(ellipse at 88% 82%, rgba(255, 95, 31, 0.12), transparent 50%),
+    repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.10) 0px, rgba(0, 0, 0, 0.10) 1px, transparent 1px, transparent 4px),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.015) 0px, rgba(255, 255, 255, 0.015) 2px, transparent 2px, transparent 90px),
+    linear-gradient(165deg, var(--sp-concrete-1), var(--sp-concrete-2));
+  border: 1px solid rgba(255, 183, 3, 0.28);
+  box-shadow:
+    inset 0 0 0 1px rgba(0, 0, 0, 0.4),
+    inset 0 60px 100px rgba(0, 0, 0, 0.4),
+    0 0 40px rgba(0, 0, 0, 0.5);
+  position: relative;
+}
+
+/* grade de janela ao fundo do muro, como na fachada da foto */
+#section-55u .story-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(90deg, rgba(0,0,0,0.35) 0, rgba(0,0,0,0.35) 2px, transparent 2px, transparent 46px),
+    repeating-linear-gradient(0deg, rgba(0,0,0,0.35) 0, rgba(0,0,0,0.35) 2px, transparent 2px, transparent 46px);
+  opacity: 0.08;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* pichações verticais subindo pela lateral do muro — adicione/remova quantas quiser no HTML */
+#section-55u .wall-tags {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+#section-55u .wall-tag {
+  position: absolute;
+  top: var(--tag-top, 50%);
+  left: var(--tag-left, 8px);
+  transform: translateY(-50%) rotate(180deg);
+  writing-mode: vertical-rl;
+  font-family: 'Grafitti';
+  font-size: var(--tag-size, 20px);
+  letter-spacing: 0.13em;
+  color: var(--tag-color, #12b3a8);
+  opacity: var(--tag-opacity, 0.22);
+  white-space: nowrap;
+}
+
+#section-55u .story-card .chapter-header {
+  border-bottom: 1px dashed rgba(255, 183, 3, 0.25);
+}
+
+#section-55u .story-card .story-body {
+  position: relative;
+  z-index: 2;
 }
 
 #section-55u .story-card .story-body p {
-  color: #201507; /* cor do texto dos parágrafos */
+  color: var(--sp-chalk); /* cor do texto dos parágrafos, tom giz sobre concreto */
+}
+
+/* molduras de imagem como janelas gradeadas, tom quente de rua noturna */
+#section-55u .story-image-wrap {
+  border: 1px solid var(--sp-rust);
+  border-radius: 2px;
+  position: relative;
+  box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.45), 0 2px 14px rgba(0, 0, 0, 0.4);
+}
+#section-55u .story-image {
+  filter: saturate(1.12) contrast(1.08) brightness(0.95) sepia(0.12);
+}
+#section-55u .story-image-wrap::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(160deg, rgba(255, 183, 3, 0.06) 0%, transparent 30%, transparent 75%, rgba(0, 0, 0, 0.15) 100%);
+  pointer-events: none;
+}
+
+/* divisor de cena como tag de spray */
+#section-55u .scene-divider.sp-tag {
+  justify-content: center;
+  opacity: 1;
+  gap: 0;
+}
+#section-55u .scene-divider.sp-tag::before,
+#section-55u .scene-divider.sp-tag::after {
+  background: linear-gradient(to right, transparent, var(--sp-spray-yellow));
+  opacity: 0.4;
+  max-width: 140px;
+  height: 2px;
+}
+#section-55u .scene-divider.sp-tag::after {
+  background: linear-gradient(to left, transparent, var(--sp-spray-teal));
+}
+#section-55u .scene-divider.sp-tag span {
+  font-family: 'Permanent Marker', cursive;
+  font-size: 20px;
+  letter-spacing: 0.05em;
+  color: var(--sp-spray-orange);
+  margin: 0 1rem;
+  transform: rotate(-6deg);
+  display: inline-block;
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.4);
+}
+
+/* neblina quente de poste de sódio + leve cintilar de luz distante, como um letreiro de neon ao longe */
+#section-55u .ambient {
+  background:
+    radial-gradient(ellipse 70% 45% at 50% 8%, rgba(255, 176, 55, 0.14) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 30% at 85% 90%, rgba(18, 179, 168, 0.08) 0%, transparent 70%);
+  animation: spNeonFlicker 7s infinite steps(24);
+}
+@keyframes spNeonFlicker {
+  0%, 100% { opacity: 1; }
+  62% { opacity: 1; }
+  63% { opacity: 0.88; }
+  64% { opacity: 1; }
+  85% { opacity: 0.94; }
+  86% { opacity: 1; }
 }
 
 /* Seção 6 - Universo-77 */
