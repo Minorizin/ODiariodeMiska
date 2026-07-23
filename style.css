@@ -187,47 +187,116 @@ hr {
 }
 
 /* ===================================
-   CONTROLE DE ÁUDIO
+   COLLAPSIBLES (MÚSICA / AVISOS)
    =================================== */
-details {
+.toggle-box {
     user-select: none;
     margin: 20px auto;
-    background: rgba(4, 24, 17, 0.8);
-    border: 2px solid #085239;
-    padding: 10px;
+    max-width: 700px;
+    background: rgba(4, 24, 17, 0.55);
+    border: 1px solid rgba(8, 82, 57, 0.7);
+    border-radius: 3px;
+    overflow: hidden;
+    transition: border-color 0.25s ease, background 0.25s ease;
 }
 
-details summary {
+.toggle-box summary {
     cursor: pointer;
     list-style: none;
-    padding: 10px;
-    text-align: center;
-    font-weight: bold;
-    transition: color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 12px 18px;
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 600;
+    transition: color 0.25s ease, background 0.25s ease;
 }
 
-details summary:hover {
-    color: #ff0039;
-}
-
-details > summary span.icon {
-    width: 24px;
-    height: 24px;
-    transition: all 0.3s;
-    margin-left: auto;
-}
-
-details[open] summary span.icon {
-    transform: rotate(180deg);
-}
-
-summary::-webkit-details-marker {
+.toggle-box summary::-webkit-details-marker {
     display: none;
 }
 
-audio {
+.toggle-box .toggle-chevron {
+    position: relative;
+    width: 8px;
+    height: 8px;
+    border-right: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+    transform: rotate(45deg);
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+    opacity: 0.75;
+}
+
+.toggle-box[open] .toggle-chevron {
+    transform: rotate(-135deg);
+}
+
+.toggle-box .toggle-content {
+    padding: 4px 18px 18px;
+    border-top: 1px solid rgba(8, 82, 57, 0.4);
+    animation: toggle-fade 0.25s ease;
+}
+
+@keyframes toggle-fade {
+    from { opacity: 0; transform: translateY(-4px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* --- Música --- */
+.toggle-music summary {
+    color: #0c9665;
+}
+
+.toggle-music summary:hover {
+    background: rgba(8, 82, 57, 0.18);
+    color: #12c481;
+}
+
+.toggle-music[open] {
+    border-color: #085239;
+}
+
+.toggle-music audio {
     width: 100%;
-    margin-top: 15px;
+    margin-top: 14px;
+    accent-color: #0c9665;
+}
+
+/* --- Avisos de conteúdo --- */
+.toggle-warning {
+    border-color: rgba(150, 40, 40, 0.55);
+}
+
+.toggle-warning summary {
+    color: #d15c5c;
+}
+
+.toggle-warning summary:hover {
+    background: rgba(150, 40, 40, 0.14);
+    color: #e37a7a;
+}
+
+.toggle-warning[open] {
+    border-color: #963333;
+}
+
+.toggle-warning .toggle-content {
+    border-top-color: rgba(150, 40, 40, 0.35);
+}
+
+.toggle-warning .toggle-content p {
+    color: #c98a8a;
+    font-size: 0.92rem;
+    line-height: 1.55em;
+    margin-bottom: 0.5em;
+}
+
+.toggle-warning .toggle-content p:last-child {
+    margin-bottom: 0;
 }
 
 /* ===================================
