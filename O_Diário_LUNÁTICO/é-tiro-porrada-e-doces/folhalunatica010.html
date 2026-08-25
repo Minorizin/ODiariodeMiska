@@ -1,27 +1,66 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <link rel="shortcut icon" type="x icon" href="img/Trollface.png">
-    <meta property="og:title" content="Folha LUNÁTICA 010 - É tiro, porrada e doces!"> 
-    <meta property="og:description" content="Folha 10 do Diário LUNÁTICO."/>
-    <meta property="og:image" content=""/>
-    <title>É tiro, porrada e doces!</title>
-    <style>
-        
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>É tiro, porrada e doces!</title>
+
+<!-- Meta Tags -->
+  <meta property="og:title" content="Folha LUNÁTICA 010 - É tiro, porrada e doces!"> 
+  <meta property="og:description" content="Folha 10 do Diário LUNÁTICO."/>
+  <meta property="og:image" content=""/>
+  
+  <!-- Favicon -->
+  <link rel="shortcut icon" type="image/x-icon" href="img/Trollface.png">
+  
+  <!-- Fontes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gideon+Roman&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Bungee&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Rye&family=Special+Elite&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" type="text/css" href="style.css">
+
+<style></style>
 </head>
+<body>
 
-<body class="space">
-    <div class="background-overlay"></div>
-    <div class="stars" id="stars"></div>
+<!-- Background Layer -->
+<div id="bg-layer">
+  <div class="bg-slide active" id="bg-1"></div>
+  <div class="bg-slide" id="bg-2"></div>
+  <div class="bg-slide" id="bg-3"></div>
+  <div class="bg-slide" id="bg-4"></div>
+  <div class="bg-slide" id="bg-5"></div>
+  <div class="bg-slide" id="bg-6"></div>
+  <div class="bg-slide" id="bg-7"></div>
+  <div class="bg-slide" id="bg-8"></div>
+  <div class="bg-slide" id="bg-9"></div>
+</div>
+ 
+<!-- Flash overlay -->
+<div id="chapter-flash"></div>
+ 
+<!-- Progress bar -->
+<div id="progress-bar"></div>
+ 
+ 
+<!-- Story Scroll Container -->
+<div id="scroll-container">
+ 
+  <!-- ══ Início ══ -->
+  <section class="story-section" data-title="Início" data-toc-image="img/início.jpg" id="section-1" data-chapter="1" data-bg="bg-1">
+    <div class="ambient"></div>
+    <div class="story-card fade-in-up visible">
+      <div class="chapter-header">
+        <h1 class="chapter-title"></h1>
+      </div>
+      <div class="story-body">
 
-    <div class="section" data-theme="start">
-        <div class="content-box fade-in">
-
-            <p>Em meio a um universo qualquer que brota aos montes em um multiverso igualmente qualquer, não acontece nada. O quê? Você esperou que eu fosse mostrar alguma uma anomalia ou algum evento sem pé e nem cabeça que justificasse isso? Pois então lamento informal.. mas você não está totalmente errado. Só que também não está certo. Porque, veja bem..</p>
+       <p>Em meio a um universo qualquer que brota aos montes em um multiverso igualmente qualquer, não acontece nada. O quê? Você esperou que eu fosse mostrar alguma uma anomalia ou algum evento sem pé e nem cabeça que justificasse isso? Pois então lamento informal.. mas você não está totalmente errado. Só que também não está certo. Porque, veja bem..</p>
             
             <p>Uhhh.. o que a gente ia mostrar mesmo?</p>
 
@@ -49,13 +88,23 @@
             
             <p>Muito bem. Dado que fugir não é mais uma opção viável, vamos logo com isso antes que alguém tenha outra ideia ainda pior.</p>
 
-        </div>
+      </div>
     </div>
-    
-    <div class="section" data-theme="prison">
-        <div class="content-box fade-in">
-            <h1>Em uma penitenciária pacata e decadente...</h1>
-            <p class="subtitle">Indistinguível de tantas outras espalhadas pelo território norte-americano...</p>
+  </section>
+
+  <!-- ══ Penitenciária ══ -->
+  <section class="story-section" data-title="Em uma penitenciária pacata e decadente..." data-toc-image="img/prisão-3.png" id="section-2" data-chapter="2" data-bg="bg-2">
+    <div class="ambient"></div>
+    <div class="story-card fade-in-up">
+      <div class="chapter-header">
+        <h1 class="chapter-title">Em uma penitenciária pacata e decadente...</h1>
+        <p class="subtitle">Indistinguível de tantas outras espalhadas pelo território norte-americano...</p>
+      </div>
+      <div class="story-body">
+
+        <div class="fade-in-up story-image-wrap">
+          <img src="img/prisão-1.jpg" alt="Prisão" class="story-image">
+        </div>
             
             <p>Miska era conduzida por dois policiais até a própria cela com os pulsos presos por algemas frias e impessoais. Talvez seja esse o momento, e torço para que não, que você começa a se perguntar:</p>
 
@@ -137,7 +186,7 @@
 
             <p>— ... O quê? — perguntou, quase num sussurro.</p>
 
-            <p>— É-É isso mesmo que você ouviu, senhor. — respondeu o outro, desviando o olhar com a voz levemente trêmula. — A gente tentou de tudo! Injeção letal, câmara de gás, cadeira elétrica e até decapitação.. mas nada funcionou! Essa coisa é o dia—</p>
+            <p>— É-É isso mesmo que você ouviu, senhor. — respondeu o outro, desviando o olhar com a voz levemente trêmula. — A gente tentou de tudo! Injeção letal, câmara de gás, cadeira elétrica, decapitação, tentamos até mesmo fuzilar ela com todas as armas que a tínhamos.. m-mas nada funcionou! Essa coisa é o dia—</p>
 
             <p>Quando o policial voltou o rosto para concluir seu pensamento, encontrou o vazio. Seu parceiro jazia estendido no chão, desacordado, ou pior. E Miska tinha desaparecido por completo.</p>
 
@@ -530,14 +579,27 @@
             <p>— Relaaaaaaaxa, pra quê isso tudo!? Que tal um cineminha com poltrona confortável e pipoca bem quentinha, hein? Hein? — respondeu Aurora, cutucando a perna de Miska com um entusiasmo fora de lugar.</p>
 
             <p>— Um filme é a única coisa que cê consegue pensar numa situação dessas, sua peste? — retrucou Miska, irritada. — Qual é a po███ do seu proble—</p>
-            
-        </div>
-    </div>
 
-    <div class="section" data-theme="cinema">
-        <div class="content-box fade-in">
-            
-            <p>A realidade se dobrou.</p>
+      </div>
+    </div>
+  </section>
+ 
+</div>
+
+<!-- ══ CINEMA ══ -->
+  <section class="story-section" data-title="Cinema" data-toc-image="img/cinema-3.png" id="section-3" data-chapter="3" data-bg="bg-3">
+    <div class="ambient"></div>
+    <div class="story-card fade-in-up">
+      <div class="chapter-header">
+        <h1 class="chapter-title"></h1>
+      </div>
+      <div class="story-body">
+
+         <div class="fade-in-up story-image-wrap">
+          <img src="img/cinema-2.jpg" alt="Cinema" class="story-image">
+        </div>
+
+         <p>A realidade se dobrou.</p>
 
             <p>Quando Miska piscou, o chão frio da prisão desapareceu sob seu corpo, assim como o eco deprimente do corredor. Em seu lugar, se viu acomodada em uma poltrona estofada, no interior de uma ampla e silenciosa sala de cinema. Diante dela, uma tela gigantesca exibia um drama arrastado, acompanhado por trilhas sonoras melancólicas e diálogos pretensiosamente profundos. Sobre seu colo, estava um balde generoso de pipoca ainda fumegante, temperada no ponto exato entre o salgado e o amanteigado.</p>
 
@@ -621,18 +683,30 @@
 
             <p>Não se sabe como ou quando aquilo apareceu lá. Mas, com Aurora por perto, já não fazia sentido duvidar de mais nada.</p>
 
-        </div>
+      </div>
     </div>
+  </section>
+ 
+</div>
 
-    <div class="section" data-theme="space">
-        <div class="content-box fade-in">
-            <h1>Espaço</h1>
-            
-            <p>Enquanto tentava se livrar das mãos de Aurora, Miska percebeu uma coisa estranha. Demorou alguns segundos para notar, mas Aurora já não segurava mais seu braço tinha um bom tempo. Ela nem estava ali, na verdade.</p>
+<!-- ══ ESPAÇO ══ -->
+  <section class="story-section" data-title="Espaço" id="section-4" data-toc-image="img/espaço-4.jpg" data-chapter="4" data-bg="bg-4">
+    <div class="ambient"></div>
+    <div class="story-card fade-in-up">
+      <div class="chapter-header">
+        <h1 class="chapter-title"></h1>
+      </div>
+      <div class="story-body">
+
+        <p>Enquanto tentava se livrar das mãos de Aurora, Miska percebeu uma coisa estranha. Demorou alguns segundos para notar, mas Aurora já não segurava mais seu braço tinha um bom tempo. Ela nem estava ali, na verdade.</p>
 
             <p>— Cadê você, pirralha!? Não vai pensando que eu esqueci de—</p>
 
             <p>Miska interrompeu-se ao notar que o ambiente ao seu redor tinha mudado outra vez. A sala de cinema desapareceu de forma abrupta, exatamente como acontecera antes. Não existiam portas, paredes ou fileiras de assentos. Mas também não existia teto e nem chão. Não existia nada que se parecesse com qualquer lugar da Terra. Porque, naquele instante, Miska já não estava mais nela.</p>
+
+            <div class="fade-in-up story-image-wrap">
+          <img src="img/espaço-2.jpg" alt="Espaço" class="story-image">
+        </div>
 
             <p>Ao seu redor, o universo se estendia em todas as direções.</p>
 
@@ -709,6 +783,10 @@
             <hr>
 
             <br>
+
+            <div class="fade-in-up story-image-wrap">
+          <img src="img/espaço-3.png" alt="Aglomerado de Galáxias" class="story-image">
+        </div>
 
             <p>Atualmente, as duas estavam diante de um aglomerado que reunia milhares e milhares de galáxias, todas espalhadas pelo vazio. Algumas possuíam tons bem diversificados de cores, enquanto existiam sistemas estelares cuja luz se misturava em diversas cores ao mesmo tempo. De tão numerosas, eles lembravam um enxame interminável de vagalumes que meandravam pelo espaço em uma lenta, porém hipnotizante dança.</p>
 
@@ -824,14 +902,24 @@
 
             <p>— Não. — disse Miska, levantando a cabeça somente para dizer aquela única palavra e, em seguida, deixar a cabeça cair ao chão mais uma vez.</p>
 
-        </div>
+      </div>
     </div>
+  </section>
 
-    <div class="section" data-theme="carnival">
-        <div class="content-box fade-in">
-            <h1>Parque de Diversões</h1>
+   <!-- ══ Parque de Diversões ══ -->
+  <section class="story-section" data-title="Parque de Diversões" data-toc-image="img/parque-de-diversões-3.png" id="section-5" data-chapter="5" data-bg="bg-5">
+    <div class="ambient"></div>
+    <div class="story-card fade-in-up">
+      <div class="chapter-header">
+        <h1 class="chapter-title">Parque de Diversões</h1>
+      </div>
+      <div class="story-body">
 
-            <p>Miska e Aurora agora estavam diante do gigantesco portal luminoso de um parque de diversões, uma construção tão extravagante que parecia capaz de anunciar felicidade à força para qualquer um que sequer ousasse olhar em sua direção. O enorme letreiro piscava em uma sequência de cores vibrantes, refletindo sobre o chão e iluminando a noite ao redor. Sons distantes de música, gritos de excitação e o ruído dos brinquedos se misturavam em uma sinfonia caótica que transbordava para além dos portões.</p>
+        <div class="fade-in-up story-image-wrap">
+          <img style="border: 3px solid #ffd60a;" src="img/parque-de-diversões-2.jpg" alt="Parque de Diversões" class="story-image">
+        </div>
+
+        <p>Miska e Aurora agora estavam diante do gigantesco portal luminoso de um parque de diversões, uma construção tão extravagante que parecia capaz de anunciar felicidade à força para qualquer um que sequer ousasse olhar em sua direção. O enorme letreiro piscava em uma sequência de cores vibrantes, refletindo sobre o chão e iluminando a noite ao redor. Sons distantes de música, gritos de excitação e o ruído dos brinquedos se misturavam em uma sinfonia caótica que transbordava para além dos portões.</p>
 
             <p>Aurora entrou em estado de euforia só de avistar a entrada. Pequenos pulos involuntários tomaram conta dela, incapaz de conter a energia que se acumulava dentro de seu corpo. Cada luz acesa, cada decoração espalhafatosa e cada movimento vindo lá de dentro funcionavam como convites pessoais para que ela mergulhasse de cabeça naquele mar de diversão.</p>
 
@@ -885,6 +973,11 @@
 
             <h1>Cama-Elástica</h1>
 
+            <div class="fade-in-up story-image-wrap">
+          <img style="border: 1px solid #e0e268;" src="img/cama-elástica.png" alt="Cama-Elástica" class="story-image">
+        </div>
+
+
             <p>Perto de uma das atrações mais simples do parque, Aurora se encontrava no meio de uma discussão acalorada com outra criança diante de uma enorme cama-elástica cercada por telas de proteção. As duas discutiam sobre quem havia chegado primeiro na fila. Aurora gesticulava enquanto explicava sua versão dos fatos. A outra criança fazia exatamente o mesmo.</p>
 
             <p>Ambas defendiam suas posições com uma convicção impressionante, apresentando argumentos e uma lista interminável de motivos pelos quais merecia ocupar a próxima vaga no brinquedo.</p>
@@ -922,6 +1015,10 @@
             <p>Aurora bateu palmas com pequenos assobios, encantada com o espetáculo destrutivo de Miska. Ao seu lado estava a mesma criança com quem discutiu anteriormente, tão traumatizada quanto o pessoal ao redor.</p>
 
             <h1>Tagada</h1>
+
+            <div class="fade-in-up story-image-wrap">
+          <img style="border: 1px solid #e0e268;" src="img/tagada.jpg" alt="Tagada" class="story-image">
+        </div>
 
             <p>Miska e Aurora se acomodaram nos assentos posicionados na borda do Tagada, dividindo o espaço com um grupo de crianças e adolescentes que ocupava o resto da estrutura circular. O brinquedo, com sua plataforma metálica e os bancos dispostos ao redor das extremidades, parecia pronto para mais uma rodada de gritos, risadas e, principalmente, gente tentando não ser arremessada pro outro lado.</p>
 
@@ -969,6 +1066,10 @@
 
             <h1>Tomba-Latas</h1>
 
+            <div class="fade-in-up story-image-wrap">
+          <img style="border: 1px solid #e0e268;" src="img/tomba-latas.jpg" alt="Tomba-Latas" class="story-image">
+        </div>
+
             <p>Nessa atração, Aurora decidiu tentar a sorte em um jogo onde o objetivo era negócio fácil: derrubar uma pirâmide de latas empilhadas usando bolas de tênis.</p>
 
             <p>Aurora lançou, ao todo, quarenta e quatro bolas de tênis. E, de alguma forma, conseguiu errar todas elas.</p>
@@ -984,6 +1085,10 @@
             <p>Bem, pelo menos Aurora acabou ganhando um urso de pelúcia rosa bem grande como prêmio.</p>
 
             <h1>Máquina de Brinquedos</h1>
+
+            <div class="fade-in-up story-image-wrap">
+          <img style="border: 1px solid #e0e268;" src="img/máquina-de-brinquedos.jpg" alt="Máquina de Brinquedos" class="story-image">
+        </div>
 
             <p>Não muito satisfeita com o seu urso de pelúcia, Aurora decidiu conseguir mais um em uma das várias máquinas de brinquedos espalhadas pelo parque, repleta de bichos de pelúcia coloridos e empilhados atrás de um grosso painel de vidro.</p>
 
@@ -1181,11 +1286,11 @@
 
             <p>Ao olhar, entrou em choque.</p>
 
-            <p>Diante dele estava uma quantidade de números tão grande que seu cérebro pareceu simplesmente se recusar a aceitá-la. Ele esperava que os números desaparecessem ou fossem substituídos por algum valor mais plausível. Mas aquilo não aconteceu. O resultado seguia irretocável, brilhando diante de seus olhos.</p>
+            <p>Diante dele estava uma quantidade de números tão grande que seu cérebro pareceu simplesmente se recusar a aceitá-la. Ele esperava que os números desaparecessem ou fossem substituídos por algum valor mais plausível. Mas aquilo não aconteceu. O resultado seguia irretocável, brilhando diante de seus olhos:</p>
 
-            <p>Miska tinha alcançado a inacreditável marca de 1 quintilhão de pontos.</p>
+            <p class="quote" style="color: red; font-family: AlarmClock;">1.000.000.000.000.000.000</p>
 
-            <p>— 1 quintilhões de p-pontos..?? I-isso.. i-isso.. i-isso é uma miragem!? Eu estou enlouquecendo!? — perguntou ele, incrédulo. — E-eu nem sabia que essa máquina p-podia chegar nesses números! Isso é incrível! É UM NOVO RECORDE!! MEUS PARABÉNS, SENHORITA!</p>
+            <p>— 1 quintilhão de p-pontos..?? I-isso.. i-isso.. i-isso é uma miragem!? Eu estou enlouquecendo!? — perguntou ele, incrédulo. — E-eu nem sabia que essa máquina p-podia chegar nesses números! Isso é incrível! É UM NOVO RECORDE!! MEUS PARABÉNS, SENHORITA!</p>
 
             <p>A exclamação saiu de sua boca com tanta força que rasgou o silêncio que ainda pairava sobre a atração.</p>
 
@@ -1293,7 +1398,7 @@
 
             <p>Dessa vez, não existiam números. No display digital surgiu apenas uma única palavra:</p>
 
-            <p>ERRO</p>
+            <p class="quote" style="color: red; font-family: AlarmClock;">ERRO</p>
 
             <p>As letras piscavam em intervalos curtos, acompanhadas por um som eletrônico grave e ameaçador, semelhante ao alarme de uma instalação prestes a entrar em estado de emergência.</p>
 
@@ -1448,15 +1553,25 @@
             <p>No chão, ficou Miska, ainda inconsciente.</p>
 
             <p>E, ao redor dela, ficou também um brinquedo destruído e uma multidão que, naquele momento, desenvolveu um interesse bastante particular na cabeça de Aurora.</p>
-       
-        </div>
-    </div>
 
-    <div class="section" data-theme="horror">
-        <div class="content-box fade-in">
-            <h1>Show de Horrores</h1>
-            
-            <p>Depois de todos os contratempos anteriores, Aurora concluiu que as duas precisavam de alguma coisa “menos intensa” do que aquele parque de diversões. Com isso em mente, ela moldou a realidade ao redor delas mais uma vez e, em um instante, as duas estavam diante de uma conhecida atração de terror nos Estados Unidos.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ Casa dos Horrores ══ -->
+  <section class="story-section" data-title="Casa dos Horrores" data-toc-image="img/show-de-horrores-3.png" id="section-6" data-chapter="6" data-bg="bg-6">
+    <div class="ambient"></div>
+    <div class="story-card fade-in-up">
+      <div class="chapter-header">
+        <h1 class="chapter-title">CASA DOS HORRORES</h1>
+      </div>
+      <div class="story-body">
+
+        <div class="fade-in-up story-image-wrap">
+          <img style="border: 1px solid rgb(250, 6, 6);" src="img/show-de-horrores-2.jpg" alt="Corredor" class="story-image">
+        </div>
+
+        <p>Depois de todos os contratempos anteriores, Aurora concluiu que as duas precisavam de alguma coisa “menos intensa” do que aquele parque de diversões. Com isso em mente, ela moldou a realidade ao redor delas mais uma vez e, em um instante, as duas estavam diante de uma conhecida atração de terror nos Estados Unidos.</p>
 
             <p>As estruturas eram velhas e desgastadas, com madeira apodrecida, ferrugem espalhada pelas superfícies metálicas e paredes cuja aparência sugeria que mais alguns anos de abandono seriam suficientes para fazê-las desabar. A iluminação era péssima, limitada a algumas lâmpadas fracas que piscavam de maneira irregular, deixando grandes trechos do caminho mergulhados em uma escuridão quase completa. Tudo ali era cuidadosamente planejado para transmitir a sensação de que ninguém deveria estar naquele lugar.</p>
 
@@ -1616,12 +1731,20 @@
 
             <p>— JÁ CHEGA! — rugiu furiosa enquanto apertava a caixinha de música ainda em sua mão. Em segundos, o objeto foi reduzido a um amontoado irreconhecível de pedaços retorcidos e restos inúteis do que antes servira de palco para aquela palhaçada inteira.</p>
 
-        </div>
+      </div>
     </div>
+  </section>
 
-    <div class="section" data-theme="western">
-        <div class="content-box fade-in">
-            <h1>CABRUM!</h1>
+  <!-- ══ Velho Oeste ══ -->
+  <section class="story-section" data-title="CABRUM!" data-toc-image="img/velho-oeste-2.png" id="section-7" data-chapter="7" data-bg="bg-7">
+    <div class="ambient"></div>
+    <div class="story-card fade-in-up">
+      <div class="chapter-header">
+        <h1 class="chapter-title"></h1>
+      </div>
+      <div class="story-body">
+
+        <h1>CABRUM!</h1>
             
             <p class="quote">O estampido rasgou o ar com violência, denso e ensurdecedor, engolindo qualquer outro ruído que ainda existisse.</p>
             
@@ -1805,23 +1928,23 @@
 
             <p>Então, Aurora apertou o botão vermelho e o mecanismo da bomba despertou. Um apito começou a soar, repetitivo e insistente, e, no painel do enorme artefato, os números começaram a diminuir, marcando a contagem regressiva.</p>
 
-            <p class="quote" style="color: red;">00:05</p>
+            <p class="quote" style="color: red; font-family: AlarmClock;">00:05</p>
 
-            <p class="quote" style="color: red;">00:04</p>
+            <p class="quote" style="color: red; font-family: AlarmClock;">00:04</p>
 
-            <p class="quote" style="color: red;">00:03</p>
+            <p class="quote" style="color: red; font-family: AlarmClock;">00:03</p>
 
-            <p class="quote" style="color: red;">00:02</p>
+            <p class="quote" style="color: red; font-family: AlarmClock;">00:02</p>
 
-            <p class="quote" style="color: red;">00:01</p>
+            <p class="quote" style="color: red; font-family: AlarmClock;">00:01</p>
 
-            <p class="quote" style="color: red;">00:00</p>
+            <p class="quote" style="color: red; font-family: AlarmClock;">00:00</p>
 
             <p>Quando o contador atingiu o zero, os números desapareceram do visor. Então, no lugar da contagem regressiva, surgiu uma imagem pixelada que ocupava toda a tela. A figura representada era a de um ciborgue de olhos vermelhos e luminosos, cabelos loiros e uma expressão ameaçadora, renderizada de maneira tão simples que parecia ter saído de algum jogo antigo.</p>
 
             <p>A figura abriu a boca e, com sua voz robótica e desprovida de qualquer emoção, disse:</p>
 
-            <p>— Receba.</p>
+            <p class="quote" style="color: red; font-family: AlarmClock;">"RECEBA."</p>
 
             <p>E então… nada. É isso mesmo, nada.</p>
 
@@ -1834,43 +1957,21 @@
             <p>— Ôôô, de casa! Acord—</p>
 
             <p>No segundo seguinte, a bomba detonou.</p>
-            
-        </div>
+
+      </div>
     </div>
+  </section>
 
-            <br><br>
-            <br><br>
-            <br><br>
-            <br><br>
-            <br><br>
-            <br><br>
-            <br><br>
-            <br><br>
-            <br><br>
-            <br><br>
-            <br><br>
-            <br><br>
-            <br><br>
-            <br><br>
-            <br><br>
-            <br><br>
-            <br><br>
-            <br><br>
-            <br><br>
-            <br><br>
-            <br><br>
-            <br><br>
-            <br><br>
-            <br><br>
-            <br><br>
-            <br><br>
-            <br><br>
-            <br><br>
+   <!-- ══ BOOOOOOOOOMMM! ══ -->
+  <section class="story-section" data-title="BOOOOOOOOOMMM!" data-toc-image="img/universo-1-sumário.jpg" id="section-8" data-chapter="8" data-bg="bg-8">
+    <div class="ambient"></div>
+    <div class="story-card fade-in-up">
+      <div class="chapter-header">
+        <h1 class="chapter-title"></h1>
+      </div>
+      <div class="story-body">
 
-            <div class="section" data-theme="space">
-        <div class="content-box fade-in">
-
-            <p>O local desapareceu.</p>
+        <p>O local desapareceu.</p>
 
             <p>Não houve tempo para o deserto ruir, para as montanhas se desfazerem ou para o céu se partir em pedaços. Tudo simplesmente deixou de existir. A areia, o planeta, o espaço que o cercava, cada fragmento daquela realidade foi apagado como se jamais tivesse ocupado aquele lugar.</p>
 
@@ -1950,50 +2051,30 @@
 
             <p>E o vazio, impotente, assistiu.</p>
 
-        </div>
+      </div>
     </div>
+  </section>
 
-    <br><br>
-            <br><br>
-            <br><br>
-            <br><br>
-            <br><br>
-            <br><br>
-            <br><br>
-            <br><br>
-            <br><br>
-            <br><br>
-            <br><br>
-            <br><br>
-            <br><br>
-            <br><br>
-            <br><br>
-            <br><br>
-            <br><br>
-            <br><br>
-            <br><br>
-            <br><br>
-            <br><br>
-            <br><br>
-            <br><br>
-            <br><br>
-            <br><br>
-            <br><br>
-            <br><br>
-            <br><br>
+  <!-- ══ Final ══ -->
+  <section class="story-section" data-title="Uhhhh.. tá, né?" data-toc-image="img/início.jpg" id="section-1" data-chapter="1" data-bg="bg-1">
+    <div class="ambient"></div>
+    <div class="story-card fade-in-up">
+      <div class="chapter-header">
+        <a href="">
+        <h1 class="chapter-title"></h1>
+        </a>
+      </div>
+      <div class="story-body">
 
-    <div class="section" data-theme="start">
-        <div class="content-box fade-in">
-
-            <p>Uhhhhh...</p>
+        <p>Uhhhhh...</p>
 
             <p>... Tá, né?</p>
 
             <p>Então era essa a história sobre a prisão?</p>
 
-            <p>Confesso, pra algo que, na teoria, tinha tudo pra ser entediante, as coisas saíram do controle num nível que eu não esperava. Quer dizer, eu não posso falar isso com tanto orgulho assim, porque essa coisa meio que acabou de FODER um universo inteiro.</p>
+            <p>Confesso, pra algo que, na teoria, tinha tudo pra ser entediante, foi mais interessante do que eu esperava. Quer dizer, não posso falar isso com tanto orgulho assim, porque essa coisa meio que acabou de FODER um universo inteiro.</p>
 
-            <p>E o pior é saber que ela tá solta por aí! </p>
+            <p>E o pior é saber que ela tá solta por aí!</p>
 
             <p>Eu prefiro nem pensar no que aconteceria se ela resolvesse aparecer por aqui. Mas, sei lá, com um pouco de sorte, talvez a gente fique inteiro.</p>
 
@@ -2098,93 +2179,19 @@
 
             <p>Pera.</p>
 
-            <a href="/O_Diário_LUNÁTICO/O_Diário_LUNÁTICO.html" style="color: red;">Retornar</a>
+        <div class="scene-divider fade-in-up"><span>✦</span></div>
 
+          <div class="fade-in-up" style="display:flex; justify-content:center; padding: 2rem 0 1rem;">
+          <a href="/O_Diário_LUNÁTICO/O_Diário_LUNÁTICO.html" class="return-btn">Sair</a>
         </div>
+      </div>
     </div>
+  </section>
 
-    <script>
-        // Criar estrelas para o tema espacial
-        function createStars() {
-            const starsContainer = document.getElementById('stars');
-            starsContainer.innerHTML = '';
-            for (let i = 0; i < 150; i++) {
-                const star = document.createElement('div');
-                star.className = 'star';
-                star.style.left = Math.random() * 100 + '%';
-                star.style.top = Math.random() * 100 + '%';
-                star.style.animationDelay = Math.random() * 4 + 's';
-                starsContainer.appendChild(star);
-            }
-        }
 
-        createStars();
+</div>
 
-        // Detectar scroll e mudar tema
-        function checkTheme() {
-            const sections = document.querySelectorAll('.section');
-            const windowHeight = window.innerHeight;
-            const scrollPosition = window.scrollY + windowHeight / 2;
-            const overlay = document.querySelector('.background-overlay');
+<script src="javascript.js"></script>
 
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionBottom = sectionTop + section.offsetHeight;
-
-                if (scrollPosition >= sectionTop && scrollPosition <= sectionBottom) {
-                    const theme = section.getAttribute('data-theme');
-                    
-                    if (document.body.className !== theme) {
-                        // Remove a classe active para iniciar fade out
-                        overlay.classList.remove('active');
-                        
-                        // Aguarda a animação de fade out antes de mudar o tema
-                        setTimeout(() => {
-                            document.body.className = theme;
-
-                            // Remover elementos extras
-                            document.querySelectorAll('.fog, .confetti, .dust').forEach(el => el.remove());
-
-                            // Adicionar elementos específicos por tema
-                            if (theme === 'horror') {
-                                const fog = document.createElement('div');
-                                fog.className = 'fog';
-                                document.body.appendChild(fog);
-                            } else if (theme === 'carnival') {
-                                for (let i = 0; i < 30; i++) {
-                                    const confetti = document.createElement('div');
-                                    confetti.className = 'confetti';
-                                    confetti.style.left = Math.random() * 100 + '%';
-                                    confetti.style.animationDelay = Math.random() * 8 + 's';
-                                    confetti.style.backgroundColor = ['#ff69b4', '#ffed4e', '#00d4ff', '#ff1493', '#7fff00'][Math.floor(Math.random() * 5)];
-                                    document.body.appendChild(confetti);
-                                }
-                            } else if (theme === 'western') {
-                                const dust = document.createElement('div');
-                                dust.className = 'dust';
-                                dust.style.background = 'repeating-linear-gradient(90deg, transparent, transparent 100px, rgba(139, 115, 85, 0.1) 100px, rgba(139, 115, 85, 0.1) 101px)';
-                                document.body.appendChild(dust);
-                            }
-                            
-                            // Adiciona a classe active para iniciar fade in
-                            setTimeout(() => {
-                                overlay.classList.add('active');
-                            }, 50);
-                        }, 500);
-                    }
-                }
-            });
-        }
-
-        window.addEventListener('scroll', checkTheme);
-        window.addEventListener('load', () => {
-            checkTheme();
-            // Ativa o overlay inicial
-            setTimeout(() => {
-                document.querySelector('.background-overlay').classList.add('active');
-            }, 100);
-        });
-        checkTheme();
-    </script>
 </body>
 </html>
