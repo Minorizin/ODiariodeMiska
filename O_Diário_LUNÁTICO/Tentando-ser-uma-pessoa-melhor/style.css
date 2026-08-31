@@ -757,14 +757,27 @@
             50% { opacity: 1; }
         }
 
-        .intro-counter {
+        .skip-intro-btn {
             position: absolute;
             top: 30px;
             right: 40px;
+            background: transparent;
+            border: 1px solid rgba(107, 16, 16, 0.5);
+            color: rgba(255, 255, 255, 0.45);
             font-family: 'Inconsolata', monospace;
-            font-size: 12px;
-            color: var(--blood-red);
+            font-size: 11px;
             letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 7px 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10000;
+        }
+
+        .skip-intro-btn:hover {
+            color: var(--aged-cream);
+            border-color: var(--blood-red);
+            background: rgba(107, 16, 16, 0.2);
         }
 
         /* Efeito de glitch sutil */
@@ -794,9 +807,11 @@
                 padding: 30px;
             }
 
-            .intro-counter {
+            .skip-intro-btn {
                 top: 20px;
                 right: 20px;
+                font-size: 10px;
+                padding: 6px 12px;
             }
 
             .intro-image {
