@@ -26,9 +26,33 @@
 </head>
 <body>
 
+    <!-- Filtro de distorção orgânica usado na camada de sangue da abertura MISKA -->
+    <svg width="0" height="0" style="position:absolute">
+        <defs>
+            <filter id="titleBloodDistort" x="-20%" y="-20%" width="140%" height="140%">
+                <feTurbulence type="fractalNoise" baseFrequency="0.012 0.06" numOctaves="2" seed="7" result="noise" />
+                <feDisplacementMap in="SourceGraphic" in2="noise" scale="18" xChannelSelector="R" yChannelSelector="G" />
+            </filter>
+        </defs>
+    </svg>
+
     <!-- Abertura de Título (VOCÊ, VOCÊ, VOCÊ) -->
     <div class="title-opening" id="titleOpening">
-        <div class="title-text" data-text="MISKA">MISKA</div>
+        <div class="scene-grain"></div>
+        <div class="scene-vignette"></div>
+        <div class="title-scanline"></div>
+        <div class="title-text-wrap">
+            <div class="title-zoom">
+                <div class="title-text" id="titleText"></div>
+                <div class="title-text-blood spot-1" aria-hidden="true">MISKA</div>
+                <div class="title-text-blood spot-2" aria-hidden="true">MISKA</div>
+                <div class="title-text-blood spot-3" aria-hidden="true">MISKA</div>
+                <div class="title-text-blood spot-4" aria-hidden="true">MISKA</div>
+                <div class="title-text-blood spot-5" aria-hidden="true">MISKA</div>
+            </div>
+            <span class="title-underline"></span>
+            <p class="title-tagline">FOLHA LUNÁTICA 11</p>
+        </div>
     </div>
 
     <!-- Música de fundo da introdução (hahaha you) -->
@@ -39,6 +63,8 @@
 
     <!-- Introdução da Miska Psicopata - que nome, hein? Puta que pariu -->
     <div class="intro-screen" id="introScreen" onclick="nextIntroText()">
+        <div class="scene-grain"></div>
+        <div class="scene-vignette"></div>
         <button class="skip-intro-btn" id="skipIntroBtn" onclick="event.stopPropagation(); skipIntro();">Pular</button>
         <div class="intro-text" id="introText" data-text=""></div>
         <div class="click-indicator"></div>

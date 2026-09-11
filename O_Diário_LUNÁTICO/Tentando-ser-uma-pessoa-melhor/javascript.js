@@ -228,9 +228,26 @@
                 titleMusicElement.volume = TITLE_MUSIC_VOLUME;
             }
             
+            // Montar as letras de "MISKA" em spans individuais, para que cada
+            // uma anime seu próprio flicker/reveal na abertura de título
+            buildTitleLetters();
+            
             // Mostrar primeiro texto da introdução
             showIntroText(currentIntroIndex);
         });
+        
+        // Monta o texto da abertura MISKA letra por letra (cada letra em um
+        // <span> próprio), para o efeito de flicker escalonado no CSS
+        function buildTitleLetters() {
+            const word = 'MISKA';
+            const titleTextEl = document.getElementById('titleText');
+            titleTextEl.innerHTML = '';
+            [...word].forEach((ch) => {
+                const span = document.createElement('span');
+                span.textContent = ch;
+                titleTextEl.appendChild(span);
+            });
+        }
         
         // Função para garantir que a música toque após primeira interação
         function ensureIntroMusicPlays() {
@@ -354,69 +371,77 @@
             showTitleOpening();
         }
         
+        // Reduz o volume de um elemento de áudio gradualmente até pausá-lo,
+        // distribuindo os passos ao longo de "durationMs" (em vez de um
+        // decremento fixo, que faz o fade durar tempos diferentes
+        // dependendo do volume inicial de cada faixa)
+        function fadeOutAudio(audioEl, durationMs) {
+            if (!audioEl || audioEl.paused) return;
+            const tickMs = 50;
+            const steps = Math.max(1, Math.round(durationMs / tickMs));
+            const stepAmount = audioEl.volume / steps;
+            const fadeInterval = setInterval(() => {
+                if (audioEl.volume > stepAmount) {
+                    audioEl.volume -= stepAmount;
+                } else {
+                    audioEl.pause();
+                    audioEl.currentTime = 0;
+                    clearInterval(fadeInterval);
+                }
+            }, tickMs);
+        }
+        
         // Mostrar abertura de título MISKA
         function showTitleOpening() {
             const titleOpening = document.getElementById('titleOpening');
-            const titleText = document.querySelector('.title-text');
             const evidenceContainer = document.querySelector('.evidence-container');
             
+            const SEQUENCE_HOLD_MS = 7000; // duração da sequência visual (scanline → letras → sangue → tagline) antes do fade-out
+            const ENDING_FADE_MS = 4000;   // fade-out final — pelo menos 8s, para não cortar a música abruptamente
+            
             // PARAR música de fundo da introdução com fade out
-            if (introBgMusicElement && !introBgMusicElement.paused) {
-                const fadeOutInterval = setInterval(() => {
-                    if (introBgMusicElement.volume > 0.05) {
-                        introBgMusicElement.volume -= 0.05;
-                    } else {
-                        introBgMusicElement.pause();
-                        introBgMusicElement.currentTime = 0;
-                        clearInterval(fadeOutInterval);
-                    }
-                }, 50);
-            }
+            fadeOutAudio(introBgMusicElement, 1000);
             
-            // TOCAR música da abertura de título
-            if (titleMusicElement && TITLE_OPENING_MUSIC) {
-                titleMusicElement.play().catch(err => {
-                    console.log('Não foi possível reproduzir a música da abertura');
-                });
-            }
-            
-            // Mostrar a tela de abertura (fade in)
+            // Mostrar a tela de abertura (fade in do preto)
             titleOpening.classList.add('active');
             
-            // Iniciar animação do título após o fade in
-            setTimeout(() => {
-                titleText.classList.add('animate');
-            }, 500);
-            
-            // Após a animação completa, fazer fade out e mostrar conteúdo
-            setTimeout(() => {
-                titleOpening.classList.add('fade-out');
-                
-                // PARAR música da abertura com fade out
-                if (titleMusicElement && !titleMusicElement.paused) {
-                    const fadeTitleMusicOut = setInterval(() => {
-                        if (titleMusicElement.volume > 0.05) {
-                            titleMusicElement.volume -= 0.05;
-                        } else {
-                            titleMusicElement.pause();
-                            titleMusicElement.currentTime = 0;
-                            clearInterval(fadeTitleMusicOut);
-                        }
-                    }, 50);
-                }
+            // Inicia a sequência visual (scanline → letras → sangue → tagline)
+            // e agenda o encerramento a partir desse instante
+            function startSequence() {
+                titleOpening.classList.add('sequence-start');
                 
                 setTimeout(() => {
-                    titleOpening.style.display = 'none';
+                    titleOpening.classList.add('fade-out');
+                    fadeOutAudio(titleMusicElement, ENDING_FADE_MS);
                     
-                    // REMOVER O OVERLAY PRETO E LIBERAR TUDO
-                    document.body.classList.remove('intro-active');
-                    
-                    // Pequeno delay antes de mostrar o conteúdo
                     setTimeout(() => {
-                        evidenceContainer.classList.add('show');
-                    }, 100);
-                }, 1000);
-            }, 8500); // Tempo total: fade in (500) + zoom (4000) + sangue (3000) + pausa (1000)
+                        titleOpening.style.display = 'none';
+                        
+                        // REMOVER O OVERLAY PRETO E LIBERAR TUDO
+                        document.body.classList.remove('intro-active');
+                        
+                        // Pequeno delay antes de mostrar o conteúdo
+                        setTimeout(() => {
+                            evidenceContainer.classList.add('show');
+                        }, 100);
+                    }, ENDING_FADE_MS);
+                }, SEQUENCE_HOLD_MS);
+            }
+            
+            // TOCAR música da abertura de título — a sequência visual só
+            // começa quando a música realmente começa a soar, em vez de um
+            // tempo fixo estimado, para não desalinhar dos dois
+            if (titleMusicElement && TITLE_OPENING_MUSIC) {
+                titleMusicElement.addEventListener('playing', startSequence, { once: true });
+                titleMusicElement.play().catch(err => {
+                    console.log('Não foi possível reproduzir a música da abertura');
+                    // sem música (bloqueada pelo navegador), a sequência ainda assim começa
+                    startSequence();
+                });
+            } else {
+                // sem música configurada: mantém um pequeno delay após o fade in
+                setTimeout(startSequence, 100);
+            }
         }
         
         // Aplicar música personalizada
