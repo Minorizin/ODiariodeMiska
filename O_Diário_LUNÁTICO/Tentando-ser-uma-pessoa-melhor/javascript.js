@@ -65,7 +65,7 @@
             },
 
             {
-                image: "img/FL-011-02.png",
+                image: "img/laetitia.png",
                 text: "Tudo começou com aquela bela mulher de branco, tão sã e tão convencida de si mesma.", 
             },
 
