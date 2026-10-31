@@ -2,7 +2,7 @@
 const previewData = {
     folha001: {
         title: "Folha 001 - amarelona",
-        image: "img/folha001preview.jpg",
+        image: "img/folha001-preview.jpg",
         description: "É uma boa forma de terminar um dia monótono.",
         status: "Disponível",
     },
@@ -93,9 +93,9 @@ const previewData = {
     },
 
     folha014: {
-        title: "Folha 014 - pizzaria",
-        image: "img/folha022.jpg",
-        description: "Miska retorna à pizzaria que era um sucesso quando criança.",
+        title: "Folha 014 - velha amiga",
+        image: "img/folha014-preview.png",
+        description: "Miska retorna à pizzaria de quando era criança.",
         status: "Disponível",
     },
 
@@ -146,7 +146,7 @@ const previewData = {
 
     folha021: {
         title: "Cartas Que Guardei em Silêncio",
-        image: "img/folha029preview.jpg",
+        image: "img/folha029-preview.jpg",
         description: "Dê-me sua mão, como você fazia quando era pequena.",
         status: "Disponível",
         theme: "red"
@@ -154,7 +154,7 @@ const previewData = {
 
     folha022: {
         title: "Rooooosquinhas!",
-        image: "img/folha030preview.png",
+        image: "img/folha030-preview.png",
         description: "Ashley decide visitar Miska para tentar reconstruir um pouco do que ficou fora dos trilhos depois de tudo.",
         status: "Disponível",
         theme: "dark-purple"
@@ -162,7 +162,7 @@ const previewData = {
 
     folha023: {
         title: "Antes de ir embora",
-        image: "img/folha031preview.jpg",
+        image: "img/folha031-preview.jpg",
         description: "Mazzi recebe mais uma visita de sua tão querida filha. Porém, desta vez, ela veio acompanhada.",
         status: "Disponível",
         theme: "dark-gray"
@@ -170,7 +170,7 @@ const previewData = {
 
     folha024: {
         title: "Um Sonho de Criança",
-        image: "img/folha032preview.jpg",
+        image: "img/folha032-preview.jpg",
         description: "“Eu prometo te levar até lá, um dia.”",
         status: "Disponível",
         theme: "marrom-acinzentado"
